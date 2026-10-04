@@ -20,7 +20,8 @@
     doc.classList.remove('anim');
   }
 
-  if (/[?&]ph\b/.test(location.search)) doc.classList.add('show-ph');
+  // Placeholder finder: ?ph or #ph outlines every stand-in text and number
+  if (/[?&]ph\b/.test(location.search) || location.hash === '#ph') doc.classList.add('show-ph');
 
   var $ = function (sel, root) { return (root || document).querySelector(sel); };
   var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
@@ -839,6 +840,14 @@
       var endpoint = form.getAttribute('data-endpoint');
       var btn = $('button[type="submit"]', form);
       var first = data.name.split(' ')[0];
+
+      // Design previews (data-preview) never send anything
+      if (form.hasAttribute('data-preview')) {
+        doneTitle.textContent = 'Preview only.';
+        doneText.textContent = 'This is a design preview, so nothing was sent. On the live site this request goes to ' + CONTACT + '.';
+        showDone();
+        return;
+      }
 
       if (endpoint) {
         btn.disabled = true;

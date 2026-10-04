@@ -397,7 +397,7 @@ section { position: relative; }
   position: fixed;
   inset: 0 0 auto;
   z-index: 60;
-  padding: 14px calc(var(--inset) + 8px);
+  padding: calc(14px + env(safe-area-inset-top, 0px)) calc(var(--inset) + 8px) 14px;
   pointer-events: none;
   transition: transform .5s var(--ease-out);
 }
@@ -504,7 +504,7 @@ section { position: relative; }
 .dock {
   position: fixed;
   left: 50%;
-  bottom: max(14px, env(safe-area-inset-bottom));
+  bottom: calc(14px + env(safe-area-inset-bottom, 0px));
   z-index: 50;
   display: flex;
   align-items: center;
@@ -1850,11 +1850,12 @@ section { position: relative; }
 }
 .number__value small { font-size: .38em; letter-spacing: -.02em; color: var(--on-dark); }
 .number__label { margin-top: 14px; color: var(--on-dark-muted); max-width: 24ch; }
+.results__note { margin-top: 28px; font-family: var(--font-mono); font-size: .75rem; color: var(--on-dark-muted); }
 .cases {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
-  margin-top: clamp(48px, 6vw, 80px);
+  margin-top: clamp(28px, 4vw, 48px);
 }
 .case {
   display: grid;
@@ -2247,7 +2248,7 @@ section { position: relative; }
 
 @media (max-width: 640px) {
   body { font-size: 1rem; }
-  .nav { padding: 10px 10px; }
+  .nav { padding: calc(10px + env(safe-area-inset-top, 0px)) 10px 10px; }
   .nav__bar { height: 56px; gap: 10px; padding: 0 6px 0 14px; }
   .nav__cta-long { display: none; }
   .nav__cta-short { display: inline; }
