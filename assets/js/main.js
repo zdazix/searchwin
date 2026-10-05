@@ -911,7 +911,7 @@
     var done = $('[data-form-done]', form);
     var doneTitle = $('[data-form-done-title]', form);
     var doneText = $('[data-form-done-text]', form);
-    var CONTACT = 'hello@searchwin.ai';
+    var CONTACT = 'hi@searchwin.ai';
 
     function setInvalid(name, bad) {
       var input = form.elements.namedItem(name);

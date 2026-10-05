@@ -11,7 +11,7 @@ Key facts:
 - How an engagement starts: a free AI visibility report and roadmap. We test 100+ buyer prompts across ChatGPT, Gemini, Perplexity and Google's AI, map where competitors win, find conversion leaks on pages AI sends buyers to, and deliver a 90-day roadmap ranked by pipeline impact. Delivered within 5 business days.
 - Measurement: GA4 referral and landing page data, source fields in the CRM (HubSpot, Salesforce, Pipedrive) and self-reported attribution, re-run monthly on a fixed prompt set.
 - Platforms covered: ChatGPT, Google AI Overviews and AI Mode, Gemini, Perplexity, Claude, Microsoft Copilot, Grok, DeepSeek, Meta AI.
-- Contact: hello@searchwin.ai
+- Contact: hi@searchwin.ai
 
 ## Pages
 

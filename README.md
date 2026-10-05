@@ -54,7 +54,7 @@ python3 -m http.server 8080
 3. **`#difference`:** сверить смысл со скриншотами `3njW1f_y2l7i` и `6oG2V2zdQ2ko`.
 4. **Цифры в `#results` (3.4×, +212%, 38%, 60 days) и три кейса** пока заглушки. Поставьте реальные цифры со скриншота `shWdcRiHAOcs` и настоящие кейсы, а потом удалите строку-пометку «Example figures and client stories…» под цифрами.
 5. **Methodology:** тексты шести практик и цифра 14.2% взяты с вашего скриншота. Цифры внутри карточек (1,000 визитов, 23 цитирования и т. п.) иллюстративные.
-6. **Контакты:** `hello@searchwin.ai` и ссылки LinkedIn/X. Домен `searchwin.ai` прописан в `index.html` (canonical, Open Graph, JSON-LD), `robots.txt`, `sitemap.xml` и `llms.txt`.
+6. **Контакты:** `hi@searchwin.ai` и ссылки LinkedIn/X. Домен `searchwin.ai` прописан в `index.html` (canonical, Open Graph, JSON-LD), `robots.txt`, `sitemap.xml` и `llms.txt`.
 
 Иллюстративные числа в инфографике (100 точек, пример отчёта, графики «первых шести месяцев») подписаны на странице как примеры.
 
@@ -68,7 +68,7 @@ python3 -m http.server 8080
 
 ## Форма заявки
 
-По умолчанию форма открывает почтовый клиент посетителя с готовым письмом на `hello@searchwin.ai`, поэтому заявка не теряется молча. Чтобы заявки приходили автоматически, добавьте эндпоинт в `<form>`:
+По умолчанию форма открывает почтовый клиент посетителя с готовым письмом на `hi@searchwin.ai`, поэтому заявка не теряется молча. Чтобы заявки приходили автоматически, добавьте эндпоинт в `<form>`:
 
 ```html
 <form class="form card" data-form data-endpoint="https://formspree.io/f/XXXXXXX" novalidate>
