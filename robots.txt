@@ -1,4 +1,4 @@
-# SearchWin welcomes search engines and AI assistants.
+# SearchWin.ai welcomes search engines and AI assistants.
 # We practise what we sell: AI crawlers can read everything here.
 
 User-agent: *
@@ -37,4 +37,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://searchwin.com/sitemap.xml
+Sitemap: https://searchwin.ai/sitemap.xml

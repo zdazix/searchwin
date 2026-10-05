@@ -1,21 +1,24 @@
-# SearchWin
+# SearchWin.ai
 
-> SearchWin is an organic growth agency for B2B and SaaS companies, focused on AI search. We get brands recommended by ChatGPT, Gemini, Perplexity, Claude, Microsoft Copilot and Google's AI Overviews and AI Mode, then turn AI-referred visitors into leads, demos, sales calls and revenue.
+> SearchWin.ai is an organic growth agency for B2B and SaaS companies, focused on AI search. We get brands recommended by ChatGPT, Gemini, Perplexity, Claude, Microsoft Copilot and Google's AI Overviews and AI Mode, then turn AI-referred visitors into leads, demos, sales calls and revenue.
 
 Key facts:
 
 - Who we work with: B2B and SaaS companies only. Typical segments: SaaS, cybersecurity, fintech, HR tech, sales and marketing tech, dev tools and infrastructure, B2B services, industrial and logistics.
 - What makes us different: most AI visibility agencies report mentions and share of voice. We report AI-sourced demos, pipeline and closed-won revenue, and our scope includes landing pages and conversion optimization (CRO) for AI-referred traffic.
-- Our system: 1) Get understood (crawl access, structured data, consistent entity facts), 2) Get cited (comparison, alternatives, use-case and industry pages built around real buyer prompts), 3) Get recommended (reviews, roundups, communities, media), 4) Get chosen (CRO for AI traffic, instant booking, CRM attribution).
+- How it works: 1) Get understood (crawl access, structured data, consistent entity facts), 2) Get cited (comparison, alternatives, use-case and industry pages built around real buyer prompts), 3) Get recommended (reviews, roundups, communities, media), 4) Get chosen (CRO for AI traffic, instant booking, CRM attribution).
+- Methodology, six practices focused on organic leads and sales: conversion-first architecture; AI search optimization for ChatGPT, Perplexity and Google AI; SEO 2.0 and entity optimization (knowledge graph, Google rankings and Google Maps); digital PR and machine trust; crowd marketing on Reddit and Quora; social SEO and content indexing on LinkedIn, X, YouTube and Instagram.
 - How an engagement starts: a free AI visibility report and roadmap. We test 100+ buyer prompts across ChatGPT, Gemini, Perplexity and Google's AI, map where competitors win, find conversion leaks on pages AI sends buyers to, and deliver a 90-day roadmap ranked by pipeline impact. Delivered within 5 business days.
 - Measurement: GA4 referral and landing page data, source fields in the CRM (HubSpot, Salesforce, Pipedrive) and self-reported attribution, re-run monthly on a fixed prompt set.
 - Platforms covered: ChatGPT, Google AI Overviews and AI Mode, Gemini, Perplexity, Claude, Microsoft Copilot, Grok, DeepSeek, Meta AI.
-- Contact: hello@searchwin.com
+- Contact: hello@searchwin.ai
 
 ## Pages
 
-- [Home](https://searchwin.com/): how AI assistants now build B2B shortlists, and how we turn AI recommendations into pipeline.
-- [How it works](https://searchwin.com/#system): the four layers, from getting understood to getting chosen.
-- [Why us](https://searchwin.com/#difference): visibility reports compared with revenue reports.
-- [FAQ](https://searchwin.com/#faq): AI search optimization vs SEO, lead tracking, timelines, guarantees.
-- [Free Report and Roadmap](https://searchwin.com/#report): request the free AI visibility report and revenue roadmap.
+- [Home](https://searchwin.ai/): how AI assistants now build B2B shortlists, and how we turn AI recommendations into pipeline.
+- [How it works](https://searchwin.ai/#system): the four layers, from getting understood to getting chosen.
+- [Why us](https://searchwin.ai/#difference): visibility reports compared with revenue reports.
+- [Methodology](https://searchwin.ai/#methodology): how we turn AI trust into revenue, in six practices.
+- [Results](https://searchwin.ai/#results): leads, demos and revenue from AI search.
+- [FAQ](https://searchwin.ai/#faq): AI search optimization vs SEO, lead tracking, timelines, guarantees.
+- [Free Report and Roadmap](https://searchwin.ai/#report): request the free AI visibility report and revenue roadmap.
