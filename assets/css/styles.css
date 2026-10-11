@@ -2024,6 +2024,24 @@ mark { background: none; color: inherit; }
 .q--hot { background: var(--ui-dark); color: #F4F2EE; }
 .q--hot .q__icon { background: var(--lime); }
 
+/* Dark bands: soft colour glow drawn in CSS so it stays sharp at any height, plus fine grain */
+.band--dark {
+  background:
+    radial-gradient(55% 35% at 12% 8%, rgba(92, 46, 98, .5), transparent 70%),
+    radial-gradient(45% 35% at 92% 55%, rgba(28, 74, 80, .42), transparent 70%),
+    radial-gradient(60% 30% at 45% 100%, rgba(98, 60, 26, .4), transparent 70%),
+    #18120F;
+}
+.band--dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: .07;
+  pointer-events: none;
+}
+
 /* ---------- 23. Motion start states ---------- */
 /* Hidden start states apply only while the script is confirmed to run them */
 .anim [data-reveal], .anim [data-hero-in] { opacity: 0; transform: translateY(22px); }
