@@ -33,10 +33,10 @@
      The hero's path from prompt to deal. Edit freely.
      ------------------------------------------------------------------ */
   var FLOW_SCENARIOS = [
-    { icon: 'i-openai', prompt: 'Best sales engagement platform for a 40-rep team?', page: 'yourbrand.com/compare', event: 'Demo booked', value: 48000 },
-    { icon: 'i-perplexity', prompt: 'Easiest SOC 2 software for a seed-stage startup?', page: 'yourbrand.com/pricing', event: 'Sales call booked', value: 36000 },
-    { icon: 'i-gemini', prompt: 'HR platform for 500 people in Europe?', page: 'yourbrand.com/eu-payroll', event: 'Deal closed', value: 64000 },
-    { icon: 'i-google', prompt: 'Best observability tool for a mid-size team?', page: 'yourbrand.com/vs/datadog', event: 'Trial started', value: 27000 }
+    { icon: 'i-openai', src: 'ChatGPT / Prompt', prompt: 'Best sales engagement platform for a 40-rep team?', page: 'yourbrand.com/compare', event: 'Demo booked', value: 48000 },
+    { icon: 'i-perplexity', src: 'Perplexity / Prompt', prompt: 'Easiest SOC 2 software for a seed-stage startup?', page: 'yourbrand.com/pricing', event: 'Sales call booked', value: 36000 },
+    { icon: 'i-gemini', src: 'Gemini / Prompt', prompt: 'HR platform for 500 people in Europe?', page: 'yourbrand.com/eu-payroll', event: 'Deal closed', value: 64000 },
+    { icon: 'i-google', src: 'Google / AI Mode', prompt: 'Best observability tool for a mid-size team?', page: 'yourbrand.com/vs/datadog', event: 'Trial started', value: 27000 }
   ];
 
   /* ------------------------------------------------------------------
@@ -149,6 +149,7 @@
     var steps = $$('[data-flow-step]', flow);
     var el = {
       icon: $('[data-flow-icon] use', flow),
+      src: $('[data-flow-src]', flow),
       prompt: $('[data-flow-prompt]', flow),
       page: $('[data-flow-page]', flow),
       event: $('[data-flow-event]', flow),
@@ -170,6 +171,7 @@
       steps.forEach(function (st) { st.classList.remove('is-on'); });
       state.p = 0; setP();
       el.icon.setAttribute('href', '#' + s.icon);
+      if (el.src) el.src.textContent = s.src;
       el.prompt.textContent = '';
       el.page.textContent = s.page;
       el.event.textContent = s.event;
@@ -491,35 +493,23 @@
     $$('.odo__s', el).forEach(function (s, i) { s.style.setProperty('--n', text.charAt(i)); });
   }
 
-  // The small animation inside each practice's card
+  // The small animation inside each practice's card: rings fill, bars grow, charts draw
   function playCard(card) {
     if (!animate || !card) return;
-    var q = function (sel) { return $$(sel, card); };
     var tl = gsap.timeline();
-    var bars = q('.funnel__bar i');
-    if (bars.length) {
-      tl.fromTo(bars, { scaleX: 0 }, { scaleX: 1, duration: 1, ease: 'expo.out', stagger: 0.12 }, 0);
-      q('.funnel__row b').forEach(function (b, i) {
-        var target = parseInt(b.getAttribute('data-v') || b.textContent.replace(/\D/g, ''), 10);
-        b.setAttribute('data-v', target);
-        var o = { v: 0 };
-        tl.to(o, { v: target, duration: 1, ease: 'power3.out', onUpdate: function () { b.textContent = Math.round(o.v).toLocaleString('en-US'); } }, i * 0.12);
-      });
-    }
-    var marks = q('mark');
-    if (marks.length) tl.fromTo(marks, { '--hl': '0%' }, { '--hl': '100%', duration: 0.8, ease: 'power2.inOut' }, 0.25);
-    var nodes = q('.kg__n');
-    if (nodes.length) tl.fromTo(nodes, { opacity: 0, scale: 0.7, y: -14 }, { opacity: 1, scale: 1, y: 0, duration: 0.6, ease: 'back.out(2)', stagger: 0.07 }, 0.1);
-    var cites = q('.cites li');
-    if (cites.length) tl.fromTo(cites, { opacity: 0, x: 24 }, { opacity: 1, x: 0, duration: 0.6, ease: 'expo.out', stagger: 0.08 }, 0.1);
-    var votes = $('.thread__votes', card);
-    if (votes) {
-      var vt = votes.lastChild;
-      var o2 = { v: 0 };
-      tl.to(o2, { v: 148, duration: 1.2, ease: 'power3.out', onUpdate: function () { vt.textContent = Math.round(o2.v); } }, 0.1);
-    }
-    var checks = q('.post__checks li');
-    if (checks.length) tl.fromTo(checks, { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.5, ease: 'expo.out', stagger: 0.18 }, 0.2);
+    $$('.ui', card).forEach(function (u, i) {
+      tl.fromTo(u, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.7, ease: 'expo.out', clearProps: 'transform' }, i * 0.12);
+    });
+    $$('.donut', card).forEach(function (d) {
+      var v = parseFloat(d.style.getPropertyValue('--v')) || 0;
+      tl.fromTo(d, { '--v': 0 }, { '--v': v, duration: 1.2, ease: 'power3.out' }, 0.15);
+    });
+    var fills = $$('.pbar__fill', card);
+    if (fills.length) tl.fromTo(fills, { scaleX: 0 }, { scaleX: 1, transformOrigin: '0 50%', duration: 1, ease: 'expo.out', stagger: 0.08 }, 0.15);
+    var areas = $$('.area', card);
+    if (areas.length) tl.fromTo(areas, { clipPath: 'inset(0% 100% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.3, ease: 'power2.inOut', clearProps: 'clipPath' }, 0.2);
+    var marks = $$('mark', card);
+    if (marks.length) tl.fromTo(marks, { '--hl': '0%' }, { '--hl': '100%', duration: 0.8, ease: 'power2.inOut' }, 0.3);
   }
 
   function initMethod() {
@@ -548,7 +538,14 @@
       tag.textContent = pad(i + 1) + ' / ' + pad(rows.length);
       media.appendChild(img);
       media.appendChild(tag);
-      media.appendChild($('.vcard', panel).cloneNode(true));
+      var copy = $('.vcard', panel).cloneNode(true);
+      // Gradient ids must stay unique, or charts in the hidden copy steal the fill
+      $$('[id]', copy).forEach(function (el) {
+        var id = el.id;
+        el.id = id + '-m';
+        $$('[fill="url(#' + id + ')"]', copy).forEach(function (f) { f.setAttribute('fill', 'url(#' + id + '-m)'); });
+      });
+      media.appendChild(copy);
       $('.mrow__copy', row).appendChild(media);
       if (animate) {
         ScrollTrigger.create({
@@ -563,6 +560,7 @@
 
     var current = -1;
     var tl = null;
+    var cards = panels.map(function (p) { return $('.vcard', p); });
     var drift = panels.map(function (p) {
       var bg = $('.vpanel__bg', p);
       return animate ? gsap.quickTo(bg, 'yPercent', { duration: 0.8, ease: 'power3' }) : null;
@@ -593,7 +591,14 @@
         return;
       }
 
-      if (tl) tl.progress(1).kill();
+      // Start every switch from a clean slate, even mid-transition
+      if (tl) tl.kill();
+      gsap.killTweensOf(cards);
+      gsap.set(cards, { clearProps: 'opacity,transform,translate,rotate,scale' });
+      panels.forEach(function (p) {
+        gsap.set(p, { clearProps: 'zIndex,clipPath' });
+        if (p !== old) p.classList.remove('is-active');
+      });
       var down = i > prev;
       var oldCard = $('.vcard', old);
       var nextCard = $('.vcard', next);

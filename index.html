@@ -28,7 +28,7 @@
 
   <link rel="preload" href="assets/fonts/source-serif-4-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/lexend-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/img/bg/bg-dune.webp" as="image" type="image/webp">
+  <link rel="preload" href="assets/img/bg/bg-sky.webp" as="image" type="image/webp">
   <link rel="stylesheet" href="assets/css/styles.css">
 
   <script>
@@ -123,7 +123,7 @@
 <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></g></symbol>
 <symbol id="i-calendar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="m9 15 2 2 4-4"/></g></symbol>
 <symbol id="i-spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5c.7 5.3 4.2 8.8 9.5 9.5-5.3.7-8.8 4.2-9.5 9.5-.7-5.3-4.2-8.8-9.5-9.5 5.3-.7 8.8-4.2 9.5-9.5Z"/></symbol>
-</svg>
+<symbol id="i-cursor" viewBox="0 0 24 24"><path d="M4.6 2.9 19.5 11c.8.4.6 1.5-.2 1.7l-6 1.5-2.8 5.6c-.4.8-1.5.6-1.7-.2L3.3 4.1c-.2-.9.6-1.6 1.3-1.2Z" fill="#141210" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></symbol></svg>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
@@ -184,15 +184,15 @@
   <!-- From prompt to deal: one buyer travels the whole path we work on -->
   <div class="container" data-hero-in>
     <figure class="flow media" data-flow>
-      <img class="media__bg" src="assets/img/bg/bg-dune.webp" alt="" width="1800" height="1200" fetchpriority="high">
+      <img class="media__bg" src="assets/img/bg/bg-sky.webp" alt="" width="1280" height="854" fetchpriority="high">
       <div class="flow__body">
       <div class="flow__track" aria-hidden="true"><i class="flow__fill"></i><i class="flow__dot"></i></div>
       <ol class="flow__steps" aria-hidden="true">
         <li class="flow__step" data-flow-step>
           <span class="flow__label">The buyer asks</span>
-          <span class="flow__card">
-            <svg class="flow__icon" data-flow-icon><use href="#i-openai"></use></svg>
+          <span class="flow__card flow__card--dark">
             <span class="flow__prompt" data-flow-prompt>Best CRM for a 50-person sales team?</span>
+            <span class="flow__meta"><svg class="flow__icon" data-flow-icon><use href="#i-openai"></use></svg><span data-flow-src>ChatGPT / Prompt</span></span>
           </span>
         </li>
         <li class="flow__step" data-flow-step>
@@ -212,7 +212,7 @@
         </li>
         <li class="flow__step flow__step--win" data-flow-step>
           <span class="flow__label">You win the deal</span>
-          <span class="flow__card">
+          <span class="flow__card flow__card--dark">
             <span class="flow__deal"><span data-flow-event>Demo booked</span><strong data-flow-value>$48,000</strong></span>
           </span>
         </li>
@@ -320,7 +320,7 @@
      THE SHORTLIST
      ================================================================ -->
 <section class="shortlist band band--dark" id="shortlist" aria-labelledby="shortlist-title">
-  <img class="band__bg" src="assets/img/bg/bg-earth.webp" alt="" width="1800" height="1200" loading="lazy">
+  <img class="band__bg" src="assets/img/bg/bg-night.webp" alt="" width="1280" height="854" loading="lazy">
   <div class="container">
     <header class="head head--center">
       <p class="eyebrow" data-reveal>The shortlist</p>
@@ -330,7 +330,7 @@
     <div class="scrolly" data-scrolly="shortlist">
       <div class="scrolly__visual">
         <div class="media media--frame">
-          <img class="media__bg" src="assets/img/bg/bg-dusk.webp" alt="" width="1800" height="1200" loading="lazy">
+          <img class="media__bg" src="assets/img/bg/bg-sunset.webp" alt="" width="1280" height="854" loading="lazy">
           <div class="sl" data-state="1" aria-hidden="true">
             <div class="sl__serp card">
               <div class="sl__search"><svg><use href="#i-search"></use></svg><span>best sales engagement platform</span></div>
@@ -340,21 +340,20 @@
                 <li><i></i><b></b><s></s></li><li><i></i><b></b><s></s></li>
               </ol>
             </div>
-            <div class="sl__answer card">
-              <p class="sl__answer-head"><svg><use href="#i-spark"></use></svg>AI answer</p>
-              <p class="sl__answer-text">For a mid-size B2B team, these three come up most:</p>
-              <ol class="sl__picks">
-                <li class="sl__pick sl__pick--you"><span class="sl__rank">1</span><span class="sl__name"><span class="blogo" aria-hidden="true">Y</span>Your brand</span><span class="sl__tag">Top pick</span></li>
-                <li class="sl__pick"><span class="sl__rank">2</span><span class="sl__ghost"><span class="blogo blogo--ghost"></span><span class="skel skel--name"></span></span></li>
-                <li class="sl__pick"><span class="sl__rank">3</span><span class="sl__ghost"><span class="blogo blogo--ghost"></span><span class="skel skel--name skel--short"></span></span></li>
-              </ol>
-              <p class="sl__sources">Sources <span>yourbrand.com</span><span>g2.com</span><span>reddit.com</span></p>
+            <div class="sl__answer">
+              <div class="ui ui--dark "><p class="ui__prompt">Best sales engagement platform for a mid-size B2B team?</p><p class="ui__meta"><span class="ui__src"><svg><use href="#i-openai"></use></svg>ChatGPT / Prompt</span><span class="ui__count">130 responses</span></p></div>
+              <div class="ui ui--light sl__brands">
+                <p class="ui__title">Brands named in the answer</p>
+                <ul class="pbars "><li class="pbar pbar--you" style="--t:1;--f:0.61"><span class="pbar__fill"></span><span class="pbar__label"><span class="blogo" aria-hidden="true">Y</span>Your brand</span><span class="pbar__val"><span class="sl__v2">Not named</span><span class="sl__v3">64%</span></span></li><li class="pbar " style="--t:0.82;--f:0.48"><span class="pbar__fill"></span><span class="pbar__label">Northwind</span><span class="pbar__val">41%</span></li><li class="pbar " style="--t:0.7;--f:0.39"><span class="pbar__fill"></span><span class="pbar__label">Globex</span><span class="pbar__val">28%</span></li><li class="pbar " style="--t:0.6;--f:0.3"><span class="pbar__fill"></span><span class="pbar__label">Initech</span><span class="pbar__val">18%</span></li></ul>
+                <p class="ui__foot">Share of 130 answers<span>Last 7 days</span></p>
+              </div>
             </div>
           </div>
           <div class="float float--tr" aria-hidden="true">
             <span class="float__icons"><svg><use href="#i-openai"></use></svg><svg><use href="#i-perplexity"></use></svg><svg><use href="#i-gemini"></use></svg></span>
             <span>Named first in <b>3 of 4</b> assistants</span>
           </div>
+          <svg class="cursor cursor--sl" aria-hidden="true"><use href="#i-cursor"></use></svg>
         </div>
         <p class="sl__count" aria-hidden="true"><span data-c="1">10 links</span><svg><use href="#i-arrow"></use></svg><span data-c="2">1 answer</span><svg><use href="#i-arrow"></use></svg><span data-c="3">3 brands</span></p>
       </div>
@@ -504,7 +503,7 @@
     <div class="scrolly scrolly--reverse" data-scrolly="visit">
       <div class="scrolly__visual">
         <div class="media media--frame">
-          <img class="media__bg" src="assets/img/bg/bg-olive.webp" alt="" width="1800" height="1200" loading="lazy">
+          <img class="media__bg" src="assets/img/bg/bg-meadow.webp" alt="" width="1280" height="854" loading="lazy">
           <figure class="dots-scene card" data-state="1">
             <p class="dots-readout" aria-hidden="true"><span class="dots-readout__num" data-dots-num>100</span><span class="dots-readout__label" data-dots-label>AI-referred buyers land on your site this month</span></p>
             <div class="dots" data-dots aria-hidden="true"></div>
@@ -567,7 +566,7 @@
           </ul>
         </div>
         <div class="layer__art media" aria-hidden="true">
-          <img class="media__bg" src="assets/img/bg/bg-sky.webp" alt="" width="1800" height="1200" loading="lazy">
+          <img class="media__bg" src="assets/img/bg/bg-lagoon.webp" alt="" width="1280" height="854" loading="lazy">
           <div class="graph">
             <span class="graph__core"><span class="blogo" aria-hidden="true">Y</span>Your brand</span>
             <span class="graph__node" style="--a:-90deg">Category · Sales engagement</span>
@@ -591,14 +590,13 @@
           </ul>
         </div>
         <div class="layer__art media" aria-hidden="true">
-          <img class="media__bg" src="assets/img/bg/bg-olive.webp" alt="" width="1800" height="1200" loading="lazy">
-          <div class="cite card">
-            <p class="cite__q">Which tool is better for a 40-rep team?</p>
-            <p class="cite__a">For teams that need fast rollout, <mark>Your brand</mark> is the stronger fit<sup>1</sup>. Its per-seat pricing stays flat as you add reps<sup>2</sup>.</p>
-            <ol class="cite__src">
-              <li><span>1</span>yourbrand.com/compare/sales-engagement</li>
-              <li><span>2</span>yourbrand.com/pricing</li>
-            </ol>
+          <img class="media__bg" src="assets/img/bg/bg-peach.webp" alt="" width="1280" height="854" loading="lazy">
+          <div class="cite">
+            <div class="ui ui--dark "><p class="ui__prompt">Which tool is better for a 40-rep team?</p><p class="ui__meta"><span class="ui__src"><svg><use href="#i-perplexity"></use></svg>Perplexity / Prompt</span><span class="ui__pill">48 sources</span></p></div>
+            <div class="ui ui--light cite__answer">
+              <p class="cite__a">For teams that need fast rollout, <mark>Your brand</mark> is the stronger fit<sup>1</sup>. Its per-seat pricing stays flat as you add reps<sup>2</sup>.</p>
+              <ol class="cite__src"><li><span>1</span>yourbrand.com/compare</li><li><span>2</span>yourbrand.com/pricing</li></ol>
+            </div>
           </div>
         </div>
       </article>
@@ -615,15 +613,14 @@
           </ul>
         </div>
         <div class="layer__art media" aria-hidden="true">
-          <img class="media__bg" src="assets/img/bg/bg-dune.webp" alt="" width="1800" height="1200" loading="lazy">
+          <img class="media__bg" src="assets/img/bg/bg-sunset.webp" alt="" width="1280" height="854" loading="lazy">
           <div class="sources">
-            <span class="sources__core"><span class="blogo" aria-hidden="true">Y</span>Your brand</span>
-            <span class="sources__chip" style="--x:-30%;--y:-30%">G2 <b>142 reviews</b></span>
-            <span class="sources__chip" style="--x:30%;--y:-26%">Reddit <b>38 threads</b></span>
-            <span class="sources__chip" style="--x:-34%;--y:6%">Capterra <b>4.8</b></span>
-            <span class="sources__chip" style="--x:33%;--y:10%">LinkedIn <b>expert posts</b></span>
-            <span class="sources__chip" style="--x:-22%;--y:36%">Industry media <b>12 roundups</b></span>
-            <span class="sources__chip" style="--x:24%;--y:38%">YouTube <b>reviews</b></span>
+            <div class="ui ui--light">
+              <p class="ui__title">Where AI finds proof about you</p>
+              <ul class="pbars "><li class="pbar " style="--t:1;--f:0.82"><span class="pbar__fill"></span><span class="pbar__label">G2 · 142 reviews</span><span class="pbar__val">82%</span></li><li class="pbar " style="--t:0.92;--f:0.7"><span class="pbar__fill"></span><span class="pbar__label">Reddit · 38 threads</span><span class="pbar__val">64%</span></li><li class="pbar " style="--t:0.86;--f:0.59"><span class="pbar__fill"></span><span class="pbar__label">Capterra</span><span class="pbar__val">51%</span></li><li class="pbar " style="--t:0.8;--f:0.48"><span class="pbar__fill"></span><span class="pbar__label">LinkedIn</span><span class="pbar__val">38%</span></li><li class="pbar " style="--t:0.76;--f:0.36"><span class="pbar__fill"></span><span class="pbar__label">Industry media</span><span class="pbar__val">27%</span></li></ul>
+              <p class="ui__foot"><span class="ui__trend ui__trend--vis"><svg viewBox="0 0 60 20" aria-hidden="true"><polyline points="0,16 12,16 22,8 34,12 46,13 60,10"/></svg>+9%</span><span>Share of AI answers</span></p>
+            </div>
+            <svg class="cursor" aria-hidden="true"><use href="#i-cursor"></use></svg>
           </div>
         </div>
       </article>
@@ -641,7 +638,7 @@
           </ul>
         </div>
         <div class="layer__art media" aria-hidden="true">
-          <img class="media__bg" src="assets/img/bg/bg-dusk.webp" alt="" width="1800" height="1200" loading="lazy">
+          <img class="media__bg" src="assets/img/bg/bg-sky.webp" alt="" width="1280" height="854" loading="lazy">
           <div class="float float--tr" aria-hidden="true">
             <span class="float__dot"></span><span>Lead routed to an AE in <b>42 sec</b></span>
           </div>
@@ -686,16 +683,23 @@
       </div>
 
       <div class="media media--report">
-        <img class="media__bg" src="assets/img/bg/bg-clay.webp" alt="" width="1800" height="1200" loading="lazy">
-        <div class="window report__frame">
-          <div class="window__bar" aria-hidden="true"><span class="window__dots"><i></i><i></i><i></i></span><span class="window__url" data-report-url>visibility-report.pdf</span></div>
+        <img class="media__bg" src="assets/img/bg/bg-peach.webp" alt="" width="1280" height="854" loading="lazy">
+        <div class="report__stage">
+          <p class="report__file" aria-hidden="true"><svg><use href="#i-search"></use></svg><span data-report-url>visibility-report.pdf</span></p>
 
           <div class="report__view report__view--theirs" data-report-view="theirs">
-            <div class="kpis">
-              <div class="kpi"><p class="kpi__label">AI mentions</p><p class="kpi__value">1,284</p><svg class="spark spark--vis" viewBox="0 0 84 24" aria-hidden="true"><path class="spark__area" d="M0 14 C10 12 18 15 28 13 S46 14 56 12 S74 13 84 11 L84 24 L0 24 Z"/><path class="spark__line" d="M0 14 C10 12 18 15 28 13 S46 14 56 12 S74 13 84 11"/></svg><p class="kpi__delta">+12% vs last month</p></div>
-              <div class="kpi"><p class="kpi__label">Share of voice</p><p class="kpi__value">23%</p><svg class="spark spark--vis" viewBox="0 0 84 24" aria-hidden="true"><path class="spark__area" d="M0 14 C10 12 18 15 28 13 S46 14 56 12 S74 13 84 11 L84 24 L0 24 Z"/><path class="spark__line" d="M0 14 C10 12 18 15 28 13 S46 14 56 12 S74 13 84 11"/></svg><p class="kpi__delta">+4 pts</p></div>
-              <div class="kpi"><p class="kpi__label">Citations</p><p class="kpi__value">312</p><svg class="spark spark--vis" viewBox="0 0 84 24" aria-hidden="true"><path class="spark__area" d="M0 14 C10 12 18 15 28 13 S46 14 56 12 S74 13 84 11 L84 24 L0 24 Z"/><path class="spark__line" d="M0 14 C10 12 18 15 28 13 S46 14 56 12 S74 13 84 11"/></svg><p class="kpi__delta">+9%</p></div>
-              <div class="kpi"><p class="kpi__label">Prompts tracked</p><p class="kpi__value">150</p><svg class="spark spark--vis" viewBox="0 0 84 24" aria-hidden="true"><path class="spark__area" d="M0 14 C10 12 18 15 28 13 S46 14 56 12 S74 13 84 11 L84 24 L0 24 Z"/><path class="spark__line" d="M0 14 C10 12 18 15 28 13 S46 14 56 12 S74 13 84 11"/></svg><p class="kpi__delta">same as last month</p></div>
+            <div class="report__grid">
+              <div class="ui ui--light">
+                <p class="ui__title">Share of voice</p>
+                <div class="ui__split"><ul class="ui__legend"><li><i class="k k--blue"></i>You<b>23%</b></li><li><i class="k k--white"></i>Others<b>77%</b></li></ul><div class="donut " style="--v:0.23"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="donut__track" cx="50" cy="50" r="40" pathLength="100"/><circle class="donut__arc" cx="50" cy="50" r="40" pathLength="100"/></svg><span class="donut__num">23%</span></div></div>
+                <p class="ui__foot"><span class="ui__trend ui__trend--vis"><svg viewBox="0 0 60 20" aria-hidden="true"><polyline points="0,16 12,16 22,8 34,12 46,13 60,10"/></svg>+4 pts</span><span>Last 30 days</span></p>
+              </div>
+              <div class="ui ui--light">
+                <p class="ui__title">AI mentions</p>
+                <p class="ui__big">1,284</p>
+                <svg class="area area--vis" viewBox="0 0 210 80" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="ga1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2457E0" stop-opacity=".85"/><stop offset="1" stop-color="#2457E0" stop-opacity="0"/></linearGradient></defs><path class="area__fill" fill="url(#ga1)" d="M0 62 C30 50 50 22 80 26 C110 30 120 44 150 46 C175 48 190 50 210 52 L210 80 L0 80 Z"/><path class="area__line" d="M0 62 C30 50 50 22 80 26 C110 30 120 44 150 46 C175 48 190 50 210 52"/></svg>
+                <p class="ui__foot"><span class="ui__trend ui__trend--vis"><svg viewBox="0 0 60 20" aria-hidden="true"><polyline points="0,16 12,16 22,8 34,12 46,13 60,10"/></svg>+12%</span><span>Last 30 days</span></p>
+              </div>
             </div>
             <div class="kpis kpis--missing">
               <div class="kpi kpi--na"><p class="kpi__label">Leads from AI</p><p class="kpi__value">Not tracked</p></div>
@@ -706,21 +710,26 @@
 
           <div class="report__view report__view--ours" data-report-view="ours" hidden>
             <p class="report__badge"><svg aria-hidden="true"><use href="#i-check"></use></svg>Every number below is matched to a deal in your CRM</p>
-            <div class="kpis">
-              <div class="kpi"><p class="kpi__label">AI-sourced demos</p><p class="kpi__value">46</p><svg class="spark spark--rev" viewBox="0 0 84 24" aria-hidden="true"><path class="spark__area" d="M0 20 C10 19 16 17 26 15 S44 11 54 9 S72 5 84 3 L84 24 L0 24 Z"/><path class="spark__line" d="M0 20 C10 19 16 17 26 15 S44 11 54 9 S72 5 84 3"/></svg><p class="kpi__delta">+38% vs last month</p></div>
-              <div class="kpi"><p class="kpi__label">Sales calls</p><p class="kpi__value">31</p><svg class="spark spark--rev" viewBox="0 0 84 24" aria-hidden="true"><path class="spark__area" d="M0 20 C10 19 16 17 26 15 S44 11 54 9 S72 5 84 3 L84 24 L0 24 Z"/><path class="spark__line" d="M0 20 C10 19 16 17 26 15 S44 11 54 9 S72 5 84 3"/></svg><p class="kpi__delta">+22%</p></div>
-              <div class="kpi"><p class="kpi__label">New pipeline</p><p class="kpi__value">$412k</p><svg class="spark spark--rev" viewBox="0 0 84 24" aria-hidden="true"><path class="spark__area" d="M0 20 C10 19 16 17 26 15 S44 11 54 9 S72 5 84 3 L84 24 L0 24 Z"/><path class="spark__line" d="M0 20 C10 19 16 17 26 15 S44 11 54 9 S72 5 84 3"/></svg><p class="kpi__delta">CRM-verified</p></div>
-              <div class="kpi"><p class="kpi__label">Closed-won</p><p class="kpi__value">$96k</p><svg class="spark spark--rev" viewBox="0 0 84 24" aria-hidden="true"><path class="spark__area" d="M0 20 C10 19 16 17 26 15 S44 11 54 9 S72 5 84 3 L84 24 L0 24 Z"/><path class="spark__line" d="M0 20 C10 19 16 17 26 15 S44 11 54 9 S72 5 84 3"/></svg><p class="kpi__delta">this quarter</p></div>
+            <div class="report__grid">
+              <div class="ui ui--light">
+                <p class="ui__title">AI-sourced pipeline</p>
+                <p class="ui__big">$412k</p>
+                <svg class="area area--rev" viewBox="0 0 210 80" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="ga2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5E9E12" stop-opacity=".85"/><stop offset="1" stop-color="#5E9E12" stop-opacity="0"/></linearGradient></defs><path class="area__fill" fill="url(#ga2)" d="M0 70 C30 68 50 60 80 54 C110 48 130 34 160 24 C180 17 195 10 210 6 L210 80 L0 80 Z"/><path class="area__line" d="M0 70 C30 68 50 60 80 54 C110 48 130 34 160 24 C180 17 195 10 210 6"/></svg>
+                <p class="ui__foot"><span class="ui__trend ui__trend--rev"><svg viewBox="0 0 60 20" aria-hidden="true"><polyline points="0,16 12,16 22,8 34,12 46,13 60,10"/></svg>+38%</span><span>This quarter</span></p>
+              </div>
+              <div class="ui ui--light">
+                <p class="ui__title">Share of new pipeline</p>
+                <div class="ui__split"><ul class="ui__legend"><li><i class="k k--lime"></i>AI search<b>38%</b></li><li><i class="k k--white"></i>Other<b>62%</b></li></ul><div class="donut donut--rev " style="--v:0.38"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="donut__track" cx="50" cy="50" r="40" pathLength="100"/><circle class="donut__arc" cx="50" cy="50" r="40" pathLength="100"/></svg><span class="donut__num">38%</span></div></div>
+                <p class="ui__foot"><span class="ui__trend ui__trend--rev"><svg viewBox="0 0 60 20" aria-hidden="true"><polyline points="0,16 12,16 22,8 34,12 46,13 60,10"/></svg>+9 pts</span><span>This quarter</span></p>
+              </div>
             </div>
-            <div class="bars" role="img" aria-label="New pipeline by AI platform: ChatGPT $186k, Google AI $112k, Perplexity $71k, Gemini $43k">
-              <p class="bars__title">New pipeline by AI platform</p>
-              <div class="bars__row"><span class="bars__name"><svg><use href="#i-openai"></use></svg>ChatGPT</span><span class="bars__track"><span class="bars__fill" style="--v:1"></span></span><span class="bars__val">$186k</span></div>
-              <div class="bars__row"><span class="bars__name"><svg><use href="#i-google"></use></svg>Google AI</span><span class="bars__track"><span class="bars__fill" style="--v:.602"></span></span><span class="bars__val">$112k</span></div>
-              <div class="bars__row"><span class="bars__name"><svg><use href="#i-perplexity"></use></svg>Perplexity</span><span class="bars__track"><span class="bars__fill" style="--v:.382"></span></span><span class="bars__val">$71k</span></div>
-              <div class="bars__row"><span class="bars__name"><svg><use href="#i-gemini"></use></svg>Gemini</span><span class="bars__track"><span class="bars__fill" style="--v:.231"></span></span><span class="bars__val">$43k</span></div>
+            <div class="ui ui--light" role="img" aria-label="New pipeline by AI platform: ChatGPT $186k, Google AI $112k, Perplexity $71k, Gemini $43k">
+              <p class="ui__title">New pipeline by AI platform</p>
+              <ul class="pbars "><li class="pbar " style="--t:1;--f:0.9"><span class="pbar__fill"></span><span class="pbar__label"><svg class="pbar__icon"><use href="#i-openai"></use></svg>ChatGPT</span><span class="pbar__val">$186k</span></li><li class="pbar " style="--t:0.84;--f:0.66"><span class="pbar__fill"></span><span class="pbar__label"><svg class="pbar__icon"><use href="#i-google"></use></svg>Google AI</span><span class="pbar__val">$112k</span></li><li class="pbar " style="--t:0.7;--f:0.52"><span class="pbar__fill"></span><span class="pbar__label"><svg class="pbar__icon"><use href="#i-perplexity"></use></svg>Perplexity</span><span class="pbar__val">$71k</span></li><li class="pbar " style="--t:0.6;--f:0.4"><span class="pbar__fill"></span><span class="pbar__label"><svg class="pbar__icon"><use href="#i-gemini"></use></svg>Gemini</span><span class="pbar__val">$43k</span></li></ul>
             </div>
             <p class="report__vis">Visibility, still tracked: share of voice 23% (+4 pts), 64 of 150 prompts won</p>
           </div>
+          <svg class="cursor" aria-hidden="true"><use href="#i-cursor"></use></svg>
         </div>
       </div>
       <p class="report__note">Example report with illustrative numbers.</p>
@@ -814,82 +823,33 @@
           </div>
 
           <div class="vpanel is-active" data-vpanel="0">
-            <img class="vpanel__bg" src="assets/img/bg/bg-clay.webp" alt="" width="1800" height="1200" loading="lazy">
-            <div class="vcard card">
-              <p class="vcard__title">AI-referred visitors, last 30 days</p>
-              <div class="funnel">
-                <div class="funnel__row"><span>Visits from AI answers</span><span class="funnel__bar"><i style="--v:1"></i></span><b>1,000</b></div>
-                <div class="funnel__row"><span>Engaged with the page</span><span class="funnel__bar"><i style="--v:.41"></i></span><b>412</b></div>
-                <div class="funnel__row funnel__row--win"><span>Became leads</span><span class="funnel__bar"><i style="--v:.142"></i></span><b>142</b></div>
-              </div>
-              <p class="vcard__foot"><span class="tag tag--win">14.2% visit to lead</span><span>Illustrative</span></p>
-            </div>
+            <img class="vpanel__bg" src="assets/img/bg/bg-peach.webp" alt="" width="1280" height="854" loading="lazy">
+            <div class="vcard"><div class="ui ui--dark "><p class="ui__prompt">Best sales engagement platform for mid-market?</p><p class="ui__meta"><span class="ui__src"><svg><use href="#i-openai"></use></svg>ChatGPT / Prompt</span><span class="ui__pill">412 visits</span></p></div><div class="ui ui--light"><p class="ui__title">Visit to lead, AI traffic</p><div class="ui__split"><ul class="ui__legend"><li><i class="k k--blue"></i>Leads<b>142</b></li><li><i class="k k--white"></i>Visits<b>1,000</b></li></ul><div class="donut " style="--v:0.142"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="donut__track" cx="50" cy="50" r="40" pathLength="100"/><circle class="donut__arc" cx="50" cy="50" r="40" pathLength="100"/></svg><span class="donut__num">14.2%</span></div></div><p class="ui__foot"><span class="ui__trend ui__trend--vis"><svg viewBox="0 0 60 20" aria-hidden="true"><polyline points="0,16 12,16 22,8 34,12 46,13 60,10"/></svg>+3.1 pts</span><span>Last 30 days</span></p></div></div>
           </div>
 
           <div class="vpanel" data-vpanel="1">
-            <img class="vpanel__bg" src="assets/img/bg/bg-sky.webp" alt="" width="1800" height="1200" loading="lazy">
-            <div class="vcard card">
-              <p class="vcard__q"><svg><use href="#i-perplexity"></use></svg>Which vendor is best for mid-market sales teams?</p>
-              <p class="vcard__a">Most reviewers point to <mark>Your brand</mark> for fast rollout and clear pricing<sup>1</sup>.</p>
-              <p class="vcard__foot"><span class="tag">Recommended in 3 of 4 assistants</span><span>yourbrand.com</span></p>
-            </div>
+            <img class="vpanel__bg" src="assets/img/bg/bg-sky.webp" alt="" width="1280" height="854" loading="lazy">
+            <div class="vcard"><div class="ui ui--dark "><p class="ui__prompt">Which vendor is best for mid-market sales teams?</p><p class="ui__meta"><span class="ui__src"><svg><use href="#i-perplexity"></use></svg>Perplexity / Prompt</span><span class="ui__count">130 responses</span></p></div><div class="ui ui--light"><p class="ui__title">Brand presence</p><div class="ui__split"><ul class="ui__legend"><li><i class="k k--blue"></i>Yes<b>38%</b></li><li><i class="k k--white"></i>No<b>62%</b></li></ul><div class="donut " style="--v:0.38"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="donut__track" cx="50" cy="50" r="40" pathLength="100"/><circle class="donut__arc" cx="50" cy="50" r="40" pathLength="100"/></svg><span class="donut__num">38%</span></div></div><p class="ui__foot"><span class="ui__trend ui__trend--vis"><svg viewBox="0 0 60 20" aria-hidden="true"><polyline points="0,16 12,16 22,8 34,12 46,13 60,10"/></svg>+6%</span><span>Last 7 days</span></p></div></div>
           </div>
 
           <div class="vpanel" data-vpanel="2">
-            <img class="vpanel__bg" src="assets/img/bg/bg-olive.webp" alt="" width="1800" height="1200" loading="lazy">
-            <div class="vcard card">
-              <p class="vcard__title">Knowledge graph</p>
-              <div class="kg">
-                <span class="kg__core"><span class="blogo" aria-hidden="true">Y</span>Your brand</span>
-                <span class="kg__n">Organization</span><span class="kg__n">Founder</span><span class="kg__n">Product</span><span class="kg__n">Reviews</span><span class="kg__n">Google Maps</span><span class="kg__n">Wikidata</span>
-              </div>
-              <p class="vcard__foot"><span class="tag tag--win">Organic rankings kept</span><span>Top 3 for 38 keywords</span></p>
-            </div>
+            <img class="vpanel__bg" src="assets/img/bg/bg-meadow.webp" alt="" width="1280" height="854" loading="lazy">
+            <div class="vcard"><div class="ui ui--light"><p class="ui__title ui__title--link">Sales engagement for mid-market<svg><use href="#i-arrow"></use></svg></p><div class="ui__cols"><div><p class="ui__label">AI search activity</p><p class="ui__big">1.8M</p><svg class="area area--vis" viewBox="0 0 210 80" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="ga3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2457E0" stop-opacity=".85"/><stop offset="1" stop-color="#2457E0" stop-opacity="0"/></linearGradient></defs><path class="area__fill" fill="url(#ga3)" d="M0 60 C30 52 55 30 80 34 C110 40 140 52 170 56 C185 58 200 60 210 60 L210 80 L0 80 Z"/><path class="area__line" d="M0 60 C30 52 55 30 80 34 C110 40 140 52 170 56 C185 58 200 60 210 60"/></svg></div><div><p class="ui__label">Brand presence</p><div class="donut donut--sm" style="--v:0.21"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="donut__track" cx="50" cy="50" r="40" pathLength="100"/><circle class="donut__arc" cx="50" cy="50" r="40" pathLength="100"/></svg><span class="donut__num">21%</span></div></div></div></div><div class="ui ui--dark "><p class="ui__prompt">How do I choose a sales engagement tool?</p><p class="ui__meta"><span class="ui__src"><svg><use href="#i-google"></use></svg>Google / AI Overview</span><span class="ui__pill">2.5M searches</span></p></div></div>
           </div>
 
           <div class="vpanel" data-vpanel="3">
-            <img class="vpanel__bg" src="assets/img/bg/bg-dune.webp" alt="" width="1800" height="1200" loading="lazy">
-            <div class="vcard card">
-              <p class="vcard__title">Where AI finds proof about you</p>
-              <ul class="cites">
-                <li><span>Top-tier tech publication</span><b>Feature</b></li>
-                <li><span>Industry trade journal</span><b>Interview</b></li>
-                <li><span>Analyst roundup</span><b>Listed</b></li>
-                <li><span>Partner directory</span><b>Profile</b></li>
-              </ul>
-              <p class="vcard__foot"><span class="tag tag--win">Cited in 23 AI answers</span><span>This quarter</span></p>
-            </div>
+            <img class="vpanel__bg" src="assets/img/bg/bg-sunset.webp" alt="" width="1280" height="854" loading="lazy">
+            <div class="vcard"><div class="ui ui--light"><p class="ui__title">Where AI finds proof about you</p><ul class="pbars "><li class="pbar " style="--t:1;--f:0.72"><span class="pbar__fill"></span><span class="pbar__label">Tech publications</span><span class="pbar__val">72%</span></li><li class="pbar " style="--t:0.86;--f:0.63"><span class="pbar__fill"></span><span class="pbar__label">Trade journals</span><span class="pbar__val">54%</span></li><li class="pbar " style="--t:0.74;--f:0.55"><span class="pbar__fill"></span><span class="pbar__label">Analyst roundups</span><span class="pbar__val">41%</span></li><li class="pbar " style="--t:0.62;--f:0.48"><span class="pbar__fill"></span><span class="pbar__label">Partner directories</span><span class="pbar__val">30%</span></li></ul><p class="ui__foot"><span class="ui__trend ui__trend--vis"><svg viewBox="0 0 60 20" aria-hidden="true"><polyline points="0,16 12,16 22,8 34,12 46,13 60,10"/></svg>+23 citations</span><span>This quarter</span></p></div></div>
           </div>
 
           <div class="vpanel" data-vpanel="4">
-            <img class="vpanel__bg" src="assets/img/bg/bg-earth.webp" alt="" width="1800" height="1200" loading="lazy">
-            <div class="vcard card">
-              <p class="vcard__title">Community thread</p>
-              <div class="thread">
-                <p class="thread__q">What sales engagement tool are you all using?</p>
-                <div class="thread__a">
-                  <span class="thread__votes"><svg viewBox="0 0 24 24"><path d="M12 5 4.5 14h15L12 5Z" fill="currentColor"/></svg>148</span>
-                  <p>We moved to <mark>Your brand</mark> last year. Setup took a day and the HubSpot sync just works.</p>
-                </div>
-              </div>
-              <p class="vcard__foot"><span class="tag">Cited by Perplexity</span><span>r/sales</span></p>
-            </div>
+            <img class="vpanel__bg" src="assets/img/bg/bg-lagoon.webp" alt="" width="1280" height="854" loading="lazy">
+            <div class="vcard"><div class="ui ui--dark "><p class="ui__prompt">What sales engagement tool are you all using?</p><p class="ui__meta"><span class="ui__src"><svg><use href="#i-spark"></use></svg>Reddit / r/sales</span><span class="ui__pill">148 upvotes</span></p></div><ul class="pbars pbars--single"><li class="pbar " style="--t:1;--f:0.68"><span class="pbar__fill"></span><span class="pbar__label">Positive sentiment</span><span class="pbar__val">68%</span></li></ul><div class="ui ui--dark "><p class="ui__prompt">Is Your brand worth it for a 40-rep team?</p><p class="ui__meta"><span class="ui__src"><svg><use href="#i-openai"></use></svg>ChatGPT / Prompt</span><span class="ui__pill">1.8M prompts</span></p></div></div>
           </div>
 
           <div class="vpanel" data-vpanel="5">
-            <img class="vpanel__bg" src="assets/img/bg/bg-dusk.webp" alt="" width="1800" height="1200" loading="lazy">
-            <div class="vcard card">
-              <div class="post">
-                <span class="post__avatar"></span>
-                <div><p class="post__name">Your CEO</p><p class="post__meta">LinkedIn · 6 months ago</p></div>
-              </div>
-              <p class="post__text">How we cut onboarding from 3 weeks to 2 days for mid-market sales teams.</p>
-              <ul class="post__checks">
-                <li><svg><use href="#i-check"></use></svg>Indexed by Google</li>
-                <li><svg><use href="#i-check"></use></svg>Quoted in AI answers</li>
-                <li><svg><use href="#i-check"></use></svg>4 leads this month</li>
-              </ul>
-            </div>
+            <img class="vpanel__bg" src="assets/img/bg/bg-night.webp" alt="" width="1280" height="854" loading="lazy">
+            <div class="vcard"><div class="ui ui--light"><div class="post"><span class="post__avatar"></span><div><p class="post__name">Your CEO</p><p class="post__meta">LinkedIn · 6 months ago</p></div></div><p class="post__text">How we cut onboarding from 3 weeks to 2 days for mid-market sales teams.</p><p class="ui__label">Views from search and AI</p><p class="ui__big">48K</p><svg class="area area--vis" viewBox="0 0 210 80" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="ga4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2457E0" stop-opacity=".85"/><stop offset="1" stop-color="#2457E0" stop-opacity="0"/></linearGradient></defs><path class="area__fill" fill="url(#ga4)" d="M0 70 C30 66 50 58 80 48 C110 38 140 30 170 22 C185 18 200 14 210 12 L210 80 L0 80 Z"/><path class="area__line" d="M0 70 C30 66 50 58 80 48 C110 38 140 30 170 22 C185 18 200 14 210 12"/></svg><p class="ui__foot"><span class="ui__trend ui__trend--rev"><svg viewBox="0 0 60 20" aria-hidden="true"><polyline points="0,16 12,16 22,8 34,12 46,13 60,10"/></svg>+4 leads</span><span>This month</span></p></div><div class="ui ui--dark "><p class="ui__prompt">How to cut onboarding time for sales teams?</p><p class="ui__meta"><span class="ui__src"><svg><use href="#i-google"></use></svg>Google / AI Overview</span><span class="ui__pill">Cites your post</span></p></div></div>
           </div>
 
           <div class="viewer__progress"><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -937,7 +897,7 @@
       </ol>
 
       <div class="growth media" data-reveal>
-        <img class="media__bg" src="assets/img/bg/bg-sky.webp" alt="" width="1800" height="1200" loading="lazy">
+        <img class="media__bg" src="assets/img/bg/bg-lagoon.webp" alt="" width="1280" height="854" loading="lazy">
         <div class="growth__inner">
           <p class="growth__title">What the first six months usually look like</p>
           <figure class="mini card" data-chart>
@@ -982,7 +942,7 @@
      All figures below are stand-ins until the real numbers are in.
      ================================================================ -->
 <section class="results band band--dark" id="results" aria-labelledby="results-title">
-  <img class="band__bg" src="assets/img/bg/bg-earth.webp" alt="" width="1800" height="1200" loading="lazy">
+  <img class="band__bg" src="assets/img/bg/bg-night.webp" alt="" width="1280" height="854" loading="lazy">
   <div class="container">
     <header class="head head--split">
       <div class="head__main">
@@ -1120,7 +1080,7 @@
      FINAL CTA · Free Report and Roadmap
      ================================================================ -->
 <section class="cta band band--image" id="report" aria-labelledby="report-title">
-  <img class="band__bg" src="assets/img/bg/bg-dusk.webp" alt="" width="1800" height="1200" loading="lazy">
+  <img class="band__bg" src="assets/img/bg/bg-sunset.webp" alt="" width="1280" height="854" loading="lazy">
   <div class="container cta__grid">
     <div class="cta__copy">
       <p class="eyebrow" data-reveal>Free report</p>
