@@ -30,37 +30,13 @@
   var isMobile = function () { return window.innerWidth <= 960; };
 
   /* ------------------------------------------------------------------
-     Content that animates in the hero. Edit freely.
+     The hero's path from prompt to deal. Edit freely.
      ------------------------------------------------------------------ */
-  var HERO_SCENARIOS = [
-    {
-      url: 'chatgpt.com', icon: 'i-openai',
-      prompt: "What's the best sales engagement platform for a 40-rep B2B team?",
-      intro: 'For a 40-rep B2B team, three platforms stand out:',
-      why: 'Fastest rollout, native HubSpot sync and per-seat pricing that scales.',
-      toastTitle: 'Demo booked', toastMeta: 'VP Sales, 220-person SaaS · via ChatGPT', value: 48000
-    },
-    {
-      url: 'perplexity.ai', icon: 'i-perplexity',
-      prompt: 'Which SOC 2 compliance software is easiest for a seed-stage startup?',
-      intro: 'Startups under 50 people usually shortlist these:',
-      why: 'Audit-ready in weeks, built-in auditor network, startup pricing.',
-      toastTitle: 'Sales call scheduled', toastMeta: 'CTO, fintech startup · via Perplexity', value: 36000
-    },
-    {
-      url: 'gemini.google.com', icon: 'i-gemini',
-      prompt: 'Recommend an HR platform for a 500-person company in Europe',
-      intro: 'Options with strong EU payroll and compliance:',
-      why: 'GDPR-ready, local payroll in 12 countries, live in six weeks.',
-      toastTitle: 'Deal closed · $64,000 ARR', toastMeta: 'First touch: a Gemini answer', value: 64000
-    },
-    {
-      url: 'google.com · AI Mode', icon: 'i-google',
-      prompt: 'Best observability tool for a mid-size engineering team',
-      intro: 'Based on reviews and pricing, consider:',
-      why: 'Set up in an afternoon, usage-based pricing, alerting teams trust.',
-      toastTitle: 'Trial started', toastMeta: 'Head of Platform, 400 engineers · via Google AI Mode', value: 27000
-    }
+  var FLOW_SCENARIOS = [
+    { icon: 'i-openai', prompt: 'Best sales engagement platform for a 40-rep team?', page: 'yourbrand.com/compare', event: 'Demo booked', value: 48000 },
+    { icon: 'i-perplexity', prompt: 'Easiest SOC 2 software for a seed-stage startup?', page: 'yourbrand.com/pricing', event: 'Sales call booked', value: 36000 },
+    { icon: 'i-gemini', prompt: 'HR platform for 500 people in Europe?', page: 'yourbrand.com/eu-payroll', event: 'Deal closed', value: 64000 },
+    { icon: 'i-google', prompt: 'Best observability tool for a mid-size team?', page: 'yourbrand.com/vs/datadog', event: 'Trial started', value: 27000 }
   ];
 
   /* ------------------------------------------------------------------
@@ -139,13 +115,10 @@
   onScrollFrame();
 
   /* ------------------------------------------------------------------
-     Hero: the AI chat that ends in a booked demo
+     Hero: one buyer travels from an AI prompt to a won deal.
+     A dot runs along the line; each stop lights up as it arrives.
      ------------------------------------------------------------------ */
-  var chat = $('[data-chat]');
-  var toast = $('[data-toast]');
-  var meterEl = $('[data-meter]');
   var heroVisible = true;
-  var pipelineTotal = 124000; // the meter starts here and grows with every scenario
 
   function formatMoney(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
 
@@ -168,112 +141,75 @@
     el.classList.remove('is-typing');
   }
 
-  async function streamWords(el, text, perWord) {
-    var words = text.split(' ');
-    el.textContent = '';
-    for (var i = 0; i < words.length; i++) {
-      el.textContent += (i ? ' ' : '') + words[i];
-      await wait(perWord);
-    }
+  function tween(target, vars) {
+    return new Promise(function (resolve) { vars.onComplete = resolve; gsap.to(target, vars); });
   }
 
-  var chatEls = null;
-  function getChatEls() {
-    if (chatEls || !chat) return chatEls;
-    chatEls = {
-      user: $('.chat__user', chat),
-      prompt: $('[data-chat-prompt]', chat),
-      intro: $('[data-chat-intro]', chat),
-      list: $('.chat__list', chat),
-      why: $('[data-chat-why]', chat),
-      url: $('[data-chat-url]', chat),
-      icon: $('[data-chat-icon] use', chat),
-      items: $$('[data-chat-item]', chat),
-      toastTitle: $('[data-toast-title]'),
-      toastMeta: $('[data-toast-meta]')
+  async function runFlow(flow) {
+    var steps = $$('[data-flow-step]', flow);
+    var el = {
+      icon: $('[data-flow-icon] use', flow),
+      prompt: $('[data-flow-prompt]', flow),
+      page: $('[data-flow-page]', flow),
+      event: $('[data-flow-event]', flow),
+      value: $('[data-flow-value]', flow),
+      brand: $('.flow__brand', flow)
     };
-    return chatEls;
-  }
-
-  // Empty chat window, ready for the next buyer
-  function resetChat(s) {
-    var e = getChatEls();
-    e.url.textContent = s.url;
-    e.icon.setAttribute('href', '#' + s.icon);
-    e.prompt.textContent = '';
-    e.intro.textContent = '';
-    e.why.textContent = s.why;
-    e.items.forEach(function (it) { it.classList.add('is-pending'); });
-    e.items[0].classList.add('is-dim');
-  }
-
-  async function runChat() {
-    if (!chat) return;
-    var e = getChatEls();
-    var parts = [e.user, e.intro, e.list];
+    var state = { p: 0 };
+    var setP = function () { flow.style.setProperty('--p', state.p.toFixed(4)); };
+    var on = function (i) { steps[i].classList.add('is-on'); };
+    var travel = function (to) { return tween(state, { p: to, duration: 1.1, ease: 'power2.inOut', onUpdate: setP }); };
     var index = 0;
 
+    flow.classList.add('is-live');
     while (true) {
-      var s = HERO_SCENARIOS[index % HERO_SCENARIOS.length];
+      var s = FLOW_SCENARIOS[index % FLOW_SCENARIOS.length];
       await whenHeroVisible();
 
-      if (index > 0) {
-        gsap.to(parts, { autoAlpha: 0, duration: 0.35, ease: 'power2.out' });
-        await wait(380);
-        resetChat(s);
-        gsap.set(parts, { autoAlpha: 1 });
-      }
+      // A new buyer: everything resets
+      steps.forEach(function (st) { st.classList.remove('is-on'); });
+      state.p = 0; setP();
+      el.icon.setAttribute('href', '#' + s.icon);
+      el.prompt.textContent = '';
+      el.page.textContent = s.page;
+      el.event.textContent = s.event;
+      el.value.textContent = '$0';
+      el.brand.style.setProperty('--hl', '0%');
+      await wait(450);
 
-      // 1. The buyer types
-      await typeInto(e.prompt, s.prompt, 24);
-      await wait(250);
-
-      // 2. AI thinks, then answers
-      chat.classList.add('is-thinking');
-      await wait(900);
-      chat.classList.remove('is-thinking');
-      await streamWords(e.intro, s.intro, 55);
-      for (var i = 0; i < e.items.length; i++) {
-        e.items[i].classList.remove('is-pending');
-        await wait(220);
-      }
-
-      // 3. Your brand gets the top spot
+      // 1. The buyer asks an AI assistant
+      on(0);
+      await typeInto(el.prompt, s.prompt, 24);
       await wait(350);
-      e.items[0].classList.remove('is-dim');
 
-      // 4. And the recommendation turns into pipeline
-      await wait(650);
-      e.toastTitle.textContent = s.toastTitle;
-      e.toastMeta.textContent = s.toastMeta;
-      gsap.to(toast, { autoAlpha: 1, y: 0, duration: 0.7, ease: 'expo.out' });
-      var from = { v: pipelineTotal };
-      pipelineTotal += s.value;
-      gsap.to(from, {
-        v: pipelineTotal, duration: 1.2, ease: 'power3.out',
-        onUpdate: function () { meterEl.textContent = formatMoney(from.v); }
-      });
+      // 2. The AI names your brand
+      await travel(1 / 3);
+      on(1);
+      gsap.fromTo(el.brand, { '--hl': '0%' }, { '--hl': '100%', duration: 0.7, ease: 'power2.inOut' });
+      await wait(700);
 
-      await wait(3600);
-      gsap.to(toast, { autoAlpha: 0, y: 10, duration: 0.45, ease: 'power2.in' });
-      await wait(500);
+      // 3. The buyer lands on the page built for that answer
+      await travel(2 / 3);
+      on(2);
+      await wait(600);
+
+      // 4. And it ends in pipeline
+      await travel(1);
+      on(3);
+      var o = { v: 0 };
+      gsap.to(o, { v: s.value, duration: 1, ease: 'power3.out', onUpdate: function () { el.value.textContent = formatMoney(o.v); } });
+      await wait(3200);
       index++;
     }
   }
 
   function initHero() {
     if (!animate) return;
-
-    // Start from an empty chat: the first buyer types as the page opens
-    if (chat) {
-      resetChat(HERO_SCENARIOS[0]);
-      gsap.set(toast, { autoAlpha: 0, y: 14 });
-      meterEl.textContent = formatMoney(pipelineTotal);
-    }
+    var flow = $('[data-flow]');
 
     gsap.timeline({ delay: 0.1 })
       .to('[data-hero-in]', { opacity: 1, y: 0, duration: 1.1, ease: 'expo.out', stagger: 0.09 }, 0)
-      .add(function () { runChat(); }, 0.9);
+      .add(function () { if (flow) runFlow(flow); }, 0.5);
 
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (entries) {
