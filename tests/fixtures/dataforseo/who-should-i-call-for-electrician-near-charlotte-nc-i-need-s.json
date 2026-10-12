@@ -1,0 +1,271 @@
+{
+ "_note": "Real DataForSEO ChatGPT LLM Scraper (live/advanced) response captured via the DataForSEO MCP connector. The connector returns the task with result items only; result-level fields such as cost, model and check_url were not included.",
+ "_captured_at": "2026-10-12T20:34:54.357Z",
+ "_request": {
+  "keyword": "who should I call for electrician near Charlotte NC? I need someone reliable",
+  "location_name": "United States",
+  "language_code": "en",
+  "force_web_search": true
+ },
+ "tasks": [
+  {
+   "id": "10122034-2093-0629-0000-6e7fab1bfbae",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "result": [
+    {
+     "keyword": "who should I call for electrician near Charlotte NC? I need someone reliable",
+     "items": [
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 1,
+       "rank_absolute": 1,
+       "markdown": "If you want a reliable electrician in Charlotte, NC, I’d start with a well-reviewed local company that is licensed, insured, and willing to give you an upfront estimate before starting work.\n\nI found several promising options. **My first call would be Carolina Electric Pro’s for ordinary home electrical repairs**, and I’d get a second quote for any expensive job. Their local listing and recent reviews are encouraging. [www.google.com](https://www.google.com/maps/place/Carolina+Electric+Pro%E2%80%99s/@35.1999626,-80.8721749,17z/data=!3m1!4b1!4m6!3m5!1s0x88569fad95d2fa51:0x7c79d8a4ad5d2fd9!8m2!3d35.1999626!4d-80.8721749!16s%2Fg%2F11np4lb0l6?authuser=0&hl=en&entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D)[www.bestprosintown.com](https://www.bestprosintown.com/nc/charlotte/electricians/)[www.bestpickreports.com](https://www.bestpickreports.com/electricians/charlotte)\n\n## Electricians I'd consider calling\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Carolina Electric Pro’s",
+         "snippet": "224 Foster Ave A, Charlotte, NC 28203, United States",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/Carolina+Electric+Pro%E2%80%99s/@35.1999626,-80.8721749,17z/data=!3m1!4b1!4m6!3m5!1s0x88569fad95d2fa51:0x7c79d8a4ad5d2fd9!8m2!3d35.1999626!4d-80.8721749!16s%2Fg%2F11np4lb0l6?authuser=0&hl=en&entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D",
+         "source_name": "google.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "20 Best Electricians Near Charlotte, NC",
+         "domain": "www.bestprosintown.com",
+         "url": "https://www.bestprosintown.com/nc/charlotte/electricians/",
+         "source_name": "2026 BestProsInTown"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Electrical Companies in Charlotte, NC",
+         "domain": "www.bestpickreports.com",
+         "url": "https://www.bestpickreports.com/electricians/charlotte",
+         "source_name": "Best Pick Reports"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 1,
+       "rank_absolute": 2,
+       "markdown": "![Carolina Electric Pro’s](https://images.openai.com/static-rsc-4/7ieJfZYqfGJZst5qIVJomJrLBphI__bAPeQDagGo6vHeUvbqOixyUoYeVIzXqB2CWMxpnQA5C9gqhGD52Mq1ClOFML7MQE23pBu4uUkKDKf_4DSPjjd7vi-7ISruUcM8mkaEz2bnF4-Td9Z66X1hM__vM5FvFBHW2OzppPRk88B7a0x-NDb8ivLtheYftWKx?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://ecohome.co/business/carolina-electric-pros",
+         "alt": "Carolina Electric Pro’s",
+         "image_url": "https://images.openai.com/static-rsc-4/7ieJfZYqfGJZst5qIVJomJrLBphI__bAPeQDagGo6vHeUvbqOixyUoYeVIzXqB2CWMxpnQA5C9gqhGD52Mq1ClOFML7MQE23pBu4uUkKDKf_4DSPjjd7vi-7ISruUcM8mkaEz2bnF4-Td9Z66X1hM__vM5FvFBHW2OzppPRk88B7a0x-NDb8ivLtheYftWKx?purpose=fullsize",
+         "markdown": "![Carolina Electric Pro’s](https://images.openai.com/static-rsc-4/7ieJfZYqfGJZst5qIVJomJrLBphI__bAPeQDagGo6vHeUvbqOixyUoYeVIzXqB2CWMxpnQA5C9gqhGD52Mq1ClOFML7MQE23pBu4uUkKDKf_4DSPjjd7vi-7ISruUcM8mkaEz2bnF4-Td9Z66X1hM__vM5FvFBHW2OzppPRk88B7a0x-NDb8ivLtheYftWKx?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 2,
+       "rank_absolute": 3,
+       "markdown": "\n\n**1\\. Carolina Electric Pro’s**\n\n4.9/5 · 782 reviews\n\nPhone: 704-713-3793\n\nBest overall starting point for troubleshooting, outlets, lighting, ceiling fans, breaker problems, and panel upgrades. Its listing identifies North Carolina electrical contractor license credentials. [www.google.com](https://www.google.com/maps/place/Carolina+Electric+Pro%E2%80%99s/@35.1999626,-80.8721749,17z/data=!3m1!4b1!4m6!3m5!1s0x88569fad95d2fa51:0x7c79d8a4ad5d2fd9!8m2!3d35.1999626!4d-80.8721749!16s%2Fg%2F11np4lb0l6?authuser=0&hl=en&entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D)[www.bestprosintown.com](https://www.bestprosintown.com/nc/charlotte/electricians/)[www.bestpickreports.com](https://www.bestpickreports.com/electricians/charlotte)\n\nCall to ask about availability and pricing.\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Carolina Electric Pro’s",
+         "snippet": "224 Foster Ave A, Charlotte, NC 28203, United States",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/Carolina+Electric+Pro%E2%80%99s/@35.1999626,-80.8721749,17z/data=!3m1!4b1!4m6!3m5!1s0x88569fad95d2fa51:0x7c79d8a4ad5d2fd9!8m2!3d35.1999626!4d-80.8721749!16s%2Fg%2F11np4lb0l6?authuser=0&hl=en&entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D",
+         "source_name": "google.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "20 Best Electricians Near Charlotte, NC",
+         "domain": "www.bestprosintown.com",
+         "url": "https://www.bestprosintown.com/nc/charlotte/electricians/",
+         "source_name": "2026 BestProsInTown"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Electrical Companies in Charlotte, NC",
+         "domain": "www.bestpickreports.com",
+         "url": "https://www.bestpickreports.com/electricians/charlotte",
+         "source_name": "Best Pick Reports"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Carolina Electric Pro’s",
+         "category": "local_business",
+         "markdown": "Carolina Electric Pro’s"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 2,
+       "rank_absolute": 4,
+       "markdown": "![Best Electricians in Charlotte, NC | 5 Reasons to Hire | U.S. Electric Contractors](https://images.openai.com/static-rsc-4/4lPnX1kH5KfoS4gMglWd0sRpDeTo02Rc-U11sRd9rCdpnwYZInYCuhnrziC4eFIrKVeeD8eH3LZT7txDcxRvB-0MYWMnjjOrJh1vv9QJ3k2PQQtPKDndSkeq3C2TCupsW-MGHUx3NdCPMN1yvXbvv0Gv0xcBeb9zI607Sf_jf-hYVVcZK3m23hhWejntfD4h?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.uselectriccontractors.com/post/5-reasons-to-hire-the-best-electricians-in-charlotte-for-your-electrical-needs",
+         "alt": "Best Electricians in Charlotte, NC | 5 Reasons to Hire | U.S. Electric Contractors",
+         "image_url": "https://images.openai.com/static-rsc-4/4lPnX1kH5KfoS4gMglWd0sRpDeTo02Rc-U11sRd9rCdpnwYZInYCuhnrziC4eFIrKVeeD8eH3LZT7txDcxRvB-0MYWMnjjOrJh1vv9QJ3k2PQQtPKDndSkeq3C2TCupsW-MGHUx3NdCPMN1yvXbvv0Gv0xcBeb9zI607Sf_jf-hYVVcZK3m23hhWejntfD4h?purpose=fullsize",
+         "markdown": "![Best Electricians in Charlotte, NC | 5 Reasons to Hire | U.S. Electric Contractors](https://images.openai.com/static-rsc-4/4lPnX1kH5KfoS4gMglWd0sRpDeTo02Rc-U11sRd9rCdpnwYZInYCuhnrziC4eFIrKVeeD8eH3LZT7txDcxRvB-0MYWMnjjOrJh1vv9QJ3k2PQQtPKDndSkeq3C2TCupsW-MGHUx3NdCPMN1yvXbvv0Gv0xcBeb9zI607Sf_jf-hYVVcZK3m23hhWejntfD4h?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 3,
+       "rank_absolute": 5,
+       "markdown": "\n\n**2\\. U.S. Electric Contractors**\n\n5.0/5 · 152 reviews\n\nPhone: 980-225-1458\n\nA strong alternative for residential repairs, flickering lights, faulty outlets, breaker issues, and larger electrical projects. Its listing associates the company with an NC electrical contractor license. [www.google.com](https://www.google.com/maps/place/?q=place_id:ChIJlbDE45mBZWsRClBdyxEecz0&hl=en)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "U.S. Electric Contractors",
+         "snippet": "3434 Monroe Rd, Charlotte, NC 28205, United States",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/?q=place_id:ChIJlbDE45mBZWsRClBdyxEecz0&hl=en",
+         "source_name": "google.com"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "U.S. Electric Contractors",
+         "category": "local_business",
+         "markdown": "U.S. Electric Contractors"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 3,
+       "rank_absolute": 6,
+       "markdown": "![Crush.pics — Image Compression & Optimization for Shopify](https://images.openai.com/static-rsc-4/b1Cs1iP6vtfmLFlIjRWT44mIBcp7LP0I23Td8SOoJa0ogT9oz4hZFeacX28ophVG4lhiaNqYDZh1A8gZaxmhYTqHv5AzHQM88uijA6ikpfIZ5l-OqQDAoz6Opb00kAB40V0YIY-RtMqabIvbCiynXdVgQoChI311T05fIDQhEWgKylnWbKrzvfhtfRL211WH?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://crush.pics/",
+         "alt": "Crush.pics — Image Compression & Optimization for Shopify",
+         "image_url": "https://images.openai.com/static-rsc-4/b1Cs1iP6vtfmLFlIjRWT44mIBcp7LP0I23Td8SOoJa0ogT9oz4hZFeacX28ophVG4lhiaNqYDZh1A8gZaxmhYTqHv5AzHQM88uijA6ikpfIZ5l-OqQDAoz6Opb00kAB40V0YIY-RtMqabIvbCiynXdVgQoChI311T05fIDQhEWgKylnWbKrzvfhtfRL211WH?purpose=fullsize",
+         "markdown": "![Crush.pics — Image Compression & Optimization for Shopify](https://images.openai.com/static-rsc-4/b1Cs1iP6vtfmLFlIjRWT44mIBcp7LP0I23Td8SOoJa0ogT9oz4hZFeacX28ophVG4lhiaNqYDZh1A8gZaxmhYTqHv5AzHQM88uijA6ikpfIZ5l-OqQDAoz6Opb00kAB40V0YIY-RtMqabIvbCiynXdVgQoChI311T05fIDQhEWgKylnWbKrzvfhtfRL211WH?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 4,
+       "rank_absolute": 7,
+       "markdown": "\n\n**3\\. Gianni Electrical Service**\n\n4.9/5 · 61 reviews\n\nPhone: 704-995-9805\n\nA veteran-owned, family-operated option for residential troubleshooting, electrical repairs, lighting, and EV charger installation. Reviews highlight professional service and clear explanations. [www.yelp.com](https://www.yelp.com/biz/gianni-electrical-service-charlotte?adjust_creative=openai&utm_campaign=yelp_feed&utm_medium=feed_v2&utm_source=openai)\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Gianni Electrical Service",
+         "snippet": "319 Atando Ave, Charlotte, NC 28206, United States",
+         "domain": "www.yelp.com",
+         "url": "https://www.yelp.com/biz/gianni-electrical-service-charlotte?adjust_creative=openai&utm_campaign=yelp_feed&utm_medium=feed_v2&utm_source=openai",
+         "source_name": "yelp.com"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Gianni Electrical Service",
+         "category": "local_business",
+         "markdown": "Gianni Electrical Service"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_local_businesses",
+       "rank_group": 1,
+       "rank_absolute": 8,
+       "items": [
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Carolina Electric Pro’s",
+         "description": "Electrician",
+         "address": "224 Foster Ave A, Charlotte, NC 28203, United States",
+         "phone": "+1 704-713-3793",
+         "reviews_count": 782,
+         "url": "http://www.carolinaelectricpros.com/",
+         "domain": "www.carolinaelectricpros.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.9,
+          "votes_count": 782,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "U.S. Electric Contractors",
+         "description": "Electrician",
+         "address": "3434 Monroe Rd, Charlotte, NC 28205, United States",
+         "phone": "+1 980-225-1458",
+         "reviews_count": 152,
+         "url": "http://www.uselectriccontractors.com/",
+         "domain": "www.uselectriccontractors.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 152,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Gianni Electrical Service",
+         "description": "Electrician",
+         "address": "319 Atando Ave, Charlotte, NC 28206, United States",
+         "phone": "+1 704-995-9805",
+         "reviews_count": 61,
+         "url": "https://www.giannielectrical.net/",
+         "domain": "www.giannielectrical.net",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.9,
+          "votes_count": 61,
+          "rating_max": 5
+         }
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 5,
+       "rank_absolute": 9,
+       "markdown": "\n\n## How to make sure you hire someone reliable\n\nBefore booking, ask these three questions\\:\n\n- “Are you licensed and insured for this type of work?”\n- “What is your service-call or diagnostic fee, and will you provide a written estimate before repairs?”\n- “Will you handle any required permits and inspections?”\n\nYou can independently verify electrical contractor licenses through the [North Carolina State Board of Examiners of Electrical Contractors](https://www.ncbeec.org/)\\. [www.consumeraffairs.com](https://www.consumeraffairs.com/homeowners/electricians-charlotte.html)[www.expertise.com](https://www.expertise.com/home-improvement/electricians/north-carolina/charlotte)\n\n## Let me narrow it down for you\n\n**What do you need the electrician to fix or install?**\n\n1\\. Type of work\n\nElectrical repair, dead outlet, flickering lights, or breaker issue\n\nWiring, electrical panel, or repeated breaker trips\n\nInstall lights, outlets, or ceiling fans\n\nEV charger or generator installation\n\nUrgent or emergency electrical problem\n\n---\n\n2\\. Where in the Charlotte area?\n\nCharlotte proper\n\nSouth Charlotte / Ballantyne\n\nMatthews / Mint Hill\n\nHuntersville / Cornelius\n\nConcord, Gastonia, or another suburb\n\n---\n\n3\\. When do you need them?\n\nToday\n\nWithin a few days\n\nFlexible schedule; looking for the best value\n\n[Find the best match]",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "North Carolina State Board of Examiners of Electrical Contractors",
+         "domain": "www.ncbeec.org",
+         "url": "https://www.ncbeec.org/",
+         "markdown": "[North Carolina State Board of Examiners of Electrical Contractors](https://www.ncbeec.org/)"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "7 Best Electricians in Charlotte, NC (2026 Guide)",
+         "domain": "www.consumeraffairs.com",
+         "url": "https://www.consumeraffairs.com/homeowners/electricians-charlotte.html",
+         "source_name": "ConsumerAffairs",
+         "publication_date": "2026-08-21 00:00:00 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "16 Best Charlotte, NC Electricians",
+         "domain": "www.expertise.com",
+         "url": "https://www.expertise.com/home-improvement/electricians/north-carolina/charlotte",
+         "source_name": "Expertise",
+         "publication_date": "2020-02-12 19:36:56 +00:00"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

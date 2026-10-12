@@ -1,0 +1,133 @@
+{
+ "_note": "Real DataForSEO ChatGPT LLM Scraper (live/advanced) response captured via the DataForSEO MCP connector. The connector returns the task with result items only; result-level fields such as cost, model and check_url were not included.",
+ "_captured_at": "2026-10-12T20:36:00.761Z",
+ "_request": {
+  "keyword": "who should I call for septic tank pumping near Boise ID? I need someone reliable",
+  "location_name": "United States",
+  "language_code": "en",
+  "force_web_search": true
+ },
+ "tasks": [
+  {
+   "id": "10122036-2093-0629-0000-f76f0115c09d",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "result": [
+    {
+     "keyword": "who should I call for septic tank pumping near Boise ID? I need someone reliable",
+     "items": [
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 1,
+       "rank_absolute": 1,
+       "markdown": "If I were looking for reliable septic tank pumping in the Boise, Idaho area, I'd start by calling **ABC Pumping Service** and **Mike's Septic &amp; Drain**\\. Both have strong local ratings, and I'd compare their quotes and availability before booking.\n\nHere are the companies I'd put on your shortlist based on local business ratings, review volume, and available service information.\n\n## My top picks near Boise\n\n"
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 1,
+       "rank_absolute": 2,
+       "markdown": "![Septic Services in Star, ID | Idaho Septic Solutions](https://images.openai.com/static-rsc-4/kTzOQjQhRBLiYdxsG7DesmqFqFaqjgvHSOMXmseHSb-YpOk33YoYRdm2CL-0GaxXefuu2H5SNBdhi13oIHlOaLU6xr9uND-pO4p2wNc62e1zsMgOxNTgqk_mYVN1cFjNY1NgY-_FayxNu3Ky0rTNrSq67cUGldQQtXBfJWIku-YnTeURZdS9QQlzb7IBl_ty?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.idahosepticsolutions.com/septic-service-star-id",
+         "alt": "Septic Services in Star, ID | Idaho Septic Solutions",
+         "image_url": "https://images.openai.com/static-rsc-4/kTzOQjQhRBLiYdxsG7DesmqFqFaqjgvHSOMXmseHSb-YpOk33YoYRdm2CL-0GaxXefuu2H5SNBdhi13oIHlOaLU6xr9uND-pO4p2wNc62e1zsMgOxNTgqk_mYVN1cFjNY1NgY-_FayxNu3Ky0rTNrSq67cUGldQQtXBfJWIku-YnTeURZdS9QQlzb7IBl_ty?purpose=fullsize",
+         "markdown": "![Septic Services in Star, ID | Idaho Septic Solutions](https://images.openai.com/static-rsc-4/kTzOQjQhRBLiYdxsG7DesmqFqFaqjgvHSOMXmseHSb-YpOk33YoYRdm2CL-0GaxXefuu2H5SNBdhi13oIHlOaLU6xr9uND-pO4p2wNc62e1zsMgOxNTgqk_mYVN1cFjNY1NgY-_FayxNu3Ky0rTNrSq67cUGldQQtXBfJWIku-YnTeURZdS9QQlzb7IBl_ty?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 2,
+       "rank_absolute": 3,
+       "markdown": "\n\n## 1\\. ABC Pumping Service\n\n(First call) Meridian\n\n5.0/5 · 816 reviews\n\nA strong first option based on its high rating and substantial review count. Its listing identifies it as a septic service provider.\n\n\\(208) 515-2474\n\nAlso listed at a second number: (208) 954-5339.\n\n---\n\n",
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "ABC Pumping Service",
+         "category": "local_business",
+         "markdown": "ABC Pumping Service"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 2,
+       "rank_absolute": 4,
+       "markdown": "![Septic System Installation in Boise, ID | Idaho Septic Solutions](https://images.openai.com/static-rsc-4/Djz9h1eeMJIFlUEB2Y21BJLKhpqh4CjSLn8A_WkP-X9UDCsitA4Li0MAoSnxeI2Nv9eHoiTAuY9Z2Y7RxkL1YPJv-9OezUdNtOcQm22-FZWhjMgIhyPlOXdODeSCP-r9corXfM8rvle5F0Q74qkDk8TM9KMm7ImgEUJpwBNqnRLi2JnT4-pL9Gd8s_edUNrm?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.idahosepticsolutions.com/septic-system-installation-boise-id",
+         "alt": "Septic System Installation in Boise, ID | Idaho Septic Solutions",
+         "image_url": "https://images.openai.com/static-rsc-4/Djz9h1eeMJIFlUEB2Y21BJLKhpqh4CjSLn8A_WkP-X9UDCsitA4Li0MAoSnxeI2Nv9eHoiTAuY9Z2Y7RxkL1YPJv-9OezUdNtOcQm22-FZWhjMgIhyPlOXdODeSCP-r9corXfM8rvle5F0Q74qkDk8TM9KMm7ImgEUJpwBNqnRLi2JnT4-pL9Gd8s_edUNrm?purpose=fullsize",
+         "markdown": "![Septic System Installation in Boise, ID | Idaho Septic Solutions](https://images.openai.com/static-rsc-4/Djz9h1eeMJIFlUEB2Y21BJLKhpqh4CjSLn8A_WkP-X9UDCsitA4Li0MAoSnxeI2Nv9eHoiTAuY9Z2Y7RxkL1YPJv-9OezUdNtOcQm22-FZWhjMgIhyPlOXdODeSCP-r9corXfM8rvle5F0Q74qkDk8TM9KMm7ImgEUJpwBNqnRLi2JnT4-pL9Gd8s_edUNrm?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 3,
+       "rank_absolute": 5,
+       "markdown": "\n\n## 2\\. Mike's Septic & Drain\n\n5.0/5 · 56 reviews\n\nA Boise-based option worth calling for a local quote. Its listing shows 24-hour availability, though you'll want to confirm scheduling for routine pumping.\n\n\\(208) 718-0814\n\n2914 S Cole Rd, Boise\n\n---\n\n",
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Mike's Septic & Drain",
+         "category": "local_business",
+         "markdown": "Mike's Septic & Drain"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 3,
+       "rank_absolute": 6,
+       "markdown": "![Idaho Septic Solutions | Septic system repair](https://images.openai.com/static-rsc-4/RMew9U3_Jf1ffVSDvFXcgsbI7Ha_emd-KRn6rxw_YybzYhgLQ0IBOhgCw5SA10O3wYagi1L3uxKTaBmlygWgBOPsfDyK7KT5PyITLnZ9cXM4M_1xaedBFB2g9zDQ4gtpixGltjx7aomY4fq-7qHjChKIk0U712EbVgsNxA2yFt_OZijQb0zhrdJYeXelP9U6?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.idahosepticsolutions.com/",
+         "alt": "Idaho Septic Solutions | Septic system repair",
+         "image_url": "https://images.openai.com/static-rsc-4/RMew9U3_Jf1ffVSDvFXcgsbI7Ha_emd-KRn6rxw_YybzYhgLQ0IBOhgCw5SA10O3wYagi1L3uxKTaBmlygWgBOPsfDyK7KT5PyITLnZ9cXM4M_1xaedBFB2g9zDQ4gtpixGltjx7aomY4fq-7qHjChKIk0U712EbVgsNxA2yFt_OZijQb0zhrdJYeXelP9U6?purpose=fullsize",
+         "markdown": "![Idaho Septic Solutions | Septic system repair](https://images.openai.com/static-rsc-4/RMew9U3_Jf1ffVSDvFXcgsbI7Ha_emd-KRn6rxw_YybzYhgLQ0IBOhgCw5SA10O3wYagi1L3uxKTaBmlygWgBOPsfDyK7KT5PyITLnZ9cXM4M_1xaedBFB2g9zDQ4gtpixGltjx7aomY4fq-7qHjChKIk0U712EbVgsNxA2yFt_OZijQb0zhrdJYeXelP9U6?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 4,
+       "rank_absolute": 7,
+       "markdown": "\n\n## 3\\. Express Septic & Drain Cleaning\n\n4.9/5 · 548 reviews\n\nAnother well-reviewed Boise-area provider. Worth comparing for routine pumping or if you need a quicker appointment.\n\n\\(208) 254-1217\n\n6003 W Overland Rd, Boise\n\nRatings and review counts are from local business listings; they aren't a guarantee of workmanship or proof that a company's septic pumper permit is current.\n\n## Before you book: one important reliability check\n\nIdaho's Department of Environmental Quality published its permitted septic pumper list in July 2026. It lists both ABC Pumping and Mike's Septic &amp; Drain for the Boise-area health district. That's a useful additional check beyond online reviews. [www2.deq.idaho.gov](https://www2.deq.idaho.gov/admin/LEIA/api/document/download/14787)\n\nYou can also call **Central District Health at (208) 375-5211** to verify a company's current permit before scheduling. [www2.deq.idaho.gov](https://www2.deq.idaho.gov/admin/LEIA/api/document/download/14787)\n\nWhen you call, ask these three questions\\:\n\n- “What's your total price for pumping my tank, including any extra charges?”\n- “Can you confirm you're currently permitted to pump septic tanks in Ada County?”\n- “Will you inspect the tank and let me know if anything needs attention beyond pumping?”\n\nFor price context, American Rooter &amp; Drain advertises Boise-area septic pumping starting at \\$395 for tanks up to 1,000 gallons, with the final price depending on the job. It's another quote worth considering. [americanrooterdrain.com](https://americanrooterdrain.com/septic-pumping/boise/)\n\n**One question so I can narrow this down\\:** Is the property in Boise proper, or farther out toward Eagle, Kuna, Meridian, or Garden Valley? That can make a difference in which company is the best fit.",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "snippet": "Total lines: 214",
+         "domain": "www2.deq.idaho.gov",
+         "url": "https://www2.deq.idaho.gov/admin/LEIA/api/document/download/14787",
+         "source_name": "Idaho DEQ"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Septic Tank Pumping in Boise - $395 Flat",
+         "domain": "americanrooterdrain.com",
+         "url": "https://americanrooterdrain.com/septic-pumping/boise/",
+         "source_name": "American Rooter"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Express Septic & Drain Cleaning",
+         "category": "local_business",
+         "markdown": "Express Septic & Drain Cleaning"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

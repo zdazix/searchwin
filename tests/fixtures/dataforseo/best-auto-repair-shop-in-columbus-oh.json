@@ -1,0 +1,331 @@
+{
+ "_note": "Real DataForSEO ChatGPT LLM Scraper (live/advanced) response captured via the DataForSEO MCP connector. The connector returns the task with result items only; result-level fields such as cost, model and check_url were not included.",
+ "_captured_at": "2026-10-12T20:35:59.660Z",
+ "_request": {
+  "keyword": "best auto repair shop in Columbus, OH",
+  "location_name": "United States",
+  "language_code": "en",
+  "force_web_search": true
+ },
+ "tasks": [
+  {
+   "id": "10122036-2093-0629-0000-a2bc22a85085",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "result": [
+    {
+     "keyword": "best auto repair shop in Columbus, OH",
+     "items": [
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 1,
+       "rank_absolute": 1,
+       "markdown": "# Best auto repair shops in Columbus, Ohio\n\nBased on local repair-shop rankings, customer reviews, and available service information, I'd start with an established independent mechanic rather than automatically choosing a dealership. **Weber Road Auto Service and Streamline Auto are two strong options to compare**, depending on your location and the type of repair. Local rankings also highlight several other highly rated independent shops. [www.loc8nearme.com](https://www.loc8nearme.com/ohio/columbus/auto-repair/)[columbustoprated.com](https://columbustoprated.com/auto-repair/)[autorepairscore.com](https://autorepairscore.com/oh/columbus)\n\n## Top shops to consider\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Auto Repair in Columbus, OH with Ratings, Reviews, Hours and Locations",
+         "domain": "www.loc8nearme.com",
+         "url": "https://www.loc8nearme.com/ohio/columbus/auto-repair/",
+         "source_name": "Loc8NearMe"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Auto Repair & Mechanics in Columbus, OH",
+         "domain": "columbustoprated.com",
+         "url": "https://columbustoprated.com/auto-repair/",
+         "source_name": "Columbus Top Rated"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best auto repair shops in Columbus, OH (115 ranked)",
+         "domain": "autorepairscore.com",
+         "url": "https://autorepairscore.com/oh/columbus",
+         "source_name": "AutoRepairScore"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 1,
+       "rank_absolute": 2,
+       "markdown": "![Auto Repair Services | Columbus, OH | Streamline Auto](https://images.openai.com/static-rsc-4/gUBaiTh1Vto5Ken8PnQGMeIgEAHzX90ti02dzA6QVRdKAiAIFWwMGM5VppoOaGghDQAPh0kSmm-H01SoWW4aWHWhQheeRrOONLxt_1vnRJjHRURndvLcMpGLz-VXvFennh2sxl85ICTBw8UhiCzyHY433L4Px7mlfRXjftDrv-L529dqmjfxOcrbAB3cEkqg?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.streamlineautorepaircolumbus.com/auto-repair-services",
+         "alt": "Auto Repair Services | Columbus, OH | Streamline Auto",
+         "image_url": "https://images.openai.com/static-rsc-4/gUBaiTh1Vto5Ken8PnQGMeIgEAHzX90ti02dzA6QVRdKAiAIFWwMGM5VppoOaGghDQAPh0kSmm-H01SoWW4aWHWhQheeRrOONLxt_1vnRJjHRURndvLcMpGLz-VXvFennh2sxl85ICTBw8UhiCzyHY433L4Px7mlfRXjftDrv-L529dqmjfxOcrbAB3cEkqg?purpose=fullsize",
+         "markdown": "![Auto Repair Services | Columbus, OH | Streamline Auto](https://images.openai.com/static-rsc-4/gUBaiTh1Vto5Ken8PnQGMeIgEAHzX90ti02dzA6QVRdKAiAIFWwMGM5VppoOaGghDQAPh0kSmm-H01SoWW4aWHWhQheeRrOONLxt_1vnRJjHRURndvLcMpGLz-VXvFennh2sxl85ICTBw8UhiCzyHY433L4Px7mlfRXjftDrv-L529dqmjfxOcrbAB3cEkqg?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 2,
+       "rank_absolute": 3,
+       "markdown": "\n\n### 1\\. Weber Road Auto Service\n\n1100 E Weber Rd, Columbus, OH 43211\n\nPhone: (614) 263-3805\n\nA family-run, full-service shop for routine maintenance, brakes, diagnostics, suspension, and engine-related repairs. Customer feedback emphasizes communication and trustworthy service. [www.loc8nearme.com](https://www.loc8nearme.com/ohio/columbus/auto-repair/)[columbustoprated.com](https://columbustoprated.com/auto-repair/)[autorepairscore.com](https://autorepairscore.com/oh/columbus)\n\nBest for: everyday repairs and ongoing maintenance.\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Auto Repair in Columbus, OH with Ratings, Reviews, Hours and Locations",
+         "domain": "www.loc8nearme.com",
+         "url": "https://www.loc8nearme.com/ohio/columbus/auto-repair/",
+         "source_name": "Loc8NearMe"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Auto Repair & Mechanics in Columbus, OH",
+         "domain": "columbustoprated.com",
+         "url": "https://columbustoprated.com/auto-repair/",
+         "source_name": "Columbus Top Rated"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best auto repair shops in Columbus, OH (115 ranked)",
+         "domain": "autorepairscore.com",
+         "url": "https://autorepairscore.com/oh/columbus",
+         "source_name": "AutoRepairScore"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Weber Road Auto Service",
+         "category": "local_business",
+         "markdown": "Weber Road Auto Service"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 2,
+       "rank_absolute": 4,
+       "markdown": "![Streamline Auto 3040 Cleveland Ave, Columbus, OH 43224, United States | AutoTechIQ](https://images.openai.com/static-rsc-4/71gFVyCdSOqTkFoGlMnx6LebwHIMN7tvZImL-Nbf180Alr5F7f43i0XZcpEX3UuwTJIQik0JYb4vFu0hzuscA89VM5ngwExjsGpHIUXI_uA_vavFWb8f7SHnAFdai0ZcnxXKtYkSnysG-DGEnofDaxDvYhGVRXCq7eKr-FPSrrkJkI4chWMVYW09YyETnPA6?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.autotechiq.com/auto-repair-shop/22114/streamline-auto",
+         "alt": "Streamline Auto 3040 Cleveland Ave, Columbus, OH 43224, United States | AutoTechIQ",
+         "image_url": "https://images.openai.com/static-rsc-4/71gFVyCdSOqTkFoGlMnx6LebwHIMN7tvZImL-Nbf180Alr5F7f43i0XZcpEX3UuwTJIQik0JYb4vFu0hzuscA89VM5ngwExjsGpHIUXI_uA_vavFWb8f7SHnAFdai0ZcnxXKtYkSnysG-DGEnofDaxDvYhGVRXCq7eKr-FPSrrkJkI4chWMVYW09YyETnPA6?purpose=fullsize",
+         "markdown": "![Streamline Auto 3040 Cleveland Ave, Columbus, OH 43224, United States | AutoTechIQ](https://images.openai.com/static-rsc-4/71gFVyCdSOqTkFoGlMnx6LebwHIMN7tvZImL-Nbf180Alr5F7f43i0XZcpEX3UuwTJIQik0JYb4vFu0hzuscA89VM5ngwExjsGpHIUXI_uA_vavFWb8f7SHnAFdai0ZcnxXKtYkSnysG-DGEnofDaxDvYhGVRXCq7eKr-FPSrrkJkI4chWMVYW09YyETnPA6?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 3,
+       "rank_absolute": 5,
+       "markdown": "\n\n### 2\\. Streamline Auto\n\n3040 Cleveland Ave, Columbus, OH 43224\n\nPhone: (380) 285-6781\n\nAn independent, family-owned shop offering general mechanical repairs, electrical work, brakes, and air-conditioning service. Reviews praise fair pricing and clear explanations. [www.loc8nearme.com](https://www.loc8nearme.com/ohio/columbus/auto-repair/)[columbustoprated.com](https://columbustoprated.com/auto-repair/)[autorepairscore.com](https://autorepairscore.com/oh/columbus)\n\nBest for: honest diagnostics and general auto repair.\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Auto Repair in Columbus, OH with Ratings, Reviews, Hours and Locations",
+         "domain": "www.loc8nearme.com",
+         "url": "https://www.loc8nearme.com/ohio/columbus/auto-repair/",
+         "source_name": "Loc8NearMe"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Auto Repair & Mechanics in Columbus, OH",
+         "domain": "columbustoprated.com",
+         "url": "https://columbustoprated.com/auto-repair/",
+         "source_name": "Columbus Top Rated"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best auto repair shops in Columbus, OH (115 ranked)",
+         "domain": "autorepairscore.com",
+         "url": "https://autorepairscore.com/oh/columbus",
+         "source_name": "AutoRepairScore"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Streamline Auto",
+         "category": "local_business",
+         "markdown": "Streamline Auto"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 3,
+       "rank_absolute": 6,
+       "markdown": "![Blog | Streamline Auto](https://images.openai.com/static-rsc-4/X8Axzypd4ov1TxVNpwUzEHTgVe_j_hAubFTs8upE6PaxrmWpuqY3IqFQ1akuGJrT8fIjyE_iBbegWx8USHgWvb4xkUQdW_OW3wt-WYqJnM1DjFyBAw73yujHJgCbdsVmnaRC9b6GBJhsxbyZLjN-9RPbg-ZOmnMulz4NnBSkbTNbwp827z_cDj90RnOIcUgn?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.streamlineautorepaircolumbus.com/blog",
+         "alt": "Blog | Streamline Auto",
+         "image_url": "https://images.openai.com/static-rsc-4/X8Axzypd4ov1TxVNpwUzEHTgVe_j_hAubFTs8upE6PaxrmWpuqY3IqFQ1akuGJrT8fIjyE_iBbegWx8USHgWvb4xkUQdW_OW3wt-WYqJnM1DjFyBAw73yujHJgCbdsVmnaRC9b6GBJhsxbyZLjN-9RPbg-ZOmnMulz4NnBSkbTNbwp827z_cDj90RnOIcUgn?purpose=fullsize",
+         "markdown": "![Blog | Streamline Auto](https://images.openai.com/static-rsc-4/X8Axzypd4ov1TxVNpwUzEHTgVe_j_hAubFTs8upE6PaxrmWpuqY3IqFQ1akuGJrT8fIjyE_iBbegWx8USHgWvb4xkUQdW_OW3wt-WYqJnM1DjFyBAw73yujHJgCbdsVmnaRC9b6GBJhsxbyZLjN-9RPbg-ZOmnMulz4NnBSkbTNbwp827z_cDj90RnOIcUgn?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 4,
+       "rank_absolute": 7,
+       "markdown": "\n\n### 3\\. Fishinger & Mountview Auto Repair\n\n2139 Fishinger Rd, Columbus, OH 43221\n\nPhone: (614) 451-7270\n\nA locally owned neighborhood mechanic in the Upper Arlington area. Public reviews emphasize dependable service and a helpful, personal approach. [autorepairscore.com](https://autorepairscore.com/oh/columbus)[www.autoat.org](https://www.autoat.org/search/columbus)\n\nBest for: drivers near Upper Arlington.\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Best auto repair shops in Columbus, OH (115 ranked)",
+         "domain": "autorepairscore.com",
+         "url": "https://autorepairscore.com/oh/columbus",
+         "source_name": "AutoRepairScore"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Auto Repair & Detailing in Columbus, OH",
+         "domain": "www.autoat.org",
+         "url": "https://www.autoat.org/search/columbus",
+         "source_name": "AutoAt · AutoAt"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Fishinger & Mountview Auto Repair",
+         "category": "local_business",
+         "markdown": "Fishinger & Mountview Auto Repair"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 4,
+       "rank_absolute": 8,
+       "markdown": "![Shifflet Auto Care - Quality Auto Repair in Columbus, OH 43204](https://images.openai.com/static-rsc-4/v0MQoeaLTgKfVopNP0OY20IP_4HPA42sKjvaIl7TWjvrqTmeK4QgoLQwA6I-SKLOvc-e7d4Sq9hjhUDfQl9FU7X1C6COfGhGaAJG4MYEUP3PyJA3x4IBuTMDff_QB15K38HnEJhxBbMIS5tJ5kiziiGcnOSSSYTc6b1z_h2D8w7y9YCHzd5M3eEXp-gPEZMI?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://repairpal.com/auto-repair-near-me/auto-repair-in-columbus-ohio/shifflet-auto-care",
+         "alt": "Shifflet Auto Care - Quality Auto Repair in Columbus, OH 43204",
+         "image_url": "https://images.openai.com/static-rsc-4/v0MQoeaLTgKfVopNP0OY20IP_4HPA42sKjvaIl7TWjvrqTmeK4QgoLQwA6I-SKLOvc-e7d4Sq9hjhUDfQl9FU7X1C6COfGhGaAJG4MYEUP3PyJA3x4IBuTMDff_QB15K38HnEJhxBbMIS5tJ5kiziiGcnOSSSYTc6b1z_h2D8w7y9YCHzd5M3eEXp-gPEZMI?purpose=fullsize",
+         "markdown": "![Shifflet Auto Care - Quality Auto Repair in Columbus, OH 43204](https://images.openai.com/static-rsc-4/v0MQoeaLTgKfVopNP0OY20IP_4HPA42sKjvaIl7TWjvrqTmeK4QgoLQwA6I-SKLOvc-e7d4Sq9hjhUDfQl9FU7X1C6COfGhGaAJG4MYEUP3PyJA3x4IBuTMDff_QB15K38HnEJhxBbMIS5tJ5kiziiGcnOSSSYTc6b1z_h2D8w7y9YCHzd5M3eEXp-gPEZMI?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 5,
+       "rank_absolute": 9,
+       "markdown": "\n\n### 4\\. Glacier Auto Repair\n\n2195 S High St, Columbus, OH 43207\n\nPhone: (614) 525-0060\n\nAn independent full-service repair shop on the south side of Columbus. A good option to investigate if you want clear repair explanations and help prioritizing work. [www.loc8nearme.com](https://www.loc8nearme.com/ohio/columbus/auto-repair/)[columbustoprated.com](https://columbustoprated.com/auto-repair/)[autorepairscore.com](https://autorepairscore.com/oh/columbus)\n\nBest for: drivers on Columbus's south side.\n\n## Find them on the map\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Auto Repair in Columbus, OH with Ratings, Reviews, Hours and Locations",
+         "domain": "www.loc8nearme.com",
+         "url": "https://www.loc8nearme.com/ohio/columbus/auto-repair/",
+         "source_name": "Loc8NearMe"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Auto Repair & Mechanics in Columbus, OH",
+         "domain": "columbustoprated.com",
+         "url": "https://columbustoprated.com/auto-repair/",
+         "source_name": "Columbus Top Rated"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best auto repair shops in Columbus, OH (115 ranked)",
+         "domain": "autorepairscore.com",
+         "url": "https://autorepairscore.com/oh/columbus",
+         "source_name": "AutoRepairScore"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Glacier Auto Repair",
+         "category": "local_business",
+         "markdown": "Glacier Auto Repair"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_local_businesses",
+       "rank_group": 1,
+       "rank_absolute": 10,
+       "items": [
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Weber Road Auto Service",
+         "description": "Auto repair shop",
+         "address": "1100 E Weber Rd, Columbus, OH 43211",
+         "phone": "+16142633805",
+         "reviews_count": 1319,
+         "url": "https://www.weberroadauto.com/?utm_source=chatgpt.com",
+         "domain": "www.weberroadauto.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.9,
+          "votes_count": 1319,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Streamline Auto",
+         "description": "Auto repair shop",
+         "address": "3040 Cleveland Ave, Columbus, OH 43224",
+         "phone": "+13802856781",
+         "reviews_count": 678,
+         "url": "https://www.streamlineautorepaircolumbus.com/?utm_source=chatgpt.com",
+         "domain": "www.streamlineautorepaircolumbus.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.9,
+          "votes_count": 678,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Fishinger & Mountview Auto Repair",
+         "description": "Auto repair shop",
+         "address": "2139 Fishinger Rd, Columbus, OH 43221",
+         "phone": "+16144517270",
+         "reviews_count": 123,
+         "url": "https://upperarlingtonautorepair.com/?utm_source=chatgpt.com",
+         "domain": "upperarlingtonautorepair.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 123,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Glacier Auto Repair",
+         "description": "Auto repair shop",
+         "address": "2195 S High St, Columbus, OH 43207",
+         "phone": "+16145250060",
+         "reviews_count": 202,
+         "url": "http://glacierautorepairs.com/?utm_source=chatgpt.com",
+         "domain": "glacierautorepairs.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.9,
+          "votes_count": 202,
+          "rating_max": 5
+         }
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 6,
+       "rank_absolute": 11,
+       "markdown": "\n\n## Let me narrow it down to the best one for you\n\nWhat kind of repair does your car need? For example, check-engine light, brakes, transmission, engine trouble, or routine maintenance. And what make and model is your car?\n\nI can narrow the list to the best match for your repair, with an emphasis on **good reviews, fair pricing, and trustworthy service**\\."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

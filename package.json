@@ -1,0 +1,26 @@
+{
+  "name": "searchwin-site",
+  "private": true,
+  "description": "SearchWin.ai static site plus the free AI check (Vercel functions).",
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "test": "node --test \"tests/*.test.js\"",
+    "db:migrate": "node scripts/migrate.mjs",
+    "dev": "node scripts/dev-server.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.131.0",
+    "@neondatabase/serverless": "1.1.0",
+    "@vercel/functions": "3.9.9",
+    "disposable-email-domains": "1.0.62",
+    "marked": "18.0.14",
+    "node-html-parser": "9.0.4",
+    "sanitize-html": "2.17.7"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.8"
+  }
+}

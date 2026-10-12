@@ -1,0 +1,267 @@
+{
+ "_note": "Real DataForSEO ChatGPT LLM Scraper (live/advanced) response captured via the DataForSEO MCP connector. The connector returns the task with result items only; result-level fields such as cost, model and check_url were not included.",
+ "_captured_at": "2026-10-12T20:36:34.611Z",
+ "_request": {
+  "keyword": "best garage door repair in Las Vegas, NV",
+  "location_name": "United States",
+  "language_code": "en",
+  "force_web_search": true
+ },
+ "tasks": [
+  {
+   "id": "10122036-2093-0629-0000-acca34018957",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "result": [
+    {
+     "keyword": "best garage door repair in Las Vegas, NV",
+     "items": [
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 1,
+       "rank_absolute": 1,
+       "markdown": "# Best garage door repair companies in Las Vegas, NV\n\nI searched current local listings and review sources to find well-reviewed garage door repair companies in Las Vegas. My recommendation is to compare **Open Sesame Garage Doors, All Garage Door Pros, and A1 Garage Door Service** first, depending on whether you prioritize customer reviews, local service, or a large established provider. Expertise.com’s October 2026 roundup and local business listings provide a useful starting point. [www.expertise.com](https://www.expertise.com/home-improvement/garage-doors/nevada/las-vegas)[allgaragedoorpros.com](https://allgaragedoorpros.com/)[serviceagent.ai](https://serviceagent.ai/directory/nevada/las-vegas/garage-door/)\n\n## My top picks\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "19 Best Las Vegas, NV Garage Door Repair Companies",
+         "domain": "www.expertise.com",
+         "url": "https://www.expertise.com/home-improvement/garage-doors/nevada/las-vegas",
+         "source_name": "Expertise",
+         "publication_date": "2020-02-12 20:29:28 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Las Vegas Garage Door Repair | Same-Day",
+         "domain": "allgaragedoorpros.com",
+         "url": "https://allgaragedoorpros.com/",
+         "source_name": "5★ Local Pros"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Garage Door in Las Vegas, Nevada: 18 Top Pros Ranked (2026)",
+         "domain": "serviceagent.ai",
+         "url": "https://serviceagent.ai/directory/nevada/las-vegas/garage-door/",
+         "source_name": "ServiceAgent",
+         "publication_date": "2026-10-12 00:00:00 +00:00"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 1,
+       "rank_absolute": 2,
+       "markdown": "![Voted Best Garage Door Repair Summerlin NV: 20-Truck Fleet Expans](https://images.openai.com/static-rsc-4/S5bvOXaOZtYPhA9GhxgCtykTmSnh71ETIrsKhfD1CNLFwuSJg0JWaBA3F7r8_63DekupOd_-8ADQKzowrkPXDXx36Zq0W89E2l_ktYep8mshstIbANRTkVBs4s0fJQzqtKbP8mIWKBjWFegwTYgbKR23cHIuNb5azzfPJDfhNnSJjOtjF4oQYJ0jxhHK1AZK?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://natlawreview.com/press-releases/voted-best-garage-door-repair-summerlin-nv-20-truck-fleet-expansion",
+         "alt": "Voted Best Garage Door Repair Summerlin NV: 20-Truck Fleet Expans",
+         "image_url": "https://images.openai.com/static-rsc-4/S5bvOXaOZtYPhA9GhxgCtykTmSnh71ETIrsKhfD1CNLFwuSJg0JWaBA3F7r8_63DekupOd_-8ADQKzowrkPXDXx36Zq0W89E2l_ktYep8mshstIbANRTkVBs4s0fJQzqtKbP8mIWKBjWFegwTYgbKR23cHIuNb5azzfPJDfhNnSJjOtjF4oQYJ0jxhHK1AZK?purpose=fullsize",
+         "markdown": "![Voted Best Garage Door Repair Summerlin NV: 20-Truck Fleet Expans](https://images.openai.com/static-rsc-4/S5bvOXaOZtYPhA9GhxgCtykTmSnh71ETIrsKhfD1CNLFwuSJg0JWaBA3F7r8_63DekupOd_-8ADQKzowrkPXDXx36Zq0W89E2l_ktYep8mshstIbANRTkVBs4s0fJQzqtKbP8mIWKBjWFegwTYgbKR23cHIuNb5azzfPJDfhNnSJjOtjF4oQYJ0jxhHK1AZK?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 2,
+       "rank_absolute": 3,
+       "markdown": "\n\n### 1\\. Open Sesame Garage Doors\n\nBest overall starting point\n\n**5.0/5 Yelp** · 929 reviews\n\nOffers same-day service and 24/7 emergency repairs, including broken springs, cables, panels, and openers. Listed Nevada license \\#0083315. [www.expertise.com](https://www.expertise.com/home-improvement/garage-doors/nevada/las-vegas)[allgaragedoorpros.com](https://allgaragedoorpros.com/)\n\nCall to confirm current number and availability.\n\n[Official website](https://opensesamegaragedoorslv.com/)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "19 Best Las Vegas, NV Garage Door Repair Companies",
+         "snippet": "Total lines: 890",
+         "domain": "www.expertise.com",
+         "url": "https://www.expertise.com/home-improvement/garage-doors/nevada/las-vegas",
+         "source_name": "Expertise"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Las Vegas Garage Door Repair | Same-Day",
+         "domain": "allgaragedoorpros.com",
+         "url": "https://allgaragedoorpros.com/",
+         "source_name": "5★ Local Pros"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Official website",
+         "domain": "opensesamegaragedoorslv.com",
+         "url": "https://opensesamegaragedoorslv.com/",
+         "markdown": "[Official website](https://opensesamegaragedoorslv.com/)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Open Sesame Garage Doors",
+         "category": "local_business",
+         "markdown": "Open Sesame Garage Doors"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 2,
+       "rank_absolute": 4,
+       "markdown": "![Garage Door Repair in Las Vegas, NV | Same-Day](https://images.openai.com/static-rsc-4/CDhiPZoNE9bMHe0Gdao8mk5juHxh38g3W9kd05VNGqbs0-BqP-0P0r-GFCBG8CK9dKXaLgdmHaAXJYdgqnzzg-MWcxAe8bRhb7PKjhwuTVhjxE8_bEQxhK2WdTEceVWnWwmn8_Mx5lSFAm2Q9IuBZZ_Ezz99r3eYf2PVNYKlZAuu1gwAUbyKXHJqZy9MgsZN?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://nationwidegaragedoorpros.com/nevada/las-vegas/garage-door-repair",
+         "alt": "Garage Door Repair in Las Vegas, NV | Same-Day",
+         "image_url": "https://images.openai.com/static-rsc-4/CDhiPZoNE9bMHe0Gdao8mk5juHxh38g3W9kd05VNGqbs0-BqP-0P0r-GFCBG8CK9dKXaLgdmHaAXJYdgqnzzg-MWcxAe8bRhb7PKjhwuTVhjxE8_bEQxhK2WdTEceVWnWwmn8_Mx5lSFAm2Q9IuBZZ_Ezz99r3eYf2PVNYKlZAuu1gwAUbyKXHJqZy9MgsZN?purpose=fullsize",
+         "markdown": "![Garage Door Repair in Las Vegas, NV | Same-Day](https://images.openai.com/static-rsc-4/CDhiPZoNE9bMHe0Gdao8mk5juHxh38g3W9kd05VNGqbs0-BqP-0P0r-GFCBG8CK9dKXaLgdmHaAXJYdgqnzzg-MWcxAe8bRhb7PKjhwuTVhjxE8_bEQxhK2WdTEceVWnWwmn8_Mx5lSFAm2Q9IuBZZ_Ezz99r3eYf2PVNYKlZAuu1gwAUbyKXHJqZy9MgsZN?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 3,
+       "rank_absolute": 5,
+       "markdown": "\n\n### 2\\. All Garage Door Pros\n\nBest local-service option\n\n**5.0/5 Google** · 300+ reviews reported by the company\n\nLocally owned, with same-day repairs, spring replacement, opener services, and emergency service. Nevada license \\#0088549. [www.expertise.com](https://www.expertise.com/home-improvement/garage-doors/nevada/las-vegas)[allgaragedoorpros.com](https://allgaragedoorpros.com/)\n\n**702-846-0884**\n\n[Official website](https://allgaragedoorpros.com/)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "19 Best Las Vegas, NV Garage Door Repair Companies",
+         "snippet": "Total lines: 890",
+         "domain": "www.expertise.com",
+         "url": "https://www.expertise.com/home-improvement/garage-doors/nevada/las-vegas",
+         "source_name": "Expertise"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Las Vegas Garage Door Repair | Same-Day",
+         "domain": "allgaragedoorpros.com",
+         "url": "https://allgaragedoorpros.com/",
+         "source_name": "5★ Local Pros"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Official website",
+         "domain": "allgaragedoorpros.com",
+         "url": "https://allgaragedoorpros.com/",
+         "markdown": "[Official website](https://allgaragedoorpros.com/)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "All Garage Door Pros",
+         "category": "local_business",
+         "markdown": "All Garage Door Pros"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 3,
+       "rank_absolute": 6,
+       "markdown": "![A1 Garage Door Service : Opening the Door to Expansion - North America Outlook](https://images.openai.com/static-rsc-4/mo51TCZcCiA3uOT_-gHtuu6EpGPOVpmqGmOJrmbkI9jQy59H_YxCFNwF6-WC5GNmG9FtJMF-3yI-6n91LAFTywqhbOaWFt7ta-epV3ZXM_VFGOw-MhnQkZhoctL8ehjNsnOQ2uC8apNwOHR1micVMz8TMmLp0CQyyMAr9hdIErnXj7x4obxrPzov8drXeTLt?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.northamericaoutlookmag.com/construction/a1-garage-door-service-opening-the-door-to-expansion",
+         "alt": "A1 Garage Door Service : Opening the Door to Expansion - North America Outlook",
+         "image_url": "https://images.openai.com/static-rsc-4/mo51TCZcCiA3uOT_-gHtuu6EpGPOVpmqGmOJrmbkI9jQy59H_YxCFNwF6-WC5GNmG9FtJMF-3yI-6n91LAFTywqhbOaWFt7ta-epV3ZXM_VFGOw-MhnQkZhoctL8ehjNsnOQ2uC8apNwOHR1micVMz8TMmLp0CQyyMAr9hdIErnXj7x4obxrPzov8drXeTLt?purpose=fullsize",
+         "markdown": "![A1 Garage Door Service : Opening the Door to Expansion - North America Outlook](https://images.openai.com/static-rsc-4/mo51TCZcCiA3uOT_-gHtuu6EpGPOVpmqGmOJrmbkI9jQy59H_YxCFNwF6-WC5GNmG9FtJMF-3yI-6n91LAFTywqhbOaWFt7ta-epV3ZXM_VFGOw-MhnQkZhoctL8ehjNsnOQ2uC8apNwOHR1micVMz8TMmLp0CQyyMAr9hdIErnXj7x4obxrPzov8drXeTLt?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 4,
+       "rank_absolute": 7,
+       "markdown": "\n\n### 3\\. A1 Garage Door Service\n\nBest for an established 24/7 provider\n\n**4.9/5** · 6,012 reviews\n\nA large review base and round-the-clock availability, with repairs for springs, cables, tracks, openers, and complete doors. [www.google.com](https://www.google.com/maps/place/?q=place_id%3AChIJFdOLCKTFyIARStNjZQA5VHg&hl=en)[prestigegaragedoors.vegas](https://prestigegaragedoors.vegas/best/emergency-garage-door-repair-las-vegas/)\n\n**702-825-3960**\n\n4516 Mitchell St, North Las Vegas\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "A1 Garage Door Service",
+         "snippet": "4516 Mitchell St, North Las Vegas, NV 89081, United States",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/?q=place_id%3AChIJFdOLCKTFyIARStNjZQA5VHg&hl=en",
+         "source_name": "google.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Emergency Garage Door Repair in Las Vegas (2026)",
+         "domain": "prestigegaragedoors.vegas",
+         "url": "https://prestigegaragedoors.vegas/best/emergency-garage-door-repair-las-vegas/",
+         "source_name": "Prestige Garage Door Services"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "A1 Garage Door Service",
+         "category": "local_business",
+         "markdown": "A1 Garage Door Service"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 4,
+       "rank_absolute": 8,
+       "markdown": "![Garage Door Roller Repair Las Vegas | Near You – Same-Day Service – #1 Garage Door Repair Las Vegas](https://images.openai.com/static-rsc-4/XgOwMbjWYNd64XQnPRiWFvuQF8AriADIEbagv9qLPL_E3MQjTYHFodx7SbsXZMvtSbk5SEOZu3-M01q46wETPjgr7rnnbU4sJeIq5UjWPn6xRyY1QQEg4Crn9hP8Q2thzsrHfa7DWrOMuZNaUah_jtMdjzIRQQH75gYb6FWN0WWeUsrcJFNDGft6M181EUjG?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://garagedoorrepairlasvegas.co/garage-door-roller-repair-las-vegas/",
+         "alt": "Garage Door Roller Repair Las Vegas | Near You – Same-Day Service – #1 Garage Door Repair Las Vegas",
+         "image_url": "https://images.openai.com/static-rsc-4/XgOwMbjWYNd64XQnPRiWFvuQF8AriADIEbagv9qLPL_E3MQjTYHFodx7SbsXZMvtSbk5SEOZu3-M01q46wETPjgr7rnnbU4sJeIq5UjWPn6xRyY1QQEg4Crn9hP8Q2thzsrHfa7DWrOMuZNaUah_jtMdjzIRQQH75gYb6FWN0WWeUsrcJFNDGft6M181EUjG?purpose=fullsize",
+         "markdown": "![Garage Door Roller Repair Las Vegas | Near You – Same-Day Service – #1 Garage Door Repair Las Vegas](https://images.openai.com/static-rsc-4/XgOwMbjWYNd64XQnPRiWFvuQF8AriADIEbagv9qLPL_E3MQjTYHFodx7SbsXZMvtSbk5SEOZu3-M01q46wETPjgr7rnnbU4sJeIq5UjWPn6xRyY1QQEg4Crn9hP8Q2thzsrHfa7DWrOMuZNaUah_jtMdjzIRQQH75gYb6FWN0WWeUsrcJFNDGft6M181EUjG?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 5,
+       "rank_absolute": 9,
+       "markdown": "\n\n### 4\\. Kurbsyde Garage Doors\n\nAnother highly rated local alternative\n\n**5.0/5 Google** · 52 reviews\n\nAlso reports 5.0 on Yelp across 48 reviews. Handles springs, cables, tracks, hinges, and emergency repairs. [www.expertise.com](https://www.expertise.com/home-improvement/garage-doors/nevada/las-vegas)[allgaragedoorpros.com](https://allgaragedoorpros.com/)\n\n[Official website](https://kurbsydegaragedoors.com/)\n\n## Before you hire anyone\n\n- Get a written, itemized quote before authorizing repairs.\n- Ask whether the service-call fee is waived if you proceed.\n- Confirm the Nevada contractor license, parts warranty, labor warranty, and any after-hours surcharge.\n- Get a second quote before agreeing to a full door or opener replacement.\n\nYou can verify a contractor through the [Nevada State Contractors Board](https://www.nvcontractorsboard.com/)\\.\n\n## Let me narrow it down\n\nWhat part of Las Vegas are you in, and what is wrong with the door? I can narrow this to the best options for your situation and prioritize price or fast service.",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "19 Best Las Vegas, NV Garage Door Repair Companies",
+         "snippet": "Total lines: 890",
+         "domain": "www.expertise.com",
+         "url": "https://www.expertise.com/home-improvement/garage-doors/nevada/las-vegas",
+         "source_name": "Expertise"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Las Vegas Garage Door Repair | Same-Day",
+         "domain": "allgaragedoorpros.com",
+         "url": "https://allgaragedoorpros.com/",
+         "source_name": "5★ Local Pros"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Official website",
+         "domain": "kurbsydegaragedoors.com",
+         "url": "https://kurbsydegaragedoors.com/",
+         "markdown": "[Official website](https://kurbsydegaragedoors.com/)"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Nevada State Contractors Board",
+         "domain": "www.nvcontractorsboard.com",
+         "url": "https://www.nvcontractorsboard.com/",
+         "markdown": "[Nevada State Contractors Board](https://www.nvcontractorsboard.com/)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Kurbsyde Garage Doors",
+         "category": "local_business",
+         "markdown": "Kurbsyde Garage Doors"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

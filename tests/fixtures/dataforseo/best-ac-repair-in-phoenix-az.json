@@ -1,0 +1,360 @@
+{
+ "_note": "Real DataForSEO ChatGPT LLM Scraper (live/advanced) response captured via the DataForSEO MCP connector. The connector returns the task with result items only; result-level fields such as cost, model and check_url were not included.",
+ "_captured_at": "2026-10-12T20:34:52.306Z",
+ "_request": {
+  "keyword": "best ac repair in Phoenix, AZ",
+  "location_name": "United States",
+  "language_code": "en",
+  "force_web_search": true
+ },
+ "tasks": [
+  {
+   "id": "10122034-2093-0629-0000-8bcdb7f10eb9",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "result": [
+    {
+     "keyword": "best ac repair in Phoenix, AZ",
+     "items": [
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 1,
+       "rank_absolute": 1,
+       "markdown": "# Best AC repair companies in Phoenix, AZ\n\nI researched Phoenix-area air conditioning repair companies using current local business listings, customer reviews, and 2026 HVAC rankings. My recommendation is to compare **at least two local contractors before approving a major repair or full AC replacement**\\.\n\nThe best choice depends on whether you need emergency service, an honest repair diagnosis, or the best value for your money. [www.expertise.com](https://www.expertise.com/home-improvement/ac-repair/arizona/phoenix)[www.consumeraffairs.com](https://www.consumeraffairs.com/homeowners/hvac-companies-phoenix.html)[reviews.birdeye.com](https://reviews.birdeye.com/d/heating-air-conditioning-hvac/phoenix-az/)[trustanalytica.org](https://trustanalytica.org/us/az/phoenix/best-air-conditioning-contractors)\n\n## My top picks\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "19 Best Phoenix, AZ AC Repair Services",
+         "domain": "www.expertise.com",
+         "url": "https://www.expertise.com/home-improvement/ac-repair/arizona/phoenix",
+         "source_name": "Expertise",
+         "publication_date": "2020-05-29 22:25:22 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "10 Best HVAC Companies in Phoenix, AZ of 2026",
+         "domain": "www.consumeraffairs.com",
+         "url": "https://www.consumeraffairs.com/homeowners/hvac-companies-phoenix.html",
+         "source_name": "ConsumerAffairs"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Top Heating & Air Conditioning/HVAC Companies in Phoenix, AZ",
+         "domain": "reviews.birdeye.com",
+         "url": "https://reviews.birdeye.com/d/heating-air-conditioning-hvac/phoenix-az/",
+         "source_name": "Birdeye"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Air Conditioning Contractors in Phoenix (Oct 2026 Rankings)",
+         "domain": "trustanalytica.org",
+         "url": "https://trustanalytica.org/us/az/phoenix/best-air-conditioning-contractors",
+         "source_name": "TrustAnalytica"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 1,
+       "rank_absolute": 2,
+       "markdown": "![Out In Old Town - Not available in your region](https://images.openai.com/static-rsc-4/M0LS33suRWdH3mjbY_n9QpVPIwNOiE1okLhAX7d_42jrMC3Q_YucjbziM-NBTciUtQggmG8DyC3RaLuLffq85frsLgm8cen5gEdBZSi9ko-Zv4o5pYjLQ5jwOfpmrjGpjW7qn7ZpU1KvLEC1uQR9d-gGXoZtWVzvAuHkLGiOqLNo_VCRXBmohroNArwh_33o?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://outinoldtown.com/news/integrity-duct-hvac-services-alexandria-summer-challenges",
+         "alt": "Out In Old Town - Not available in your region",
+         "image_url": "https://images.openai.com/static-rsc-4/M0LS33suRWdH3mjbY_n9QpVPIwNOiE1okLhAX7d_42jrMC3Q_YucjbziM-NBTciUtQggmG8DyC3RaLuLffq85frsLgm8cen5gEdBZSi9ko-Zv4o5pYjLQ5jwOfpmrjGpjW7qn7ZpU1KvLEC1uQR9d-gGXoZtWVzvAuHkLGiOqLNo_VCRXBmohroNArwh_33o?purpose=fullsize",
+         "markdown": "![Out In Old Town - Not available in your region](https://images.openai.com/static-rsc-4/M0LS33suRWdH3mjbY_n9QpVPIwNOiE1okLhAX7d_42jrMC3Q_YucjbziM-NBTciUtQggmG8DyC3RaLuLffq85frsLgm8cen5gEdBZSi9ko-Zv4o5pYjLQ5jwOfpmrjGpjW7qn7ZpU1KvLEC1uQR9d-gGXoZtWVzvAuHkLGiOqLNo_VCRXBmohroNArwh_33o?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 2,
+       "rank_absolute": 3,
+       "markdown": "\n\n## 1\\. Integrity Air Conditioning & Heating\n\nPhoenix · Repair-focused service\n\n**4.9/5** · 706 reviews\n\nA strong first call if you want a thorough diagnosis and repair options rather than immediately being pushed toward replacing the entire system. Customer feedback highlights clear explanations and long-term service relationships.\n\nPhone: 602-971-0567\n\n---\n\n",
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Integrity Air Conditioning & Heating",
+         "category": "local_business",
+         "markdown": "Integrity Air Conditioning & Heating"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 2,
+       "rank_absolute": 4,
+       "markdown": "![911 HVAC | Phoenix HVAC & Plumbing Technicians](https://images.openai.com/static-rsc-4/A0m4uscX2Dhvy6TunsCZlerO9CP0Un3ONwHV1aHyfMy2f5YOUjfpG7Y3nzIwhI69oiGnjyGEJdXsg7mSHH4SEDkTVCMWydwCUsw2ADw6HTdqQLBBfwy34tflNT7DBRLC9wiysHKHUB3_1O7goA2BHIrjktbq5WHi1K7q0BksCU6j32Gg_ubWoLOjAH_BGaG5?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.donleyservice.com/911-hvac/",
+         "alt": "911 HVAC | Phoenix HVAC & Plumbing Technicians",
+         "image_url": "https://images.openai.com/static-rsc-4/A0m4uscX2Dhvy6TunsCZlerO9CP0Un3ONwHV1aHyfMy2f5YOUjfpG7Y3nzIwhI69oiGnjyGEJdXsg7mSHH4SEDkTVCMWydwCUsw2ADw6HTdqQLBBfwy34tflNT7DBRLC9wiysHKHUB3_1O7goA2BHIrjktbq5WHi1K7q0BksCU6j32Gg_ubWoLOjAH_BGaG5?purpose=fullsize",
+         "markdown": "![911 HVAC | Phoenix HVAC & Plumbing Technicians](https://images.openai.com/static-rsc-4/A0m4uscX2Dhvy6TunsCZlerO9CP0Un3ONwHV1aHyfMy2f5YOUjfpG7Y3nzIwhI69oiGnjyGEJdXsg7mSHH4SEDkTVCMWydwCUsw2ADw6HTdqQLBBfwy34tflNT7DBRLC9wiysHKHUB3_1O7goA2BHIrjktbq5WHi1K7q0BksCU6j32Gg_ubWoLOjAH_BGaG5?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 3,
+       "rank_absolute": 5,
+       "markdown": "\n\n## 2\\. Benefit Air Conditioning\n\nCentral Phoenix · Repairs and value\n\n**4.7/5** · 87 reviews\n\nWorth considering for straightforward residential AC repairs and maintenance. The company describes a process of diagnosing the problem, explaining the cost, and getting approval before doing the work.\n\nPhone: 602-840-9229\n\n---\n\n",
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Benefit Air Conditioning",
+         "category": "local_business",
+         "markdown": "Benefit Air Conditioning"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 3,
+       "rank_absolute": 6,
+       "markdown": "![Desert Diamond Mechanical, LLC - Phoenix, AZ - Nextdoor](https://images.openai.com/static-rsc-4/mDu_aSKXRwM4hAbLQDpoihsNWHmdLYgNbbuHV7wMis26W_73iEeevt6UuoB793hEOHDgkFjvCRBtM-Y8mVQxea-qAgKwUMJyK2OBMlS0SuApDl6QL8fBm2zbH1Os78sszP_NOxz3rAuti-p2ER1hI2LbizeyS5qigWeJfW43RgI3yGxZ_Guz60wkDlkFBDku?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://nextdoor.com/pages/desert-diamond-mechanical-llc-phoenix-az/",
+         "alt": "Desert Diamond Mechanical, LLC - Phoenix, AZ - Nextdoor",
+         "image_url": "https://images.openai.com/static-rsc-4/mDu_aSKXRwM4hAbLQDpoihsNWHmdLYgNbbuHV7wMis26W_73iEeevt6UuoB793hEOHDgkFjvCRBtM-Y8mVQxea-qAgKwUMJyK2OBMlS0SuApDl6QL8fBm2zbH1Os78sszP_NOxz3rAuti-p2ER1hI2LbizeyS5qigWeJfW43RgI3yGxZ_Guz60wkDlkFBDku?purpose=fullsize",
+         "markdown": "![Desert Diamond Mechanical, LLC - Phoenix, AZ - Nextdoor](https://images.openai.com/static-rsc-4/mDu_aSKXRwM4hAbLQDpoihsNWHmdLYgNbbuHV7wMis26W_73iEeevt6UuoB793hEOHDgkFjvCRBtM-Y8mVQxea-qAgKwUMJyK2OBMlS0SuApDl6QL8fBm2zbH1Os78sszP_NOxz3rAuti-p2ER1hI2LbizeyS5qigWeJfW43RgI3yGxZ_Guz60wkDlkFBDku?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 4,
+       "rank_absolute": 7,
+       "markdown": "\n\n## 3\\. Desert Diamond Air Cooling & Heating\n\nNorth Phoenix · Emergency service\n\n**4.4/5** · 123 reviews\n\nA useful option when the AC has stopped working and you need an emergency appointment. The company advertises 24/7 service and handles repairs, maintenance, and replacements.\n\nPhone: 623-246-2377\n\n---\n\n",
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Desert Diamond Air Cooling & Heating",
+         "category": "local_business",
+         "markdown": "Desert Diamond Air Cooling & Heating"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 4,
+       "rank_absolute": 8,
+       "markdown": "![Ideal Air Conditioning and Insulation in Phoenix | Zilodex](https://images.openai.com/static-rsc-4/kahGrKpwTt3PL1nob1OwmgcN-rYUjxja2POiC-s8bvs6KzxGLgOv5TFH3h8mTiGLF3P3JQ9e66UriskHY5SnYzQiR48mcUhnh9Jv9M6WaWmjkRyBcdBFbgxobUYNeS-URymSfRt91k-KuTKV2qvIxEiyCtzAb8Q0yAhx5RD7ynlyx3zBim7BZWCjTp0C9Po3?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://zilodex.com/hvac/phoenix/ideal-air-conditioning-and-insulation-phoenix",
+         "alt": "Ideal Air Conditioning and Insulation in Phoenix | Zilodex",
+         "image_url": "https://images.openai.com/static-rsc-4/kahGrKpwTt3PL1nob1OwmgcN-rYUjxja2POiC-s8bvs6KzxGLgOv5TFH3h8mTiGLF3P3JQ9e66UriskHY5SnYzQiR48mcUhnh9Jv9M6WaWmjkRyBcdBFbgxobUYNeS-URymSfRt91k-KuTKV2qvIxEiyCtzAb8Q0yAhx5RD7ynlyx3zBim7BZWCjTp0C9Po3?purpose=fullsize",
+         "markdown": "![Ideal Air Conditioning and Insulation in Phoenix | Zilodex](https://images.openai.com/static-rsc-4/kahGrKpwTt3PL1nob1OwmgcN-rYUjxja2POiC-s8bvs6KzxGLgOv5TFH3h8mTiGLF3P3JQ9e66UriskHY5SnYzQiR48mcUhnh9Jv9M6WaWmjkRyBcdBFbgxobUYNeS-URymSfRt91k-KuTKV2qvIxEiyCtzAb8Q0yAhx5RD7ynlyx3zBim7BZWCjTp0C9Po3?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 5,
+       "rank_absolute": 9,
+       "markdown": "\n\n## 4\\. Ideal Air Conditioning and Insulation\n\nPhoenix · 24/7 advertised service\n\n**4.8/5** · 226 reviews\n\nParticularly worth a quote if you have recurring cooling problems, uneven temperatures between rooms, or concerns about ductwork and insulation as well as the AC unit itself.\n\nPhone: 480-573-7604\n\n---\n\n",
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Ideal Air Conditioning and Insulation",
+         "category": "local_business",
+         "markdown": "Ideal Air Conditioning and Insulation"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 5,
+       "rank_absolute": 10,
+       "markdown": "![AC Repair & HVAC Installation in Phoenix, AZ | Five Star Cooling](https://images.openai.com/static-rsc-4/V18EUkQdkMIPYK5JNJOVM_jUvcSzl16rWHPQMhPgRxhYeXuYBRhguKgsXTk_fE4fee7jpzrCFzkwTY6PqMkYYvt2AHslUhxshYciLcPfP7QXaSW-_2EwdkQhDY8Rn6LdSNnCazQh4FqaflzefWXYE-ER3UVCjI9l1GzIPRdUBJKh85MhIQk3EXY4lSPfP6FU?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.acphoenixaz.com/",
+         "alt": "AC Repair & HVAC Installation in Phoenix, AZ | Five Star Cooling",
+         "image_url": "https://images.openai.com/static-rsc-4/V18EUkQdkMIPYK5JNJOVM_jUvcSzl16rWHPQMhPgRxhYeXuYBRhguKgsXTk_fE4fee7jpzrCFzkwTY6PqMkYYvt2AHslUhxshYciLcPfP7QXaSW-_2EwdkQhDY8Rn6LdSNnCazQh4FqaflzefWXYE-ER3UVCjI9l1GzIPRdUBJKh85MhIQk3EXY4lSPfP6FU?purpose=fullsize",
+         "markdown": "![AC Repair & HVAC Installation in Phoenix, AZ | Five Star Cooling](https://images.openai.com/static-rsc-4/V18EUkQdkMIPYK5JNJOVM_jUvcSzl16rWHPQMhPgRxhYeXuYBRhguKgsXTk_fE4fee7jpzrCFzkwTY6PqMkYYvt2AHslUhxshYciLcPfP7QXaSW-_2EwdkQhDY8Rn6LdSNnCazQh4FqaflzefWXYE-ER3UVCjI9l1GzIPRdUBJKh85MhIQk3EXY4lSPfP6FU?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 6,
+       "rank_absolute": 11,
+       "markdown": "\n\n## 5\\. Cool Zone Air Conditioning & Heating\n\nNorthwest Phoenix · Fast-response option\n\n**4.9/5** · 632 reviews\n\nAnother option for urgent AC troubleshooting, routine maintenance, or system replacement. It advertises emergency service; confirm the actual arrival window and any after-hours fees when calling.\n\nPhone: 623-250-0012\n\nRatings and review counts are from retrieved business listings and can change. They are not a guarantee of workmanship or price. The shortlist weighs service fit as well as ratings. [www.consumeraffairs.com](https://www.consumeraffairs.com/homeowners/hvac-companies-phoenix.html)[reviews.birdeye.com](https://reviews.birdeye.com/d/heating-air-conditioning-hvac/phoenix-az/)[trustanalytica.org](https://trustanalytica.org/us/az/phoenix/best-air-conditioning-contractors)\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "10 Best HVAC Companies in Phoenix, AZ of 2026",
+         "domain": "www.consumeraffairs.com",
+         "url": "https://www.consumeraffairs.com/homeowners/hvac-companies-phoenix.html",
+         "source_name": "ConsumerAffairs"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Top Heating & Air Conditioning/HVAC Companies in Phoenix, AZ",
+         "domain": "reviews.birdeye.com",
+         "url": "https://reviews.birdeye.com/d/heating-air-conditioning-hvac/phoenix-az/",
+         "source_name": "Birdeye"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Air Conditioning Contractors in Phoenix (Oct 2026 Rankings)",
+         "domain": "trustanalytica.org",
+         "url": "https://trustanalytica.org/us/az/phoenix/best-air-conditioning-contractors",
+         "source_name": "TrustAnalytica"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Cool Zone Air Conditioning & Heating",
+         "category": "local_business",
+         "markdown": "Cool Zone Air Conditioning & Heating"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_local_businesses",
+       "rank_group": 1,
+       "rank_absolute": 12,
+       "items": [
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Integrity Air Conditioning & Heating L.L.C",
+         "description": "HVAC contractor",
+         "address": "2250 E Rose Garden Loop, Phoenix, AZ 85024, United States",
+         "phone": "+1 602-971-0567",
+         "reviews_count": 706,
+         "url": "https://integrity-hvac.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp-profile",
+         "domain": "integrity-hvac.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.9,
+          "votes_count": 706,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Benefit Air Conditioning",
+         "description": "HVAC contractor",
+         "address": "1315 W Indian School Rd, Phoenix, AZ 85013, United States",
+         "phone": "+1 602-840-9229",
+         "reviews_count": 87,
+         "url": "http://www.benefitair.com/",
+         "domain": "www.benefitair.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.7,
+          "votes_count": 87,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Desert Diamond Air Cooling & Heating",
+         "description": "Air conditioning contractor",
+         "address": "16602 N 25th Ave, Phoenix, AZ 85023, United States",
+         "phone": "+1 623-246-2377",
+         "reviews_count": 123,
+         "url": "https://desertdiamondhvac.com/residential/air-conditioning-repair/?utm_source=google&utm_medium=gmb&utm_campaign=phoenix&se_campaign=Google%20My%20Business%20-%20Clicked%20to%20Website",
+         "domain": "desertdiamondhvac.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.4,
+          "votes_count": 123,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Ideal Air Conditioning and Insulation",
+         "description": "Air conditioning contractor",
+         "address": "4127 E University Dr, Phoenix, AZ 85034, United States",
+         "phone": "+1 480-573-7604",
+         "reviews_count": 226,
+         "url": "https://www.idealairaz.com/?utm_campaign=gmb&utm_medium=organic&utm_source=gmb",
+         "domain": "www.idealairaz.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.8,
+          "votes_count": 226,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Cool Zone Air Conditioning & Heating",
+         "description": "HVAC contractor",
+         "address": "2329 W Mescal St Ste 308, Phoenix, AZ 85029, United States",
+         "phone": "+1 623-250-0012",
+         "reviews_count": 632,
+         "url": "https://www.coolzoneair.com/?utm_source=google&utm_medium=organic&utm_campaign=GMBListing-phoenix-az",
+         "domain": "www.coolzoneair.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.9,
+          "votes_count": 632,
+          "rating_max": 5
+         }
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 7,
+       "rank_absolute": 13,
+       "markdown": "\n\n## How to choose the right company\n\nBefore booking, ask these three questions\\:\n\n- **What is the diagnostic or service-call fee?** Ask whether it is credited toward the repair.\n- **Can you give me a written estimate before doing the work?** Request separate repair and replacement options if appropriate.\n- **What warranty covers the parts and labor?** Get the terms in writing.\n\nYou can also verify the contractor's Arizona license through the [Arizona Registrar of Contractors](https://roc.az.gov/)\\. [www.expertise.com](https://www.expertise.com/home-improvement/ac-repair/arizona/phoenix)[www.consumeraffairs.com](https://www.consumeraffairs.com/homeowners/hvac-companies-phoenix.html)[reviews.birdeye.com](https://reviews.birdeye.com/d/heating-air-conditioning-hvac/phoenix-az/)[trustanalytica.org](https://trustanalytica.org/us/az/phoenix/best-air-conditioning-contractors)\n\n## Let me narrow it down for you\n\nWhat is the main issue with your AC?\n\n1\\. What do you need?\n\nAC is running but not cooling\n\nAC completely stopped working\n\nRepair quote seems too expensive\n\nNeed a new AC system\n\nTune-up or preventive maintenance\n\n---\n\n2\\. Which part of Phoenix?\n\nCentral Phoenix\n\nNorth Phoenix / Deer Valley\n\nWest Phoenix / Glendale\n\nEast Phoenix / Scottsdale\n\nSouth Phoenix / Ahwatukee\n\nElsewhere in the Phoenix metro\n\n---\n\n3\\. What's most important?\n\nFair price and honest repair\n\nFastest available appointment\n\nBest overall reputation\n\nLowest-cost repair\n\n[Find my best match]",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Arizona Registrar of Contractors",
+         "domain": "roc.az.gov",
+         "url": "https://roc.az.gov/",
+         "markdown": "[Arizona Registrar of Contractors](https://roc.az.gov/)"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "19 Best Phoenix, AZ AC Repair Services",
+         "domain": "www.expertise.com",
+         "url": "https://www.expertise.com/home-improvement/ac-repair/arizona/phoenix",
+         "source_name": "Expertise",
+         "publication_date": "2020-05-29 22:25:22 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "10 Best HVAC Companies in Phoenix, AZ of 2026",
+         "domain": "www.consumeraffairs.com",
+         "url": "https://www.consumeraffairs.com/homeowners/hvac-companies-phoenix.html",
+         "source_name": "ConsumerAffairs"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Top Heating & Air Conditioning/HVAC Companies in Phoenix, AZ",
+         "domain": "reviews.birdeye.com",
+         "url": "https://reviews.birdeye.com/d/heating-air-conditioning-hvac/phoenix-az/",
+         "source_name": "Birdeye"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Air Conditioning Contractors in Phoenix (Oct 2026 Rankings)",
+         "domain": "trustanalytica.org",
+         "url": "https://trustanalytica.org/us/az/phoenix/best-air-conditioning-contractors",
+         "source_name": "TrustAnalytica"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

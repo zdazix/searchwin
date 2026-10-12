@@ -1,0 +1,338 @@
+{
+ "_note": "Real DataForSEO ChatGPT LLM Scraper (live/advanced) response captured via the DataForSEO MCP connector. The connector returns the task with result items only; result-level fields such as cost, model and check_url were not included.",
+ "_captured_at": "2026-10-12T20:36:35.476Z",
+ "_request": {
+  "keyword": "who should I call for emergency veterinarian near Portland OR? I need someone reliable",
+  "location_name": "United States",
+  "language_code": "en",
+  "force_web_search": true
+ },
+ "tasks": [
+  {
+   "id": "10122036-2093-0629-0000-feb228f5178a",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "result": [
+    {
+     "keyword": "who should I call for emergency veterinarian near Portland OR? I need someone reliable",
+     "items": [
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 1,
+       "rank_absolute": 1,
+       "markdown": "If your pet needs emergency care near Portland, Oregon, I’d prioritize a **24/7 emergency veterinary hospital with an on-site emergency team** rather than waiting for a regular vet to open.\n\nIf your pet is struggling to breathe, collapsing, having seizures, bleeding heavily, or may have swallowed poison, call an emergency hospital immediately and start heading there once they advise you to come. Call ahead so the team can prepare.\n\n## My top recommendations\n\n"
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 1,
+       "rank_absolute": 2,
+       "markdown": "![DOVELEWIS EMERGENCY ANIMAL HOSPITAL - Updated August 2025 - 176 Photos & 664 Reviews - 1945 NW Pettygrove St, Portland, Oregon - Veterinarians - Phone Number - Yelp](https://images.openai.com/static-rsc-4/1Ndr6GR6xzqIoaGfa9ZUOWo_66Z7OM0fuKTfVb4rk46CpdADAf-SZqd-AM75RFgc00NphZDIGLAIRsJWed38zYst6-SaETEmaBsYduPPf-qVXRev-CVuSfVlPeqTJ6Ckm8BO6PstS5ACCfM9EEBeQgJRj4t6XokgN5YE_FzSoUu2yXz7TbYO1b0QqvcJZ0Qm?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://m.yelp.com/biz/dovelewis-emergency-animal-hospital-portland-4",
+         "alt": "DOVELEWIS EMERGENCY ANIMAL HOSPITAL - Updated August 2025 - 176 Photos & 664 Reviews - 1945 NW Pettygrove St, Portland, Oregon - Veterinarians - Phone Number - Yelp",
+         "image_url": "https://images.openai.com/static-rsc-4/1Ndr6GR6xzqIoaGfa9ZUOWo_66Z7OM0fuKTfVb4rk46CpdADAf-SZqd-AM75RFgc00NphZDIGLAIRsJWed38zYst6-SaETEmaBsYduPPf-qVXRev-CVuSfVlPeqTJ6Ckm8BO6PstS5ACCfM9EEBeQgJRj4t6XokgN5YE_FzSoUu2yXz7TbYO1b0QqvcJZ0Qm?purpose=fullsize",
+         "markdown": "![DOVELEWIS EMERGENCY ANIMAL HOSPITAL - Updated August 2025 - 176 Photos & 664 Reviews - 1945 NW Pettygrove St, Portland, Oregon - Veterinarians - Phone Number - Yelp](https://images.openai.com/static-rsc-4/1Ndr6GR6xzqIoaGfa9ZUOWo_66Z7OM0fuKTfVb4rk46CpdADAf-SZqd-AM75RFgc00NphZDIGLAIRsJWed38zYst6-SaETEmaBsYduPPf-qVXRev-CVuSfVlPeqTJ6Ckm8BO6PstS5ACCfM9EEBeQgJRj4t6XokgN5YE_FzSoUu2yXz7TbYO1b0QqvcJZ0Qm?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 2,
+       "rank_absolute": 3,
+       "markdown": "\n\n## 1\\. DoveLewis Emergency Animal Hospital\n\n(My first call)\n\nNorthwest Portland · 1945 NW Pettygrove St.\n\n# \\(503) 228-7281\n\nA strong first choice for serious emergencies. It offers 24/7 walk-in care, an intensive care unit, emergency specialists and advanced diagnostics. [www.dovelewis.org](https://www.dovelewis.org/services/emergency)[www.dovelewis.org](https://www.dovelewis.org/pet-owners)\n\nCall: (503) 228-7281\n\n[Official emergency care website](https://www.dovelewis.org/services/emergency)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Emergency Vet Services In Portland",
+         "domain": "www.dovelewis.org",
+         "url": "https://www.dovelewis.org/services/emergency",
+         "source_name": "DoveLewis"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Pet Owners",
+         "domain": "www.dovelewis.org",
+         "url": "https://www.dovelewis.org/pet-owners",
+         "source_name": "DoveLewis"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Official emergency care website",
+         "domain": "www.dovelewis.org",
+         "url": "https://www.dovelewis.org/services/emergency",
+         "markdown": "[Official emergency care website](https://www.dovelewis.org/services/emergency)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "DoveLewis Emergency Animal Hospital",
+         "category": "local_business",
+         "markdown": "DoveLewis Emergency Animal Hospital"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 2,
+       "rank_absolute": 4,
+       "markdown": "![BluePearl in Portland, OR United States - Apple Maps](https://images.openai.com/static-rsc-4/rC6KO3ArAPo5wmgdPNJ-eeOYqEFaLeYqfgYOwFLvzt75Ev8RrzGXjgSqVEXlAFEMOv7eKJuy2wrzdO0wiWVXukYvCchl107I80YlneFeh73Q2amlEE69AtnAZ_5rfLTYpLL76A_VKb19FKAIWnrRkbinkthj2Bs-ZxsShkwLfZZSOFRSEumQcPkf_ZRWAEGr?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://maps.apple.com/place?place-id=I6FFFDF6CB38BD450",
+         "alt": "BluePearl in Portland, OR United States - Apple Maps",
+         "image_url": "https://images.openai.com/static-rsc-4/rC6KO3ArAPo5wmgdPNJ-eeOYqEFaLeYqfgYOwFLvzt75Ev8RrzGXjgSqVEXlAFEMOv7eKJuy2wrzdO0wiWVXukYvCchl107I80YlneFeh73Q2amlEE69AtnAZ_5rfLTYpLL76A_VKb19FKAIWnrRkbinkthj2Bs-ZxsShkwLfZZSOFRSEumQcPkf_ZRWAEGr?purpose=fullsize",
+         "markdown": "![BluePearl in Portland, OR United States - Apple Maps](https://images.openai.com/static-rsc-4/rC6KO3ArAPo5wmgdPNJ-eeOYqEFaLeYqfgYOwFLvzt75Ev8RrzGXjgSqVEXlAFEMOv7eKJuy2wrzdO0wiWVXukYvCchl107I80YlneFeh73Q2amlEE69AtnAZ_5rfLTYpLL76A_VKb19FKAIWnrRkbinkthj2Bs-ZxsShkwLfZZSOFRSEumQcPkf_ZRWAEGr?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 3,
+       "rank_absolute": 5,
+       "markdown": "\n\n## 2\\. BluePearl Pet Hospital\n\nNortheast Portland · 2030 NE 42nd Ave.\n\n# \\(503) 501-2375\n\nAnother solid option for 24-hour emergency and specialty care, including complex cases requiring diagnostics or surgery. [www.portlandvma.org](https://www.portlandvma.org/member-directory)[www.oregonhumane.org](https://www.oregonhumane.org/urgent-care/)[heartoregon.com](https://heartoregon.com/for-clients/emergency-resources)[pdxhomevet.com](https://pdxhomevet.com/emergency/)\n\n[Official hospital website](https://bluepearlvet.com/hospital/northeast-portland-or)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Member Directory",
+         "domain": "www.portlandvma.org",
+         "url": "https://www.portlandvma.org/member-directory",
+         "source_name": "portlandvma.org",
+         "publication_date": "2024-05-05 19:08:00 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Urgent Care – Community Veterinary Hospital",
+         "domain": "www.oregonhumane.org",
+         "url": "https://www.oregonhumane.org/urgent-care/",
+         "source_name": "Oregon Humane"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Emergency Resources",
+         "domain": "heartoregon.com",
+         "url": "https://heartoregon.com/for-clients/emergency-resources",
+         "source_name": "Heart of Oregon Veterinary Cardiology"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Emergency Vet Hospitals — Portland",
+         "domain": "pdxhomevet.com",
+         "url": "https://pdxhomevet.com/emergency/",
+         "source_name": "At Home Veterinary Services"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Official hospital website",
+         "domain": "bluepearlvet.com",
+         "url": "https://bluepearlvet.com/hospital/northeast-portland-or",
+         "markdown": "[Official hospital website](https://bluepearlvet.com/hospital/northeast-portland-or)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "BluePearl Pet Hospital",
+         "category": "local_business",
+         "markdown": "BluePearl Pet Hospital"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 3,
+       "rank_absolute": 6,
+       "markdown": "![Emergency Veterinary Clinic of Tualatin (EVOT) - CIDA](https://images.openai.com/static-rsc-4/h7iBNPkAggcKdqlnNs8sOlHJpVbGdYJ1A_pPP2HryJU8jTNZaGmna3-KZtMUCWgcZeUHazSmHCmjqAZeKp8gJd-RTrdTxv4HSRfkXhM6zm3P_J71U8giPX7uyXjh8Ja7jUfKOqoZgPW4AVWFSbBtpk-DL4VwTgV0ydrjJvcB913MSxfTbA28oE5gjiv7pM3D?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://cidainc.com/projects/emergency-veterinary-clinic-of-tualatin-evot/",
+         "alt": "Emergency Veterinary Clinic of Tualatin (EVOT) - CIDA",
+         "image_url": "https://images.openai.com/static-rsc-4/h7iBNPkAggcKdqlnNs8sOlHJpVbGdYJ1A_pPP2HryJU8jTNZaGmna3-KZtMUCWgcZeUHazSmHCmjqAZeKp8gJd-RTrdTxv4HSRfkXhM6zm3P_J71U8giPX7uyXjh8Ja7jUfKOqoZgPW4AVWFSbBtpk-DL4VwTgV0ydrjJvcB913MSxfTbA28oE5gjiv7pM3D?purpose=fullsize",
+         "markdown": "![Emergency Veterinary Clinic of Tualatin (EVOT) - CIDA](https://images.openai.com/static-rsc-4/h7iBNPkAggcKdqlnNs8sOlHJpVbGdYJ1A_pPP2HryJU8jTNZaGmna3-KZtMUCWgcZeUHazSmHCmjqAZeKp8gJd-RTrdTxv4HSRfkXhM6zm3P_J71U8giPX7uyXjh8Ja7jUfKOqoZgPW4AVWFSbBtpk-DL4VwTgV0ydrjJvcB913MSxfTbA28oE5gjiv7pM3D?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 4,
+       "rank_absolute": 7,
+       "markdown": "\n\n## 3\\. Emergency Veterinary Clinic of Tualatin\n\nTualatin · 8250 SW Tonka St.\n\n# \\(503) 691-7922\n\nA useful alternative if you're in southwest Portland, Tigard or Tualatin. It provides emergency veterinary care around the clock. [heartoregon.com](https://heartoregon.com/for-clients/emergency-resources)[pdxhomevet.com](https://pdxhomevet.com/emergency/)\n\n[Clinic information](https://www.evcot.com/)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Emergency Resources",
+         "domain": "heartoregon.com",
+         "url": "https://heartoregon.com/for-clients/emergency-resources",
+         "source_name": "Heart of Oregon Veterinary Cardiology"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Emergency Vet Hospitals — Portland",
+         "domain": "pdxhomevet.com",
+         "url": "https://pdxhomevet.com/emergency/",
+         "source_name": "At Home Veterinary Services"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Clinic information",
+         "domain": "www.evcot.com",
+         "url": "https://www.evcot.com/",
+         "markdown": "[Clinic information](https://www.evcot.com/)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Emergency Veterinary Clinic of Tualatin",
+         "category": "local_business",
+         "markdown": "Emergency Veterinary Clinic of Tualatin"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 4,
+       "rank_absolute": 8,
+       "markdown": "![24 Hour Emergency Vet in Beaverton, OR | Open 24/7](https://images.openai.com/static-rsc-4/5vtfS8ZGtuORPp7c8kSz-kPNMQEInCMVJ-I5VOrpA6NeTwAdHZlozfc67dXykEJSZgaQfex6_CU1T2bKU3jYTR-6AZNohTyYxQ8jN-wpfDtT8aCMoXAiKUewCOUy4pUEFsiuXDUMW_nFppy-uc-KLFwqpjdeo-D-Bu1stiGJfZwGsBMzRMva5zQ4x9tcd5jJ?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.veg.com/locations/oregon/beaverton",
+         "alt": "24 Hour Emergency Vet in Beaverton, OR | Open 24/7",
+         "image_url": "https://images.openai.com/static-rsc-4/5vtfS8ZGtuORPp7c8kSz-kPNMQEInCMVJ-I5VOrpA6NeTwAdHZlozfc67dXykEJSZgaQfex6_CU1T2bKU3jYTR-6AZNohTyYxQ8jN-wpfDtT8aCMoXAiKUewCOUy4pUEFsiuXDUMW_nFppy-uc-KLFwqpjdeo-D-Bu1stiGJfZwGsBMzRMva5zQ4x9tcd5jJ?purpose=fullsize",
+         "markdown": "![24 Hour Emergency Vet in Beaverton, OR | Open 24/7](https://images.openai.com/static-rsc-4/5vtfS8ZGtuORPp7c8kSz-kPNMQEInCMVJ-I5VOrpA6NeTwAdHZlozfc67dXykEJSZgaQfex6_CU1T2bKU3jYTR-6AZNohTyYxQ8jN-wpfDtT8aCMoXAiKUewCOUy4pUEFsiuXDUMW_nFppy-uc-KLFwqpjdeo-D-Bu1stiGJfZwGsBMzRMva5zQ4x9tcd5jJ?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 5,
+       "rank_absolute": 9,
+       "markdown": "\n\n## 4\\. Tanasbourne Veterinary Emergency\n\nBeaverton · 17400 NW Corridor Ct.\n\n# \\(503) 629-5800\n\nA 24/7 emergency hospital worth considering if you're on the west side of the metro area. [heartoregon.com](https://heartoregon.com/for-clients/emergency-resources)[pdxhomevet.com](https://pdxhomevet.com/emergency/)[www.portlandvma.org](https://www.portlandvma.org/member-directory)\n\n[Hospital information](https://www.tanasbournevet.com/)\n\n## Which one should you call right now?\n\nI'd start with **DoveLewis**, unless one of the other hospitals is significantly closer. I can't guarantee any individual experience, and emergency wait times can change, so call before leaving if possible.\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Emergency Resources",
+         "domain": "heartoregon.com",
+         "url": "https://heartoregon.com/for-clients/emergency-resources",
+         "source_name": "Heart of Oregon Veterinary Cardiology"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Emergency Vet Hospitals — Portland",
+         "domain": "pdxhomevet.com",
+         "url": "https://pdxhomevet.com/emergency/",
+         "source_name": "At Home Veterinary Services"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Member Directory",
+         "domain": "www.portlandvma.org",
+         "url": "https://www.portlandvma.org/member-directory",
+         "source_name": "portlandvma.org",
+         "publication_date": "2024-05-05 19:08:00 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Hospital information",
+         "domain": "www.tanasbournevet.com",
+         "url": "https://www.tanasbournevet.com/",
+         "markdown": "[Hospital information](https://www.tanasbournevet.com/)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Tanasbourne Veterinary Emergency",
+         "category": "local_business",
+         "markdown": "Tanasbourne Veterinary Emergency"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_local_businesses",
+       "rank_group": 1,
+       "rank_absolute": 10,
+       "items": [
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Dove Lewis Emergency Hospital",
+         "description": "Animal hospital",
+         "address": "1945 NW Pettygrove St, Portland, OR 97209, United States",
+         "phone": "+1 503-228-7281",
+         "reviews_count": 744,
+         "url": "https://www.dovelewis.org/",
+         "domain": "www.dovelewis.org",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 3.2,
+          "votes_count": 744,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "BluePearl Pet Hospital",
+         "description": "Veterinarian",
+         "address": "2030 NE 42nd Ave, Portland, OR 97213, United States",
+         "phone": "+1 503-501-2375",
+         "reviews_count": 91,
+         "url": "https://bluepearlvet.com/hospital/northeast-portland-or/?utm_source=maps&utm_medium=google&utm_campaign=gbp",
+         "domain": "bluepearlvet.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 3.8,
+          "votes_count": 91,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Emergency Veterinary Clinic of Tualatin",
+         "description": "Animal hospital",
+         "address": "8250 SW Tonka St, Tualatin, OR 97062, United States",
+         "phone": "+1 503-691-7922",
+         "reviews_count": 280,
+         "url": "https://evcot.com/",
+         "domain": "evcot.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4,
+          "votes_count": 280,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Tanasbourne Veterinary Emergency",
+         "description": "Animal hospital",
+         "address": "17400 NW Corridor Ct, Beaverton, OR 97006, United States",
+         "phone": "+1 503-629-5800",
+         "reviews_count": 410,
+         "url": "http://www.tanasbourneveter.com/",
+         "domain": "www.tanasbourneveter.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4,
+          "votes_count": 410,
+          "rating_max": 5
+         }
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 6,
+       "rank_absolute": 11,
+       "markdown": "\n\n**Can you tell me two quick things?**\n\n1. What part of Portland are you near — downtown, Northeast, Southeast, Beaverton/Tigard, or somewhere else?\n2. What is happening with your pet, and is it a dog, cat, or another animal?\n\nI'll help you narrow this down to the best hospital to call first."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,328 @@
+{
+ "_note": "Real DataForSEO ChatGPT LLM Scraper (live/advanced) response captured via the DataForSEO MCP connector. The connector returns the task with result items only; result-level fields such as cost, model and check_url were not included.",
+ "_captured_at": "2026-10-12T20:34:50.307Z",
+ "_request": {
+  "keyword": "who should I call for roof repair near Tampa FL? I need someone reliable",
+  "location_name": "United States",
+  "language_code": "en",
+  "force_web_search": true
+ },
+ "tasks": [
+  {
+   "id": "10122034-2093-0629-0000-61d4f6174112",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "result": [
+    {
+     "keyword": "who should I call for roof repair near Tampa FL? I need someone reliable",
+     "items": [
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 1,
+       "rank_absolute": 1,
+       "markdown": "If you need roof repair in the Tampa, Florida area, I’d focus on **licensed, insured roofing contractors with strong recent reviews, local references, and experience repairing—not just replacing—roofs.** Tampa’s heavy rain, humidity, and storm activity make it especially important to find someone who can identify the actual source of a leak and stand behind the repair.\n\nI’d shortlist a few companies, compare their reviews and warranties, and get at least two written estimates before committing.\n\n## Roof repair companies I’d call first\n\n"
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 1,
+       "rank_absolute": 2,
+       "markdown": "![Tampa Roof Repair & Replacement | Rain Right Roofing](https://images.openai.com/static-rsc-4/JwmfEZ9B0ZqT0AXc5aHX6v-QnIU2c024k_pWxEnkUiojJi1QbcOwW8crUnFDkt9oltLXQuwDhnivrj1_aEdWEz0DFH3AzFyt2RNGn1E7mAR5q3BiQpL3B-rasjwQQfNhM_CZFaxDhSSigTyXBbMOJvm1ml7ri5981HhX9CfXGE5EPRzqJ17OtGK53VI9wwJP?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://rainrightroofing.com/",
+         "alt": "Tampa Roof Repair & Replacement | Rain Right Roofing",
+         "image_url": "https://images.openai.com/static-rsc-4/JwmfEZ9B0ZqT0AXc5aHX6v-QnIU2c024k_pWxEnkUiojJi1QbcOwW8crUnFDkt9oltLXQuwDhnivrj1_aEdWEz0DFH3AzFyt2RNGn1E7mAR5q3BiQpL3B-rasjwQQfNhM_CZFaxDhSSigTyXBbMOJvm1ml7ri5981HhX9CfXGE5EPRzqJ17OtGK53VI9wwJP?purpose=fullsize",
+         "markdown": "![Tampa Roof Repair & Replacement | Rain Right Roofing](https://images.openai.com/static-rsc-4/JwmfEZ9B0ZqT0AXc5aHX6v-QnIU2c024k_pWxEnkUiojJi1QbcOwW8crUnFDkt9oltLXQuwDhnivrj1_aEdWEz0DFH3AzFyt2RNGn1E7mAR5q3BiQpL3B-rasjwQQfNhM_CZFaxDhSSigTyXBbMOJvm1ml7ri5981HhX9CfXGE5EPRzqJ17OtGK53VI9wwJP?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 2,
+       "rank_absolute": 3,
+       "markdown": "\n\n### 1\\. Tampa Roof Repair, LLC\n\nBest first call for a leak or targeted repair\n\n**\\(813) 413-5115**\n\nOffers residential and commercial repairs for shingle, tile, metal, and flat roofs. Its BBB profile lists an A+ rating and Florida roofing license CCC1331776. The BBB profile also contains mixed repair feedback, so get the repair scope and warranty in writing. [www.bbb.org](https://www.bbb.org/us/fl/tampa/profile/roofing-contractors/tampa-roof-repair-llc-0653-90360919)[profindr.com](https://profindr.com/top/roof-repair-tampa-fl)[roofingcompaniesflorida.com](https://roofingcompaniesflorida.com/roofing-companies-in-tampa/roof-repair/)[floridaranks.com](https://floridaranks.com/best/tampa-roofing-guide-2026)\n\n[BBB profile and reviews](https://www.bbb.org/us/fl/tampa/profile/roofing-contractors/tampa-roof-repair-llc-0653-90360919)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Tampa Roof Repair, LLC",
+         "domain": "www.bbb.org",
+         "url": "https://www.bbb.org/us/fl/tampa/profile/roofing-contractors/tampa-roof-repair-llc-0653-90360919",
+         "source_name": "BBB Business Profile"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Top 10 Roof Repair in Tampa, FL",
+         "domain": "profindr.com",
+         "url": "https://profindr.com/top/roof-repair-tampa-fl",
+         "source_name": "ProFindr"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Roof Repair Companies in Tampa, FL",
+         "domain": "roofingcompaniesflorida.com",
+         "url": "https://roofingcompaniesflorida.com/roofing-companies-in-tampa/roof-repair/",
+         "source_name": "Roofing Companies Florida"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Roofers in Tampa: Top 8 Ranked (April 2026)",
+         "domain": "floridaranks.com",
+         "url": "https://floridaranks.com/best/tampa-roofing-guide-2026",
+         "source_name": "Florid...",
+         "publication_date": "2026-04-15 00:00:00 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "BBB profile and reviews",
+         "domain": "www.bbb.org",
+         "url": "https://www.bbb.org/us/fl/tampa/profile/roofing-contractors/tampa-roof-repair-llc-0653-90360919",
+         "markdown": "[BBB profile and reviews](https://www.bbb.org/us/fl/tampa/profile/roofing-contractors/tampa-roof-repair-llc-0653-90360919)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Tampa Roof Repair, LLC",
+         "category": "business",
+         "markdown": "Tampa Roof Repair, LLC"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 2,
+       "rank_absolute": 4,
+       "markdown": "![Roof Leaks, Roofing Contractor, Roofer, Tampa, FL](https://images.openai.com/static-rsc-4/hUVm9FAiwQuOmxdTUagQWR9RdSrLgosjg0LFg5LSyec4z74_7xvBWGNIkf2dOJaINNov0gZWrNg14qBLLIpllfin5-PxprpBAooyimGlgPyKACOR08wZF234EEVrCyeULemIm-3pgRM3lbHndhve5koGisttbIQxxjmB8AVGvOVNcR2zoA8_BnOmZJlqSdaB?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.hillsboroughaffordableroofing.com/roof-leaks.html",
+         "alt": "Roof Leaks, Roofing Contractor, Roofer, Tampa, FL",
+         "image_url": "https://images.openai.com/static-rsc-4/hUVm9FAiwQuOmxdTUagQWR9RdSrLgosjg0LFg5LSyec4z74_7xvBWGNIkf2dOJaINNov0gZWrNg14qBLLIpllfin5-PxprpBAooyimGlgPyKACOR08wZF234EEVrCyeULemIm-3pgRM3lbHndhve5koGisttbIQxxjmB8AVGvOVNcR2zoA8_BnOmZJlqSdaB?purpose=fullsize",
+         "markdown": "![Roof Leaks, Roofing Contractor, Roofer, Tampa, FL](https://images.openai.com/static-rsc-4/hUVm9FAiwQuOmxdTUagQWR9RdSrLgosjg0LFg5LSyec4z74_7xvBWGNIkf2dOJaINNov0gZWrNg14qBLLIpllfin5-PxprpBAooyimGlgPyKACOR08wZF234EEVrCyeULemIm-3pgRM3lbHndhve5koGisttbIQxxjmB8AVGvOVNcR2zoA8_BnOmZJlqSdaB?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 3,
+       "rank_absolute": 5,
+       "markdown": "\n\n### 2\\. Roof Panda\n\nWorth comparing for repair and replacement\n\n**\\(813) 295-7663**\n\nTampa-based contractor offering repairs, replacements, and new installations. A local contractor directory reports a Florida roofing license and a strong volume of customer reviews. Ask specifically whether they can repair your existing roof without pushing a full replacement. [www.bbb.org](https://www.bbb.org/us/fl/tampa/profile/roofing-contractors/tampa-roof-repair-llc-0653-90360919)[profindr.com](https://profindr.com/top/roof-repair-tampa-fl)[roofingcompaniesflorida.com](https://roofingcompaniesflorida.com/roofing-companies-in-tampa/roof-repair/)[floridaranks.com](https://floridaranks.com/best/tampa-roofing-guide-2026)\n\n4726 N Lois Ave, Unit B, Tampa\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Tampa Roof Repair, LLC",
+         "domain": "www.bbb.org",
+         "url": "https://www.bbb.org/us/fl/tampa/profile/roofing-contractors/tampa-roof-repair-llc-0653-90360919",
+         "source_name": "BBB Business Profile"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Top 10 Roof Repair in Tampa, FL",
+         "domain": "profindr.com",
+         "url": "https://profindr.com/top/roof-repair-tampa-fl",
+         "source_name": "ProFindr"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Roof Repair Companies in Tampa, FL",
+         "domain": "roofingcompaniesflorida.com",
+         "url": "https://roofingcompaniesflorida.com/roofing-companies-in-tampa/roof-repair/",
+         "source_name": "Roofing Companies Florida"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Roofers in Tampa: Top 8 Ranked (April 2026)",
+         "domain": "floridaranks.com",
+         "url": "https://floridaranks.com/best/tampa-roofing-guide-2026",
+         "source_name": "Florid...",
+         "publication_date": "2026-04-15 00:00:00 +00:00"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Roof Panda",
+         "category": "local_business",
+         "markdown": "Roof Panda"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 3,
+       "rank_absolute": 6,
+       "markdown": "![Roofing Contractor in Tampa Bay & Central Florida | CorBuilt Contracting & Roofing — CorBuilt Contracting](https://images.openai.com/static-rsc-4/d3RsPHiUmz9XghHOFQBb3-Dd4xb4-BdUwhAjtmAxWIHNYcarki5l-uLt6nTG25J7PZ-63shQPNNntthhGJDOL8taHN-81BGsxclnVL5UJUOHy0k8J1w1gff33tlefNUma7l06G-8RUT5uYemUa8_XrXcd2kCjk6XrpLrc9GG_CiUccsRimvm37ti3MpStFkn?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.corbuiltcontracting.com/roofing",
+         "alt": "Roofing Contractor in Tampa Bay & Central Florida | CorBuilt Contracting & Roofing — CorBuilt Contracting",
+         "image_url": "https://images.openai.com/static-rsc-4/d3RsPHiUmz9XghHOFQBb3-Dd4xb4-BdUwhAjtmAxWIHNYcarki5l-uLt6nTG25J7PZ-63shQPNNntthhGJDOL8taHN-81BGsxclnVL5UJUOHy0k8J1w1gff33tlefNUma7l06G-8RUT5uYemUa8_XrXcd2kCjk6XrpLrc9GG_CiUccsRimvm37ti3MpStFkn?purpose=fullsize",
+         "markdown": "![Roofing Contractor in Tampa Bay & Central Florida | CorBuilt Contracting & Roofing — CorBuilt Contracting](https://images.openai.com/static-rsc-4/d3RsPHiUmz9XghHOFQBb3-Dd4xb4-BdUwhAjtmAxWIHNYcarki5l-uLt6nTG25J7PZ-63shQPNNntthhGJDOL8taHN-81BGsxclnVL5UJUOHy0k8J1w1gff33tlefNUma7l06G-8RUT5uYemUa8_XrXcd2kCjk6XrpLrc9GG_CiUccsRimvm37ti3MpStFkn?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 4,
+       "rank_absolute": 7,
+       "markdown": "\n\n### 3\\. Fix Roofing LLC\n\nAnother option for leaks and storm damage\n\n**\\(833) 944-7446**\n\nHandles roof leak troubleshooting, storm damage, and full replacements. Its Tampa office is on N Grady Avenue. Confirm its current license, insurance, availability, and written repair warranty before hiring. [profindr.com](https://profindr.com/top/roof-repair-tampa-fl)[floridaranks.com](https://floridaranks.com/best/tampa-roofing-guide-2026)\n\n4818 N Grady Ave, Tampa\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Top 10 Roof Repair in Tampa, FL",
+         "domain": "profindr.com",
+         "url": "https://profindr.com/top/roof-repair-tampa-fl",
+         "source_name": "ProFindr"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Roofers in Tampa: Top 8 Ranked (April 2026)",
+         "domain": "floridaranks.com",
+         "url": "https://floridaranks.com/best/tampa-roofing-guide-2026",
+         "source_name": "Florid...",
+         "publication_date": "2026-04-15 00:00:00 +00:00"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Fix Roofing LLC",
+         "category": "local_business",
+         "markdown": "Fix Roofing LLC"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 4,
+       "rank_absolute": 8,
+       "markdown": "![Action Roofing Services Expands Operations with New Tampa Location | Roofing Contractor](https://images.openai.com/static-rsc-4/ZGa6J8XJaX0U-JuYGA0U-3CSfjyDD25uu3rvptusTWIVHl5kI0Dd3O5gnFoYJ2_EEZLksWfE62js2KWfkENdQpGcvz9gnGleVCVjEHFR9XkS1Y3VmxO6EqTthpiqaJI9PKcR2WcbbjUmy8JykFEJhUIWPBKzzl-sqr9d4-Kgl-AcN7y1XTTm3d5hc2b9BqeJ?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.roofingcontractor.com/articles/101104-action-roofing-services-expands-operations-with-new-tampa-location",
+         "alt": "Action Roofing Services Expands Operations with New Tampa Location | Roofing Contractor",
+         "image_url": "https://images.openai.com/static-rsc-4/ZGa6J8XJaX0U-JuYGA0U-3CSfjyDD25uu3rvptusTWIVHl5kI0Dd3O5gnFoYJ2_EEZLksWfE62js2KWfkENdQpGcvz9gnGleVCVjEHFR9XkS1Y3VmxO6EqTthpiqaJI9PKcR2WcbbjUmy8JykFEJhUIWPBKzzl-sqr9d4-Kgl-AcN7y1XTTm3d5hc2b9BqeJ?purpose=fullsize",
+         "markdown": "![Action Roofing Services Expands Operations with New Tampa Location | Roofing Contractor](https://images.openai.com/static-rsc-4/ZGa6J8XJaX0U-JuYGA0U-3CSfjyDD25uu3rvptusTWIVHl5kI0Dd3O5gnFoYJ2_EEZLksWfE62js2KWfkENdQpGcvz9gnGleVCVjEHFR9XkS1Y3VmxO6EqTthpiqaJI9PKcR2WcbbjUmy8JykFEJhUIWPBKzzl-sqr9d4-Kgl-AcN7y1XTTm3d5hc2b9BqeJ?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 5,
+       "rank_absolute": 9,
+       "markdown": "\n\n### 4\\. Action Roofing\n\nGood comparison for a documented diagnosis\n\n**\\(813) 921-6229**\n\nOffers inspections, repairs, maintenance, and replacement. Its published approach emphasizes diagnosing leaks and providing a written report and fixed-price proposal. [www.google.com](https://www.google.com/maps/place/Action+Roofing/@28.0079755,-82.5429565,17z/data=!3m1!4b1!4m6!3m5!1s0x88c2c3b12a833ddd:0xd9052498f81003c0!8m2!3d28.0079755!4d-82.5429565!16s%2Fg%2F11xlf82xxs?authuser=0&hl=en&entry=ttu&g_ep=EgoyMDI2MDkyOS4wIKXMDSoASAFQAw%3D%3D)\n\n6704 Benjamin Rd, Suite 200, Tampa\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Action Roofing",
+         "snippet": "6704 Benjamin Rd Ste 200, Tampa, FL 33634, United States",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/Action+Roofing/@28.0079755,-82.5429565,17z/data=!3m1!4b1!4m6!3m5!1s0x88c2c3b12a833ddd:0xd9052498f81003c0!8m2!3d28.0079755!4d-82.5429565!16s%2Fg%2F11xlf82xxs?authuser=0&hl=en&entry=ttu&g_ep=EgoyMDI2MDkyOS4wIKXMDSoASAFQAw%3D%3D",
+         "source_name": "google.com"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Action Roofing",
+         "category": "local_business",
+         "markdown": "Action Roofing"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_local_businesses",
+       "rank_group": 1,
+       "rank_absolute": 10,
+       "items": [
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Tampa Roof Repair LLC",
+         "description": "Roofing contractor",
+         "address": "13403 Arbor Pointe Cir, Tampa, FL 33617, United States",
+         "phone": "+1 813-413-5115",
+         "reviews_count": 13,
+         "url": "http://www.tamparoofrepair.com/",
+         "domain": "www.tamparoofrepair.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.4,
+          "votes_count": 13,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "ROOF PANDA",
+         "description": "Roofing contractor",
+         "address": "4726 N Lois Ave Unit B, Tampa, FL 33614, United States",
+         "phone": "+1 813-295-7663",
+         "reviews_count": 3,
+         "url": "https://www.theroofpanda.com/",
+         "domain": "www.theroofpanda.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 3,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Fix Roofing LLC",
+         "description": "Roofing contractor",
+         "address": "4818 N Grady Ave, Tampa, FL 33614, United States",
+         "phone": "+1 833-944-7446",
+         "reviews_count": 97,
+         "url": "https://www.fixroofingllc.com/",
+         "domain": "www.fixroofingllc.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 97,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Action Roofing",
+         "description": "Roofing contractor",
+         "address": "6704 Benjamin Rd Ste 200, Tampa, FL 33634, United States",
+         "phone": "+1 813-921-6229",
+         "reviews_count": 174,
+         "url": "https://actionroofing.com/tampa-roofing/",
+         "domain": "actionroofing.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.9,
+          "votes_count": 174,
+          "rating_max": 5
+         }
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 6,
+       "rank_absolute": 11,
+       "markdown": "\n\n## How to choose a reliable roofer\n\nBefore you hire anyone, I recommend these four checks\\:\n\n- **Verify the Florida license** through the [Florida DBPR license lookup](https://www.myfloridalicense.com/wl11.asp)\\.\n- Request proof of general liability insurance and workers’ compensation coverage, as applicable.\n- Get a written estimate detailing the cause of the problem, materials, labor, and workmanship warranty.\n- Compare at least two estimates and check recent reviews for similar repair jobs, not just roof replacements.\n\nAvoid paying the full amount upfront, and be cautious of anyone pressuring you to sign an insurance claim agreement immediately.\n\n## Let me narrow this down for you\n\nWhat kind of roof problem are you dealing with?\n\n1\\. What needs fixing?\n\nRoof leak or water coming inside\n\nMissing or damaged shingles or tiles\n\nStorm or hurricane damage\n\nInspection or possibly an old roof\n\n---\n\n2\\. What type of roof do you have?\n\nShingle\n\nTile\n\nMetal\n\nFlat roof\n\nNot sure\n\n---\n\n3\\. How quickly do you need help?\n\nUrgent — water is coming in now\n\nWithin a few days\n\nSoon, but not an emergency\n\n[Find the best match]\n\nI can then narrow the list to the best fit for your particular repair, rather than just a general roofing company.",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Florida DBPR license lookup",
+         "domain": "www.myfloridalicense.com",
+         "url": "https://www.myfloridalicense.com/wl11.asp",
+         "markdown": "[Florida DBPR license lookup](https://www.myfloridalicense.com/wl11.asp)"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+# Not part of the deployed site
+docs/
+db/
+scripts/
+tests/
+tools/
+README.md
+.env*

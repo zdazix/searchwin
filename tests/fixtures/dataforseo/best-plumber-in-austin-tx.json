@@ -1,0 +1,264 @@
+{
+ "_note": "Real DataForSEO ChatGPT LLM Scraper (live/advanced) response captured via the DataForSEO MCP connector. The connector returns the task with result items only; result-level fields such as cost, model and check_url were not included.",
+ "_captured_at": "2026-10-12T20:34:08.747Z",
+ "_request": {
+  "keyword": "best plumber in Austin, TX",
+  "location_name": "United States",
+  "language_code": "en",
+  "force_web_search": true
+ },
+ "tasks": [
+  {
+   "id": "10122034-2093-0629-0000-eeb4cd67b3bf",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "result": [
+    {
+     "keyword": "best plumber in Austin, TX",
+     "items": [
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 1,
+       "rank_absolute": 1,
+       "markdown": "# Best plumbers in Austin, TX\n\nBased on current local listings and 2026 plumbing-company reviews, I’d start with **Austin Plumbery for routine residential repairs** or **Abacus Plumbing for urgent, around-the-clock service**\\. There isn’t one universally best plumber for every job, so it’s worth comparing the type of work, reviews, and estimate before hiring. [www.expertise.com](https://www.expertise.com/home-improvement/plumbing/texas/austin)[www.bestpickreports.com](https://www.bestpickreports.com/plumbers/austin)[www.consumeraffairs.com](https://www.consumeraffairs.com/homeowners/plumbers-austin.html)\n\n## My top recommendations\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "15 Best Austin, TX Plumbers",
+         "domain": "www.expertise.com",
+         "url": "https://www.expertise.com/home-improvement/plumbing/texas/austin",
+         "source_name": "Expertise",
+         "publication_date": "2020-02-12 20:29:25 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Plumbing Companies in Austin, TX",
+         "domain": "www.bestpickreports.com",
+         "url": "https://www.bestpickreports.com/plumbers/austin",
+         "source_name": "Best Pick Reports"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "9 Best Plumbers in Austin, TX (2026 Guide)",
+         "domain": "www.consumeraffairs.com",
+         "url": "https://www.consumeraffairs.com/homeowners/plumbers-austin.html",
+         "source_name": "ConsumerAffairs"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 1,
+       "rank_absolute": 2,
+       "markdown": "![Join Our Team — Austin Plumbery](https://images.openai.com/static-rsc-4/45pf56nYc-xRjYLkWdOsxFREdtXIfwKRLEFJtA_Llu-A6ftNJwo0x0_MhXp9HU9493AuLTTK54LTz3gQK8lrWFfRg1YNjT-YdcwM2F2K4_iXWj3GvtlJ0HkHyUWN3pTUgMzaq9lRf5uqOyDZ9uPuElolFetGxpwmVkVuRTRxB07OY669ADUA70Xn_VWFqLon?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.austinplumbery.com/now-hiring",
+         "alt": "Join Our Team — Austin Plumbery",
+         "image_url": "https://images.openai.com/static-rsc-4/45pf56nYc-xRjYLkWdOsxFREdtXIfwKRLEFJtA_Llu-A6ftNJwo0x0_MhXp9HU9493AuLTTK54LTz3gQK8lrWFfRg1YNjT-YdcwM2F2K4_iXWj3GvtlJ0HkHyUWN3pTUgMzaq9lRf5uqOyDZ9uPuElolFetGxpwmVkVuRTRxB07OY669ADUA70Xn_VWFqLon?purpose=fullsize",
+         "markdown": "![Join Our Team — Austin Plumbery](https://images.openai.com/static-rsc-4/45pf56nYc-xRjYLkWdOsxFREdtXIfwKRLEFJtA_Llu-A6ftNJwo0x0_MhXp9HU9493AuLTTK54LTz3gQK8lrWFfRg1YNjT-YdcwM2F2K4_iXWj3GvtlJ0HkHyUWN3pTUgMzaq9lRf5uqOyDZ9uPuElolFetGxpwmVkVuRTRxB07OY669ADUA70Xn_VWFqLon?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 2,
+       "rank_absolute": 3,
+       "markdown": "\n\n### 1\\. Austin Plumbery\n\n4.8/5 · 227 reviews\n\n(Best for routine home repairs)\n\nA locally established, woman-owned business offering repairs, replacements, installations, and plumbing inspections. A good first call for everyday household plumbing needs.\n\nPhone: 512-766-1519\n\n---\n\n",
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Austin Plumbery",
+         "category": "local_business",
+         "markdown": "Austin Plumbery"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 2,
+       "rank_absolute": 4,
+       "markdown": "![24 Hour Plumber, Electrician and HVAC Repairs (512) 305-1109 | Austin, TX](https://images.openai.com/static-rsc-4/DRpmiE9bjP3aO5fvhZim0iklF9IVm6kTjqABIYla_YGFdA9yTI1Sh9dPsoMLDBblUMxPvQ6VsgkMuRaR5luqwFjmknTnBkKMi1MpaGxSDvY0cHY_POPqyn-P6OyslS6oYqiiq4xujyobgRp4KGHbfufpFiis66t-zGZKCiBY1WeHBBeC8Rvw6wVObpt_6eTK?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.abacusplumbing.com/24-hour-emergency-plumber-electrician-hvac-company/",
+         "alt": "24 Hour Plumber, Electrician and HVAC Repairs (512) 305-1109 | Austin, TX",
+         "image_url": "https://images.openai.com/static-rsc-4/DRpmiE9bjP3aO5fvhZim0iklF9IVm6kTjqABIYla_YGFdA9yTI1Sh9dPsoMLDBblUMxPvQ6VsgkMuRaR5luqwFjmknTnBkKMi1MpaGxSDvY0cHY_POPqyn-P6OyslS6oYqiiq4xujyobgRp4KGHbfufpFiis66t-zGZKCiBY1WeHBBeC8Rvw6wVObpt_6eTK?purpose=fullsize",
+         "markdown": "![24 Hour Plumber, Electrician and HVAC Repairs (512) 305-1109 | Austin, TX](https://images.openai.com/static-rsc-4/DRpmiE9bjP3aO5fvhZim0iklF9IVm6kTjqABIYla_YGFdA9yTI1Sh9dPsoMLDBblUMxPvQ6VsgkMuRaR5luqwFjmknTnBkKMi1MpaGxSDvY0cHY_POPqyn-P6OyslS6oYqiiq4xujyobgRp4KGHbfufpFiis66t-zGZKCiBY1WeHBBeC8Rvw6wVObpt_6eTK?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 3,
+       "rank_absolute": 5,
+       "markdown": "\n\n### 2\\. Abacus Plumbing, Air Conditioning & Electrical\n\n4.7/5 · 557 reviews\n\n(Best for emergency service)\n\nOffers 24/7 service, including drain and sewer problems, water heater issues, and urgent plumbing repairs. Useful if you need after-hours assistance.\n\nPhone: 512-309-1487\n\n---\n\n",
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Abacus Plumbing, Air Conditioning & Electrical",
+         "category": "local_business",
+         "markdown": "Abacus Plumbing, Air Conditioning & Electrical"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 3,
+       "rank_absolute": 6,
+       "markdown": "![Radiant Plumbing & Air Conditioning - Austin | BBB Business Profile | Better Business Bureau](https://images.openai.com/static-rsc-4/Zd__KDl6MjSvCnBqido2418MKi3IlvfLK40O_1a--baLGDmCw9FBKTW_Tu7lGO3nkzXN2P6OLTpIqkfM2QCzCcb7YD1KWsJHuNjTiwsHCV8hPSj1RtZlstvBsiiz6D5Rq5ky34tbSSFSmCZKN5phZ7FgLPxO9JxhUprvTxP29Y-K_w_x-FXmgkhoeca1ZuAC?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.bbb.org/us/tx/austin/profile/air-conditioning-repair/radiant-plumbing-air-conditioning-austin-0825-90091011",
+         "alt": "Radiant Plumbing & Air Conditioning - Austin | BBB Business Profile | Better Business Bureau",
+         "image_url": "https://images.openai.com/static-rsc-4/Zd__KDl6MjSvCnBqido2418MKi3IlvfLK40O_1a--baLGDmCw9FBKTW_Tu7lGO3nkzXN2P6OLTpIqkfM2QCzCcb7YD1KWsJHuNjTiwsHCV8hPSj1RtZlstvBsiiz6D5Rq5ky34tbSSFSmCZKN5phZ7FgLPxO9JxhUprvTxP29Y-K_w_x-FXmgkhoeca1ZuAC?purpose=fullsize",
+         "markdown": "![Radiant Plumbing & Air Conditioning - Austin | BBB Business Profile | Better Business Bureau](https://images.openai.com/static-rsc-4/Zd__KDl6MjSvCnBqido2418MKi3IlvfLK40O_1a--baLGDmCw9FBKTW_Tu7lGO3nkzXN2P6OLTpIqkfM2QCzCcb7YD1KWsJHuNjTiwsHCV8hPSj1RtZlstvBsiiz6D5Rq5ky34tbSSFSmCZKN5phZ7FgLPxO9JxhUprvTxP29Y-K_w_x-FXmgkhoeca1ZuAC?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 4,
+       "rank_absolute": 7,
+       "markdown": "\n\n### 3\\. Ironclad Plumbing\n\n5.0/5 · 38 reviews\n\n(Best for complex repairs)\n\nA local plumbing company handling leak detection, sewer lines, water heaters, gas lines, and drain cleaning. Advertises 24/7 emergency availability; confirm dispatch fees when calling.\n\nPhone: 512-506-2470\n\n---\n\n",
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Ironclad Plumbing",
+         "category": "local_business",
+         "markdown": "Ironclad Plumbing"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 4,
+       "rank_absolute": 8,
+       "markdown": "![Water Heater Repair in Austin, TX | Stan’s Heating, Air, Plumbing and Electrical](https://images.openai.com/static-rsc-4/bRDhEfg8Yi1NjBH5Jud9MJn4JAmuGTJT69o65nOyZ4JBkPIUx97-GR3cupktuiTkJ89T93lTkKwgE4D7bdr7dIll7SyTx51lhdRQpRMPDZ9JE7MBMtggAZ_utjpnWELyRUHfFNniNEJJSzFni8x0vQ7ClVfjMibynw34XdfBSF59qWdCGoShz6gWcwiY3S-r?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.stansac.com/water-heater-repair",
+         "alt": "Water Heater Repair in Austin, TX | Stan’s Heating, Air, Plumbing and Electrical",
+         "image_url": "https://images.openai.com/static-rsc-4/bRDhEfg8Yi1NjBH5Jud9MJn4JAmuGTJT69o65nOyZ4JBkPIUx97-GR3cupktuiTkJ89T93lTkKwgE4D7bdr7dIll7SyTx51lhdRQpRMPDZ9JE7MBMtggAZ_utjpnWELyRUHfFNniNEJJSzFni8x0vQ7ClVfjMibynw34XdfBSF59qWdCGoShz6gWcwiY3S-r?purpose=fullsize",
+         "markdown": "![Water Heater Repair in Austin, TX | Stan’s Heating, Air, Plumbing and Electrical](https://images.openai.com/static-rsc-4/bRDhEfg8Yi1NjBH5Jud9MJn4JAmuGTJT69o65nOyZ4JBkPIUx97-GR3cupktuiTkJ89T93lTkKwgE4D7bdr7dIll7SyTx51lhdRQpRMPDZ9JE7MBMtggAZ_utjpnWELyRUHfFNniNEJJSzFni8x0vQ7ClVfjMibynw34XdfBSF59qWdCGoShz6gWcwiY3S-r?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 5,
+       "rank_absolute": 9,
+       "markdown": "\n\n### 4\\. Stan's Heating, Air, Plumbing & Electrical\n\nA long-established Central Texas service company with plumbing, sewer, and water-heater services. A worthwhile option for comparing quotes on larger jobs.\n\nListed by Best Pick Reports at 4.7/5 across 3,917 reviews. [www.expertise.com](https://www.expertise.com/home-improvement/plumbing/texas/austin)[www.bestpickreports.com](https://www.bestpickreports.com/plumbers/austin)[www.consumeraffairs.com](https://www.consumeraffairs.com/homeowners/plumbers-austin.html)\n\nPhone: 737-404-5081\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "15 Best Austin, TX Plumbers",
+         "domain": "www.expertise.com",
+         "url": "https://www.expertise.com/home-improvement/plumbing/texas/austin",
+         "source_name": "Expertise",
+         "publication_date": "2020-02-12 20:29:25 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Plumbing Companies in Austin, TX",
+         "domain": "www.bestpickreports.com",
+         "url": "https://www.bestpickreports.com/plumbers/austin",
+         "source_name": "Best Pick Reports"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "9 Best Plumbers in Austin, TX (2026 Guide)",
+         "domain": "www.consumeraffairs.com",
+         "url": "https://www.consumeraffairs.com/homeowners/plumbers-austin.html",
+         "source_name": "ConsumerAffairs"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Stan's Heating, Air, Plumbing & Electrical",
+         "category": "business",
+         "markdown": "Stan's Heating, Air, Plumbing & Electrical"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_local_businesses",
+       "rank_group": 1,
+       "rank_absolute": 10,
+       "items": [
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Austin Plumbery",
+         "description": "Plumber",
+         "address": "Austin, TX, USA",
+         "phone": "+1 512-766-1519",
+         "reviews_count": 227,
+         "url": "http://www.austinplumbery.com/",
+         "domain": "www.austinplumbery.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.8,
+          "votes_count": 227,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Abacus Plumbing, Air Conditioning & Electrical",
+         "description": "Plumber",
+         "address": "708 S Lamar Blvd G, Austin, TX 78704, United States",
+         "phone": "+1 512-309-1487",
+         "reviews_count": 557,
+         "url": "https://www.abacusplumbing.com/austin/?utm_campaign=gmb_ab-atx_home_everyone_gmb-austin-lamar&utm_medium=gmb&utm_source=google",
+         "domain": "www.abacusplumbing.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.7,
+          "votes_count": 557,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Ironclad Plumbing",
+         "description": "Plumber",
+         "address": "1510 Newning Ave Unit B, Austin, TX 78704, United States",
+         "phone": "+1 512-506-2470",
+         "reviews_count": 38,
+         "url": "https://www.ironcladtexas.com/",
+         "domain": "www.ironcladtexas.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 38,
+          "rating_max": 5
+         }
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 6,
+       "rank_absolute": 11,
+       "markdown": "\n\n## Before you hire\n\n- Verify the plumber's Texas license through the [Texas State Board of Plumbing Examiners](https://tsbpe.texas.gov/)\\.\n- Request a written estimate and ask about diagnostic fees, emergency surcharges, and warranties.\n- For expensive sewer or slab-leak work, get a second opinion before approving the repair.\n\n## Let me narrow it down\n\n**What plumbing issue do you need fixed?**\n\n1\\. Type of job\n\nLeak or broken pipe\n\nClogged drain or sewer\n\nWater heater repair or replacement\n\nSlab leak or whole-house repiping\n\nToilet, faucet, or fixture\n\nOther\n\n---\n\n2\\. How soon?\n\nEmergency — today\n\nSoon, but not an emergency\n\nPlanning ahead / comparing prices\n\n---\n\n3\\. Which part of Austin?\n\nNorth Austin\n\nCentral Austin\n\nSouth Austin\n\nEast Austin\n\nWest Austin\n\nOther / greater Austin\n\n[Find the best match]",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Texas State Board of Plumbing Examiners",
+         "domain": "tsbpe.texas.gov",
+         "url": "https://tsbpe.texas.gov/",
+         "markdown": "[Texas State Board of Plumbing Examiners](https://tsbpe.texas.gov/)"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

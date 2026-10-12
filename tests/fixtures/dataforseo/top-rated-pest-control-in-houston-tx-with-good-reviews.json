@@ -1,0 +1,451 @@
+{
+ "_note": "Real DataForSEO ChatGPT LLM Scraper (live/advanced) response captured via the DataForSEO MCP connector. The connector returns the task with result items only; result-level fields such as cost, model and check_url were not included.",
+ "_captured_at": "2026-10-12T20:34:55.116Z",
+ "_request": {
+  "keyword": "top rated pest control in Houston TX with good reviews",
+  "location_name": "United States",
+  "language_code": "en",
+  "force_web_search": true
+ },
+ "tasks": [
+  {
+   "id": "10122034-2093-0629-0000-6af7e7456dae",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "result": [
+    {
+     "keyword": "top rated pest control in Houston TX with good reviews",
+     "items": [
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 1,
+       "rank_absolute": 1,
+       "markdown": "I searched current reviews and rankings for pest control companies in Houston, TX. I’d focus on companies with both **high ratings and a substantial number of reviews**, rather than choosing a company with five stars from only a handful of customers.\n\n## Top-rated pest control companies in Houston\n\nThese are my strongest starting points based on the available review data and service descriptions. Ratings can vary by review platform and location. [www.bestinhood.com](https://www.bestinhood.com/houston/specialized-home-services/best-pest-control-in-houston/)[reviews.birdeye.com](https://reviews.birdeye.com/d/pest-control/houston-tx/)[yably.com](https://yably.com/pest-control/houston-harris)[www.consumeraffairs.com](https://www.consumeraffairs.com/pest-control/texas/houston/)\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "5 Best Pest Control Services in Houston (2026)",
+         "domain": "www.bestinhood.com",
+         "url": "https://www.bestinhood.com/houston/specialized-home-services/best-pest-control-in-houston/",
+         "source_name": "Best in Hood"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Top Pest Control Companies in Houston, TX",
+         "domain": "reviews.birdeye.com",
+         "url": "https://reviews.birdeye.com/d/pest-control/houston-tx/",
+         "source_name": "Birdeye"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "The best 71 Pest Control in Houston for 2026",
+         "domain": "yably.com",
+         "url": "https://yably.com/pest-control/houston-harris",
+         "source_name": "Yably"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "3 Best Pest Control Companies in Houston, TX (2026 Guide)",
+         "domain": "www.consumeraffairs.com",
+         "url": "https://www.consumeraffairs.com/pest-control/texas/houston/",
+         "source_name": "ConsumerAffairs",
+         "publication_date": "2025-02-20 00:00:00 +00:00"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 1,
+       "rank_absolute": 2,
+       "markdown": "![Naturalcare Pest Control, 747 W 18th St, Ste D, Houston, TX 77008, US - MapQuest](https://images.openai.com/static-rsc-4/dZrfW866hk5Gxt9tSyob8vOl_AalmHJa_AIG1s5CEpswTfRo6EOpbYXE2xRTg39L2Z-Oy84QtingouVlILHb6qgZDAaoT7joaNLpHEQMdPOAZERsRil-K1NgdOuaDAzdTSud8XsfChB9U1MscP_Hr33p2uZQuehT4EJgjuLQqwuyd-2pvZiIDSbCYqBlellz?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.mapquest.com/us/texas/naturalcare-pest-control-270217339",
+         "alt": "Naturalcare Pest Control, 747 W 18th St, Ste D, Houston, TX 77008, US - MapQuest",
+         "image_url": "https://images.openai.com/static-rsc-4/dZrfW866hk5Gxt9tSyob8vOl_AalmHJa_AIG1s5CEpswTfRo6EOpbYXE2xRTg39L2Z-Oy84QtingouVlILHb6qgZDAaoT7joaNLpHEQMdPOAZERsRil-K1NgdOuaDAzdTSud8XsfChB9U1MscP_Hr33p2uZQuehT4EJgjuLQqwuyd-2pvZiIDSbCYqBlellz?purpose=fullsize",
+         "markdown": "![Naturalcare Pest Control, 747 W 18th St, Ste D, Houston, TX 77008, US - MapQuest](https://images.openai.com/static-rsc-4/dZrfW866hk5Gxt9tSyob8vOl_AalmHJa_AIG1s5CEpswTfRo6EOpbYXE2xRTg39L2Z-Oy84QtingouVlILHb6qgZDAaoT7joaNLpHEQMdPOAZERsRil-K1NgdOuaDAzdTSud8XsfChB9U1MscP_Hr33p2uZQuehT4EJgjuLQqwuyd-2pvZiIDSbCYqBlellz?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 2,
+       "rank_absolute": 3,
+       "markdown": "\n\n## 1\\. Kindred Pest Control\n\n**4.8/5** 11,000+ Google reviews reported\n\nBest overall for common household pests\n\nPraised for thorough interior and exterior treatments, technician communication, and follow-up service if pests return. A strong first company to contact for ants, roaches, spiders, and wasps. [www.bestinhood.com](https://www.bestinhood.com/houston/specialized-home-services/best-pest-control-in-houston/)[reviews.birdeye.com](https://reviews.birdeye.com/d/pest-control/houston-tx/)[yably.com](https://yably.com/pest-control/houston-harris)[www.consumeraffairs.com](https://www.consumeraffairs.com/pest-control/texas/houston/)\n\n\\(979) 436-8023\n\n[Company website](https://kindredpest.com/)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "5 Best Pest Control Services in Houston (2026)",
+         "domain": "www.bestinhood.com",
+         "url": "https://www.bestinhood.com/houston/specialized-home-services/best-pest-control-in-houston/",
+         "source_name": "Best in Hood"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Top Pest Control Companies in Houston, TX",
+         "domain": "reviews.birdeye.com",
+         "url": "https://reviews.birdeye.com/d/pest-control/houston-tx/",
+         "source_name": "Birdeye"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "The best 71 Pest Control in Houston for 2026",
+         "domain": "yably.com",
+         "url": "https://yably.com/pest-control/houston-harris",
+         "source_name": "Yably"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "3 Best Pest Control Companies in Houston, TX (2026 Guide)",
+         "domain": "www.consumeraffairs.com",
+         "url": "https://www.consumeraffairs.com/pest-control/texas/houston/",
+         "source_name": "ConsumerAffairs",
+         "publication_date": "2025-02-20 00:00:00 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Company website",
+         "domain": "kindredpest.com",
+         "url": "https://kindredpest.com/",
+         "markdown": "[Company website](https://kindredpest.com/)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Kindred Pest Control",
+         "category": "local_business",
+         "markdown": "Kindred Pest Control"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 2,
+       "rank_absolute": 4,
+       "markdown": "![Natran Green Pest Control - Career Page](https://images.openai.com/static-rsc-4/Dyvpay3UiykP11RRTGdSN4t3zQ7zX3zMs_O_bVGGEbXn1-FUPOKweYCKnT78v4FTe0FauaHFxlqp6TWLF1sDKuXHEj5KPrqYoboOuj0IUS8F8JtU_JCX0nosWIf77X9brIHL2HDSQNTelfTxUSMdD7kYmgezV7ED9tvCCZNZHr-941Jcj4U400w2LmVMLohY?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://careers.natran.com/",
+         "alt": "Natran Green Pest Control - Career Page",
+         "image_url": "https://images.openai.com/static-rsc-4/Dyvpay3UiykP11RRTGdSN4t3zQ7zX3zMs_O_bVGGEbXn1-FUPOKweYCKnT78v4FTe0FauaHFxlqp6TWLF1sDKuXHEj5KPrqYoboOuj0IUS8F8JtU_JCX0nosWIf77X9brIHL2HDSQNTelfTxUSMdD7kYmgezV7ED9tvCCZNZHr-941Jcj4U400w2LmVMLohY?purpose=fullsize",
+         "markdown": "![Natran Green Pest Control - Career Page](https://images.openai.com/static-rsc-4/Dyvpay3UiykP11RRTGdSN4t3zQ7zX3zMs_O_bVGGEbXn1-FUPOKweYCKnT78v4FTe0FauaHFxlqp6TWLF1sDKuXHEj5KPrqYoboOuj0IUS8F8JtU_JCX0nosWIf77X9brIHL2HDSQNTelfTxUSMdD7kYmgezV7ED9tvCCZNZHr-941Jcj4U400w2LmVMLohY?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 3,
+       "rank_absolute": 5,
+       "markdown": "\n\n## 2\\. Natran Green Pest Control\n\n**4.9/5** 2,000+ Google reviews reported\n\nBest for environmentally conscious households\n\nOffers pest treatments marketed with an emphasis on reduced environmental impact and family-conscious service. Ask about the exact products used and any precautions for children or pets. [www.bestinhood.com](https://www.bestinhood.com/houston/specialized-home-services/best-pest-control-in-houston/)[reviews.birdeye.com](https://reviews.birdeye.com/d/pest-control/houston-tx/)[yably.com](https://yably.com/pest-control/houston-harris)[www.consumeraffairs.com](https://www.consumeraffairs.com/pest-control/texas/houston/)\n\n[Company website](https://natran.com/)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "5 Best Pest Control Services in Houston (2026)",
+         "domain": "www.bestinhood.com",
+         "url": "https://www.bestinhood.com/houston/specialized-home-services/best-pest-control-in-houston/",
+         "source_name": "Best in Hood"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Top Pest Control Companies in Houston, TX",
+         "domain": "reviews.birdeye.com",
+         "url": "https://reviews.birdeye.com/d/pest-control/houston-tx/",
+         "source_name": "Birdeye"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "The best 71 Pest Control in Houston for 2026",
+         "domain": "yably.com",
+         "url": "https://yably.com/pest-control/houston-harris",
+         "source_name": "Yably"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "3 Best Pest Control Companies in Houston, TX (2026 Guide)",
+         "domain": "www.consumeraffairs.com",
+         "url": "https://www.consumeraffairs.com/pest-control/texas/houston/",
+         "source_name": "ConsumerAffairs",
+         "publication_date": "2025-02-20 00:00:00 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Company website",
+         "domain": "natran.com",
+         "url": "https://natran.com/",
+         "markdown": "[Company website](https://natran.com/)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Natran Green Pest Control",
+         "category": "local_business",
+         "markdown": "Natran Green Pest Control"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 3,
+       "rank_absolute": 6,
+       "markdown": "![ABC HOME & COMMERCIAL SERVICES - Updated August 2025 - 44 Photos & 188 Reviews - 4807 Katy Fwy Service Rd, Houston, Texas - Pest Control - Phone Number - Yelp](https://images.openai.com/static-rsc-4/mA0fouSv0HduvPXcdgYY-kzRvalUFlnz_gyu5QFsH-Ja6k7HOX5AtxYDuXBh0qj7GByY0aUiq2Hj6v_jOXu9CDHVtu4xpn52G-KuOTVnqSxGuv0ScoawvM76gOBFzrUQT8znitTdbEgSo8hWzwd2RKG4DMXD73osgV6mx-unIJZ151QMkZPyZ4R_QUPyysgv?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://m.yelp.com/biz/abc-home-and-commercial-services-houston-7",
+         "alt": "ABC HOME & COMMERCIAL SERVICES - Updated August 2025 - 44 Photos & 188 Reviews - 4807 Katy Fwy Service Rd, Houston, Texas - Pest Control - Phone Number - Yelp",
+         "image_url": "https://images.openai.com/static-rsc-4/mA0fouSv0HduvPXcdgYY-kzRvalUFlnz_gyu5QFsH-Ja6k7HOX5AtxYDuXBh0qj7GByY0aUiq2Hj6v_jOXu9CDHVtu4xpn52G-KuOTVnqSxGuv0ScoawvM76gOBFzrUQT8znitTdbEgSo8hWzwd2RKG4DMXD73osgV6mx-unIJZ151QMkZPyZ4R_QUPyysgv?purpose=fullsize",
+         "markdown": "![ABC HOME & COMMERCIAL SERVICES - Updated August 2025 - 44 Photos & 188 Reviews - 4807 Katy Fwy Service Rd, Houston, Texas - Pest Control - Phone Number - Yelp](https://images.openai.com/static-rsc-4/mA0fouSv0HduvPXcdgYY-kzRvalUFlnz_gyu5QFsH-Ja6k7HOX5AtxYDuXBh0qj7GByY0aUiq2Hj6v_jOXu9CDHVtu4xpn52G-KuOTVnqSxGuv0ScoawvM76gOBFzrUQT8znitTdbEgSo8hWzwd2RKG4DMXD73osgV6mx-unIJZ151QMkZPyZ4R_QUPyysgv?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 4,
+       "rank_absolute": 7,
+       "markdown": "\n\n## 3\\. ABC Home & Commercial Services\n\n**4.8/5** 3,600+ Google reviews reported\n\nBest for broader home-service needs\n\nProvides general pest control and other home services, with positive reviews mentioning long-term service relationships. Worth comparing if you also need wildlife removal or other exterior services. [www.bestinhood.com](https://www.bestinhood.com/houston/specialized-home-services/best-pest-control-in-houston/)[pest-control.trustanalytica.org](https://pest-control.trustanalytica.org/us/tx/houston/best-pest-control-services)\n\n\\(281) 730-9500\n\n[Company website](https://www.abchomeandcommercial.com/)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "5 Best Pest Control Services in Houston (2026)",
+         "domain": "www.bestinhood.com",
+         "url": "https://www.bestinhood.com/houston/specialized-home-services/best-pest-control-in-houston/",
+         "source_name": "Best in Hood"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Pest Control Services in Houston (Oct 2026 Rankings)",
+         "domain": "pest-control.trustanalytica.org",
+         "url": "https://pest-control.trustanalytica.org/us/tx/houston/best-pest-control-services",
+         "source_name": "TrustAnalytica"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Company website",
+         "domain": "www.abchomeandcommercial.com",
+         "url": "https://www.abchomeandcommercial.com/",
+         "markdown": "[Company website](https://www.abchomeandcommercial.com/)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "ABC Home & Commercial Services",
+         "category": "local_business",
+         "markdown": "ABC Home & Commercial Services"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 4,
+       "rank_absolute": 8,
+       "markdown": "![About | Hunter Termite Company](https://images.openai.com/static-rsc-4/T1vwyQeAUAeIFokgxL7s1YTbDU8-ECx1fbblQffBmF4irnLWdekrjdmBiBW1lOgvxzJv5OHLanKBNi6aqESgkGWJSKyvR5j5c2_AgKKYKEFgjP2R9zoSlxriGIQqZT1Ui8nTVmfWlzsgbBbywTQQAzbwDLXYdfLxDqg3wv8lLzjMEh9Ia-7yxsCPh6n1CfPd?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://huntertermitecompany.com/about",
+         "alt": "About | Hunter Termite Company",
+         "image_url": "https://images.openai.com/static-rsc-4/T1vwyQeAUAeIFokgxL7s1YTbDU8-ECx1fbblQffBmF4irnLWdekrjdmBiBW1lOgvxzJv5OHLanKBNi6aqESgkGWJSKyvR5j5c2_AgKKYKEFgjP2R9zoSlxriGIQqZT1Ui8nTVmfWlzsgbBbywTQQAzbwDLXYdfLxDqg3wv8lLzjMEh9Ia-7yxsCPh6n1CfPd?purpose=fullsize",
+         "markdown": "![About | Hunter Termite Company](https://images.openai.com/static-rsc-4/T1vwyQeAUAeIFokgxL7s1YTbDU8-ECx1fbblQffBmF4irnLWdekrjdmBiBW1lOgvxzJv5OHLanKBNi6aqESgkGWJSKyvR5j5c2_AgKKYKEFgjP2R9zoSlxriGIQqZT1Ui8nTVmfWlzsgbBbywTQQAzbwDLXYdfLxDqg3wv8lLzjMEh9Ia-7yxsCPh6n1CfPd?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 5,
+       "rank_absolute": 9,
+       "markdown": "\n\n## 4\\. Hunter Pest Control\n\n**5.0/5** 500+ reviews on Birdeye\n\nBest smaller-company option to investigate\n\nHas a strong reported customer rating and a sizable review base. A good candidate to compare for personalized service, although you should confirm the treatment and warranty for your particular pest. [www.bestinhood.com](https://www.bestinhood.com/houston/specialized-home-services/best-pest-control-in-houston/)[reviews.birdeye.com](https://reviews.birdeye.com/d/pest-control/houston-tx/)[yably.com](https://yably.com/pest-control/houston-harris)[www.consumeraffairs.com](https://www.consumeraffairs.com/pest-control/texas/houston/)\n\n1241 W. 22nd St., Houston, TX\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "5 Best Pest Control Services in Houston (2026)",
+         "domain": "www.bestinhood.com",
+         "url": "https://www.bestinhood.com/houston/specialized-home-services/best-pest-control-in-houston/",
+         "source_name": "Best in Hood"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Top Pest Control Companies in Houston, TX",
+         "domain": "reviews.birdeye.com",
+         "url": "https://reviews.birdeye.com/d/pest-control/houston-tx/",
+         "source_name": "Birdeye"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "The best 71 Pest Control in Houston for 2026",
+         "domain": "yably.com",
+         "url": "https://yably.com/pest-control/houston-harris",
+         "source_name": "Yably"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "3 Best Pest Control Companies in Houston, TX (2026 Guide)",
+         "domain": "www.consumeraffairs.com",
+         "url": "https://www.consumeraffairs.com/pest-control/texas/houston/",
+         "source_name": "ConsumerAffairs",
+         "publication_date": "2025-02-20 00:00:00 +00:00"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Hunter Pest Control",
+         "category": "local_business",
+         "markdown": "Hunter Pest Control"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 5,
+       "rank_absolute": 10,
+       "markdown": "![Angi](https://images.openai.com/static-rsc-4/qA-nuKoNdPudhZlm59w3czQIEgs-JaKX7FEz5ocSozTJPzGjQ_iX_rJcccfv_Hj0OW7id_AIw5Be35KfNI9bvwYY3Fqt0ZaRWrGaFrmTyMYWMwTcK70eCs6omqjFxjaiHJ3wW3VkRzrtGp3wDHMYV-x3aEnQmcvgpsg-dyW0mzg7BXPoyyY4gj728-Wo052l?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.angi.com/companylist/us/tx/schertz/bulwark-exterminating-san-antonio-reviews-6385376.htm",
+         "alt": "Angi",
+         "image_url": "https://images.openai.com/static-rsc-4/qA-nuKoNdPudhZlm59w3czQIEgs-JaKX7FEz5ocSozTJPzGjQ_iX_rJcccfv_Hj0OW7id_AIw5Be35KfNI9bvwYY3Fqt0ZaRWrGaFrmTyMYWMwTcK70eCs6omqjFxjaiHJ3wW3VkRzrtGp3wDHMYV-x3aEnQmcvgpsg-dyW0mzg7BXPoyyY4gj728-Wo052l?purpose=fullsize",
+         "markdown": "![Angi](https://images.openai.com/static-rsc-4/qA-nuKoNdPudhZlm59w3czQIEgs-JaKX7FEz5ocSozTJPzGjQ_iX_rJcccfv_Hj0OW7id_AIw5Be35KfNI9bvwYY3Fqt0ZaRWrGaFrmTyMYWMwTcK70eCs6omqjFxjaiHJ3wW3VkRzrtGp3wDHMYV-x3aEnQmcvgpsg-dyW0mzg7BXPoyyY4gj728-Wo052l?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 6,
+       "rank_absolute": 11,
+       "markdown": "\n\n## 5\\. Bulwark Exterminating\n\n**4.7–4.9/5** 1,000+ reviews on some platforms\n\nBest for comparing ongoing service plans\n\nReviewers frequently praise thorough treatments and professional technicians. Compare its recurring service contract and cancellation terms with those of other providers before signing. [www.bestinhood.com](https://www.bestinhood.com/houston/specialized-home-services/best-pest-control-in-houston/)[reviews.birdeye.com](https://reviews.birdeye.com/d/pest-control/houston-tx/)[yably.com](https://yably.com/pest-control/houston-harris)[www.consumeraffairs.com](https://www.consumeraffairs.com/pest-control/texas/houston/)[www.homeadvisor.com](https://www.homeadvisor.com/tloc/Houston-TX/Pest-Control-Bugs-and-Insects/)\n\n[Company website](https://bulwarkpestcontrol.com/)\n\n## Compare them on a map\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "5 Best Pest Control Services in Houston (2026)",
+         "domain": "www.bestinhood.com",
+         "url": "https://www.bestinhood.com/houston/specialized-home-services/best-pest-control-in-houston/",
+         "source_name": "Best in Hood"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Top Pest Control Companies in Houston, TX",
+         "domain": "reviews.birdeye.com",
+         "url": "https://reviews.birdeye.com/d/pest-control/houston-tx/",
+         "source_name": "Birdeye"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "The best 71 Pest Control in Houston for 2026",
+         "domain": "yably.com",
+         "url": "https://yably.com/pest-control/houston-harris",
+         "source_name": "Yably"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "3 Best Pest Control Companies in Houston, TX (2026 Guide)",
+         "domain": "www.consumeraffairs.com",
+         "url": "https://www.consumeraffairs.com/pest-control/texas/houston/",
+         "source_name": "ConsumerAffairs",
+         "publication_date": "2025-02-20 00:00:00 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Top-Rated Bug and Insect Pest Control Services Experts in Houston, TX",
+         "domain": "www.homeadvisor.com",
+         "url": "https://www.homeadvisor.com/tloc/Houston-TX/Pest-Control-Bugs-and-Insects/",
+         "source_name": "HomeAdvisor"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Company website",
+         "domain": "bulwarkpestcontrol.com",
+         "url": "https://bulwarkpestcontrol.com/",
+         "markdown": "[Company website](https://bulwarkpestcontrol.com/)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Bulwark Exterminating",
+         "category": "local_business",
+         "markdown": "Bulwark Exterminating"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_local_businesses",
+       "rank_group": 1,
+       "rank_absolute": 12,
+       "items": [
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Kindred Pest Control",
+         "description": "Pest control service",
+         "address": "2501 Central Pkwy, Suite C-1, Houston, TX",
+         "phone": "+19794368023",
+         "reviews_count": 11339,
+         "url": "https://kindredpest.com/?utm_source=chatgpt.com",
+         "domain": "kindredpest.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.8,
+          "votes_count": 11339,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Natran Green Pest Control",
+         "description": "Pest control service",
+         "address": "12460 Northwest Freeway, Houston, TX",
+         "phone": "+12813248779",
+         "reviews_count": 2140,
+         "url": "https://natran.com/houston/(?=.%2Autm_source%3Dgoogle%29%28%3F%3D.%2Autm_medium%3Dorganic%29%28%3F%3D.%2Autm_campaign%3Dgmb%29.&utm_source=chatgpt.com",
+         "domain": "natran.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.9,
+          "votes_count": 2140,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "ABC Home & Commercial Services",
+         "description": "Pest control service",
+         "address": "4807 Katy Freeway Service Road, Houston, TX 77007",
+         "phone": "+12817309500",
+         "reviews_count": 3657,
+         "url": "https://www.abchomeandcommercial.com/houston?utm_source=chatgpt.com",
+         "domain": "www.abchomeandcommercial.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.8,
+          "votes_count": 3657,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Hunter Pest Control",
+         "description": "Point",
+         "address": "1241 W 22nd St, Houston, TX",
+         "phone": "+17138683800",
+         "url": "https://hunterpest.com/schedule-service/?utm_source=chatgpt.com",
+         "domain": "hunterpest.com"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 7,
+       "rank_absolute": 13,
+       "markdown": "\n\n## Before you hire one\n\n- Get at least **two or three quotes** for the same pest problem.\n- Ask whether follow-up treatments are included if the pests return.\n- Check the total cost, contract length, and cancellation fees.\n- For termites, bedbugs, or rodents, confirm the company specifically handles that pest.\n- Verify the company's Texas pest-control licensing where applicable.\n\n**One quick question so I can narrow this down\\:** What pest problem are you dealing with?\n\n1\\. Type of pest\n\nRoaches or ants\n\nTermites\n\nBedbugs\n\nMice or rats\n\nMosquitoes or yard pests\n\nGeneral pest prevention\n\n---\n\n2\\. What matters most?\n\nBest overall value\n\nLowest price\n\nOne-time treatment\n\nOngoing monthly or quarterly service\n\nPet- and child-conscious treatments\n\n---\n\n3\\. Houston area or ZIP code (optional)\n\n[Input placeholder: e\\.g\\. Katy, Spring, 77024] (Current value unavailable.)\n\n[Find the best matches]"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

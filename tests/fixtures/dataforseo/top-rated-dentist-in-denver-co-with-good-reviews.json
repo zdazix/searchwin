@@ -1,0 +1,338 @@
+{
+ "_note": "Real DataForSEO ChatGPT LLM Scraper (live/advanced) response captured via the DataForSEO MCP connector. The connector returns the task with result items only; result-level fields such as cost, model and check_url were not included.",
+ "_captured_at": "2026-10-12T20:35:58.608Z",
+ "_request": {
+  "keyword": "top rated dentist in Denver CO with good reviews",
+  "location_name": "United States",
+  "language_code": "en",
+  "force_web_search": true
+ },
+ "tasks": [
+  {
+   "id": "10122035-2093-0629-0000-826390f8f2fe",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "result": [
+    {
+     "keyword": "top rated dentist in Denver CO with good reviews",
+     "items": [
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 1,
+       "rank_absolute": 1,
+       "markdown": "# Top-rated dentists in Denver, Colorado\n\nI searched current dentist listings and patient-review rankings for Denver. If you're looking for a dentist with **excellent reviews, a strong reputation, and comprehensive dental care**, I'd start by comparing the practices below.\n\nOne important tip: a 4.9-star rating backed by hundreds of reviews is generally more informative than a perfect 5.0 rating backed by only a handful of reviews. The ratings below are from published listings and can vary by review platform. [www.toprateddentist.com](https://www.toprateddentist.com/dentists/denver-co)[www.bestinhood.com](https://www.bestinhood.com/denver/dentists/best-dentists-in-denver/)[reviews.birdeye.com](https://reviews.birdeye.com/d/dental/denver-co/)\n\n## My top picks to investigate\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Dentists Near Me in Denver, CO (2026)",
+         "domain": "www.toprateddentist.com",
+         "url": "https://www.toprateddentist.com/dentists/denver-co",
+         "source_name": "TopRatedDentist.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "5 Best Dentists in Denver (2026)",
+         "domain": "www.bestinhood.com",
+         "url": "https://www.bestinhood.com/denver/dentists/best-dentists-in-denver/",
+         "source_name": "bestinhood.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Top Dental Companies in Denver, CO",
+         "domain": "reviews.birdeye.com",
+         "url": "https://reviews.birdeye.com/d/dental/denver-co/",
+         "source_name": "Birdeye"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 1,
+       "rank_absolute": 2,
+       "markdown": "![Dental Office Architecture and Interior Design - Metropolitan Dental Care - Lynne Thom Architects](https://images.openai.com/static-rsc-4/1OZGrlcoJ2ZKsqoIphfqxGWPvzjL9LoSN-lkpE2X6nmD0oUgDKyxvZ9f405tg8edjEFpgHaLiQGPWUdvcuAh3nvi4afp_8MQaoALuuyNEym_C9q5HvhVxdBvYk8xLQ2sxPoaPUpXLC_FAOyZdyPb3G1Y6h3mymgi9WbKNt_VQ8PZ2BKpX-Ak3CubvjVNDsUM?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://lynnethomarchitects.com/Dental/GeneralDentistry/MetropolitanDentalCare.aspx",
+         "alt": "Dental Office Architecture and Interior Design - Metropolitan Dental Care - Lynne Thom Architects",
+         "image_url": "https://images.openai.com/static-rsc-4/1OZGrlcoJ2ZKsqoIphfqxGWPvzjL9LoSN-lkpE2X6nmD0oUgDKyxvZ9f405tg8edjEFpgHaLiQGPWUdvcuAh3nvi4afp_8MQaoALuuyNEym_C9q5HvhVxdBvYk8xLQ2sxPoaPUpXLC_FAOyZdyPb3G1Y6h3mymgi9WbKNt_VQ8PZ2BKpX-Ak3CubvjVNDsUM?purpose=fullsize",
+         "markdown": "![Dental Office Architecture and Interior Design - Metropolitan Dental Care - Lynne Thom Architects](https://images.openai.com/static-rsc-4/1OZGrlcoJ2ZKsqoIphfqxGWPvzjL9LoSN-lkpE2X6nmD0oUgDKyxvZ9f405tg8edjEFpgHaLiQGPWUdvcuAh3nvi4afp_8MQaoALuuyNEym_C9q5HvhVxdBvYk8xLQ2sxPoaPUpXLC_FAOyZdyPb3G1Y6h3mymgi9WbKNt_VQ8PZ2BKpX-Ak3CubvjVNDsUM?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 2,
+       "rank_absolute": 3,
+       "markdown": "\n\n## 1\\. Metropolitan Dental Care\n\nDowntown Denver · General and cosmetic dentistry\n\n**4.9/5 · about 1,100 Google reviews**\n\nA strong first choice for general family care, with a high rating and substantial review volume in published Denver rankings. The office offers a broad range of dental services. [www.toprateddentist.com](https://www.toprateddentist.com/dentists/denver-co)[www.bestinhood.com](https://www.bestinhood.com/denver/dentists/best-dentists-in-denver/)[reviews.birdeye.com](https://reviews.birdeye.com/d/dental/denver-co/)[datasetlabs.ai](https://datasetlabs.ai/data/dentists/co/denver/)\n\nPhone: (303) 534-2626\n\n1400 Glenarm Pl, Suite 200, Denver, CO 80202\n\n[View website and reviews](https://www.google.com/search?q=Metropolitan+Dental+Care+Denver+CO)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Dentists Near Me in Denver, CO (2026)",
+         "domain": "www.toprateddentist.com",
+         "url": "https://www.toprateddentist.com/dentists/denver-co",
+         "source_name": "TopRatedDentist.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "5 Best Dentists in Denver (2026)",
+         "domain": "www.bestinhood.com",
+         "url": "https://www.bestinhood.com/denver/dentists/best-dentists-in-denver/",
+         "source_name": "bestinhood.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Top Dental Companies in Denver, CO",
+         "domain": "reviews.birdeye.com",
+         "url": "https://reviews.birdeye.com/d/dental/denver-co/",
+         "source_name": "Birdeye"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "60 Dentists in Denver, CO",
+         "domain": "datasetlabs.ai",
+         "url": "https://datasetlabs.ai/data/dentists/co/denver/",
+         "source_name": "Dataset Labs"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "View website and reviews",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/search?q=Metropolitan+Dental+Care+Denver+CO",
+         "markdown": "[View website and reviews](https://www.google.com/search?q=Metropolitan+Dental+Care+Denver+CO)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Metropolitan Dental Care",
+         "category": "local_business",
+         "markdown": "Metropolitan Dental Care"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 2,
+       "rank_absolute": 4,
+       "markdown": "![Espire Dental Glendale Cherry-Creek](https://images.openai.com/static-rsc-4/rkz4BYmNJMhxPA815lN8kM7Ok7MBcqTi1Rcwsbx6eCU4o03s-9xB-l_anuOMNSO235MV5vT3FS1U4JhBFHZHrge4oh2y8HJFcXME5TlS8bGkvceNc4MTXdpXYZdgGFNUhJjR2SEIuTLlP9h1V8iRuCO1IjHNUrN6aFJos0fLxycNpXgeBT6xoNyza73sLpt5?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.espiredental.com/locations/glendale-cherry-creek",
+         "alt": "Espire Dental Glendale Cherry-Creek",
+         "image_url": "https://images.openai.com/static-rsc-4/rkz4BYmNJMhxPA815lN8kM7Ok7MBcqTi1Rcwsbx6eCU4o03s-9xB-l_anuOMNSO235MV5vT3FS1U4JhBFHZHrge4oh2y8HJFcXME5TlS8bGkvceNc4MTXdpXYZdgGFNUhJjR2SEIuTLlP9h1V8iRuCO1IjHNUrN6aFJos0fLxycNpXgeBT6xoNyza73sLpt5?purpose=fullsize",
+         "markdown": "![Espire Dental Glendale Cherry-Creek](https://images.openai.com/static-rsc-4/rkz4BYmNJMhxPA815lN8kM7Ok7MBcqTi1Rcwsbx6eCU4o03s-9xB-l_anuOMNSO235MV5vT3FS1U4JhBFHZHrge4oh2y8HJFcXME5TlS8bGkvceNc4MTXdpXYZdgGFNUhJjR2SEIuTLlP9h1V8iRuCO1IjHNUrN6aFJos0fLxycNpXgeBT6xoNyza73sLpt5?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 3,
+       "rank_absolute": 5,
+       "markdown": "\n\n## 2\\. Espire Dental – Glendale / Cherry Creek\n\nSoutheast Denver · General and cosmetic dentistry\n\n**4.9/5 · over 1,000 reviews**\n\nWorth considering if you want a well-reviewed practice offering general dentistry alongside cosmetic treatments and dental implants. [reviews.birdeye.com](https://reviews.birdeye.com/d/dental/denver-co/)[reviews.birdeye.com](https://reviews.birdeye.com/d/dentists/denver-co/)\n\n6825 E Tennessee Ave, Suite 621, Denver, CO 80224\n\n[View website and reviews](https://www.google.com/search?q=Espire+Dental+Glendale+Cherry+Creek)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Top Dental Companies in Denver, CO",
+         "domain": "reviews.birdeye.com",
+         "url": "https://reviews.birdeye.com/d/dental/denver-co/",
+         "source_name": "Birdeye"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Top Dentists Companies in Denver, CO",
+         "domain": "reviews.birdeye.com",
+         "url": "https://reviews.birdeye.com/d/dentists/denver-co/",
+         "source_name": "Birdeye"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "View website and reviews",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/search?q=Espire+Dental+Glendale+Cherry+Creek",
+         "markdown": "[View website and reviews](https://www.google.com/search?q=Espire+Dental+Glendale+Cherry+Creek)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Espire Dental – Glendale / Cherry Creek",
+         "category": "local_business",
+         "markdown": "Espire Dental – Glendale / Cherry Creek"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 3,
+       "rank_absolute": 6,
+       "markdown": "![Dental Care Specialists | Dentists in Denver | Cherry Creek Dental Spa | Melissa Goodpaster DDS](https://images.openai.com/static-rsc-4/F6KGHfvD5nWNeUxQx_XQ9OBqhYkaqb0lwX6oj2-siPNdvTl9cuia5dtqBj9b7CQ_F_P0MdLndA-ovt5HYh9-Z_WxbSnTYK3cp1pFVZahZ8wUsdM_vPhorUIFejFkmjQkLrdTEg0zblJDuBaJdUDHZsxh1wdhD0msVmEAx2CoArGmiqAp7S_-nIWixezHCDwa?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://cherrycreekdentalspa.com/",
+         "alt": "Dental Care Specialists | Dentists in Denver | Cherry Creek Dental Spa | Melissa Goodpaster DDS",
+         "image_url": "https://images.openai.com/static-rsc-4/F6KGHfvD5nWNeUxQx_XQ9OBqhYkaqb0lwX6oj2-siPNdvTl9cuia5dtqBj9b7CQ_F_P0MdLndA-ovt5HYh9-Z_WxbSnTYK3cp1pFVZahZ8wUsdM_vPhorUIFejFkmjQkLrdTEg0zblJDuBaJdUDHZsxh1wdhD0msVmEAx2CoArGmiqAp7S_-nIWixezHCDwa?purpose=fullsize",
+         "markdown": "![Dental Care Specialists | Dentists in Denver | Cherry Creek Dental Spa | Melissa Goodpaster DDS](https://images.openai.com/static-rsc-4/F6KGHfvD5nWNeUxQx_XQ9OBqhYkaqb0lwX6oj2-siPNdvTl9cuia5dtqBj9b7CQ_F_P0MdLndA-ovt5HYh9-Z_WxbSnTYK3cp1pFVZahZ8wUsdM_vPhorUIFejFkmjQkLrdTEg0zblJDuBaJdUDHZsxh1wdhD0msVmEAx2CoArGmiqAp7S_-nIWixezHCDwa?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 4,
+       "rank_absolute": 7,
+       "markdown": "\n\n## 3\\. Cherry Creek Dental Spa\n\nCherry Creek · Comfort-focused and cosmetic care\n\n**4.7/5 · 107 reviews in the business listing**\n\nA boutique option for patients interested in a more comfort-oriented experience, routine dental care, cosmetic services, and clear aligners.\n\nPhone: (303) 835-0033\n\n155 S Madison St, Suite 220, Denver, CO 80209\n\n[View website and reviews](https://www.google.com/search?q=Cherry+Creek+Dental+Spa+Denver)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "View website and reviews",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/search?q=Cherry+Creek+Dental+Spa+Denver",
+         "markdown": "[View website and reviews](https://www.google.com/search?q=Cherry+Creek+Dental+Spa+Denver)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Cherry Creek Dental Spa",
+         "category": "local_business",
+         "markdown": "Cherry Creek Dental Spa"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 4,
+       "rank_absolute": 8,
+       "markdown": "![Smile Studio Dental - Denver - Denver, CO - Nextdoor](https://images.openai.com/static-rsc-4/f4g3oPK_FAvQtS0Rs8tTyRmEsFjwzlcE0Rcu1FyVL_j86FY8UrpAHC7gEKxm6RRXdYlniZLEB1qo6ZF_z97Qnwm3e2u_1bTDR7ydmEeMScuWi55_qs-fB-CXIHVfScVC0vx9dwKV-i9_u32OXm1SpjFkzJfFsk6_da_GzHlOwvjUwdLbB_w8FKlcX3XnT2OT?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://nextdoor.com/pages/smile-studio-dental-denver-co/",
+         "alt": "Smile Studio Dental - Denver - Denver, CO - Nextdoor",
+         "image_url": "https://images.openai.com/static-rsc-4/f4g3oPK_FAvQtS0Rs8tTyRmEsFjwzlcE0Rcu1FyVL_j86FY8UrpAHC7gEKxm6RRXdYlniZLEB1qo6ZF_z97Qnwm3e2u_1bTDR7ydmEeMScuWi55_qs-fB-CXIHVfScVC0vx9dwKV-i9_u32OXm1SpjFkzJfFsk6_da_GzHlOwvjUwdLbB_w8FKlcX3XnT2OT?purpose=fullsize",
+         "markdown": "![Smile Studio Dental - Denver - Denver, CO - Nextdoor](https://images.openai.com/static-rsc-4/f4g3oPK_FAvQtS0Rs8tTyRmEsFjwzlcE0Rcu1FyVL_j86FY8UrpAHC7gEKxm6RRXdYlniZLEB1qo6ZF_z97Qnwm3e2u_1bTDR7ydmEeMScuWi55_qs-fB-CXIHVfScVC0vx9dwKV-i9_u32OXm1SpjFkzJfFsk6_da_GzHlOwvjUwdLbB_w8FKlcX3XnT2OT?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 5,
+       "rank_absolute": 9,
+       "markdown": "\n\n## 4\\. Smile Studio Dental\n\nCentral Park · Family and restorative care\n\n**4.9/5 in a published Denver ranking**\n\nAnother option to investigate for preventive, family, restorative, and cosmetic dental care. Its published ranking reports hundreds of Google reviews, though ratings and counts differ across directories. [www.toprateddentist.com](https://www.toprateddentist.com/dentists/denver-co)[datasetlabs.ai](https://datasetlabs.ai/data/dentists/co/denver/)\n\nPhone: (720) 637-3500\n\n8801 E Montview Blvd, Suite 120, Denver, CO 80238\n\n[View website and reviews](https://www.google.com/search?q=Smile+Studio+Dental+Denver+Colorado)\n\n## Map of the recommended dentists\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Dentists Near Me in Denver, CO (2026)",
+         "domain": "www.toprateddentist.com",
+         "url": "https://www.toprateddentist.com/dentists/denver-co",
+         "source_name": "TopRatedDentist.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "60 Dentists in Denver, CO",
+         "domain": "datasetlabs.ai",
+         "url": "https://datasetlabs.ai/data/dentists/co/denver/",
+         "source_name": "Dataset Labs"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "View website and reviews",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/search?q=Smile+Studio+Dental+Denver+Colorado",
+         "markdown": "[View website and reviews](https://www.google.com/search?q=Smile+Studio+Dental+Denver+Colorado)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Smile Studio Dental",
+         "category": "local_business",
+         "markdown": "Smile Studio Dental"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_local_businesses",
+       "rank_group": 1,
+       "rank_absolute": 10,
+       "items": [
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Metropolitan Dental Care",
+         "description": "Dentist",
+         "address": "1400 Glenarm Place, Denver, CO 80202",
+         "phone": "+13035342626",
+         "reviews_count": 1121,
+         "url": "https://metrodentalcare.com/?y_source=1_MjA3ODAwODUxNy03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D&utm_source=chatgpt.com",
+         "domain": "metrodentalcare.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.9,
+          "votes_count": 1121,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Espire Dental Glendale-Cherry Creek",
+         "description": "Dentist",
+         "address": "6825 E Tennessee Avenue, Denver, CO 80224",
+         "phone": "+13039970446",
+         "reviews_count": 883,
+         "url": "https://espiredental.com/locations/glendale-cherry-creek/?utm_source=chatgpt.com",
+         "domain": "espiredental.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.8,
+          "votes_count": 883,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Cherry Creek Dental Spa",
+         "description": "Dental clinic",
+         "address": "155 S Madison Street, Denver, CO 80209",
+         "phone": "+13038350033",
+         "reviews_count": 686,
+         "url": "https://cherrycreekdentalspa.com/?utm_source=chatgpt.com",
+         "domain": "cherrycreekdentalspa.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.9,
+          "votes_count": 686,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Smile Studio Dental",
+         "description": "Dentist",
+         "address": "8801 E Montview Boulevard, Denver, CO 80238",
+         "phone": "+17206373500",
+         "reviews_count": 746,
+         "url": "https://www.smilestudiodenver.com/?utm_source=chatgpt.com",
+         "domain": "www.smilestudiodenver.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.9,
+          "votes_count": 746,
+          "rating_max": 5
+         }
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 6,
+       "rank_absolute": 11,
+       "markdown": "\n\n## How I'd choose\n\nBefore booking, I recommend checking three things\\:\n\n- **Insurance\\:** Confirm that the office accepts your specific dental plan.\n- **Recent reviews\\:** Read the newest one- to three-star reviews as well as positive reviews, especially those mentioning billing, treatment recommendations, and pain management.\n- **Your dental needs\\:** A routine cleaning, a root canal, implants, and cosmetic work may call for different dentists.\n\n**One question\\:** What kind of dentist are you looking for? I can narrow the list to the best matches.\n\nType of dental care\n\nRegular checkups and cleanings\n\nCosmetic dentistry, veneers, or whitening\n\nImplants, crowns, or restorative work\n\nGentle dentist for nervous patients\n\nToothache or urgent dental care\n\n---\n\nPreferred location\n\nDowntown Denver\n\nCherry Creek / southeast Denver\n\nAnywhere in Denver\n\n---\n\nInsurance preference\n\nMust accept my insurance\n\nSelf-pay / affordable cash pricing\n\nEither is fine\n\n[Find my best matches]"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

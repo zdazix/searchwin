@@ -18,6 +18,7 @@ Key facts:
 - [Home](https://searchwin.ai/): how AI assistants now pick businesses for people, and how we turn AI recommendations into customers.
 - [SaaS](https://searchwin.ai/saas/): AI search growth for SaaS companies, measured in trials, demos and pipeline.
 - [B2B](https://searchwin.ai/b2b/): AI search growth for manufacturers, logistics, industrial, IT and professional services firms, measured in RFQs, sales calls and contracts.
+- [Free AI check](https://searchwin.ai/ai-check/): see in about a minute whether ChatGPT names a US local business when customers ask who to call. Real ChatGPT answers, no sign-up.
 - [Industries](https://searchwin.ai/#industries): the kinds of businesses we work with.
 - [How it works](https://searchwin.ai/#system): the four layers, from getting understood to getting chosen.
 - [Why us](https://searchwin.ai/#difference): visibility reports compared with revenue reports.

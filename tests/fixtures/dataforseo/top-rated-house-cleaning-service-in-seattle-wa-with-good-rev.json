@@ -1,0 +1,508 @@
+{
+ "_note": "Real DataForSEO ChatGPT LLM Scraper (live/advanced) response captured via the DataForSEO MCP connector. The connector returns the task with result items only; result-level fields such as cost, model and check_url were not included.",
+ "_captured_at": "2026-10-12T20:36:01.511Z",
+ "_request": {
+  "keyword": "top rated house cleaning service in Seattle WA with good reviews",
+  "location_name": "United States",
+  "language_code": "en",
+  "force_web_search": true
+ },
+ "tasks": [
+  {
+   "id": "10122036-2093-0629-0000-0de48db002a0",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "result": [
+    {
+     "keyword": "top rated house cleaning service in Seattle WA with good reviews",
+     "items": [
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 1,
+       "rank_absolute": 1,
+       "markdown": "# Top-rated house cleaning services in Seattle, WA\n\nI searched for Seattle house cleaners with strong customer reviews, focusing on both star ratings and the number of reviews, since a high rating backed by hundreds of customers is often more informative than a perfect rating from just a handful.\n\n**My top recommendation is Seattle Green Cleaning Fairy** for its combination of a 4.9-star rating, more than 1,200 reviews, and eco-friendly cleaning options. If you want a perfect 5.0 rating, Maid Service Seattle is also worth considering. These ratings are based on current business listings and published review roundups. [www.bestinhood.com](https://www.bestinhood.com/seattle/home-cleaning-and-organizing/best-house-cleaning-services-in-seattle/)[www.expertise.com](https://www.expertise.com/home-improvement/house-cleaning/washington/seattle)[www.yelp.com](https://www.yelp.com/biz/seattle-green-earth-cleaning-seattle?adjust_creative=openai&utm_campaign=yelp_feed&utm_medium=feed_v2&utm_source=openai)\n\n## Best house cleaners to compare\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "5 Best House Cleaning Services in Seattle (2026)",
+         "domain": "www.bestinhood.com",
+         "url": "https://www.bestinhood.com/seattle/home-cleaning-and-organizing/best-house-cleaning-services-in-seattle/",
+         "source_name": "Best in Hood"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "19 Best Seattle, WA House Cleaning Services",
+         "domain": "www.expertise.com",
+         "url": "https://www.expertise.com/home-improvement/house-cleaning/washington/seattle",
+         "source_name": "Expertise",
+         "publication_date": "2020-02-12 20:29:27 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Seattle Green Earth Cleaning",
+         "snippet": "1037 NE 65th St, Ste 178, Seattle, WA 98115",
+         "domain": "www.yelp.com",
+         "url": "https://www.yelp.com/biz/seattle-green-earth-cleaning-seattle?adjust_creative=openai&utm_campaign=yelp_feed&utm_medium=feed_v2&utm_source=openai",
+         "source_name": "yelp.com"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 1,
+       "rank_absolute": 2,
+       "markdown": "![Reliable House Cleaning Services for Families Looking for Quality and Professional Home Cleaning Care — Seattle Green Cleaning Fairy](https://images.openai.com/static-rsc-4/b2JfxZ8YXInhvhaFgQbmNG1Mn2g-OQyy2LpGrlgz9loONdekiNP2-92PWd6RoVeLhbCdDAsYMT-2ae-e8_7KFhE7_gONxPZyapCnxL1dDNM4f9IymIFoNhOCY-sO5DNc67vFr-SnARhu0ThBXZbMApnCst3oZYXoOfHAUP4XbzUg22JUdBc4JECNfQWJquha?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.seattlegreencleaningfairy.com/services/house-cleaning",
+         "alt": "Reliable House Cleaning Services for Families Looking for Quality and Professional Home Cleaning Care — Seattle Green Cleaning Fairy",
+         "image_url": "https://images.openai.com/static-rsc-4/b2JfxZ8YXInhvhaFgQbmNG1Mn2g-OQyy2LpGrlgz9loONdekiNP2-92PWd6RoVeLhbCdDAsYMT-2ae-e8_7KFhE7_gONxPZyapCnxL1dDNM4f9IymIFoNhOCY-sO5DNc67vFr-SnARhu0ThBXZbMApnCst3oZYXoOfHAUP4XbzUg22JUdBc4JECNfQWJquha?purpose=fullsize",
+         "markdown": "![Reliable House Cleaning Services for Families Looking for Quality and Professional Home Cleaning Care — Seattle Green Cleaning Fairy](https://images.openai.com/static-rsc-4/b2JfxZ8YXInhvhaFgQbmNG1Mn2g-OQyy2LpGrlgz9loONdekiNP2-92PWd6RoVeLhbCdDAsYMT-2ae-e8_7KFhE7_gONxPZyapCnxL1dDNM4f9IymIFoNhOCY-sO5DNc67vFr-SnARhu0ThBXZbMApnCst3oZYXoOfHAUP4XbzUg22JUdBc4JECNfQWJquha?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 2,
+       "rank_absolute": 3,
+       "markdown": "\n\n## 1\\. Seattle Green Cleaning Fairy\n\n**4.9/5** \\(1,233 reviews)\n\n(Best overall)\n\nKnown for eco-friendly, non-toxic cleaning products, flat-rate pricing options, and standard, deep, and move-in/move-out cleaning. A strong choice if you want an established service with a substantial review history. [www.bestinhood.com](https://www.bestinhood.com/seattle/home-cleaning-and-organizing/best-house-cleaning-services-in-seattle/)[www.expertise.com](https://www.expertise.com/home-improvement/house-cleaning/washington/seattle)[www.google.com](https://www.google.com/maps/place/data=!3m1!4b1!4m2!3m1!1s0x54906acb05b9ffc1:0x81078d6cd77e065d?hl=en)[www.google.com](https://www.google.com/maps/place/Maid+Service+Seattle/@47.6345078,-122.3396029,17z/data=!3m1!4b1!4m6!3m5!1s0x6285ba138cfd504b:0xf501c247e841f115!8m2!3d47.6345078!4d-122.3396029!16s%2Fg%2F11y743dtp6?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D)[www.google.com](https://www.google.com/maps/place/?q=place_id%3AChIJRcCXfe8VkFQRyxFkStb1xU4&hl=en)[trustanalytica.org](https://trustanalytica.org/us/wa/seattle/best-house-cleaning-services)\n\nPhone: (425) 943-9025\n\nAsk for a written quote and confirm extra charges for ovens, baseboards, and other add-ons.\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "5 Best House Cleaning Services in Seattle (2026)",
+         "domain": "www.bestinhood.com",
+         "url": "https://www.bestinhood.com/seattle/home-cleaning-and-organizing/best-house-cleaning-services-in-seattle/",
+         "source_name": "Best in Hood"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "19 Best Seattle, WA House Cleaning Services",
+         "domain": "www.expertise.com",
+         "url": "https://www.expertise.com/home-improvement/house-cleaning/washington/seattle",
+         "source_name": "Expertise",
+         "publication_date": "2020-02-12 20:29:27 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Seattle Green Cleaning Fairy",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/data=!3m1!4b1!4m2!3m1!1s0x54906acb05b9ffc1:0x81078d6cd77e065d?hl=en",
+         "source_name": "google.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Maid Service Seattle",
+         "snippet": "1700 Westlake Ave N #200, Seattle, WA 98109, United States",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/Maid+Service+Seattle/@47.6345078,-122.3396029,17z/data=!3m1!4b1!4m6!3m5!1s0x6285ba138cfd504b:0xf501c247e841f115!8m2!3d47.6345078!4d-122.3396029!16s%2Fg%2F11y743dtp6?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D",
+         "source_name": "google.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Rain City Maids of Seattle",
+         "snippet": "2341 Eastlake Ave E Ste 003, Seattle, WA 98102, United States",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/?q=place_id%3AChIJRcCXfe8VkFQRyxFkStb1xU4&hl=en",
+         "source_name": "google.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best House Cleaning Services in Seattle (Oct 2026 Rankings)",
+         "domain": "trustanalytica.org",
+         "url": "https://trustanalytica.org/us/wa/seattle/best-house-cleaning-services",
+         "source_name": "TrustAnalytica"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Seattle Green Cleaning Fairy",
+         "category": "local_business",
+         "markdown": "Seattle Green Cleaning Fairy"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 2,
+       "rank_absolute": 4,
+       "markdown": "![Maid Service Seattle](https://images.openai.com/static-rsc-4/YojFLeTfDeIRi1IHw8ktk6p61YFtsS7Bf9OAh7d1TH2r3ag_1l73o_0MlxOcXX9bjTPfvP9_ntlm3EJCvuGzSJF0A4txCEt2BJUxTERWxKrASXUrYtkeXNkqjm2H_6IJL8O_9hYGlM-wI8WpxQwAmvIGIIauKPvONhDMPLPN5kbRdF8nVCd4aJ1WynAtJpUs?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.seattlegreenmaids.com/",
+         "alt": "Maid Service Seattle",
+         "image_url": "https://images.openai.com/static-rsc-4/YojFLeTfDeIRi1IHw8ktk6p61YFtsS7Bf9OAh7d1TH2r3ag_1l73o_0MlxOcXX9bjTPfvP9_ntlm3EJCvuGzSJF0A4txCEt2BJUxTERWxKrASXUrYtkeXNkqjm2H_6IJL8O_9hYGlM-wI8WpxQwAmvIGIIauKPvONhDMPLPN5kbRdF8nVCd4aJ1WynAtJpUs?purpose=fullsize",
+         "markdown": "![Maid Service Seattle](https://images.openai.com/static-rsc-4/YojFLeTfDeIRi1IHw8ktk6p61YFtsS7Bf9OAh7d1TH2r3ag_1l73o_0MlxOcXX9bjTPfvP9_ntlm3EJCvuGzSJF0A4txCEt2BJUxTERWxKrASXUrYtkeXNkqjm2H_6IJL8O_9hYGlM-wI8WpxQwAmvIGIIauKPvONhDMPLPN5kbRdF8nVCd4aJ1WynAtJpUs?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 3,
+       "rank_absolute": 5,
+       "markdown": "\n\n## 2\\. Maid Service Seattle (Seattle Green Maids)\n\n**5.0/5** \\(346 reviews)\n\nA strong option for recurring weekly, biweekly, or monthly cleaning, with eco-friendly products and online booking. Particularly worth comparing if consistent maintenance is your priority. [www.bestinhood.com](https://www.bestinhood.com/seattle/home-cleaning-and-organizing/best-house-cleaning-services-in-seattle/)[www.expertise.com](https://www.expertise.com/home-improvement/house-cleaning/washington/seattle)[www.google.com](https://www.google.com/maps/place/data=!3m1!4b1!4m2!3m1!1s0x54906acb05b9ffc1:0x81078d6cd77e065d?hl=en)[www.google.com](https://www.google.com/maps/place/Maid+Service+Seattle/@47.6345078,-122.3396029,17z/data=!3m1!4b1!4m6!3m5!1s0x6285ba138cfd504b:0xf501c247e841f115!8m2!3d47.6345078!4d-122.3396029!16s%2Fg%2F11y743dtp6?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D)[www.google.com](https://www.google.com/maps/place/?q=place_id%3AChIJRcCXfe8VkFQRyxFkStb1xU4&hl=en)[trustanalytica.org](https://trustanalytica.org/us/wa/seattle/best-house-cleaning-services)\n\nPhone: (206) 736-4650\n\nAddress: 1700 Westlake Ave N, Suite 200, Seattle\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "5 Best House Cleaning Services in Seattle (2026)",
+         "domain": "www.bestinhood.com",
+         "url": "https://www.bestinhood.com/seattle/home-cleaning-and-organizing/best-house-cleaning-services-in-seattle/",
+         "source_name": "Best in Hood"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "19 Best Seattle, WA House Cleaning Services",
+         "domain": "www.expertise.com",
+         "url": "https://www.expertise.com/home-improvement/house-cleaning/washington/seattle",
+         "source_name": "Expertise",
+         "publication_date": "2020-02-12 20:29:27 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Seattle Green Cleaning Fairy",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/data=!3m1!4b1!4m2!3m1!1s0x54906acb05b9ffc1:0x81078d6cd77e065d?hl=en",
+         "source_name": "google.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Maid Service Seattle",
+         "snippet": "1700 Westlake Ave N #200, Seattle, WA 98109, United States",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/Maid+Service+Seattle/@47.6345078,-122.3396029,17z/data=!3m1!4b1!4m6!3m5!1s0x6285ba138cfd504b:0xf501c247e841f115!8m2!3d47.6345078!4d-122.3396029!16s%2Fg%2F11y743dtp6?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D",
+         "source_name": "google.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Rain City Maids of Seattle",
+         "snippet": "2341 Eastlake Ave E Ste 003, Seattle, WA 98102, United States",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/?q=place_id%3AChIJRcCXfe8VkFQRyxFkStb1xU4&hl=en",
+         "source_name": "google.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best House Cleaning Services in Seattle (Oct 2026 Rankings)",
+         "domain": "trustanalytica.org",
+         "url": "https://trustanalytica.org/us/wa/seattle/best-house-cleaning-services",
+         "source_name": "TrustAnalytica"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Maid Service Seattle (Seattle Green Maids)",
+         "category": "local_business",
+         "markdown": "Maid Service Seattle (Seattle Green Maids)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 3,
+       "rank_absolute": 6,
+       "markdown": "![Cleaning lady for recurring cleaning in kirkland, wa 1st](https://images.openai.com/static-rsc-4/ES7fzBUVxZdTMRWp82BNZEjALMkeXqFduf6JBWQLrxEAvtSmN6p8wUU-Cb3hlPWUzgqNlFTUidltlYSCq3CHJH_ThvlxUVhP3vlgJdZgR6zHe7DdXtOjFcC_0BBUxONCqQtvEd6wvd06WKDWYgSWafSJUbv6JVNK9u3dSB1fZvuDkDkC8gDvV8Z18AzXW2CV?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.raincitymaids.com/recurring-cleaning-lady-kirkland-guide/",
+         "alt": "Cleaning lady for recurring cleaning in kirkland, wa 1st",
+         "image_url": "https://images.openai.com/static-rsc-4/ES7fzBUVxZdTMRWp82BNZEjALMkeXqFduf6JBWQLrxEAvtSmN6p8wUU-Cb3hlPWUzgqNlFTUidltlYSCq3CHJH_ThvlxUVhP3vlgJdZgR6zHe7DdXtOjFcC_0BBUxONCqQtvEd6wvd06WKDWYgSWafSJUbv6JVNK9u3dSB1fZvuDkDkC8gDvV8Z18AzXW2CV?purpose=fullsize",
+         "markdown": "![Cleaning lady for recurring cleaning in kirkland, wa 1st](https://images.openai.com/static-rsc-4/ES7fzBUVxZdTMRWp82BNZEjALMkeXqFduf6JBWQLrxEAvtSmN6p8wUU-Cb3hlPWUzgqNlFTUidltlYSCq3CHJH_ThvlxUVhP3vlgJdZgR6zHe7DdXtOjFcC_0BBUxONCqQtvEd6wvd06WKDWYgSWafSJUbv6JVNK9u3dSB1fZvuDkDkC8gDvV8Z18AzXW2CV?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 4,
+       "rank_absolute": 7,
+       "markdown": "\n\n## 3\\. Rain City Maids of Seattle\n\n**4.9/5** \\(293 reviews)\n\nGood for one-time deep cleans and ongoing housekeeping. Customers frequently highlight team efficiency, easy scheduling, and communication. [www.bestinhood.com](https://www.bestinhood.com/seattle/home-cleaning-and-organizing/best-house-cleaning-services-in-seattle/)[www.expertise.com](https://www.expertise.com/home-improvement/house-cleaning/washington/seattle)[www.google.com](https://www.google.com/maps/place/data=!3m1!4b1!4m2!3m1!1s0x54906acb05b9ffc1:0x81078d6cd77e065d?hl=en)[www.google.com](https://www.google.com/maps/place/Maid+Service+Seattle/@47.6345078,-122.3396029,17z/data=!3m1!4b1!4m6!3m5!1s0x6285ba138cfd504b:0xf501c247e841f115!8m2!3d47.6345078!4d-122.3396029!16s%2Fg%2F11y743dtp6?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D)[www.google.com](https://www.google.com/maps/place/?q=place_id%3AChIJRcCXfe8VkFQRyxFkStb1xU4&hl=en)[trustanalytica.org](https://trustanalytica.org/us/wa/seattle/best-house-cleaning-services)\n\nPhone: (206) 561-9474\n\nAddress: 2341 Eastlake Ave E, Suite 003, Seattle\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "5 Best House Cleaning Services in Seattle (2026)",
+         "domain": "www.bestinhood.com",
+         "url": "https://www.bestinhood.com/seattle/home-cleaning-and-organizing/best-house-cleaning-services-in-seattle/",
+         "source_name": "Best in Hood"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "19 Best Seattle, WA House Cleaning Services",
+         "domain": "www.expertise.com",
+         "url": "https://www.expertise.com/home-improvement/house-cleaning/washington/seattle",
+         "source_name": "Expertise",
+         "publication_date": "2020-02-12 20:29:27 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Seattle Green Cleaning Fairy",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/data=!3m1!4b1!4m2!3m1!1s0x54906acb05b9ffc1:0x81078d6cd77e065d?hl=en",
+         "source_name": "google.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Maid Service Seattle",
+         "snippet": "1700 Westlake Ave N #200, Seattle, WA 98109, United States",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/Maid+Service+Seattle/@47.6345078,-122.3396029,17z/data=!3m1!4b1!4m6!3m5!1s0x6285ba138cfd504b:0xf501c247e841f115!8m2!3d47.6345078!4d-122.3396029!16s%2Fg%2F11y743dtp6?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D",
+         "source_name": "google.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Rain City Maids of Seattle",
+         "snippet": "2341 Eastlake Ave E Ste 003, Seattle, WA 98102, United States",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/?q=place_id%3AChIJRcCXfe8VkFQRyxFkStb1xU4&hl=en",
+         "source_name": "google.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best House Cleaning Services in Seattle (Oct 2026 Rankings)",
+         "domain": "trustanalytica.org",
+         "url": "https://trustanalytica.org/us/wa/seattle/best-house-cleaning-services",
+         "source_name": "TrustAnalytica"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Rain City Maids of Seattle",
+         "category": "local_business",
+         "markdown": "Rain City Maids of Seattle"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 4,
+       "rank_absolute": 8,
+       "markdown": "![CLEARCOST CLEANING - SEATTLE](https://images.openai.com/static-rsc-4/RFkm_ggoDNpuC2WICF79pta_G4c-QJMC9EMVh68L6xqBTaIbxvHTxL8SLPCYXzzi8a7O5p3Gt1LG5jhsegM7jWedD8XAaPZvExnHkuikm64KjJkub2xeYJpiM3YnFFC-b4niNGEaWD-W7ci4r38SDvl2Mz17j2vHy-fZDx1qW-SHeJTzg5Qc5xa6Jwv18o3J?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.miraclemaidshomecleaning.com/",
+         "alt": "CLEARCOST CLEANING - SEATTLE",
+         "image_url": "https://images.openai.com/static-rsc-4/RFkm_ggoDNpuC2WICF79pta_G4c-QJMC9EMVh68L6xqBTaIbxvHTxL8SLPCYXzzi8a7O5p3Gt1LG5jhsegM7jWedD8XAaPZvExnHkuikm64KjJkub2xeYJpiM3YnFFC-b4niNGEaWD-W7ci4r38SDvl2Mz17j2vHy-fZDx1qW-SHeJTzg5Qc5xa6Jwv18o3J?purpose=fullsize",
+         "markdown": "![CLEARCOST CLEANING - SEATTLE](https://images.openai.com/static-rsc-4/RFkm_ggoDNpuC2WICF79pta_G4c-QJMC9EMVh68L6xqBTaIbxvHTxL8SLPCYXzzi8a7O5p3Gt1LG5jhsegM7jWedD8XAaPZvExnHkuikm64KjJkub2xeYJpiM3YnFFC-b4niNGEaWD-W7ci4r38SDvl2Mz17j2vHy-fZDx1qW-SHeJTzg5Qc5xa6Jwv18o3J?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 5,
+       "rank_absolute": 9,
+       "markdown": "\n\n## 4\\. ClearCoast Cleaning\n\n**5.0/5** \\(122 reviews)\n\nWorth considering for detailed deep cleaning, recurring visits, and move-in/move-out service. A smaller review base than the first two, but an excellent listed rating. [www.google.com](https://www.google.com/maps/place/?q=place_id%3AChIJOcAkqkRBkFQR3VxMqaNW9wY&hl=en)\n\nPhone: (206) 672-8403\n\nAddress: 5425 16th Ave SW, Seattle\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "ClearCoast Cleaning",
+         "snippet": "5425 16th Ave SW, Seattle, WA 98106, United States",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/?q=place_id%3AChIJOcAkqkRBkFQR3VxMqaNW9wY&hl=en",
+         "source_name": "google.com"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "ClearCoast Cleaning",
+         "category": "local_business",
+         "markdown": "ClearCoast Cleaning"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 5,
+       "rank_absolute": 10,
+       "markdown": "![Cleaning Services Harrison/Denny-Blaine Seattle, WA | Professional Cleaning Service For Homes And Apartments In Harrison/Denny-Blaine Seattle — Seattle Green Cleaning Fairy](https://images.openai.com/static-rsc-4/YejJ-ADVJSzxphaDTraw5IFQyjhgeEhN-J3hKJRURmC-PHuPlA65R6vE9ca54iW0emwJ2zxFnCGXhNNsKMQCe7Thx0BJaKwMKgHozN0JoNwIMtZGZMS3LFH5rNF2PikMVfUAWFlMwfpXAO_NkGykoSf2tiDyr2EA6PnkKslo9n_fUmYTEYLdt92nM_B2x0UH?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.seattlegreencleaningfairy.com/house-cleaning-services-harrison-denny-blaine-seattle",
+         "alt": "Cleaning Services Harrison/Denny-Blaine Seattle, WA | Professional Cleaning Service For Homes And Apartments In Harrison/Denny-Blaine Seattle — Seattle Green Cleaning Fairy",
+         "image_url": "https://images.openai.com/static-rsc-4/YejJ-ADVJSzxphaDTraw5IFQyjhgeEhN-J3hKJRURmC-PHuPlA65R6vE9ca54iW0emwJ2zxFnCGXhNNsKMQCe7Thx0BJaKwMKgHozN0JoNwIMtZGZMS3LFH5rNF2PikMVfUAWFlMwfpXAO_NkGykoSf2tiDyr2EA6PnkKslo9n_fUmYTEYLdt92nM_B2x0UH?purpose=fullsize",
+         "markdown": "![Cleaning Services Harrison/Denny-Blaine Seattle, WA | Professional Cleaning Service For Homes And Apartments In Harrison/Denny-Blaine Seattle — Seattle Green Cleaning Fairy](https://images.openai.com/static-rsc-4/YejJ-ADVJSzxphaDTraw5IFQyjhgeEhN-J3hKJRURmC-PHuPlA65R6vE9ca54iW0emwJ2zxFnCGXhNNsKMQCe7Thx0BJaKwMKgHozN0JoNwIMtZGZMS3LFH5rNF2PikMVfUAWFlMwfpXAO_NkGykoSf2tiDyr2EA6PnkKslo9n_fUmYTEYLdt92nM_B2x0UH?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 6,
+       "rank_absolute": 11,
+       "markdown": "\n\n## 5\\. Seattle Green Earth Cleaning\n\n**4.9/5** \\(165 reviews)\n\nA good alternative if plant-based products and customized cleaning are important to you. Offers routine cleaning and more detailed move-in/move-out services. [www.bestinhood.com](https://www.bestinhood.com/seattle/home-cleaning-and-organizing/best-house-cleaning-services-in-seattle/)[www.expertise.com](https://www.expertise.com/home-improvement/house-cleaning/washington/seattle)[www.yelp.com](https://www.yelp.com/biz/seattle-green-earth-cleaning-seattle?adjust_creative=openai&utm_campaign=yelp_feed&utm_medium=feed_v2&utm_source=openai)\n\nPhone: (206) 595-4209\n\nAddress: 1037 NE 65th St, Suite 178, Seattle\n\n## What should you expect to pay?\n\nFor budgeting, a 2026 Seattle cleaning-service roundup reports these typical ranges. Your actual quote will depend on home size, condition, and service scope. [www.bestinhood.com](https://www.bestinhood.com/seattle/home-cleaning-and-organizing/best-house-cleaning-services-in-seattle/)[trustanalytica.org](https://trustanalytica.org/us/wa/seattle/best-house-cleaning-services)\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "5 Best House Cleaning Services in Seattle (2026)",
+         "domain": "www.bestinhood.com",
+         "url": "https://www.bestinhood.com/seattle/home-cleaning-and-organizing/best-house-cleaning-services-in-seattle/",
+         "source_name": "Best in Hood"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "19 Best Seattle, WA House Cleaning Services",
+         "domain": "www.expertise.com",
+         "url": "https://www.expertise.com/home-improvement/house-cleaning/washington/seattle",
+         "source_name": "Expertise",
+         "publication_date": "2020-02-12 20:29:27 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Seattle Green Earth Cleaning",
+         "snippet": "1037 NE 65th St, Ste 178, Seattle, WA 98115",
+         "domain": "www.yelp.com",
+         "url": "https://www.yelp.com/biz/seattle-green-earth-cleaning-seattle?adjust_creative=openai&utm_campaign=yelp_feed&utm_medium=feed_v2&utm_source=openai",
+         "source_name": "yelp.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best House Cleaning Services in Seattle (Oct 2026 Rankings)",
+         "domain": "trustanalytica.org",
+         "url": "https://trustanalytica.org/us/wa/seattle/best-house-cleaning-services",
+         "source_name": "TrustAnalytica"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Seattle Green Earth Cleaning",
+         "category": "local_business",
+         "markdown": "Seattle Green Earth Cleaning"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_table",
+       "rank_group": 1,
+       "rank_absolute": 12,
+       "markdown": "| Cleaning type | Estimated cost |\n|--------|--------|\n| Standard cleaning | \\$150–\\$300 |\n| Deep cleaning | \\$250–\\$500 |\n| Move-in/move-out cleaning | \\$400–\\$500+ |\n\n",
+       "table": {
+        "table_header": [
+         "Cleaning type",
+         "Estimated cost"
+        ],
+        "table_content": [
+         [
+          "Standard cleaning",
+          "\\$150–\\$300"
+         ],
+         [
+          "Deep cleaning",
+          "\\$250–\\$500"
+         ],
+         [
+          "Move-in/move-out cleaning",
+          "\\$400–\\$500+"
+         ]
+        ]
+       }
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 7,
+       "rank_absolute": 13,
+       "markdown": "\n"
+      },
+      {
+       "type": "chat_gpt_local_businesses",
+       "rank_group": 1,
+       "rank_absolute": 14,
+       "items": [
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Seattle Green Cleaning Fairy",
+         "description": "House cleaning service",
+         "address": "Seattle Green Cleaning Fairy, Seattle, WA",
+         "phone": "+14259439025",
+         "reviews_count": 1240,
+         "url": "https://seattlegreencleaningfairy.com/?utm_source=chatgpt.com",
+         "domain": "seattlegreencleaningfairy.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.9,
+          "votes_count": 1240,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Maid Service Seattle",
+         "description": "House cleaning service",
+         "address": "1700 Westlake Ave N #200, Seattle, WA 98109",
+         "phone": "+12067364650",
+         "reviews_count": 346,
+         "url": "https://www.seattlegreenmaids.com/?utm_source=chatgpt.com",
+         "domain": "www.seattlegreenmaids.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 346,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Rain City Maids",
+         "description": "House cleaning service",
+         "address": "2341 Eastlake Ave E Ste 003, Seattle, WA 98102",
+         "phone": "+12065619474",
+         "reviews_count": 299,
+         "url": "https://www.raincitymaids.com/?utm_medium=organic&utm_campaign=website&utm_source=chatgpt.com",
+         "domain": "www.raincitymaids.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.9,
+          "votes_count": 299,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "ClearCoast Cleaning",
+         "description": "House cleaning service",
+         "address": "5425 16th Ave SW, Seattle, WA 98106",
+         "phone": "+12066728403",
+         "reviews_count": 121,
+         "url": "http://clearcoastcleaningwa.com/?utm_source=chatgpt.com",
+         "domain": "clearcoastcleaningwa.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 121,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Seattle Green Earth Cleaning",
+         "description": "House cleaning service",
+         "address": "1037 NE 65th St Ste 178, Seattle, WA 98115",
+         "phone": "+12065954209",
+         "reviews_count": 105,
+         "url": "https://www.seattlegec.com/?utm_source=chatgpt.com",
+         "domain": "www.seattlegec.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 105,
+          "rating_max": 5
+         }
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 8,
+       "rank_absolute": 15,
+       "markdown": "\n\n## My advice before booking\n\n- Get at least two written quotes for the same cleaning checklist.\n- Confirm that the company is insured and ask about background checks.\n- Check recent reviews for punctuality, consistency, and how complaints are resolved.\n- Ask whether supplies, inside appliances, and baseboards are included.\n\n**One question so I can narrow this down\\:** Are you looking for regular house cleaning, a one-time deep clean, or a move-in/move-out clean? I can prioritize the best-reviewed services for your specific needs."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

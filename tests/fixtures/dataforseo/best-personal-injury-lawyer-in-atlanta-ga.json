@@ -1,0 +1,405 @@
+{
+ "_note": "Real DataForSEO ChatGPT LLM Scraper (live/advanced) response captured via the DataForSEO MCP connector. The connector returns the task with result items only; result-level fields such as cost, model and check_url were not included.",
+ "_captured_at": "2026-10-12T20:34:53.311Z",
+ "_request": {
+  "keyword": "best personal injury lawyer in Atlanta, GA",
+  "location_name": "United States",
+  "language_code": "en",
+  "force_web_search": true
+ },
+ "tasks": [
+  {
+   "id": "10122034-2093-0629-0000-1e33f93f292a",
+   "status_code": 20000,
+   "status_message": "Ok.",
+   "result": [
+    {
+     "keyword": "best personal injury lawyer in Atlanta, GA",
+     "items": [
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 1,
+       "rank_absolute": 1,
+       "markdown": "Finding the “best” personal injury lawyer in Atlanta depends on your type of case, the attorney’s trial experience, and how well their firm handles cases like yours. I’d prioritize **proven results in similar cases, strong client reviews, direct access to your attorney, and a clear contingency-fee agreement** rather than relying on advertising or settlement amounts alone.\n\nFor Atlanta, Georgia, it’s worth comparing a few established personal injury firms before deciding who to contact.\n\n## Best personal injury lawyers to compare in Atlanta\n\nBased on current directory listings, review evidence, and reported practice areas. This is a shortlist, not a guarantee of legal quality.\n\n"
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 1,
+       "rank_absolute": 2,
+       "markdown": "![The Baer Law Firm - OnToplist](https://images.openai.com/static-rsc-4/aWfXiLwQl3nHstaueMI2qHhYAwcmUbyW1j5CehGA1PzI3oOodDCTrNkw-kIcTKR9gtUGgitqCyGnFrqjL4wAFotjBd7IRbn74VAZvBnVeCb2M3_4l59Hq3AdjVwE8-PcbBji8msxkjivFzYGD7eOv2ZdDNCdBsMH28v45PxFSUd1Xb_ju-hMp_vs1iCb5vt9?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.ontoplist.com/the-baer-law-firm/",
+         "alt": "The Baer Law Firm - OnToplist",
+         "image_url": "https://images.openai.com/static-rsc-4/aWfXiLwQl3nHstaueMI2qHhYAwcmUbyW1j5CehGA1PzI3oOodDCTrNkw-kIcTKR9gtUGgitqCyGnFrqjL4wAFotjBd7IRbn74VAZvBnVeCb2M3_4l59Hq3AdjVwE8-PcbBji8msxkjivFzYGD7eOv2ZdDNCdBsMH28v45PxFSUd1Xb_ju-hMp_vs1iCb5vt9?purpose=fullsize",
+         "markdown": "![The Baer Law Firm - OnToplist](https://images.openai.com/static-rsc-4/aWfXiLwQl3nHstaueMI2qHhYAwcmUbyW1j5CehGA1PzI3oOodDCTrNkw-kIcTKR9gtUGgitqCyGnFrqjL4wAFotjBd7IRbn74VAZvBnVeCb2M3_4l59Hq3AdjVwE8-PcbBji8msxkjivFzYGD7eOv2ZdDNCdBsMH28v45PxFSUd1Xb_ju-hMp_vs1iCb5vt9?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 2,
+       "rank_absolute": 3,
+       "markdown": "\n\n## 1\\. The Baer Law Firm\n\n(Strong for serious injuries)\n\n1819 Peachtree Road NE, Suite 401\n\nFocuses on serious personal injury, medical malpractice, catastrophic injuries, and wrongful death. A good firm to interview if the injuries are severe or the case is complex. [www.expertise.com](https://www.expertise.com/legal/personal-injury-lawyers/georgia/atlanta)[www.google.com](https://www.google.com/maps/place/?q=place_id%3AChIJV5lnTzcF9YgReZsjhLxWUDI&hl=en)\n\nPhone: 404-843-2237\n\n[Firm website](https://www.baerfirm.com/)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "13 Best Personal Injury Lawyers Atlanta, GA",
+         "domain": "www.expertise.com",
+         "url": "https://www.expertise.com/legal/personal-injury-lawyers/georgia/atlanta",
+         "source_name": "Expertise",
+         "publication_date": "2020-02-12 19:36:57 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "The Baer Law Firm",
+         "snippet": "1819 Peachtree Rd Ste 401, Atlanta, GA 30309, United States",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/?q=place_id%3AChIJV5lnTzcF9YgReZsjhLxWUDI&hl=en",
+         "source_name": "google.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Firm website",
+         "domain": "www.baerfirm.com",
+         "url": "https://www.baerfirm.com/",
+         "markdown": "[Firm website](https://www.baerfirm.com/)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Atlanta personal injury and medical malpractice law firm",
+         "category": "organization",
+         "markdown": "The Baer Law Firm"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 2,
+       "rank_absolute": 4,
+       "markdown": "![Tobin Injury Law - Atlanta Personal Injury Lawyer | OnToplist](https://images.openai.com/static-rsc-4/_QAxpYvFV2ZrHM0NgOTE5aR9ztThrtLhOkufGnaW-nQuOY4zqIeEnCV0PJ_jV2cfGU7jlqcQKkfgat07RH5w5XQN_tn2iXvTJv3lb0BfuwhLYzSsevs7XEdNKZh3jbbH-XBayKDEnQQvqnrZMvr75yUJZjdVGS6c84W2WhuXfLXVD4XMxp17xW6f86QYstha?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.ontoplist.com/tobin-injury-law/",
+         "alt": "Tobin Injury Law - Atlanta Personal Injury Lawyer | OnToplist",
+         "image_url": "https://images.openai.com/static-rsc-4/_QAxpYvFV2ZrHM0NgOTE5aR9ztThrtLhOkufGnaW-nQuOY4zqIeEnCV0PJ_jV2cfGU7jlqcQKkfgat07RH5w5XQN_tn2iXvTJv3lb0BfuwhLYzSsevs7XEdNKZh3jbbH-XBayKDEnQQvqnrZMvr75yUJZjdVGS6c84W2WhuXfLXVD4XMxp17xW6f86QYstha?purpose=fullsize",
+         "markdown": "![Tobin Injury Law - Atlanta Personal Injury Lawyer | OnToplist](https://images.openai.com/static-rsc-4/_QAxpYvFV2ZrHM0NgOTE5aR9ztThrtLhOkufGnaW-nQuOY4zqIeEnCV0PJ_jV2cfGU7jlqcQKkfgat07RH5w5XQN_tn2iXvTJv3lb0BfuwhLYzSsevs7XEdNKZh3jbbH-XBayKDEnQQvqnrZMvr75yUJZjdVGS6c84W2WhuXfLXVD4XMxp17xW6f86QYstha?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 3,
+       "rank_absolute": 5,
+       "markdown": "\n\n## 2\\. Tobin Injury Law\n\n38 Old Ivy Road NE, Atlanta\n\nA strong candidate to compare for car, truck, motorcycle, pedestrian, and other injury cases. Directory listings show a 5.0 Google rating with hundreds of reviews; ask about experience with cases matching yours. [www.expertise.com](https://www.expertise.com/legal/personal-injury-lawyers/georgia/atlanta)[www.google.com](https://www.google.com/maps/place/?q=place_id%3AChIJV5lnTzcF9YgReZsjhLxWUDI&hl=en)[www.google.com](https://www.google.com/maps/place/?q=place_id%3AChIJaeZv9G4P9YgRbS2AH9DwOj0&hl=en)\n\nPhone: 404-587-8423\n\n[Firm website](https://www.tobininjurylaw.com/)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "13 Best Personal Injury Lawyers Atlanta, GA",
+         "domain": "www.expertise.com",
+         "url": "https://www.expertise.com/legal/personal-injury-lawyers/georgia/atlanta",
+         "source_name": "Expertise",
+         "publication_date": "2020-02-12 19:36:57 +00:00"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "The Baer Law Firm",
+         "snippet": "1819 Peachtree Rd Ste 401, Atlanta, GA 30309, United States",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/?q=place_id%3AChIJV5lnTzcF9YgReZsjhLxWUDI&hl=en",
+         "source_name": "google.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Tobin Injury Law - Personal Injury Lawyer Atlanta",
+         "snippet": "38 Old Ivy Rd NE, Atlanta, GA 30342, United States",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/?q=place_id%3AChIJaeZv9G4P9YgRbS2AH9DwOj0&hl=en",
+         "source_name": "google.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Firm website",
+         "domain": "www.tobininjurylaw.com",
+         "url": "https://www.tobininjurylaw.com/",
+         "markdown": "[Firm website](https://www.tobininjurylaw.com/)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Tobin Injury Law",
+         "category": "local_business",
+         "markdown": "Tobin Injury Law"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 3,
+       "rank_absolute": 6,
+       "markdown": "![Edward F. Kim, Lawyer in Atlanta, Georgia | Justia Lawyer Directory](https://images.openai.com/static-rsc-4/oVx7GT3-mH2MkINC5EsEjpv-Wdfxq8SLUBhoDYFHfHyh8ZDrda6ni9Lfaw_8MAFkvoDos8DpK-QZHn1DBhuIx8d8Xkvybt0ywj1QoUAmcC_jgqaNeUmKAVbdLFmFX810JLswjWRoidtVRO2CQWPeo_-2Neia6f6mxr8DLwdvAGYjMmx2PQgDUo5YUb_I7bCm?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://lawyers.justia.com/lawyer/edward-f-kim-1663666",
+         "alt": "Edward F. Kim, Lawyer in Atlanta, Georgia | Justia Lawyer Directory",
+         "image_url": "https://images.openai.com/static-rsc-4/oVx7GT3-mH2MkINC5EsEjpv-Wdfxq8SLUBhoDYFHfHyh8ZDrda6ni9Lfaw_8MAFkvoDos8DpK-QZHn1DBhuIx8d8Xkvybt0ywj1QoUAmcC_jgqaNeUmKAVbdLFmFX810JLswjWRoidtVRO2CQWPeo_-2Neia6f6mxr8DLwdvAGYjMmx2PQgDUo5YUb_I7bCm?purpose=fullsize",
+         "markdown": "![Edward F. Kim, Lawyer in Atlanta, Georgia | Justia Lawyer Directory](https://images.openai.com/static-rsc-4/oVx7GT3-mH2MkINC5EsEjpv-Wdfxq8SLUBhoDYFHfHyh8ZDrda6ni9Lfaw_8MAFkvoDos8DpK-QZHn1DBhuIx8d8Xkvybt0ywj1QoUAmcC_jgqaNeUmKAVbdLFmFX810JLswjWRoidtVRO2CQWPeo_-2Neia6f6mxr8DLwdvAGYjMmx2PQgDUo5YUb_I7bCm?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 4,
+       "rank_absolute": 7,
+       "markdown": "\n\n## 3\\. KIM LAW\n\n55 Ivan Allen Jr. Blvd NW, Suite 330\n\nWorth considering for general personal injury and car accident claims. Its reported strengths include a team-based approach and help negotiating medical bills. Avvo lists attorney Edward Kim with a 5.0 client rating. [www.bestinhood.com](https://www.bestinhood.com/atlanta/lawyers/best-personal-injury-lawyers-in-atlanta/)[www.avvo.com](https://www.avvo.com/emotional-distress-caused-by-personal-injury-lawyer/ga/atlanta.html?sort=client_rating)\n\nPhone: 770-837-3207\n\n[Firm website](https://www.kimlaw.com/)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "5 Best Personal Injury Lawyers in Atlanta (2026)",
+         "domain": "www.bestinhood.com",
+         "url": "https://www.bestinhood.com/atlanta/lawyers/best-personal-injury-lawyers-in-atlanta/",
+         "source_name": "Best in Hood"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Top Rated Atlanta, GA Personal Injury Lawyers",
+         "domain": "www.avvo.com",
+         "url": "https://www.avvo.com/emotional-distress-caused-by-personal-injury-lawyer/ga/atlanta.html?sort=client_rating",
+         "source_name": "Avvo"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Firm website",
+         "domain": "www.kimlaw.com",
+         "url": "https://www.kimlaw.com/",
+         "markdown": "[Firm website](https://www.kimlaw.com/)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Atlanta personal injury law firm",
+         "category": "organization",
+         "markdown": "KIM LAW"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 4,
+       "rank_absolute": 8,
+       "markdown": "![Tony Kalka - The Kalka Law Group | LinkedIn](https://images.openai.com/static-rsc-4/cN_ePcsE6s0H0CEQJDrgHXBxJwJKJroAIKyGrGKNBO5KASlJ7Vo75c5MqtdLaRxc72S7pMG-O9slnOoosCJdBsoWWfmQ2QKJ6Ifk2zG6R2kWUAaLW16WIoclaDegdcHnkEcUwojyhfRFle2-LF2PNj3tB_XcaOEdQ7uK2-JMHWqBFkdvfLF1FD9A3Dkwxz8B?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.linkedin.com/in/tonykalka",
+         "alt": "Tony Kalka - The Kalka Law Group | LinkedIn",
+         "image_url": "https://images.openai.com/static-rsc-4/cN_ePcsE6s0H0CEQJDrgHXBxJwJKJroAIKyGrGKNBO5KASlJ7Vo75c5MqtdLaRxc72S7pMG-O9slnOoosCJdBsoWWfmQ2QKJ6Ifk2zG6R2kWUAaLW16WIoclaDegdcHnkEcUwojyhfRFle2-LF2PNj3tB_XcaOEdQ7uK2-JMHWqBFkdvfLF1FD9A3Dkwxz8B?purpose=fullsize",
+         "markdown": "![Tony Kalka - The Kalka Law Group | LinkedIn](https://images.openai.com/static-rsc-4/cN_ePcsE6s0H0CEQJDrgHXBxJwJKJroAIKyGrGKNBO5KASlJ7Vo75c5MqtdLaRxc72S7pMG-O9slnOoosCJdBsoWWfmQ2QKJ6Ifk2zG6R2kWUAaLW16WIoclaDegdcHnkEcUwojyhfRFle2-LF2PNj3tB_XcaOEdQ7uK2-JMHWqBFkdvfLF1FD9A3Dkwxz8B?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 5,
+       "rank_absolute": 9,
+       "markdown": "\n\n## 4\\. The Kalka Law Group\n\n1447 Peachtree Street NE, Suite 550\n\nParticularly worth comparing for vehicle collisions, rideshare accidents, and insurance disputes. Its business listing shows a 4.9 rating with more than 400 reviews. [www.google.com](https://www.google.com/maps/place/?q=place_id%3AChIJ4UvLLz8F9YgRtys4ZhPZcNc&hl=en)[trustanalytica.org](https://trustanalytica.org/us/ga/atlanta/best-injury-lawyer)\n\nPhone: 404-999-0745\n\n[Firm website](https://www.kalkalaw.com/)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "The Kalka Law Group",
+         "snippet": "1447 Peachtree St NE #550, Atlanta, GA 30309, United States",
+         "domain": "www.google.com",
+         "url": "https://www.google.com/maps/place/?q=place_id%3AChIJ4UvLLz8F9YgRtys4ZhPZcNc&hl=en",
+         "source_name": "google.com"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best Personal Injury Lawyers in Atlanta (Oct 2026 Rankings)",
+         "domain": "trustanalytica.org",
+         "url": "https://trustanalytica.org/us/ga/atlanta/best-injury-lawyer",
+         "source_name": "TrustAnalytica"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Firm website",
+         "domain": "www.kalkalaw.com",
+         "url": "https://www.kalkalaw.com/",
+         "markdown": "[Firm website](https://www.kalkalaw.com/)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "The Kalka Law Group",
+         "category": "local_business",
+         "markdown": "The Kalka Law Group"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_images",
+       "rank_group": 5,
+       "rank_absolute": 10,
+       "markdown": "![MORGAN & MORGAN - Updated November 2025 - 75 Photos & 252 Reviews - 191 Peachtree St NE, Atlanta, Georgia - Personal Injury Law - Phone Number - Yelp](https://images.openai.com/static-rsc-4/7vN36Yzy_MX0wSbVayU7tny0HvFDQRztrJvOp28G-RgpRvhvb2Ims7fQZiXEwoLcFnd0rOFygRl9W8XV1VjPySvks6jYoM1wr87I0ZPyXYaUsRse00ac-7YQgQBi-u4y_UVlVXLwagjb-bz-Q5VbG_F14CQwtVir0otYmZCxztjMxh4ZBeieNa2OLrF2-Er4?purpose=fullsize)",
+       "items": [
+        {
+         "type": "chat_gpt_images_element",
+         "url": "https://www.yelp.com/biz/morgan-and-morgan-atlanta-3",
+         "alt": "MORGAN & MORGAN - Updated November 2025 - 75 Photos & 252 Reviews - 191 Peachtree St NE, Atlanta, Georgia - Personal Injury Law - Phone Number - Yelp",
+         "image_url": "https://images.openai.com/static-rsc-4/7vN36Yzy_MX0wSbVayU7tny0HvFDQRztrJvOp28G-RgpRvhvb2Ims7fQZiXEwoLcFnd0rOFygRl9W8XV1VjPySvks6jYoM1wr87I0ZPyXYaUsRse00ac-7YQgQBi-u4y_UVlVXLwagjb-bz-Q5VbG_F14CQwtVir0otYmZCxztjMxh4ZBeieNa2OLrF2-Er4?purpose=fullsize",
+         "markdown": "![MORGAN & MORGAN - Updated November 2025 - 75 Photos & 252 Reviews - 191 Peachtree St NE, Atlanta, Georgia - Personal Injury Law - Phone Number - Yelp](https://images.openai.com/static-rsc-4/7vN36Yzy_MX0wSbVayU7tny0HvFDQRztrJvOp28G-RgpRvhvb2Ims7fQZiXEwoLcFnd0rOFygRl9W8XV1VjPySvks6jYoM1wr87I0ZPyXYaUsRse00ac-7YQgQBi-u4y_UVlVXLwagjb-bz-Q5VbG_F14CQwtVir0otYmZCxztjMxh4ZBeieNa2OLrF2-Er4?purpose=fullsize)"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 6,
+       "rank_absolute": 11,
+       "markdown": "\n\n## 5\\. Morgan & Morgan\n\n191 Peachtree Road NE, Suite 4200\n\nA large firm to consider when a claim requires substantial resources or involves multiple parties. Compare who would personally manage your case and how often you would communicate with that attorney. [www.bestinhood.com](https://www.bestinhood.com/atlanta/lawyers/best-personal-injury-lawyers-in-atlanta/)[www.avvo.com](https://www.avvo.com/emotional-distress-caused-by-personal-injury-lawyer/ga/atlanta.html?sort=client_rating)\n\nPhone: 404-965-8811\n\n[Firm website](https://www.forthepeople.com/)\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "5 Best Personal Injury Lawyers in Atlanta (2026)",
+         "domain": "www.bestinhood.com",
+         "url": "https://www.bestinhood.com/atlanta/lawyers/best-personal-injury-lawyers-in-atlanta/",
+         "source_name": "Best in Hood"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Top Rated Atlanta, GA Personal Injury Lawyers",
+         "domain": "www.avvo.com",
+         "url": "https://www.avvo.com/emotional-distress-caused-by-personal-injury-lawyer/ga/atlanta.html?sort=client_rating",
+         "source_name": "Avvo"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Firm website",
+         "domain": "www.forthepeople.com",
+         "url": "https://www.forthepeople.com/",
+         "markdown": "[Firm website](https://www.forthepeople.com/)"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "National personal injury law firm",
+         "category": "organization",
+         "markdown": "Morgan & Morgan"
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_local_businesses",
+       "rank_group": 1,
+       "rank_absolute": 12,
+       "items": [
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "The Baer Law Firm",
+         "description": "Medical lawyer",
+         "address": "1819 Peachtree Road NE, Suite 401, Atlanta, GA 30309",
+         "phone": "+14048432237",
+         "reviews_count": 201,
+         "url": "https://thebaerfirm.com/?utm_source=chatgpt.com",
+         "domain": "thebaerfirm.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 201,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Tobin Injury Law - Personal Injury Lawyer Atlanta",
+         "description": "Personal injury attorney",
+         "address": "38 Old Ivy Rd NE, Atlanta, GA 30342, United States",
+         "phone": "+1 404-587-8423",
+         "reviews_count": 439,
+         "url": "https://www.tobininjurylaw.com/",
+         "domain": "www.tobininjurylaw.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 439,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "The Kalka Law Group",
+         "description": "Personal injury attorney",
+         "address": "1447 Peachtree St NE #550, Atlanta, GA 30309, United States",
+         "phone": "+1 404-999-0745",
+         "reviews_count": 410,
+         "url": "https://www.kalkalaw.com/car-accident-lawyer-atlanta-ga-car-crash-injury-lawyer-near-me/?utm_source=TRD&utm_medium=organic&utm_campaign=GBP_Main&utm_content=GBP_Atlanta_TRD",
+         "domain": "www.kalkalaw.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.9,
+          "votes_count": 410,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "KIM LAW",
+         "description": "Personal injury attorney",
+         "address": "55 Ivan Allen Jr Blvd NW, Suite 330, Atlanta, GA 30308",
+         "phone": "+17708373207",
+         "reviews_count": 810,
+         "url": "https://thekimlaw.com/?utm_source=chatgpt.com",
+         "domain": "thekimlaw.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 810,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Morgan & Morgan",
+         "description": "Personal injury attorney",
+         "address": "191 Peachtree Road NE, Suite 4200, Atlanta, GA 30303",
+         "phone": "+14049658811",
+         "reviews_count": 13235,
+         "url": "https://www.forthepeople.com/office-locations/georgia/atlanta/?utm_medium=local&utm_campaign=AtlantaGAGMB&utm_source=chatgpt.com",
+         "domain": "www.forthepeople.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.6,
+          "votes_count": 13235,
+          "rating_max": 5
+         }
+        }
+       ]
+      },
+      {
+       "type": "chat_gpt_text",
+       "rank_group": 7,
+       "rank_absolute": 13,
+       "markdown": "\n\n## How to choose the right one\n\nWhen you call, ask these four questions\\:\n\n- **Who will handle my case?** Will I speak directly with the attorney or mainly with a case manager?\n- **Have you handled cases like mine?** Ask for relevant verdicts or settlements and whether those cases went to trial.\n- **What is your fee?** Confirm the contingency percentage, case expenses, and what happens if you don't recover money.\n- **What is my claim potentially worth?** Ask how medical costs, lost wages, future treatment, and insurance limits affect the estimate.\n\nYou can also verify an attorney's license and disciplinary history through the [State Bar of Georgia](https://www.gabar.org/)\\.\n\n## Let me narrow it down to the best fit for your case\n\n**What type of injury case do you have?**\n\n1\\. Type of case\n\nCar accident\n\nTruck or motorcycle accident\n\nSlip and fall / premises liability\n\nMedical malpractice\n\nWrongful death\n\nWorkplace injury\n\nOther personal injury\n\n---\n\n2\\. How serious is the injury?\n\nMinor injury\n\nOngoing medical treatment\n\nSerious or permanent injury\n\nFatal accident / wrongful death\n\n---\n\n3\\. What matters most to you?\n\nStrong trial experience\n\nExcellent reviews and communication\n\nMaximizing potential compensation\n\nPersonal attention from the attorney\n\n[Find my best matches]\n\nI can use those details to make a more targeted shortlist rather than simply recommending the firms with the most advertising or reviews.",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "State Bar of Georgia",
+         "domain": "www.gabar.org",
+         "url": "https://www.gabar.org/",
+         "markdown": "[State Bar of Georgia](https://www.gabar.org/)"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
