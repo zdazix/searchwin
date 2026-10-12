@@ -482,6 +482,7 @@ mark { background: none; color: inherit; }
 .hero__lead { max-width: 60ch; }
 .hero__ctas { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 28px; margin-top: 4px; }
 .hero__note { font-size: .9375rem; color: var(--muted); }
+.hero__eyebrow { margin-bottom: -4px; }
 
 /* From prompt to deal: one buyer's path, drawn as a line through four stops */
 .flow {
@@ -2023,6 +2024,19 @@ mark { background: none; color: inherit; }
 .q__icon { background: #fff; }
 .q--hot { background: var(--ui-dark); color: #F4F2EE; }
 .q--hot .q__icon { background: var(--lime); }
+
+/* Industry tiles: the metric we grow, and links to the industry pages */
+.seg { position: relative; }
+.seg__m { font-size: .8125rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--rev); }
+.seg--link { border-color: transparent; background: var(--ui-dark); color: #F4F2EE; }
+.seg--link .seg__q { background-color: rgba(255, 255, 255, .1); color: rgba(244, 242, 238, .85); }
+.seg--link .seg__m { color: var(--lime); }
+.seg__link { color: inherit; text-decoration: none; }
+.seg__link::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.seg__more { display: inline-flex; align-items: center; gap: 6px; font-size: .875rem; font-weight: 500; color: var(--lime); }
+.seg__more svg { width: 15px; height: 15px; transition: transform .25s var(--ease-out); }
+.seg--link:hover .seg__more svg { transform: translateX(3px); }
+.seg--link:focus-within { outline: 2px solid var(--lime); outline-offset: 3px; }
 
 /* Dark bands: soft colour glow drawn in CSS so it stays sharp at any height, plus fine grain */
 .band--dark {

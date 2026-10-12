@@ -32,7 +32,11 @@
   /* ------------------------------------------------------------------
      The hero's path from prompt to deal. Edit freely.
      ------------------------------------------------------------------ */
-  var FLOW_SCENARIOS = [
+  // A page can override these with <script type="application/json" id="page-config">
+  var PAGE = {};
+  try { PAGE = JSON.parse(document.getElementById('page-config').textContent) || {}; } catch (err) { PAGE = {}; }
+
+  var FLOW_SCENARIOS = PAGE.flow || [
     { icon: 'i-openai', src: 'ChatGPT / Prompt', prompt: 'Best sales engagement platform for a 40-rep team?', page: 'yourbrand.com/compare', event: 'Demo booked', value: 48000 },
     { icon: 'i-perplexity', src: 'Perplexity / Prompt', prompt: 'Easiest SOC 2 software for a seed-stage startup?', page: 'yourbrand.com/pricing', event: 'Sales call booked', value: 36000 },
     { icon: 'i-gemini', src: 'Gemini / Prompt', prompt: 'HR platform for 500 people in Europe?', page: 'yourbrand.com/eu-payroll', event: 'Deal closed', value: 64000 },
@@ -359,11 +363,17 @@
       var j = Math.floor(rand() * (k + 1));
       var tmp = order[k]; order[k] = order[j]; order[j] = tmp;
     }
+    var L = PAGE.visit || [
+      'AI-referred buyers land on your site this month',
+      'leave within a minute',
+      'book a demo on a typical B2B site',
+      'book a demo after we rebuild the path'
+    ];
     var STATES = {
-      1: { left: 0, demo: [], num: 100, label: 'AI-referred buyers land on your site this month' },
-      2: { left: 72, demo: [], num: 72, label: 'leave within a minute' },
-      3: { left: 72, demo: [72, 74], num: 2, label: 'book a demo on a typical B2B site' },
-      4: { left: 46, demo: [72, 78], num: 6, label: 'book a demo after we rebuild the path' }
+      1: { left: 0, demo: [], num: 100, label: L[0] },
+      2: { left: 72, demo: [], num: 72, label: L[1] },
+      3: { left: 72, demo: [72, 74], num: 2, label: L[2] },
+      4: { left: 46, demo: [72, 78], num: 6, label: L[3] }
     };
     var numEl = $('[data-dots-num]');
     var labelEl = $('[data-dots-label]');
