@@ -3,74 +3,50 @@
 
 User-agent: *
 Allow: /
-Disallow: /admin/
 Disallow: /api/
-Disallow: /ai-check/r/
 
 User-agent: GPTBot
 Allow: /
-Disallow: /admin/
 Disallow: /api/
-Disallow: /ai-check/r/
 
 User-agent: OAI-SearchBot
 Allow: /
-Disallow: /admin/
 Disallow: /api/
-Disallow: /ai-check/r/
 
 User-agent: ChatGPT-User
 Allow: /
-Disallow: /admin/
 Disallow: /api/
-Disallow: /ai-check/r/
 
 User-agent: PerplexityBot
 Allow: /
-Disallow: /admin/
 Disallow: /api/
-Disallow: /ai-check/r/
 
 User-agent: Perplexity-User
 Allow: /
-Disallow: /admin/
 Disallow: /api/
-Disallow: /ai-check/r/
 
 User-agent: ClaudeBot
 Allow: /
-Disallow: /admin/
 Disallow: /api/
-Disallow: /ai-check/r/
 
 User-agent: Claude-SearchBot
 Allow: /
-Disallow: /admin/
 Disallow: /api/
-Disallow: /ai-check/r/
 
 User-agent: Claude-User
 Allow: /
-Disallow: /admin/
 Disallow: /api/
-Disallow: /ai-check/r/
 
 User-agent: Google-Extended
 Allow: /
-Disallow: /admin/
 Disallow: /api/
-Disallow: /ai-check/r/
 
 User-agent: Applebot-Extended
 Allow: /
-Disallow: /admin/
 Disallow: /api/
-Disallow: /ai-check/r/
 
 User-agent: Bingbot
 Allow: /
-Disallow: /admin/
 Disallow: /api/
-Disallow: /ai-check/r/
 
 Sitemap: https://searchwin.ai/sitemap.xml

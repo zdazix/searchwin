@@ -1,8 +1,6 @@
 // Small helpers for Web-standard (Request → Response) Vercel functions.
 
-import crypto from 'node:crypto';
 import { waitUntil } from '@vercel/functions';
-import { env } from './config.js';
 
 export function json(body, status = 200, headers = {}) {
   return new Response(JSON.stringify(body), {
@@ -34,10 +32,6 @@ export function clientIp(request) {
   return h.get('x-real-ip') || h.get('x-vercel-forwarded-for') || '0.0.0.0';
 }
 
-export function ipHash(ip) {
-  return crypto.createHash('sha256').update(`${env('IP_HASH_SALT', 'searchwin')}|${ip}`).digest('hex').slice(0, 40);
-}
-
 export function cookies(request) {
   const out = {};
   for (const part of (request.headers.get('cookie') || '').split(';')) {
@@ -50,30 +44,12 @@ export function cookies(request) {
   return out;
 }
 
-/** Path segments after a prefix: "/api/ai-check/abc/audit" with "/api/ai-check" → ["abc", "audit"]. */
-export function segments(request, prefix) {
-  const url = new URL(request.url);
-  // Rewrites pass the original path in ?path= (see vercel.json); direct calls use the pathname.
-  const fromQuery = url.searchParams.get('path');
-  const rest = fromQuery != null ? fromQuery : url.pathname.slice(prefix.length);
-  return rest.split('/').filter(Boolean);
-}
-
 /** Keeps work going after the response (Vercel waitUntil); errors are logged, never thrown. */
 export function background(promise) {
   const safe = Promise.resolve(promise).catch((err) => console.error('[background]', err));
   try { waitUntil(safe); } catch { /* outside Vercel the promise simply runs */ }
   return safe;
 }
-
-export function sameSecret(a, b) {
-  if (typeof a !== 'string' || typeof b !== 'string' || !a || !b) return false;
-  const ha = crypto.createHash('sha256').update(a).digest();
-  const hb = crypto.createHash('sha256').update(b).digest();
-  return crypto.timingSafeEqual(ha, hb);
-}
-
-export const isUuid = (s) => typeof s === 'string' && /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(s);
 
 /** Attribution fields the page sends with a request (from the first-party cookie). */
 export function attributionFrom(body, request) {

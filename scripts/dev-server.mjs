@@ -6,7 +6,8 @@
 //   - api.dataforseo.com answers with the real responses recorded in tests/fixtures/dataforseo
 //     (after DEV_DFS_DELAY_MS, default 4000 ms). Credentials must be dev/dev, anything else gets
 //     the same 40100 error DataForSEO returns for a bad key.
-//   - site_cache is seeded for a few demo domains so the parse step needs no network or Claude key.
+//   - the site reader knows a few demo domains (the facts Claude would return), so the parse step
+//     needs no network or Claude key; any other domain behaves like an unreadable site.
 //   - MX lookups answer "has a mail server" except for *.invalid domains.
 // The product code has no mock mode: on Vercel these calls go to the real services.
 
@@ -25,12 +26,7 @@ const PORT = Number(process.env.PORT || 8787);
 Object.assign(process.env, {
   AI_CHECK_SKIP_TURNSTILE: '1',
   DATAFORSEO_LOGIN: process.env.DATAFORSEO_LOGIN || 'dev',
-  DATAFORSEO_PASSWORD: process.env.DATAFORSEO_PASSWORD || 'dev',
-  INTERNAL_JOB_SECRET: process.env.INTERNAL_JOB_SECRET || 'dev-internal-secret',
-  ADMIN_PASSWORD: process.env.ADMIN_PASSWORD || 'dev-admin',
-  ADMIN_SESSION_SECRET: process.env.ADMIN_SESSION_SECRET || 'dev-session-secret-dev-session-secret',
-  CRON_SECRET: process.env.CRON_SECRET || 'dev-cron',
-  IP_HASH_SALT: 'dev'
+  DATAFORSEO_PASSWORD: process.env.DATAFORSEO_PASSWORD || 'dev'
 });
 
 // ---------- Database ----------
@@ -40,21 +36,25 @@ for (const f of fs.readdirSync(path.join(root, 'db', 'migrations')).sort()) {
 }
 const { setDb } = await import(pathToFileURL(path.join(root, 'api/_lib/db.js')).href);
 setDb({ query: async (text, params = []) => (await pg.query(text, params)).rows });
+// Leads saved locally: GET /__dev/leads
+globalThis.__devLeads = async () => (await pg.query('select * from leads order by created_at desc')).rows;
 
 const DEMO_SITES = {
   'ironcladtexas.com': { name: 'Ironclad Plumbing', service: 'plumber', city: 'Austin', state: 'TX' },
   'giannielectrical.net': { name: 'Gianni Electrical Service', service: 'electrician', city: 'Charlotte', state: 'NC' },
   'brightline-demo.com': { name: 'Bright Line Plumbing', service: 'plumber', city: 'Austin', state: 'TX' },
-  'dovelewis.org': { name: 'DoveLewis Emergency Animal Hospital', service: 'emergency veterinarian', city: 'Portland', state: 'OR' }
+  'dovelewis.org': { name: 'DoveLewis Emergency Animal Hospital', service: 'emergency veterinarian', city: 'Portland', state: 'OR' },
+  'nocity-demo.com': { name: 'Roam Plumbing', service: 'plumber', city: null, state: null },
+  'saas-demo.com': { name: 'Demo SaaS', service: 'project management software', city: null, state: null, is_local_business: false },
+  'toronto-demo.ca': { name: 'Maple Plumbing', service: 'plumber', city: 'Toronto', state: null, country: 'CA' }
 };
-for (const [domain, d] of Object.entries(DEMO_SITES)) {
-  await pg.query(`insert into site_cache (domain, parse, emails) values ($1, $2::jsonb, '[]'::jsonb)`, [domain,
-    JSON.stringify({ ok: true, data: { ...d, country: 'US', is_local_business: true, confidence: 0.9 }, pages: [`https://${domain}/`], model: 'dev-seed' })]);
-}
-await pg.query(`insert into site_cache (domain, parse, emails) values ('saas-demo.com', $1::jsonb, '[]'::jsonb)`,
-  [JSON.stringify({ ok: true, data: { name: 'Demo SaaS', service: 'project management software', city: null, state: null, country: 'US', is_local_business: false, confidence: 0.9 }, pages: [] })]);
-await pg.query(`insert into site_cache (domain, parse, emails) values ('toronto-demo.ca', $1::jsonb, '[]'::jsonb)`,
-  [JSON.stringify({ ok: true, data: { name: 'Maple Plumbing', service: 'plumber', city: 'Toronto', state: null, country: 'CA', is_local_business: true, confidence: 0.9 }, pages: [] })]);
+const { deps } = await import(pathToFileURL(path.join(root, 'api/_lib/ai-check/deps.js')).href);
+deps.parseSite = async (domain) => {
+  await new Promise((r) => setTimeout(r, Number(process.env.DEV_PARSE_DELAY_MS || 1500)));
+  const d = DEMO_SITES[domain];
+  if (!d) return { ok: false, reason: 'unreadable', error: 'dev server: not a demo domain', emails: [], pages: [] };
+  return { ok: true, data: { country: 'US', is_local_business: true, confidence: 0.9, ...d }, pages: [`https://${domain}/`], model: 'dev-demo', emails: [] };
+};
 
 // ---------- DataForSEO replay ----------
 const fixtureDir = path.join(root, 'tests', 'fixtures', 'dataforseo');
@@ -83,10 +83,7 @@ dns.promises.resolveMx = async (domain) => {
 // ---------- Functions and static files ----------
 const fn = async (file) => import(pathToFileURL(path.join(root, file)).href);
 const routes = [
-  [/^\/api\/ai-check-worker\/?$/, 'api/ai-check-worker.js', null],
-  [/^\/api\/ai-check(\/.*)?$/, 'api/ai-check.js', '/api/ai-check'],
-  [/^\/api\/admin(\/.*)?$/, 'api/admin.js', '/api/admin'],
-  [/^\/api\/cron\/?$/, 'api/cron.js', null]
+  [/^\/api\/ai-check\/(parse|ask|audit|config)\/?$/, (m) => `api/ai-check/${m[1]}.js`]
 ];
 const MIME = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.mjs': 'text/javascript', '.json': 'application/json',
   '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.woff2': 'font/woff2', '.txt': 'text/plain', '.xml': 'application/xml', '.ico': 'image/x-icon' };
@@ -107,11 +104,10 @@ function serveStatic(req, res, pathname) {
 http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://localhost:${PORT}`);
   try {
-    for (const [re, file, prefix] of routes) {
+    for (const [re, fileOf] of routes) {
       const m = url.pathname.match(re);
       if (!m) continue;
-      if (prefix && m[1]) url.searchParams.set('path', m[1].replace(/^\//, ''));
-      const mod = await fn(file);
+      const mod = await fn(fileOf(m));
       const handler = mod[req.method];
       if (!handler) { res.writeHead(405).end(); return; }
       const request = new Request(url, {
@@ -125,12 +121,12 @@ http.createServer(async (req, res) => {
       res.end(Buffer.from(await response.arrayBuffer()));
       return;
     }
+    if (url.pathname === '/__dev/leads') { res.writeHead(200, { 'content-type': 'application/json' }).end(JSON.stringify(await globalThis.__devLeads(), null, 2)); return; }
     // Like on Vercel, server code and private folders are never served as files.
     if (/^\/(api|db|scripts|tests|docs|node_modules)\//.test(url.pathname) || /^\/\.env/.test(url.pathname)) { res.writeHead(404).end('Not found'); return; }
-    if (/^\/ai-check\/r\/[^/]+\/?$/.test(url.pathname)) return serveStatic(req, res, '/ai-check/index.html');
     serveStatic(req, res, url.pathname);
   } catch (err) {
     console.error(err);
     res.writeHead(500).end(String(err.stack || err));
   }
-}).listen(PORT, () => console.log(`dev server on http://localhost:${PORT} (admin password: ${process.env.ADMIN_PASSWORD})`));
+}).listen(PORT, () => console.log(`dev server on http://localhost:${PORT}`));

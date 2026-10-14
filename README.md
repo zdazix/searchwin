@@ -137,75 +137,66 @@ SaaS (`/saas/`):
 
 ## Бесплатная проверка «Does ChatGPT Recommend You?» (`/ai-check`)
 
-ТЗ: [`docs/ai-check-spec.md`](docs/ai-check-spec.md). Этап 1: страница, реальные ответы ChatGPT через DataForSEO, распознавание, заявка на полный аудит, лимиты, Meta и Google, админка. Писем сайт не отправляет: заявка сохраняется в базе, появляется в админке и приходит уведомлением в Telegram.
+ТЗ: [`docs/ai-check-spec.md`](docs/ai-check-spec.md). Этап 1 в упрощённом виде: страница, реальные ответы ChatGPT через DataForSEO, распознавание бизнеса, заявка на полный аудит, браузерные события Meta и Google. Писем сайт не отправляет: заявка сохраняется в таблицу `leads` и приходит уведомлением в Telegram.
 
 ### Как это устроено
 
+Без очередей и фоновых задач: проверку ведёт сама страница.
+
 ```
-Браузер /ai-check  ── POST /api/ai-check ──▶ проверка Turnstile, кэш 7 дней, лимит IP, бюджет
-                                              │  ответ {check_id} сразу, работа продолжается в waitUntil
-                                              ▼
-                     разбор сайта: главная → /contact или /about (защита от SSRF) → Claude (JSON)
-                                              │
-                     3 × POST /api/ai-check-worker  (каждый запрос к ChatGPT — отдельный вызов функции,
-                                              │      таймаут 130 с и один повтор, лимит функции 300 с)
-                                              ▼
-                     Postgres (Neon): проверки, ответы, лиды, заявки  ◀── /admin
-Браузер опрашивает GET /api/ai-check/{id} раз в 2 с и показывает ответы по одному.
+Браузер /ai-check
+  1. POST /api/ai-check/parse   Turnstile → чтение сайта (главная, затем /contact или /about,
+                                защита от SSRF) → Claude: название, услуга, город, штат
+                                ← три вопроса + подписанный билет на 5 минут
+  2. 3 × POST /api/ai-check/ask  параллельно, по одному на вопрос; каждый ждёт ответ DataForSEO Live
+                                (~45–60 с) и возвращает уже разобранный ответ
+     страница показывает ответы по мере прихода и сама считает итог (assets/js/ai-check-core.js)
+  3. POST /api/ai-check/audit   Turnstile → проверка email → строка в leads → Telegram
 ```
 
-- Если вкладку закрыли, проверка всё равно доходит до конца. При повторном заходе из того же браузера результат открывается сразу.
-- Если воркер умер (вышел лимит функции), запрос через 330 с помечается упавшим при следующем опросе статуса, а ежедневный cron дочищает остальное. Страница не зависает.
-- Edit (правка услуги или города) начинает новое «поколение» запросов, старые помечаются отменёнными. Уже идущий вызов DataForSEO оборвать нельзя: его ответ игнорируется, а стоимость учитывается в бюджете.
-- Повтор того же сайта в течение 7 дней отдаётся из кэша без вызова DataForSEO и в лимит IP не считается. Разбор сайта кэшируется на 30 дней.
-- Шаблоны запросов, число запросов (1–3), каталоги-исключения и «общие» слова для распознавания меняются в админке (вкладка «Настройки») без деплоя.
+- У каждого маршрута лимит 150 с (`vercel.json`). DataForSEO ждём не дольше 130 с. Повтор после ошибки бывает только если первая попытка упала быстро и полный ответ ещё успевает до лимита.
+- `/ask` принимает только билет от `/parse` (HMAC, `CHECK_TICKET_SECRET`): вызвать DataForSEO в обход Turnstile или с произвольным текстом нельзя.
+- В базе хранятся только заявки. Сами проверки нигде не сохраняются: если закрыть вкладку, проверка пропадает (страница предупреждает об этом, пока идут запросы).
+- Если сайт не прочитался или на нём нет услуги или города, страница просит ввести недостающие поля. С заполненными полями `/parse` сайт повторно не читает. Так же работает «Try again».
+- Защита: только Turnstile. Лимитов по IP и дневного бюджета в коде нет — следите за расходом в кабинете DataForSEO (там можно поставить лимит) и Anthropic.
 
-**Распознавание** (`api/_lib/ai-check/match.js`) идёт по правилам ТЗ: домен → точное имя → похожее имя (token set ≥ 0,9 плюс совпадение самого длинного значимого слова, без слов-услуг и города) → имя в тексте ответа. Список бизнесов берётся из блока локальных компаний ответа ChatGPT, а если его нет, из `brand_entities` без каталогов.
+**Распознавание** (`api/_lib/ai-check/match.js`) идёт по правилам ТЗ: домен → точное имя → похожее имя (token set ≥ 0,9 плюс совпадение самого длинного значимого слова, без слов-услуг и города) → имя в тексте ответа. Список бизнесов берётся из блока локальных компаний ответа ChatGPT, а если его нет, из `brand_entities` без каталогов. Шаблоны вопросов и списки исключений лежат в `api/_lib/config.js`.
 
 ### Файлы
 
 | Где | Что |
 |---|---|
 | `ai-check/index.html`, `assets/js/ai-check.js`, `assets/css/ai-check.css` | страница: экраны 1–4, все состояния, закреплённая кнопка на телефоне |
-| `assets/js/ai-check-tracking.js` | cookie `sw_attr` (UTM и click ID, 90 дней), Meta Pixel, gtag (Google Ads + GA4), один `event_id` с сервером |
-| `api/ai-check.js` | публичный API: config, start, status, edit, audit |
-| `api/ai-check-worker.js` | один запрос к ChatGPT (внутренний, по секрету) |
-| `api/admin.js`, `admin/index.html`, `assets/js/admin.js` | админка заявок |
-| `api/cron.js` | ежедневная уборка: зависшие проверки, `raw_response` старше 90 дней |
-| `api/_lib/` | логика: разбор сайта, DataForSEO, распознавание, итог, лимиты, CAPI, Telegram |
-| `db/migrations/001_ai_check.sql` | таблицы |
+| `assets/js/ai-check-core.js` | итог по ответам (вердикт, конкуренты, источники); общий для страницы и сервера |
+| `assets/js/ai-check-tracking.js` | cookie `sw_attr` (UTM и click ID, 90 дней), Meta Pixel, gtag (Google Ads + GA4) |
+| `api/ai-check/parse.js`, `ask.js`, `audit.js`, `config.js` | четыре функции Vercel |
+| `api/_lib/` | логика: чтение сайта, Claude, DataForSEO, распознавание, билет, email, Telegram |
+| `db/migrations/001_leads.sql` | таблица `leads` |
+| `db/drop-old-stage1.sql` | только если вы уже запускали первую версию миграции (`001_ai_check.sql`) |
 | `privacy/`, `terms/` | черновики Privacy Policy и Terms ⚠️ показать юристу, вписать штат в Terms |
-| `tests/` | юнит-тесты и 12 реальных ответов ChatGPT (DataForSEO) в `tests/fixtures/dataforseo` |
+| `tests/` | тесты и 12 реальных ответов ChatGPT (DataForSEO) в `tests/fixtures/dataforseo` |
 
 ### Настройка (один раз)
 
-1. **Vercel.** Подключите репозиторий к проекту Vercel и выберите production-ветку. Framework Preset: Other, Build Command пустой, Output Directory пустой (корень репозитория). `vercel.json` уже задаёт функции, маршруты, заголовки noindex и cron.
-2. **База.** Vercel → Storage → Marketplace → Neon → Create и подключить к проекту: переменная `DATABASE_URL` появится сама. Затем создайте таблицы: либо локально `vercel env pull .env.local`, `export $(grep -v '^#' .env.local | xargs)`, `npm install`, `npm run db:migrate`, либо вставьте `db/migrations/001_ai_check.sql` в SQL Editor консоли Neon.
-3. **Переменные окружения** из [`.env.example`](.env.example): DataForSEO, Claude API, Turnstile, Meta (Pixel + токен CAPI), Google Ads (ID и три метки конверсий), GA4, пароль админки и случайные секреты, Telegram. После изменения переменных сделайте Redeploy.
+1. **Vercel.** Подключите репозиторий к проекту Vercel и выберите production-ветку. Framework Preset: Other, Build Command и Output Directory пустые. `vercel.json` уже задаёт лимит функций и заголовки noindex.
+2. **База.** Neon через Vercel Marketplace: переменная `DATABASE_URL` появится сама. В SQL Editor консоли Neon выполните `db/migrations/001_leads.sql`. Если раньше вы уже выполняли первую версию миграции, сначала выполните `db/drop-old-stage1.sql` (удаляет её восемь таблиц, данных в них ещё нет).
+3. **Переменные окружения** из [`.env.example`](.env.example): DataForSEO, Claude API, Turnstile, `CHECK_TICKET_SECRET` (случайная строка), публичные ID Meta Pixel, Google Ads и GA4, по желанию Telegram. После изменения переменных сделайте Redeploy.
 4. **Turnstile:** Cloudflare → Turnstile → Add widget → домен `searchwin.ai`, режим Invisible.
-5. **Google Ads:** создайте три конверсии (check_started — вторичная, check_completed — основная на старте, audit_requested), для audit_requested включите Enhanced conversions for leads (через тег Google). Метки впишите в переменные `PUBLIC_GADS_LABEL_*`.
-6. **Meta:** в Events Manager создайте пиксель, сгенерируйте токен Conversions API. Для проверки дедупликации задайте временно `META_TEST_EVENT_CODE`.
+5. **Google Ads:** две конверсии — check_completed и audit_requested (для неё включите Enhanced conversions for leads через тег Google). Метки впишите в `PUBLIC_GADS_LABEL_*`.
+6. **Meta:** пиксель в Events Manager, его ID в `PUBLIC_META_PIXEL_ID`. Серверный Conversions API и офлайн-конверсии отложены; у событий уже есть `event_id`, чтобы потом добавить их без двойного счёта.
 7. **Telegram:** бот через @BotFather, id чата через @userinfobot; бот должен быть добавлен в чат.
 
-### Админка
-
-`/admin/` (вход по `ADMIN_PASSWORD`):
-- **Заявки:** фильтр по статусу и сроку, просроченные (+48 ч) подсвечены. В карточке все ответы ChatGPT, правило совпадения для каждого бизнеса, конкуренты, источники, тайминги и стоимость. Кнопки «Скопировать email», «Скопировать ссылку на результат», «Взять в работу», «Отметить отправленным», заметки, уточнения, экспорт в JSON для работы с Claude.
-- **Проверки:** последние 150 проверок с временем разбора, каждого запроса и всей проверки, медиана по последним 50, расход за день. Там же тестовая проверка без капчи и лимита по IP: ей удобно прогнать 10 сайтов из критериев приёмки.
-- **Сбои:** упавшие запросы и проверки, ошибки ключа DataForSEO, превышение бюджета, ошибки CAPI.
-- **Настройки:** шаблоны запросов и другие параметры распознавания.
-
-Ссылка на результат для письма: `https://searchwin.ai/ai-check/r/{id}` (без email, `noindex`). Кнопка «Открыть результат» в админке добавляет `?preview=1`, чтобы ваш просмотр не отправлял события в Meta и Google.
+Заявки смотрите в Neon (Tables → `leads`) или в Telegram.
 
 ### Тесты и локальный запуск
 
 ```bash
 npm install
 npm test          # юнит- и интеграционные тесты (Node test runner, Postgres в памяти через PGlite)
-npm run dev       # весь сайт и функции на http://localhost:8787, пароль админки dev-admin
+npm run dev       # весь сайт и функции на http://localhost:8787, заявки — на /__dev/leads
 ```
 
-`npm run dev` работает без ключей: база в памяти; DataForSEO отвечает записанными реальными ответами из `tests/fixtures/dataforseo`; для демо-доменов `ironcladtexas.com`, `giannielectrical.net`, `brightline-demo.com`, `dovelewis.org` разбор сайта заранее положен в кэш. Подмена есть только в `scripts/dev-server.mjs`; в рабочем коде режима заглушек нет. Новые реальные ответы для тестов можно записать с вашими ключами: `node scripts/record-fixture.mjs "best plumber in Austin, TX"`.
+`npm run dev` работает без ключей: база в памяти; DataForSEO отвечает записанными реальными ответами из `tests/fixtures/dataforseo`; вместо Claude для демо-доменов (`ironcladtexas.com`, `giannielectrical.net`, `brightline-demo.com`, `dovelewis.org`, `nocity-demo.com`, `saas-demo.com`, `toronto-demo.ca`) отдаются готовые данные, любой другой домен ведёт себя как нечитаемый сайт. Подмена есть только в `scripts/dev-server.mjs` и тестах; в рабочем коде режима заглушек нет. Новые реальные ответы для тестов можно записать с вашими ключами: `node scripts/record-fixture.mjs "best plumber in Austin, TX"`.
 
 ## Стек и лицензии
 

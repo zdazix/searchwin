@@ -14,9 +14,8 @@
 /* [hidden] always wins over component display rules on this page */
 .ac-page [hidden] { display: none !important; }
 
-/* Result URLs show the result straight away */
+/* While a check runs, the landing parts step aside */
 .ac-is-result .ac-hero, .ac-is-result [data-ac-landing] { display: none; }
-.ac-is-result .ac-run[hidden] { display: block !important; }
 
 /* ---------- Screen 1 ---------- */
 .ac-hero { padding: calc(var(--nav-h) + clamp(28px, 6vw, 72px)) 0 clamp(48px, 7vw, 88px); }
@@ -66,19 +65,6 @@
   color: var(--ink-2);
 }
 .ac-recog b { color: var(--ink); font-weight: 600; }
-.ac-recog__dot { color: var(--muted); }
-.ac-linkbtn {
-  padding: 0;
-  border: 0;
-  background: none;
-  font: inherit;
-  font-weight: 600;
-  color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  cursor: pointer;
-}
-.ac-recog__dot:has(+ .ac-linkbtn[hidden]) { display: none; }
 
 .ac-fields { display: grid; gap: 14px; margin-top: 14px; padding: clamp(16px, 3vw, 24px); border-radius: var(--r-lg); }
 .ac-fields[hidden], .ac-fields .field[hidden] { display: none; }

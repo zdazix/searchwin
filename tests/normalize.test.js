@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { normalizeWebsite, normalizeService, normalizeState, parseCityState, normalizeName, renderPrompt } from '../api/_lib/ai-check/normalize.js';
-import { DEFAULT_SETTINGS, mergeSettings, validateSettings } from '../api/_lib/config.js';
+import { DEFAULT_SETTINGS } from '../api/_lib/config.js';
 
 test('website in any form becomes a bare domain', () => {
   for (const input of ['site.com', 'www.site.com', 'https://site.com/page', 'HTTP://WWW.Site.com:443/a?b=c', ' site.com/ ', 'site.com.']) {
@@ -54,13 +54,4 @@ test('prompts from the default templates', () => {
     'who should I call for plumber near Austin TX? I need someone reliable',
     'top rated plumber in Austin TX with good reviews'
   ]);
-});
-
-test('admin settings are validated and merged safely', () => {
-  assert.deepEqual(validateSettings({ query_count: 2 }), []);
-  assert.ok(validateSettings({ query_count: 7 }).length);
-  assert.ok(validateSettings({ prompt_templates: ['no placeholders'] }).length);
-  const merged = mergeSettings({ query_count: 2, prompt_templates: 'nope' });
-  assert.equal(merged.query_count, 2);
-  assert.equal(merged.prompt_templates.length, 3);
 });

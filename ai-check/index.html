@@ -6,7 +6,7 @@
   <title>Does ChatGPT Recommend Your Business? Free Check · SearchWin.ai</title>
   <meta name="description" content="See in about a minute whether ChatGPT names your local business when customers ask who to call. Free, no sign-up, real ChatGPT answers.">
   <link rel="canonical" href="https://searchwin.ai/ai-check/">
-  <meta name="robots" content="index, follow" data-ac-robots>
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#F6F4EF">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="SearchWin.ai">
@@ -21,13 +21,7 @@
   <link rel="preload" href="/assets/fonts/lexend-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="stylesheet" href="/assets/css/ai-check.css">
-  <script>
-    // On /ai-check/r/{id} the result is the page: hide the landing parts before first paint.
-    (function (d) {
-      d.classList.add('js');
-      if (/^\/ai-check\/r\/[^/]+/.test(location.pathname)) d.classList.add('ac-is-result');
-    })(document.documentElement);
-  </script>
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="ac-page">
 
@@ -89,11 +83,9 @@
       <div class="ac-recog" data-ac-recog>
         <span class="ac-recog__label">We'll ask ChatGPT about:</span>
         <b data-ac-recog-text>your website</b>
-        <span class="ac-recog__dot" aria-hidden="true">·</span>
-        <button class="ac-linkbtn" type="button" data-ac-edit-open hidden>Edit</button>
       </div>
 
-      <!-- Edit, and the fields the site didn't give us -->
+      <!-- The fields the site didn't give us -->
       <form class="ac-fields card" data-ac-fields hidden novalidate>
         <p class="ac-fields__title" data-ac-fields-title>Tell us a bit more</p>
         <p class="ac-fields__text" data-ac-fields-text></p>
@@ -114,7 +106,6 @@
         </div>
         <div class="ac-fields__actions">
           <button class="btn btn--primary" type="submit" data-ac-fields-submit>Check my business</button>
-          <button class="ac-linkbtn" type="button" data-ac-fields-cancel hidden>Cancel</button>
         </div>
       </form>
 
@@ -247,6 +238,6 @@
 </footer>
 
 <script src="/assets/js/ai-check-tracking.js" defer></script>
-<script src="/assets/js/ai-check.js" defer></script>
+<script type="module" src="/assets/js/ai-check.js"></script>
 </body>
 </html>

@@ -1,5 +1,4 @@
-// Defaults for the free AI check. Everything in DEFAULT_SETTINGS can be
-// overridden from the admin (table app_settings, key "ai_check") without a deploy.
+// Settings of the free AI check: questions, directories and words that never identify a business.
 
 export const DEFAULT_SETTINGS = {
   // {service}, {city}, {state} are filled from the parsed site; state is a 2-letter code.
@@ -54,22 +53,16 @@ export const DEFAULT_SETTINGS = {
   ]
 };
 
-export const VERDICTS = {
-  not_recommended: { label: 'Not recommended', offer: 'Find out why ChatGPT skips you' },
-  sometimes: { label: 'Sometimes recommended', offer: 'Find out how to show up every time' },
-  not_first: { label: 'Recommended, not first', offer: 'Find out how to become the first name' },
-  top_pick: { label: 'Top pick', offer: 'Keep it: see where competitors are catching up' }
-};
+export { VERDICTS } from '../../assets/js/ai-check-core.js';
 
 export const LIMITS = {
+  // Each /api/ai-check/* function may run this long (vercel.json maxDuration).
+  functionMs: 150000,
+  // One DataForSEO call never waits longer than this; a retry only starts if a full answer still fits.
   dataforseoTimeoutMs: 130000,
-  // A query still "running" after this is treated as dead (worker hit its limit).
-  staleQueryMs: 330000,
-  // A check stuck in "parsing" longer than this is failed by the watchdog.
-  staleParseMs: 150000,
-  checkCacheDays: 7,
-  siteCacheDays: 30,
-  rawResponseDays: 90,
+  dataforseoTypicalMs: 60000,
+  // How long the page may use one parse result to ask ChatGPT.
+  ticketMs: 5 * 60000,
   auditDueHours: 48
 };
 
@@ -78,42 +71,18 @@ export function env(name, fallback) {
   return v === undefined || v === '' ? fallback : v;
 }
 
-export function numberEnv(name, fallback) {
-  const v = Number(env(name, ''));
-  return Number.isFinite(v) && v > 0 ? v : fallback;
-}
+// Shown next to the email field; stored with every lead.
+export const CONSENT_VERSION = '2026-10-14';
 
-/** Merge admin overrides over the defaults, ignoring anything malformed. */
-export function mergeSettings(overrides) {
-  const out = { ...DEFAULT_SETTINGS };
-  if (!overrides || typeof overrides !== 'object') return out;
-  const arrays = ['prompt_templates', 'directory_domains', 'directory_names', 'generic_name_words'];
-  for (const k of arrays) {
-    if (Array.isArray(overrides[k]) && overrides[k].every((s) => typeof s === 'string') && overrides[k].length) {
-      out[k] = overrides[k].map((s) => s.trim()).filter(Boolean);
-    }
-  }
-  const qc = Number(overrides.query_count);
-  if (Number.isInteger(qc) && qc >= 1 && qc <= 3) out.query_count = qc;
-  out.query_count = Math.min(out.query_count, out.prompt_templates.length);
-  return out;
-}
-
-/** Validation for the admin settings editor. Returns a list of problems (empty when fine). */
-export function validateSettings(obj) {
-  const problems = [];
-  if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return ['Ожидается JSON-объект'];
-  if ('prompt_templates' in obj) {
-    if (!Array.isArray(obj.prompt_templates) || !obj.prompt_templates.length) problems.push('prompt_templates: нужен непустой массив строк');
-    else for (const t of obj.prompt_templates) {
-      if (typeof t !== 'string' || !t.includes('{service}') || !t.includes('{city}')) problems.push(`шаблон «${t}» должен содержать {service} и {city}`);
-    }
-  }
-  if ('query_count' in obj && !(Number.isInteger(obj.query_count) && obj.query_count >= 1 && obj.query_count <= 3)) {
-    problems.push('query_count: целое от 1 до 3');
-  }
-  for (const k of ['directory_domains', 'directory_names', 'generic_name_words']) {
-    if (k in obj && !(Array.isArray(obj[k]) && obj[k].every((s) => typeof s === 'string'))) problems.push(`${k}: нужен массив строк`);
-  }
-  return problems;
-}
+export const MESSAGES = {
+  invalid_url: 'Enter your website, e.g. yourbusiness.com',
+  captcha: "We couldn't confirm you're human. Refresh the page and try again.",
+  city_state: 'Enter a US city and state, e.g. Austin, TX',
+  service: 'Tell us what you do, e.g. plumber or family dentist',
+  expired: 'This check has expired. Run it again, it takes about a minute.',
+  answer_failed: "This answer didn't load — it'll be in your full audit.",
+  server: 'Something went wrong on our side. Try again in a minute.',
+  email_format: 'Enter a valid email, e.g. name@yourbusiness.com',
+  email_disposable: "Please use a permanent email address. Temporary inboxes can't receive the audit.",
+  email_no_mx: "This email domain can't receive mail. Check it for typos."
+};

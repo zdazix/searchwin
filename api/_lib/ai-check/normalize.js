@@ -1,5 +1,10 @@
 // Input normalisation: website addresses, services, US states, business names.
 
+import { hostMatches, normalizeName } from '../../../assets/js/ai-check-core.js';
+
+// Shared with the page (assets/js/ai-check-core.js).
+export { hostMatches, normalizeName };
+
 export const US_STATES = {
   AL: 'Alabama', AK: 'Alaska', AZ: 'Arizona', AR: 'Arkansas', CA: 'California', CO: 'Colorado', CT: 'Connecticut',
   DE: 'Delaware', DC: 'District of Columbia', FL: 'Florida', GA: 'Georgia', HI: 'Hawaii', ID: 'Idaho', IL: 'Illinois',
@@ -102,26 +107,6 @@ export function hostOf(value) {
   let s = value.trim();
   if (!/^[a-z][a-z0-9+.-]*:\/\//i.test(s)) s = 'https://' + s;
   try { return new URL(s).hostname.toLowerCase().replace(/^www\./, '').replace(/\.$/, ''); } catch { return ''; }
-}
-
-/** True when host equals domain or is a subdomain of it. */
-export function hostMatches(host, domain) {
-  if (!host || !domain) return false;
-  return host === domain || host.endsWith('.' + domain);
-}
-
-const NAME_TAILS = new Set(['llc', 'inc', 'co', 'corp', 'company', 'the']);
-
-/**
- * Business name normalisation from the spec: lower case → & to "and" → no punctuation →
- * drop llc/inc/co/corp/company/the → collapse spaces.
- */
-export function normalizeName(input) {
-  if (typeof input !== 'string') return '';
-  let s = input.normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase();
-  s = s.replace(/&amp;/g, '&').replace(/&/g, ' and ').replace(/\+/g, ' and ');
-  s = s.replace(/['’‘`]/g, '').replace(/\.(?=\S)/g, '').replace(/[^a-z0-9]+/g, ' ');
-  return s.split(' ').filter((w) => w && !NAME_TAILS.has(w)).join(' ');
 }
 
 /** Name tokens for fuzzy comparison: normalised words with a plural "s" folded. */

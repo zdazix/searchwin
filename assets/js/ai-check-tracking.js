@@ -1,6 +1,7 @@
 /* SearchWin.ai free AI check: attribution cookie, Meta Pixel, Google Ads and GA4.
    Tags load after the page has rendered, so they never delay the first screen.
-   Every event carries the same event_id the server sends to the Conversions API. */
+   Browser events only for now; each carries an event_id so a server-side Conversions API
+   can be added later without double counting. */
 (function () {
   'use strict';
 
@@ -108,14 +109,6 @@
       a.fbp = getCookie('_fbp');
       a.fbc = getCookie('_fbc');
       return a;
-    },
-    checkStarted: function (eventId, data) {
-      if (!eventId || fired(eventId)) return;
-      whenReady(function () {
-        if (window.fbq && cfg.meta_pixel_id) window.fbq('trackCustom', 'CheckStarted', data || {}, { eventID: eventId });
-        adsConversion(cfg.google_ads_labels && cfg.google_ads_labels.check_started, { transaction_id: eventId });
-        if (cfg.ga4_id) gtag('event', 'check_started', data || {});
-      });
     },
     checkCompleted: function (eventId, data) {
       if (!eventId || fired(eventId)) return;

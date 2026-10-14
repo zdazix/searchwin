@@ -44,23 +44,29 @@ async function once({ keyword, tag, auth, timeoutMs, fetchImpl }) {
 
 /**
  * One live ChatGPT answer. One retry on a network error, timeout or a status other than 20000
- * (the spec's rule); bad credentials are not retried.
+ * (the spec's rule), but only when the first attempt failed fast enough that a typical answer
+ * still fits before `deadline` (the function's own time limit). Bad credentials are not retried.
+ * @param deadline epoch ms by which the call must be over
  * @returns {Promise<{ raw: object, result: object, cost: number, ms: number, attempts: number }>}
  */
-export async function chatgptLive(keyword, { tag, fetchImpl = fetch, timeoutMs = LIMITS.dataforseoTimeoutMs } = {}) {
+export async function chatgptLive(keyword, {
+  tag, fetchImpl = fetch, deadline = Date.now() + LIMITS.functionMs - 10000,
+  timeoutMs = LIMITS.dataforseoTimeoutMs, typicalMs = LIMITS.dataforseoTypicalMs
+} = {}) {
   const login = env('DATAFORSEO_LOGIN'), password = env('DATAFORSEO_PASSWORD');
   if (!login || !password) throw new DataForSeoError('config', 'DATAFORSEO_LOGIN / DATAFORSEO_PASSWORD are not set');
   const auth = Buffer.from(`${login}:${password}`).toString('base64');
   let cost = 0, ms = 0;
-  for (let attempt = 1; attempt <= 2; attempt++) {
+  for (let attempt = 1; ; attempt++) {
+    const left = deadline - Date.now();
     try {
-      const r = await once({ keyword, tag, auth, timeoutMs, fetchImpl });
+      const r = await once({ keyword, tag, auth, timeoutMs: Math.max(1000, Math.min(timeoutMs, left)), fetchImpl });
       return { raw: r.body, result: r.task.result?.[0] || null, cost: cost + r.cost, ms: ms + r.ms, attempts: attempt };
     } catch (err) {
       cost += Number(err.cost || 0);
       ms += Number(err.ms || 0);
-      if (err.code === 'auth' || attempt === 2) { err.cost = cost; err.ms = ms; err.attempts = attempt; throw err; }
+      const retry = attempt === 1 && !['auth', 'config'].includes(err.code) && deadline - Date.now() >= typicalMs;
+      if (!retry) { err.cost = cost; err.ms = ms; err.attempts = attempt; throw err; }
     }
   }
-  throw new DataForSeoError('api', 'unreachable');
 }
