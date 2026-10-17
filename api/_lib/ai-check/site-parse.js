@@ -1,9 +1,9 @@
 // Reads the client's site (home page, then /contact or /about if the home page has no address)
-// and asks Claude for name, service, city and state.
+// and asks Gemini for name, service, city and state.
 
 import { safeFetch, SafeFetchError } from '../security/safe-fetch.js';
 import { extractFacts, hasLocation, factsForModel } from './extract.js';
-import { extractBusiness } from './claude.js';
+import { extractBusiness } from './gemini.js';
 import { normalizeService, normalizeState, cleanCity } from './normalize.js';
 
 // Site reading stops trying more pages after this, so the check starts quickly.

@@ -1,5 +1,5 @@
 // POST /api/ai-check/parse — step 1 of the free check, called by the page.
-// Turnstile → read the client's site (Claude finds name, service, city, state) → the three
+// Turnstile → read the client's site (Gemini finds name, service, city, state) → the three
 // questions and a short-lived ticket for /api/ai-check/ask. Nothing is stored.
 // Time limit: 150 s (vercel.json).
 //

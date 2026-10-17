@@ -12,7 +12,6 @@
     "dev": "node scripts/dev-server.mjs"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "0.131.0",
     "@neondatabase/serverless": "1.1.0",
     "@vercel/functions": "3.9.9",
     "disposable-email-domains": "1.0.62",

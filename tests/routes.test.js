@@ -1,6 +1,6 @@
 // The three routes end to end, the way the page calls them, on an in-memory Postgres (PGlite).
 // DataForSEO is replaced at the fetch level by real recorded responses; the site reader by the
-// facts Claude would return (no network here); MX lookups are faked.
+// facts Gemini would return (no network here); MX lookups are faked.
 
 import { test, before, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';

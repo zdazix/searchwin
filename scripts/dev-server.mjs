@@ -6,8 +6,8 @@
 //   - api.dataforseo.com answers with the real responses recorded in tests/fixtures/dataforseo
 //     (after DEV_DFS_DELAY_MS, default 4000 ms). Credentials must be dev/dev, anything else gets
 //     the same 40100 error DataForSEO returns for a bad key.
-//   - the site reader knows a few demo domains (the facts Claude would return), so the parse step
-//     needs no network or Claude key; any other domain behaves like an unreadable site.
+//   - the site reader knows a few demo domains (the facts Gemini would return), so the parse step
+//     needs no network or Gemini key; any other domain behaves like an unreadable site.
 //   - MX lookups answer "has a mail server" except for *.invalid domains.
 // The product code has no mock mode: on Vercel these calls go to the real services.
 
