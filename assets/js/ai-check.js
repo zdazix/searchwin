@@ -619,3 +619,27 @@ el.auditForm.addEventListener('submit', async function (e) {
 window.addEventListener('beforeunload', function (e) {
   if (S.running) { e.preventDefault(); e.returnValue = ''; }
 });
+
+/* ---------- Examples slider: the pills follow the swipe and jump to a slide ---------- */
+(function () {
+  var track = $('[data-ac-slides]');
+  if (!track) return;
+  var slides = $$('[data-ac-slide]', track), tabs = $$('[data-ac-tab]');
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function current() {
+    var best = 0, bestDist = Infinity;
+    slides.forEach(function (s, i) {
+      var d = Math.abs(s.offsetLeft - track.scrollLeft);
+      if (d < bestDist) { best = i; bestDist = d; }
+    });
+    return best;
+  }
+  function mark() { var i = current(); tabs.forEach(function (t, k) { t.setAttribute('aria-pressed', k === i ? 'true' : 'false'); }); }
+  var raf = 0;
+  track.addEventListener('scroll', function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(mark); }, { passive: true });
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      track.scrollTo({ left: slides[Number(t.getAttribute('data-ac-tab'))].offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
+    });
+  });
+})();

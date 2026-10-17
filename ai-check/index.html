@@ -50,8 +50,8 @@
        ============================================================ -->
   <section class="ac-hero" id="check" aria-labelledby="ac-title">
     <div class="container ac-hero__inner">
-      <p class="eyebrow">Free check for local businesses</p>
-      <h1 class="h1 ac-hero__title" id="ac-title">45% of customers ask ChatGPT who to choose. Is it you or your competitor?</h1>
+      <p class="ac-hero__badge">Free live report for local companies</p>
+      <h1 class="h1 ac-hero__title" id="ac-title"><span class="ac-hero__a">45% of customers ask ChatGPT who to choose.</span> <span class="ac-hero__q">Is it you or your competitor?</span></h1>
       <p class="lead ac-hero__lead">People who ask AI are ready to buy, visit or hire. See where your company stands and who ChatGPT recommends instead of you.</p>
 
       <form class="ac-form card" data-ac-form novalidate>
@@ -68,7 +68,7 @@
           <p class="field__error" id="ac-website-error" data-error-for="website">Enter your website, e.g. yourbusiness.com</p>
         </div>
         <p class="ac-form__alert" data-ac-alert role="alert" hidden></p>
-        <p class="ac-form__note"><span><svg aria-hidden="true"><use href="#i-check"></use></svg>Real ChatGPT answers</span><span><svg aria-hidden="true"><use href="#i-check"></use></svg>No email needed</span><span><svg aria-hidden="true"><use href="#i-check"></use></svg>Live data in 60 sec</span></p>
+        <p class="ac-form__note"><span><svg aria-hidden="true"><use href="#i-check"></use></svg>Real ChatGPT answers</span><span><svg aria-hidden="true"><use href="#i-check"></use></svg>No email needed</span><span><svg aria-hidden="true"><use href="#i-check"></use></svg>Pure value in 60 sec</span></p>
       </form>
       <p class="ac-form__online">Not a local business? <button class="ac-linkbtn" type="button" data-ac-online-open>Get an audit for your online business</button></p>
     </div>
@@ -210,23 +210,68 @@
       </div>
       <figure class="media media--frame ac-example__media">
         <img class="media__bg" src="/assets/img/bg/bg-sky.webp" alt="" width="1280" height="854" loading="lazy">
-        <div class="ac-answer ac-answer--example">
-          <span class="ac-example__tag">Example</span>
-          <div class="ui ui--dark">
-            <p class="ui__prompt">best plumber in Austin, TX</p>
-            <p class="ui__meta"><span class="ui__src">ChatGPT / Prompt</span><span class="ui__pill">Oct 12, 2026</span></p>
+        <div class="ac-slides" data-ac-slides tabindex="0" role="region" aria-roledescription="carousel" aria-label="Examples of ChatGPT answers in three industries">
+        <div class="ac-slide" role="group" aria-roledescription="slide" aria-label="1 of 3: Law firms" data-ac-slide>
+          <div class="ac-answer ac-answer--example">
+            <span class="ac-example__tag">Example · Law firms</span>
+            <div class="ui ui--dark">
+              <p class="ui__prompt">best personal injury lawyer in Atlanta, GA</p>
+              <p class="ui__meta"><span class="ui__src">ChatGPT / Prompt</span><span class="ui__pill">Oct 12, 2026</span></p>
+            </div>
+            <div class="ui ui--light">
+              <p class="ui__title">Businesses ChatGPT named</p>
+              <ol class="ac-biz">
+              <li class="ac-biz__item"><span class="ac-biz__pos">1</span><span class="ac-biz__name">The Baer Law Firm</span><span class="ac-biz__rate"><svg aria-hidden="true"><use href="#i-star"></use></svg>5.0 · 201</span></li>
+              <li class="ac-biz__item"><span class="ac-biz__pos">2</span><span class="ac-biz__name">Tobin Injury Law - Personal Injury Lawyer Atlanta</span><span class="ac-biz__rate"><svg aria-hidden="true"><use href="#i-star"></use></svg>5.0 · 439</span></li>
+              <li class="ac-biz__item"><span class="ac-biz__pos">3</span><span class="ac-biz__name">The Kalka Law Group</span><span class="ac-biz__rate"><svg aria-hidden="true"><use href="#i-star"></use></svg>4.9 · 410</span></li>
+              </ol>
+              <p class="ac-answer__line ac-answer__line--miss"><svg aria-hidden="true"><use href="#i-x"></use></svg>Your business: not mentioned</p>
+            </div>
           </div>
-          <div class="ui ui--light">
-            <p class="ui__title">Businesses ChatGPT named</p>
-            <ol class="ac-biz">
+        </div>
+        <div class="ac-slide" role="group" aria-roledescription="slide" aria-label="2 of 3: Home services" data-ac-slide>
+          <div class="ac-answer ac-answer--example">
+            <span class="ac-example__tag">Example · Home services</span>
+            <div class="ui ui--dark">
+              <p class="ui__prompt">best plumber in Austin, TX</p>
+              <p class="ui__meta"><span class="ui__src">ChatGPT / Prompt</span><span class="ui__pill">Oct 12, 2026</span></p>
+            </div>
+            <div class="ui ui--light">
+              <p class="ui__title">Businesses ChatGPT named</p>
+              <ol class="ac-biz">
               <li class="ac-biz__item"><span class="ac-biz__pos">1</span><span class="ac-biz__name">Austin Plumbery</span><span class="ac-biz__rate"><svg aria-hidden="true"><use href="#i-star"></use></svg>4.8 · 227</span></li>
               <li class="ac-biz__item"><span class="ac-biz__pos">2</span><span class="ac-biz__name">Abacus Plumbing, Air Conditioning &amp; Electrical</span><span class="ac-biz__rate"><svg aria-hidden="true"><use href="#i-star"></use></svg>4.7 · 557</span></li>
               <li class="ac-biz__item"><span class="ac-biz__pos">3</span><span class="ac-biz__name">Ironclad Plumbing</span><span class="ac-biz__rate"><svg aria-hidden="true"><use href="#i-star"></use></svg>5.0 · 38</span></li>
-            </ol>
-            <p class="ac-answer__line ac-answer__line--miss"><svg aria-hidden="true"><use href="#i-x"></use></svg>Your business: not mentioned</p>
+              </ol>
+              <p class="ac-answer__line ac-answer__line--miss"><svg aria-hidden="true"><use href="#i-x"></use></svg>Your business: not mentioned</p>
+            </div>
           </div>
         </div>
-        <figcaption class="sr-only">Example: ChatGPT's answer to "best plumber in Austin, TX" on October 12, 2026 named Austin Plumbery, Abacus Plumbing and Ironclad Plumbing.</figcaption>
+        <div class="ac-slide" role="group" aria-roledescription="slide" aria-label="3 of 3: Clinics" data-ac-slide>
+          <div class="ac-answer ac-answer--example">
+            <span class="ac-example__tag">Example · Clinics</span>
+            <div class="ui ui--dark">
+              <p class="ui__prompt">top rated dentist in Denver, CO with good reviews</p>
+              <p class="ui__meta"><span class="ui__src">ChatGPT / Prompt</span><span class="ui__pill">Oct 12, 2026</span></p>
+            </div>
+            <div class="ui ui--light">
+              <p class="ui__title">Businesses ChatGPT named</p>
+              <ol class="ac-biz">
+              <li class="ac-biz__item"><span class="ac-biz__pos">1</span><span class="ac-biz__name">Metropolitan Dental Care</span><span class="ac-biz__rate"><svg aria-hidden="true"><use href="#i-star"></use></svg>4.9 · 1,121</span></li>
+              <li class="ac-biz__item"><span class="ac-biz__pos">2</span><span class="ac-biz__name">Espire Dental Glendale-Cherry Creek</span><span class="ac-biz__rate"><svg aria-hidden="true"><use href="#i-star"></use></svg>4.8 · 883</span></li>
+              <li class="ac-biz__item"><span class="ac-biz__pos">3</span><span class="ac-biz__name">Cherry Creek Dental Spa</span><span class="ac-biz__rate"><svg aria-hidden="true"><use href="#i-star"></use></svg>4.9 · 686</span></li>
+              </ol>
+              <p class="ac-answer__line ac-answer__line--miss"><svg aria-hidden="true"><use href="#i-x"></use></svg>Your business: not mentioned</p>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="ac-slider__tabs" role="group" aria-label="Choose an example">
+          <button type="button" class="ac-slider__tab" data-ac-tab="0" aria-pressed="true">Law firms</button>
+          <button type="button" class="ac-slider__tab" data-ac-tab="1" aria-pressed="false">Home services</button>
+          <button type="button" class="ac-slider__tab" data-ac-tab="2" aria-pressed="false">Clinics</button>
+        </div>
+        <figcaption class="sr-only">Real ChatGPT answers from October 12, 2026: personal injury lawyers in Atlanta, plumbers in Austin and dentists in Denver, each with the three businesses it named first.</figcaption>
       </figure>
     </div>
   </section>
