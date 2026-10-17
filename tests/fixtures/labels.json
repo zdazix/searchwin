@@ -670,6 +670,126 @@
    "expect": {
     "found": false
    }
+  },
+  {
+   "fixture": "who-should-i-call-for-hvac-near-dallas-tx-i-need-someone-reliable",
+   "client": {
+    "name": "365 Heating & Air",
+    "domain": "365heating-air.net",
+    "city": "Dallas",
+    "state": "TX",
+    "country": "US",
+    "service": "hvac"
+   },
+   "expect": {
+    "found": true,
+    "position": 1,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "who-should-i-call-for-hvac-near-dallas-tx-i-need-someone-reliable",
+   "client": {
+    "name": "Coolinary Arts Heating & Cooling",
+    "domain": "coolinaryarts.com",
+    "city": "Dallas",
+    "state": "TX",
+    "country": "US",
+    "service": "hvac"
+   },
+   "expect": {
+    "found": true,
+    "position": 4,
+    "rule": "exact"
+   }
+  },
+  {
+   "fixture": "who-should-i-call-for-hvac-near-dallas-tx-i-need-someone-reliable",
+   "client": {
+    "name": "Dallas Heating & Air",
+    "domain": "dallasheatingair.com",
+    "city": "Dallas",
+    "state": "TX",
+    "country": "US",
+    "service": "hvac"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "who-should-i-call-for-hvac-near-dallas-tx-i-need-someone-reliable",
+   "client": {
+    "name": "TemperaturePro Houston",
+    "domain": "temperatureprohouston.com",
+    "city": "Dallas",
+    "state": "TX",
+    "country": "US",
+    "service": "hvac"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "top-rated-wellness-clinic-in-denver-co-with-good-reviews",
+   "client": {
+    "name": "Well North Functional Medicine",
+    "domain": "wellnorthfunctionalmedicine.com",
+    "city": "Denver",
+    "state": "CO",
+    "country": "US",
+    "service": "wellness clinic"
+   },
+   "expect": {
+    "found": true,
+    "position": 1,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "top-rated-wellness-clinic-in-denver-co-with-good-reviews",
+   "client": {
+    "name": "RegenRx",
+    "domain": "regenrx.co",
+    "city": "Denver",
+    "state": "CO",
+    "country": "US",
+    "service": "wellness clinic"
+   },
+   "expect": {
+    "found": true,
+    "position": 3,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "top-rated-wellness-clinic-in-denver-co-with-good-reviews",
+   "client": {
+    "name": "Denver Wellness Clinic",
+    "domain": "denverwellnessclinic.com",
+    "city": "Denver",
+    "state": "CO",
+    "country": "US",
+    "service": "wellness clinic"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "top-rated-wellness-clinic-in-denver-co-with-good-reviews",
+   "client": {
+    "name": "Well North Pediatrics",
+    "domain": "wellnorthpediatrics.com",
+    "city": "Denver",
+    "state": "CO",
+    "country": "US",
+    "service": "wellness clinic"
+   },
+   "expect": {
+    "found": false
+   }
   }
  ]
 }

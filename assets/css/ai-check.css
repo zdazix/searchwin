@@ -43,12 +43,14 @@
 }
 .ac-form__row { display: grid; gap: 10px; }
 .ac-form .field input { height: 56px; font-size: 1.0625rem; }
+/* The field is lit from the start so it is clear that it is the place to type. */
+.ac-form .field input { border-color: var(--ink); box-shadow: 0 0 0 4px rgba(198, 244, 50, .6); }
 .ac-form__go { width: 100%; }
 .ac-form__alert { padding: 12px 14px; border-radius: var(--r-sm); background: #FBEDE8; color: #8F2F18; font-size: .9375rem; }
 .ac-form__note { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: .8125rem; color: var(--ink); }
 .ac-form__note span { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
 .ac-form__note svg { width: 14px; height: 14px; color: var(--ink); }
-.ac-form__online { font-size: .875rem; color: var(--muted); }
+.ac-form__online { margin-top: 18px; font-size: .875rem; color: var(--muted); }
 .ac-form__online .ac-linkbtn { color: inherit; font-weight: 500; }
 .ac-form__online .ac-linkbtn:hover { color: var(--ink); }
 .ac-linkbtn { padding: 0; border: 0; background: none; font: inherit; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
@@ -303,11 +305,6 @@ body > .ac-turnstile { position: fixed; left: 50%; bottom: 16px; z-index: 60; tr
 .ac-slides::-webkit-scrollbar { display: none; }
 .ac-slides:focus-visible { outline: 3px solid var(--lime); outline-offset: 4px; }
 .ac-slide { flex: 0 0 100%; display: flex; justify-content: center; scroll-snap-align: center; }
-.ac-slider__tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 18px; }
-.ac-slider__tab { height: 36px; padding: 0 16px; border: 0; border-radius: 999px; background: rgba(255, 255, 255, .38); color: var(--ink); font: inherit; font-size: .875rem; font-weight: 600; cursor: pointer; transition: background .2s; }
-.ac-slider__tab:hover { background: rgba(255, 255, 255, .6); }
-.ac-slider__tab[aria-pressed="true"] { background: #fff; box-shadow: 0 2px 8px rgba(0, 0, 0, .12); }
-.ac-slider__tab:focus-visible { outline: 3px solid var(--lime); outline-offset: 2px; }
 .ac-example__tag {
   justify-self: start;
   padding: 4px 10px;

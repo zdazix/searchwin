@@ -1,0 +1,176 @@
+{
+ "_note": "Real DataForSEO ChatGPT LLM Scraper response captured on 2026-10-17 through the DataForSEO connector (image blocks removed, nothing else changed).",
+ "_captured_at": "2026-10-17T00:00:00.000Z",
+ "_request": {
+  "keyword": "who should I call for hvac near Dallas TX? I need someone reliable",
+  "location_name": "United States",
+  "language_code": "en",
+  "force_web_search": true
+ },
+ "tasks": [
+  {
+   "status_code": 20000,
+   "result": [
+    {
+     "keyword": "who should I call for hvac near Dallas TX? I need someone reliable",
+     "items": [
+      {
+       "type": "chat_gpt_text",
+       "markdown": "If you need a reliable HVAC company in the Dallas, TX area, I’d prioritize companies with a strong local service history, clear upfront pricing, good recent customer reviews, and technicians who will diagnose the problem before pushing a full system replacement.\n\n**My advice\\:** Get two quotes for a major repair or replacement, and ask whether the diagnostic fee is applied toward the repair. If your AC or heat has stopped working completely, ask about same-day service and after-hours charges before booking.\n\n## 4 HVAC companies I’d call around Dallas\n\nThese are my shortlist based on local business listings, published service information, and available review data. Ratings can vary by platform, so I’d check recent reviews before scheduling.\n\n",
+       "rank_group": 1,
+       "rank_absolute": 1
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n## 1\\. 365 Heating and Air Conditioning\n\nDallas-based · 24/7 service advertised\n\n5.0/5 · 309 reviews in the business listing\n\nA good first call for repair or maintenance. Customer feedback highlights fair repair-versus-replacement advice.\n\nCall: (214) 636-1215\n\nBest for: A local company and a second opinion.\n\n---\n\n",
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "365 Heating and Air Conditioning",
+         "category": "local_business",
+         "markdown": "365 Heating and Air Conditioning"
+        }
+       ],
+       "rank_group": 2,
+       "rank_absolute": 2
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n## 2\\. TemperaturePro Dallas–Richardson\n\nRichardson · DFW service area\n\n4.9/5 · 448 reviews in the business listing\n\nA strong option for diagnostics, routine maintenance, AC repairs, and heating issues.\n\nCall: (972) 666-0326\n\nBest for: A broad range of residential HVAC needs.\n\n---\n\n",
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "TemperaturePro Dallas–Richardson",
+         "category": "local_business",
+         "markdown": "TemperaturePro Dallas–Richardson"
+        }
+       ],
+       "rank_group": 3,
+       "rank_absolute": 3
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n## 3\\. Texas AirZone LLC\n\nEast Dallas · DFW service area\n\n4.5/5 · 29 reviews in the business listing\n\nOffers AC and heating repair, installation, and whole-home comfort services. Ask for a written estimate before approving work.\n\nCall: (214) 851-3886\n\nBest for: Repair, maintenance, or replacement projects.\n\n---\n\n",
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Texas AirZone LLC",
+         "category": "local_business",
+         "markdown": "Texas AirZone LLC"
+        }
+       ],
+       "rank_group": 4,
+       "rank_absolute": 4
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n## 4\\. Coolinary Arts Heating & Cooling\n\nCentral Dallas\n\n4.8/5 · 60 reviews in the business listing\n\nLocal residential heating and cooling service, with customer feedback emphasizing prompt help and explanations of repair options.\n\nCall: (972) 975-2665\n\nBest for: A local alternative for standard repairs.\n\nThese are candidates to contact, not a guarantee of workmanship. You can also compare recent customer feedback through [ConsumerAffairs' Dallas HVAC guide](https://www.consumeraffairs.com/homeowners/hvac-repair-dallas.html)\\.",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "ConsumerAffairs' Dallas HVAC guide",
+         "domain": "www.consumeraffairs.com",
+         "url": "https://www.consumeraffairs.com/homeowners/hvac-repair-dallas.html"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Best HVAC Contractors in DFW, Ranked",
+         "domain": "dfwprofessionals.com",
+         "url": "https://dfwprofessionals.com/best/hvac-contractor?utm_source=chatgpt.com",
+         "source_name": "DFW Professionals"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Coolinary Arts Heating & Cooling",
+         "category": "local_business",
+         "markdown": "Coolinary Arts Heating & Cooling"
+        }
+       ],
+       "rank_group": 5,
+       "rank_absolute": 5
+      },
+      {
+       "type": "chat_gpt_local_businesses",
+       "items": [
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "365 Heating And Air Conditioning",
+         "description": "HVAC contractor",
+         "address": "Dallas, TX, USA",
+         "phone": "+1 214-636-1215",
+         "reviews_count": 309,
+         "url": "http://365heating-air.net/",
+         "domain": "365heating-air.net",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 309,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "TemperaturePro Dallas-Richardson",
+         "description": "HVAC contractor",
+         "address": "605 S Sherman St STE. 505F, Richardson, TX 75081, United States",
+         "phone": "+1 972-666-0326",
+         "reviews_count": 448,
+         "url": "http://www.temperatureprodallas.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+         "domain": "www.temperatureprodallas.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.9,
+          "votes_count": 448,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Texas AirZone LLC",
+         "description": "HVAC contractor",
+         "address": "10763 Mapleridge Dr, Dallas, TX 75238, United States",
+         "phone": "+1 214-851-3886",
+         "reviews_count": 29,
+         "url": "https://www.texasairzone.com/?utm_source=Google&utm_medium=GBP&utm_campaign=Organic_GBP_TAZ",
+         "domain": "www.texasairzone.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.5,
+          "votes_count": 29,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Coolinary Arts Heating & Cooling",
+         "description": "Air conditioning repair service",
+         "address": "5200 McKinney Ave, Dallas, TX 75205, United States",
+         "phone": "+1 972-975-2665",
+         "reviews_count": 60,
+         "url": "https://callcoolinaryarts.com/",
+         "domain": "callcoolinaryarts.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.8,
+          "votes_count": 60,
+          "rating_max": 5
+         }
+        }
+       ],
+       "rank_group": 6,
+       "rank_absolute": 6
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n## Let me narrow it down for you\n\nWhat part of the Dallas area are you in, and what do you need fixed? A neighborhood or ZIP code is enough.",
+       "rank_group": 7,
+       "rank_absolute": 7
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

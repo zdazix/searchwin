@@ -1,0 +1,177 @@
+{
+ "_note": "Real DataForSEO ChatGPT LLM Scraper response captured on 2026-10-17 through the DataForSEO connector (image blocks removed, nothing else changed).",
+ "_captured_at": "2026-10-17T00:00:00.000Z",
+ "_request": {
+  "keyword": "top rated wellness clinic in Denver CO with good reviews",
+  "location_name": "United States",
+  "language_code": "en",
+  "force_web_search": true
+ },
+ "tasks": [
+  {
+   "status_code": 20000,
+   "result": [
+    {
+     "keyword": "top rated wellness clinic in Denver CO with good reviews",
+     "items": [
+      {
+       "type": "chat_gpt_text",
+       "markdown": "I searched for highly rated wellness clinics in Denver, Colorado, focusing on patient reviews, overall reputation, and the type of care offered.\n\nIf you're looking for a clinic that takes a whole-person approach to wellness rather than just spa treatments, I'd start with these options. Ratings and review counts can vary between platforms, so I've included both where available.\n\n## Top wellness clinics to consider in Denver\n\n",
+       "rank_group": 1,
+       "rank_absolute": 1
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n## 1\\. Well North Functional Medicine\n\n(Top overall pick) 5.0/5 · 86 reviews\n\n4901 W 38th Ave, Denver, CO 80212, United States\n\nBest for personalized, whole-person wellness. This practice focuses on functional medicine, lifestyle factors, and investigating underlying contributors to ongoing health concerns. It offers in-person and telehealth care.\n\nPhone: 720-724-7950\n\n[Practice information](https://wellnorthfunctionalmedicine.com/)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Practice information",
+         "domain": "wellnorthfunctionalmedicine.com",
+         "url": "https://wellnorthfunctionalmedicine.com/"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Well North Functional Medicine",
+         "category": "local_business",
+         "markdown": "Well North Functional Medicine"
+        }
+       ],
+       "rank_group": 2,
+       "rank_absolute": 2
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n## 2\\. Denver Sports and Holistic Medicine\n\n4.9/5 · 96 reviews\n\n1580 S Dahlia St, Denver, CO 80222, United States\n\nA good option for integrative care combining sports medicine, acupuncture, rehabilitation, and functional medicine. Worth considering if you want several approaches coordinated in one practice.\n\nPhone: 720-770-5314\n\n---\n\n",
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Denver Sports and Holistic Medicine",
+         "category": "local_business",
+         "markdown": "Denver Sports and Holistic Medicine"
+        }
+       ],
+       "rank_group": 3,
+       "rank_absolute": 3
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n## 3\\. RegenRx | Regenerative Medicine and Wellness Clinic Denver\n\n5.0/5 · 103 reviews\n\n2460 W 26th Ave Bldg C Suite 480, Denver, CO 80211, United States\n\nBest suited to people interested in regenerative medicine, joint or muscle concerns, and selected medical wellness services. Ask which treatments are evidence-supported for your particular goals.\n\nPhone: 303-630-9770\n\n[Clinic website](https://regenrx.co/)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Clinic website",
+         "domain": "regenrx.co",
+         "url": "https://regenrx.co/"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "RegenRx | Regenerative Medicine and Wellness Clinic Denver",
+         "category": "local_business",
+         "markdown": "RegenRx | Regenerative Medicine and Wellness Clinic Denver"
+        }
+       ],
+       "rank_group": 4,
+       "rank_absolute": 4
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n## 4\\. Forum Health - Denver\n\n5.0/5 · 11 reviews\n\n3400 E Bayaud Ave \\#444, Denver, CO 80209, United States\n\nAn option for personalized functional medicine, health optimization, hormone-related care, and weight management. The review sample is smaller than those of the first three options.\n\nPhone: 303-355-2385\n\n",
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Forum Health - Denver",
+         "category": "local_business",
+         "markdown": "Forum Health - Denver"
+        }
+       ],
+       "rank_group": 5,
+       "rank_absolute": 5
+      },
+      {
+       "type": "chat_gpt_local_businesses",
+       "items": [
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Well North Functional Medicine",
+         "description": "Nurse practitioner",
+         "address": "4901 W 38th Ave, Denver, CO 80212, United States",
+         "phone": "+1 720-724-7950",
+         "reviews_count": 86,
+         "url": "https://wellnorthfunctionalmedicine.com/",
+         "domain": "wellnorthfunctionalmedicine.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 86,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Denver Sports and Holistic Medicine",
+         "description": "Holistic medicine practitioner",
+         "address": "1580 S Dahlia St, Denver, CO 80222, United States",
+         "phone": "+1 720-770-5314",
+         "reviews_count": 96,
+         "url": "https://denversportsandholisticmedicine.com/",
+         "domain": "denversportsandholisticmedicine.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 4.9,
+          "votes_count": 96,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "RegenRx | Regenerative Medicine and Wellness Clinic Denver",
+         "description": "Medical clinic",
+         "address": "2460 W 26th Ave Bldg C Suite 480, Denver, CO 80211, United States",
+         "phone": "+1 303-630-9770",
+         "reviews_count": 103,
+         "url": "https://regenrx.co/",
+         "domain": "regenrx.co",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 103,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Forum Health - Denver",
+         "description": "Medical Center",
+         "address": "3400 E Bayaud Ave #444, Denver, CO 80209, United States",
+         "phone": "+1 303-355-2385",
+         "reviews_count": 11,
+         "url": "https://forumhealth.com/clinics/colorado/denver/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_content=gpb-profile",
+         "domain": "forumhealth.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 11,
+          "rating_max": 5
+         }
+        }
+       ],
+       "rank_group": 6,
+       "rank_absolute": 6
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\nThe ratings above come from available business listings, rather than a single standardized review platform. They are a useful starting point, not a guarantee of clinical quality. Confirm practitioner credentials, insurance coverage, consultation fees, and treatment costs before booking.",
+       "rank_group": 7,
+       "rank_absolute": 7
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
