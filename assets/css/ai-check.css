@@ -44,7 +44,19 @@
 .ac-form__row { display: grid; gap: 10px; }
 .ac-form .field input { height: 56px; font-size: 1.0625rem; }
 /* The field is lit from the start so it is clear that it is the place to type. */
-.ac-form .field input { border-color: var(--ink); box-shadow: 0 0 0 4px rgba(198, 244, 50, .6); }
+.ac-form .field input {
+  height: 60px;
+  border: 2px solid var(--ink);
+  background: #fff;
+  box-shadow: 0 0 0 4px var(--lime), 0 10px 22px -10px rgba(26, 24, 19, .45);
+  font-weight: 500;
+  cursor: text;
+  transition: transform .15s, box-shadow .15s;
+}
+.ac-form .field input:hover { transform: translateY(-1px); box-shadow: 0 0 0 4px var(--lime), 0 14px 26px -10px rgba(26, 24, 19, .5); }
+.ac-form .field input:focus { box-shadow: 0 0 0 5px var(--lime), 0 14px 26px -10px rgba(26, 24, 19, .5); }
+.ac-form .field input::placeholder { color: #8d8676; font-weight: 400; }
+.ac-form .ac-form__go { height: 60px; }
 .ac-form__go { width: 100%; }
 .ac-form__alert { padding: 12px 14px; border-radius: var(--r-sm); background: #FBEDE8; color: #8F2F18; font-size: .9375rem; }
 .ac-form__note { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: .8125rem; color: var(--ink); }
