@@ -620,12 +620,14 @@ window.addEventListener('beforeunload', function (e) {
   if (S.running) { e.preventDefault(); e.returnValue = ''; }
 });
 
-/* ---------- Examples slider: the pills follow the swipe and jump to a slide ---------- */
+/* ---------- Examples slider: moves by itself, the pills follow and jump to a slide ---------- */
 (function () {
   var track = $('[data-ac-slides]');
   if (!track) return;
   var slides = $$('[data-ac-slide]', track), tabs = $$('[data-ac-tab]');
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var EVERY_MS = 5000;
+  var timer = null, visible = false, hovered = false, stopped = reduce;
   function current() {
     var best = 0, bestDist = Infinity;
     slides.forEach(function (s, i) {
@@ -635,11 +637,28 @@ window.addEventListener('beforeunload', function (e) {
     return best;
   }
   function mark() { var i = current(); tabs.forEach(function (t, k) { t.setAttribute('aria-pressed', k === i ? 'true' : 'false'); }); }
+  function go(i) { track.scrollTo({ left: slides[i].offsetLeft, behavior: reduce ? 'auto' : 'smooth' }); }
+  function tick() { go((current() + 1) % slides.length); }
+  // It plays only while the slider is on screen and nobody is pointing at it; a click or a swipe stops it for good.
+  function sync() {
+    var play = visible && !hovered && !stopped && !document.hidden;
+    if (play && !timer) timer = setInterval(tick, EVERY_MS);
+    if (!play && timer) { clearInterval(timer); timer = null; }
+  }
   var raf = 0;
   track.addEventListener('scroll', function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(mark); }, { passive: true });
   tabs.forEach(function (t) {
-    t.addEventListener('click', function () {
-      track.scrollTo({ left: slides[Number(t.getAttribute('data-ac-tab'))].offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
-    });
+    t.addEventListener('click', function () { stopped = true; sync(); go(Number(t.getAttribute('data-ac-tab'))); });
   });
+  track.addEventListener('touchstart', function () { stopped = true; sync(); }, { passive: true });
+  track.addEventListener('keydown', function () { stopped = true; sync(); });
+  var box = track.closest('figure') || track;
+  box.addEventListener('mouseenter', function () { hovered = true; sync(); });
+  box.addEventListener('mouseleave', function () { hovered = false; sync(); });
+  box.addEventListener('focusin', function () { hovered = true; sync(); });
+  box.addEventListener('focusout', function () { hovered = false; sync(); });
+  document.addEventListener('visibilitychange', sync);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) { visible = entries[0].isIntersecting; sync(); }, { threshold: 0.4 }).observe(box);
+  }
 })();

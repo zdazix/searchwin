@@ -45,10 +45,12 @@
 .ac-form .field input { height: 56px; font-size: 1.0625rem; }
 .ac-form__go { width: 100%; }
 .ac-form__alert { padding: 12px 14px; border-radius: var(--r-sm); background: #FBEDE8; color: #8F2F18; font-size: .9375rem; }
-.ac-form__note { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: .8125rem; color: var(--muted); }
+.ac-form__note { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: .8125rem; color: var(--ink); }
 .ac-form__note span { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
-.ac-form__note svg { width: 14px; height: 14px; color: var(--olive); }
+.ac-form__note svg { width: 14px; height: 14px; color: var(--ink); }
 .ac-form__online { font-size: .875rem; color: var(--muted); }
+.ac-form__online .ac-linkbtn { color: inherit; font-weight: 500; }
+.ac-form__online .ac-linkbtn:hover { color: var(--ink); }
 .ac-linkbtn { padding: 0; border: 0; background: none; font: inherit; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
 
 /* Popup for online businesses */
