@@ -44,7 +44,7 @@
 .ac-form__row { display: grid; gap: 10px; }
 .ac-form .field input { height: 56px; font-size: 1.0625rem; }
 /* The field is lit from the start so it is clear that it is the place to type. */
-.ac-form { border: 2px solid var(--ink); background: #fff; }
+.ac-form { background: #fff; }
 .ac-form .field input {
   height: 60px;
   border: 2px solid var(--ink);
