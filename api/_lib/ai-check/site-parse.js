@@ -4,7 +4,7 @@
 import { safeFetch, SafeFetchError } from '../security/safe-fetch.js';
 import { extractFacts, hasLocation, factsForModel } from './extract.js';
 import { extractBusiness } from './gemini.js';
-import { normalizeService, normalizeState, cleanCity } from './normalize.js';
+import { normalizeService, normalizeState, cleanCity, cleanRegion } from './normalize.js';
 
 // Site reading stops trying more pages after this, so the check starts quickly.
 const FETCH_BUDGET_MS = 20000;
@@ -75,8 +75,10 @@ export async function parseSite(domain, { fetcher = safeFetch, extractor = extra
       name: typeof d.name === 'string' && d.name.trim() ? d.name.trim().slice(0, 120) : null,
       service: normalizeService(d.service || '') || null,
       city: cleanCity(d.city || '') || null,
-      state: normalizeState(d.state || ''),
+      state: country === 'US' || !country ? normalizeState(d.state || '') : cleanRegion(d.state || ''),
       country,
+      language: typeof d.language === 'string' && /^[a-z]{2}$/i.test(d.language.trim()) ? d.language.trim().toLowerCase() : null,
+      questions: Array.isArray(d.questions) ? d.questions.filter((q) => typeof q === 'string').slice(0, 3) : null,
       is_local_business: d.is_local_business !== false,
       confidence: typeof d.confidence === 'number' ? Math.max(0, Math.min(1, d.confidence)) : null
     },
@@ -93,7 +95,9 @@ export async function parseSite(domain, { fetcher = safeFetch, extractor = extra
 export function missingFields(parse) {
   if (!parse.ok) return ['name', 'service', 'city_state'];
   const need = [];
+  const isUS = !parse.data.country || parse.data.country === 'US';
   if (!parse.data.service) need.push('service');
-  if (!parse.data.city || !parse.data.state) need.push('city_state');
+  // Outside the US a city is enough; a US business needs its state too.
+  if (!parse.data.city || (isUS && !parse.data.state)) need.push('city_state');
   return need;
 }

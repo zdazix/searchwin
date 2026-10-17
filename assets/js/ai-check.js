@@ -5,6 +5,7 @@
    already turned into sanitised HTML. */
 
 import { summarize } from './ai-check-core.js';
+import { COUNTRIES, countryByIso } from './ai-check-countries.js';
 
 var API = '/api/ai-check/';
 
@@ -22,7 +23,11 @@ var el = {
   competitors: $('[data-ac-competitors]'), sources: $('[data-ac-sources]'), legal: $('[data-ac-legal]'), again: $('[data-ac-again]'),
   audit: $('[data-ac-audit]'), auditForm: $('[data-ac-audit-form]'), auditSubmit: $('[data-ac-audit-submit]'), auditDone: $('[data-ac-audit-done]'),
   auditDoneText: $('[data-ac-audit-done-text]'), offer: $('[data-ac-offer]'), biz: $('[data-ac-biz]'), email: $('#ac-email'),
-  sticky: $('[data-ac-sticky]'), landing: $$('[data-ac-landing]')
+  sticky: $('[data-ac-sticky]'), landing: $$('[data-ac-landing]'),
+  country: $('#ac-country'), cityInput: $('#ac-city'), cityLabel: $('[data-ac-city-label]'), cityError: $('[data-ac-city-error]'),
+  online: $('[data-ac-online]'), onlineForm: $('[data-ac-online-form]'), onlineSite: $('#ac-o-site'), onlineEmail: $('#ac-o-email'),
+  onlineSubmit: $('[data-ac-online-submit]'), onlineAlert: $('[data-ac-online-alert]'), onlineDone: $('[data-ac-online-done]'),
+  onlineTurnstile: $('[data-ac-turnstile-online]')
 };
 
 /* The check lives here and nowhere else: closing the tab ends it. */
@@ -66,37 +71,52 @@ async function api(path, body) {
 }
 
 /* ---------- Turnstile (invisible). Every token works once: each request gets a fresh one. ---------- */
-var ts = { loading: null, widget: null, pending: null };
-function loadTurnstile() {
-  if (ts.loading) return ts.loading;
-  ts.loading = track.config.then(function (cfg) {
+var tsScript = null;
+function loadTurnstileScript() {
+  if (tsScript) return tsScript;
+  tsScript = track.config.then(function (cfg) {
     if (!cfg || !cfg.turnstile_site_key) return null;
     return new Promise(function (resolve) {
-      window.acTurnstileReady = function () {
-        ts.widget = window.turnstile.render(el.turnstile, {
-          sitekey: cfg.turnstile_site_key, execution: 'execute', appearance: 'interaction-only', size: 'flexible',
-          callback: function (token) { if (ts.pending) { ts.pending.resolve(token); ts.pending = null; } },
-          'error-callback': function () { if (ts.pending) { ts.pending.resolve(''); ts.pending = null; } }
-        });
-        resolve(ts.widget);
-      };
+      window.acTurnstileReady = function () { resolve(cfg.turnstile_site_key); };
       var s = document.createElement('script');
       s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=acTurnstileReady';
       s.async = true; s.defer = true;
       document.head.appendChild(s);
     });
   });
-  return ts.loading;
+  return tsScript;
 }
-async function turnstileToken() {
-  var widget = await loadTurnstile();
-  if (widget == null || !window.turnstile) return '';
-  return new Promise(function (resolve) {
-    ts.pending = { resolve: resolve };
-    try { window.turnstile.reset(widget); window.turnstile.execute(widget); } catch (e) { resolve(''); }
-    setTimeout(function () { if (ts.pending) { ts.pending.resolve(''); ts.pending = null; } }, 20000);
-  });
+/* One widget per container: the main form and the popup each get their own, so a challenge is always visible. */
+function turnstileFor(container) {
+  var st = { loading: null, widget: null, pending: null };
+  function load() {
+    if (st.loading) return st.loading;
+    st.loading = loadTurnstileScript().then(function (siteKey) {
+      if (!siteKey || !window.turnstile) return null;
+      st.widget = window.turnstile.render(container, {
+        sitekey: siteKey, execution: 'execute', appearance: 'interaction-only', size: 'flexible',
+        callback: function (token) { if (st.pending) { st.pending(token); st.pending = null; } },
+        'error-callback': function () { if (st.pending) { st.pending(''); st.pending = null; } }
+      });
+      return st.widget;
+    });
+    return st.loading;
+  }
+  async function token() {
+    var widget = await load();
+    if (widget == null || !window.turnstile) return '';
+    return new Promise(function (resolve) {
+      st.pending = resolve;
+      try { window.turnstile.reset(widget); window.turnstile.execute(widget); } catch (e) { resolve(''); }
+      setTimeout(function () { if (st.pending) { st.pending(''); st.pending = null; } }, 20000);
+    });
+  }
+  return { load: load, token: token };
 }
+var tsMain = turnstileFor(el.turnstile);
+var tsOnline = turnstileFor(el.onlineTurnstile);
+var loadTurnstile = tsMain.load;
+var turnstileToken = tsMain.token;
 
 /* ---------- Small form helpers ---------- */
 function looksLikeSite(v) {
@@ -146,7 +166,7 @@ el.form.addEventListener('submit', async function (e) {
   setScore('Reading your website…');
   renderProgress('running');
   var r = await api('parse', { website: site, turnstile_token: token });
-  busy(el.submit, false, 'Check my business');
+  busy(el.submit, false, 'See who ChatGPT picks');
   if (!r.ok) {
     // Nothing was checked yet: back to the form with the reason.
     hideRun();
@@ -192,9 +212,15 @@ function resetResult() {
 }
 
 function bizName() { return S.business.name || S.website || 'your business'; }
+function placeOf(b) {
+  if (!b.city) return '';
+  if (b.state) return b.city + ', ' + b.state;
+  var c = b.country && b.country !== 'US' && countryByIso(b.country);
+  return c ? b.city + ', ' + c.name : b.city;
+}
 function setRecog() {
-  var b = S.business;
-  el.recogText.textContent = b.service && b.city && b.state ? b.service + ' in ' + b.city + ', ' + b.state : S.website || 'your website';
+  var b = S.business, place = placeOf(b);
+  el.recogText.textContent = b.service && place ? b.service + ' in ' + place : S.website || 'your website';
 }
 function setScore(text) { el.score.textContent = text; }
 
@@ -205,12 +231,16 @@ function handleParse(d) {
   if (d.status === 'ready') return startAsks(d.prompts, d.ticket);
   el.progress.hidden = true;
   if (d.status === 'needs_input') return openFields(d.needs, d.site_unreadable ? 'unreadable' : 'missing');
-  if (d.status === 'not_us') return openFields(['city_state'], 'not_us');
   if (d.status === 'not_local') {
     el.scorebar.hidden = true;
-    showState('not_local', 'This check is built for local service businesses',
-      'It looks like ' + (S.website || 'this site') + ' sells online or nationally. Local customers ask ChatGPT differently, so the check would not tell you much.',
-      [newCheckButton()]);
+    showState('not_local', 'This check is built for local businesses',
+      'It looks like ' + (S.website || 'this site') + ' sells online or across a whole country. The instant check only works for businesses that win customers in their own area. Leave your email and we will audit your online business by hand instead.',
+      [onlineButton(), newCheckButton()]);
+  } else if (d.status === 'unsupported_country') {
+    el.scorebar.hidden = true;
+    showState('not_local', "We can't check this country yet",
+      "ChatGPT location data isn't available for the country of " + (S.website || 'this site') + ". Leave your email and we will audit your business by hand instead.",
+      [onlineButton(), newCheckButton()]);
   }
 }
 
@@ -359,7 +389,8 @@ function knownFields() {
   var b = S.business, m = {};
   if (b.name) m.name = b.name;
   if (b.service) m.service = b.service;
-  if (b.city && b.state) m.city_state = b.city + ', ' + b.state;
+  if (b.city) m.city_state = b.state ? b.city + ', ' + b.state : b.city;
+  if (b.country) m.country = b.country;
   return m;
 }
 
@@ -378,18 +409,32 @@ function tryAgainButton() {
 }
 
 /* ---------- Fields the site didn't give us ---------- */
+COUNTRIES.forEach(function (c) { el.country.appendChild(h('option', { value: c.iso, text: c.name })); });
+
+/* The place field depends on the country: a US business needs its state, everywhere else a city is enough. */
+function syncPlaceField() {
+  var us = !el.country.value || el.country.value === 'US';
+  el.cityLabel.textContent = us ? 'City, State' : 'City, region (optional)';
+  el.cityInput.placeholder = us ? 'e.g. Austin, TX' : 'e.g. Manchester';
+  el.cityError.textContent = us ? 'Enter a US city and state, e.g. Austin, TX' : 'Enter a city, e.g. Manchester';
+}
+el.country.addEventListener('change', function () { setFieldError(el.country, false); syncPlaceField(); });
+
 function openFields(needs, mode) {
-  var show = { name: false, service: false, city_state: false };
+  var show = { name: false, service: false, city_state: false, country: false };
   (needs || []).forEach(function (n) { show[n] = true; });
+  // The country is always shown next to the place, so a wrong guess can be fixed.
+  if (show.city_state) show.country = true;
   $$('.field', el.fields).forEach(function (f) { f.hidden = !show[f.getAttribute('data-field')]; f.classList.remove('is-invalid'); });
   var b = S.business;
   if (!$('#ac-service').value) $('#ac-service').value = b.service || '';
-  if (!$('#ac-city').value) $('#ac-city').value = b.city && b.state ? b.city + ', ' + b.state : '';
+  if (!el.cityInput.value) el.cityInput.value = b.city ? (b.state ? b.city + ', ' + b.state : b.city) : '';
   if (!$('#ac-name').value) $('#ac-name').value = b.name || '';
+  if (b.country) el.country.value = b.country;
+  syncPlaceField();
   var titles = {
-    unreadable: ["We couldn't read this site", 'Add three details and we will ask ChatGPT about your business.'],
-    missing: ['Almost there', show.city_state && show.service ? "We couldn't find what you do or where on your site." : show.city_state ? 'Your site works across an area. Which city should we ask about?' : "We couldn't tell what you do from your site."],
-    not_us: ['This check covers US businesses', "It looks like this business isn't in the US. If it is, enter the city and state."]
+    unreadable: ["We couldn't read this site", 'Add a few details and we will ask ChatGPT about your business.'],
+    missing: ['Almost there', show.city_state && show.service ? "We couldn't find what you do or where on your site." : show.city_state ? 'Your site works across an area. Which city should we ask about?' : "We couldn't tell what you do from your site."]
   }[mode];
   el.scorebar.hidden = true;
   el.fieldsTitle.textContent = titles[0];
@@ -397,7 +442,7 @@ function openFields(needs, mode) {
   el.fields.setAttribute('data-mode', mode);
   el.fields.hidden = false;
   var first = $$('.field', el.fields).find(function (f) { return !f.hidden; });
-  if (first) $('input', first).focus();
+  if (first) $('input, select', first).focus();
 }
 
 el.fields.addEventListener('submit', async function (e) {
@@ -406,8 +451,9 @@ el.fields.addEventListener('submit', async function (e) {
   var ok = true;
   $$('.field', el.fields).forEach(function (f) {
     if (f.hidden) return;
-    var input = $('input', f), v = input.value.trim(), key = f.getAttribute('data-field');
-    var valid = key === 'city_state' ? /^[^,]{2,},?\s*[A-Za-z .]{2,}$/.test(v) : key === 'name' ? true : v.length >= 2;
+    var input = $('input, select', f), v = input.value.trim(), key = f.getAttribute('data-field');
+    var us = !el.country.value || el.country.value === 'US';
+    var valid = key === 'city_state' ? (us ? /^[^,]{2,},?\s*[A-Za-z .]{2,}$/.test(v) : v.length >= 2) : key === 'name' ? true : key === 'country' ? v.length === 2 : v.length >= 2;
     setFieldError(input, !valid);
     if (!valid) ok = false; else if (v) manual[key] = v;
   });
@@ -423,6 +469,57 @@ el.fields.addEventListener('submit', async function (e) {
   }
   el.fields.hidden = true;
   handleParse(r.data);
+});
+
+/* ---------- Popup for online businesses: website + email, handled by hand ---------- */
+function onlineButton() {
+  var b = h('button', { class: 'btn btn--primary', type: 'button', text: 'Get a free audit for your online business' });
+  b.addEventListener('click', openOnline);
+  return b;
+}
+function openOnline() {
+  var site = S.website || el.website.value.trim();
+  if (!el.onlineSite.value && site) el.onlineSite.value = site;
+  el.onlineAlert.hidden = true;
+  el.onlineDone.hidden = true;
+  $$('.field, [data-ac-online-submit], .ac-consent, .ac-dialog__text, .ac-dialog__title', el.onlineForm).forEach(function (n) { n.hidden = false; });
+  $('#ac-online-title').hidden = false;
+  tsOnline.load();
+  if (typeof el.online.showModal === 'function') el.online.showModal(); else el.online.setAttribute('open', '');
+  (el.onlineSite.value ? el.onlineEmail : el.onlineSite).focus();
+}
+function closeOnline() {
+  if (typeof el.online.close === 'function') el.online.close(); else el.online.removeAttribute('open');
+}
+$$('[data-ac-online-open]').forEach(function (b) { b.addEventListener('click', openOnline); });
+$$('[data-ac-online-close]').forEach(function (b) { b.addEventListener('click', closeOnline); });
+el.online.addEventListener('click', function (e) { if (e.target === el.online) closeOnline(); });
+el.onlineSite.addEventListener('input', function () { setFieldError(el.onlineSite, false); el.onlineAlert.hidden = true; });
+el.onlineEmail.addEventListener('input', function () { setFieldError(el.onlineEmail, false); el.onlineAlert.hidden = true; });
+
+el.onlineForm.addEventListener('submit', async function (e) {
+  e.preventDefault();
+  var site = el.onlineSite.value.trim(), email = el.onlineEmail.value.trim();
+  var okSite = looksLikeSite(site), okEmail = /^[^\s@]+@[^\s@]+\.[a-z]{2,24}$/i.test(email);
+  setFieldError(el.onlineSite, !okSite);
+  setFieldError(el.onlineEmail, !okEmail);
+  if (!okSite || !okEmail) { (okSite ? el.onlineEmail : el.onlineSite).focus(); return; }
+  busy(el.onlineSubmit, true);
+  el.onlineAlert.hidden = true;
+  var r = await api('audit', { kind: 'online', website: site, email: email, turnstile_token: await tsOnline.token(), attribution: track.attribution() });
+  busy(el.onlineSubmit, false);
+  if (!r.ok) {
+    if (r.data.error === 'invalid_url') setFieldError(el.onlineSite, true, r.data.message);
+    else if (/^email_/.test(r.data.error || '')) setFieldError(el.onlineEmail, true, r.data.message);
+    else { el.onlineAlert.textContent = r.data.message || 'We could not send your request. Try again.'; el.onlineAlert.hidden = false; }
+    return;
+  }
+  track.auditRequested(r.data.event_id, { kind: 'online' }, email);
+  el.onlineSite.value = ''; el.onlineEmail.value = '';
+  $$('.field, [data-ac-online-submit], .ac-consent, .ac-dialog__text', el.onlineForm).forEach(function (n) { n.hidden = true; });
+  $('#ac-online-title').hidden = true;
+  el.onlineDone.hidden = false;
+  el.onlineDone.focus();
 });
 
 /* ---------- Result, teasers, audit ---------- */

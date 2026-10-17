@@ -1,0 +1,161 @@
+{
+ "_note": "Real DataForSEO ChatGPT LLM Scraper response captured on 2026-10-17 through the DataForSEO connector (image blocks removed, nothing else changed).",
+ "_captured_at": "2026-10-17T00:00:00.000Z",
+ "_request": {
+  "keyword": "Wer ist der beste Klempner in Berlin?",
+  "location_name": "Germany",
+  "language_code": "de",
+  "force_web_search": true
+ },
+ "tasks": [
+  {
+   "status_code": 20000,
+   "result": [
+    {
+     "keyword": "Wer ist der beste Klempner in Berlin?",
+     "items": [
+      {
+       "type": "chat_gpt_text",
+       "markdown": "Einen eindeutig „besten“ Klempner in Berlin gibt es nicht – es kommt darauf an, ob du eine Rohrverstopfung, einen Wasserrohrbruch, eine defekte Toilette oder eine größere Sanitärinstallation hast. Ich habe aktuelle Bewertungsübersichten und lokale Handwerksbetriebe verglichen.\n\n## Meine Empfehlungen für Berlin\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Sanitärinstallation in Berlin 2026: 787 Betriebe",
+         "domain": "profimap.de",
+         "url": "https://profimap.de/sanitaerinstallateur/berlin/?utm_source=chatgpt.com",
+         "source_name": "Profimap"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Beste Klempner in Berlin & der Nähe – Top Bewertungen & Ranking 2026",
+         "domain": "www.werkenntdenbesten.de",
+         "url": "https://www.werkenntdenbesten.de/klempner/berlin?utm_source=chatgpt.com",
+         "source_name": "wer kennt den BESTEN"
+        }
+       ],
+       "rank_group": 1,
+       "rank_absolute": 1
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n**1\\. Facility Fix 24**\n\nLietzenseeufer 1, 14057 Berlin, Germany\n\n**5,0/5** \\(153 Bewertungen)\n\nGut für Rohrverstopfungen, Sanitärreparaturen und dringende Einsätze. Der Betrieb wirbt mit schnellen Anfahrtszeiten in Berlin.\n\n---\n\n",
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Facility Fix 24",
+         "category": "local_business",
+         "markdown": "Facility Fix 24"
+        }
+       ],
+       "rank_group": 2,
+       "rank_absolute": 2
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n**2\\. Philippi Sanitär- und Heizungsbetrieb, Fachkraft für Arbeitssicherheit, SiGeKo, Brandschutzbeauftragter Inh. Patrick Wehner**\n\nBreitensteinweg 36, 14165 Berlin-Bezirk Steglitz-Zehlendorf, Germany\n\n**5,0/5** \\(127 Bewertungen)\n\nBesonders interessant für klassische Sanitär- und Heizungsarbeiten, beispielsweise Reparaturen am Spülkasten oder an der Heizungsanlage.\n\n---\n\n",
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Philippi Sanitär- und Heizungsbetrieb, Fachkraft für Arbeitssicherheit, SiGeKo, Brandschutzbeauftragter Inh. Patrick Wehner",
+         "category": "local_business",
+         "markdown": "Philippi Sanitär- und Heizungsbetrieb, Fachkraft für Arbeitssicherheit, SiGeKo, Brandschutzbeauftragter Inh. Patrick Wehner"
+        }
+       ],
+       "rank_group": 3,
+       "rank_absolute": 3
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n**3\\. Schwalm Heizung & Sanitär GmbH**\n\nStindestraße 18, 12167 Berlin-Bezirk Steglitz-Zehlendorf, Germany\n\n**5,0/5** \\(121 Bewertungen)\n\nEine gute Option für Sanitär, Gas, Heizung, Wartung und Modernisierung.\n\n",
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Schwalm Heizung & Sanitär GmbH",
+         "category": "local_business",
+         "markdown": "Schwalm Heizung & Sanitär GmbH"
+        }
+       ],
+       "rank_group": 4,
+       "rank_absolute": 4
+      },
+      {
+       "type": "chat_gpt_local_businesses",
+       "items": [
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Facility Fix 24",
+         "description": "Plumber",
+         "address": "Lietzenseeufer 1, 14057 Berlin, Germany",
+         "phone": "+49 1577 5654276",
+         "reviews_count": 153,
+         "url": "https://www.klempner24.com/",
+         "domain": "www.klempner24.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 153,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Philippi Sanitär- und Heizungsbetrieb, Fachkraft für Arbeitssicherheit, SiGeKo, Brandschutzbeauftragter Inh. Patrick Wehner",
+         "description": "Bathroom remodeler",
+         "address": "Breitensteinweg 36, 14165 Berlin-Bezirk Steglitz-Zehlendorf, Germany",
+         "phone": "+49 176 21614676",
+         "reviews_count": 127,
+         "url": "https://sanitaerfinden.com/40162-philippi-sanitar-und-heizungsbetrieb-fachkraft-fur-arbeitssicherheit-sigeko-brandschutzbeauftragter-inh-patrick-wehner",
+         "domain": "sanitaerfinden.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 127,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Schwalm Heizung & Sanitär GmbH",
+         "description": "Heating contractor",
+         "address": "Stindestraße 18, 12167 Berlin-Bezirk Steglitz-Zehlendorf, Germany",
+         "phone": "+49 30 81820417",
+         "reviews_count": 121,
+         "url": "http://www.schwalm-berlin.de/",
+         "domain": "www.schwalm-berlin.de",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 121,
+          "rating_max": 5
+         }
+        }
+       ],
+       "rank_group": 5,
+       "rank_absolute": 5
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\nWeitere Vergleichsmöglichkeiten: [Klempner-Ranking für Berlin bei wer kennt den BESTEN](https://www.werkenntdenbesten.de/klempner/berlin) und [Sanitärbetriebe bei Trustlocal](https://trustlocal.de/berlin/berlin/sanitar/)\\.\n\n## Damit ich dir den besten für deinen Fall nennen kann\\:\n\n**Was genau muss repariert werden?**\n\nRohrverstopfung oder Abfluss\n\nWasserrohrbruch oder undichte Leitung\n\nToilette, Wasserhahn oder Spülkasten\n\nHeizung oder Warmwasser\n\nBadrenovierung oder größere Installation",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Klempner-Ranking für Berlin bei wer kennt den BESTEN",
+         "domain": "www.werkenntdenbesten.de",
+         "url": "https://www.werkenntdenbesten.de/klempner/berlin"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Sanitärbetriebe bei Trustlocal",
+         "domain": "trustlocal.de",
+         "url": "https://trustlocal.de/berlin/berlin/sanitar/"
+        }
+       ],
+       "rank_group": 6,
+       "rank_absolute": 6
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

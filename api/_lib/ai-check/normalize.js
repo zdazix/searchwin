@@ -53,6 +53,28 @@ export function parseCityState(input) {
   return null;
 }
 
+/**
+ * "City, Region" typed or read from a site → { city, state }.
+ * US: a real state is required ("Austin, TX"). Anywhere else the region is optional free text
+ * ("Sydney, NSW", "Manchester", "Toronto, Ontario") and the country anchors the place.
+ */
+export function parseLocation(input, countryIso = 'US') {
+  if (!countryIso || String(countryIso).toUpperCase() === 'US') return parseCityState(input);
+  if (typeof input !== 'string') return null;
+  const parts = input.split(',');
+  const city = cleanCity(parts[0]);
+  if (!city) return null;
+  const region = cleanRegion(parts.slice(1).join(' '));
+  return { city, state: region };
+}
+
+/** Free-text region (province, county, state): letters, spaces, dots and dashes, up to 40 characters. */
+export function cleanRegion(input) {
+  if (typeof input !== 'string') return null;
+  const s = input.replace(/[^\p{L}\p{N} .'\-]/gu, ' ').replace(/\s+/g, ' ').trim();
+  return s.length >= 2 && s.length <= 40 ? s : null;
+}
+
 export function cleanCity(input) {
   if (typeof input !== 'string') return '';
   const s = input.replace(/[^\p{L}\p{N} .'\-]/gu, ' ').replace(/\s+/g, ' ').trim();
@@ -120,5 +142,5 @@ export function stem(word) {
 }
 
 export function renderPrompt(template, { service, city, state }) {
-  return template.replace(/\{service\}/g, service).replace(/\{city\}/g, city).replace(/\{state\}/g, state).replace(/\s+/g, ' ').trim();
+  return template.replace(/\{service\}/g, service).replace(/\{city\}/g, city).replace(/\{state\}/g, state || '').replace(/\s+/g, ' ').trim();
 }

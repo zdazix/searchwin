@@ -1,0 +1,209 @@
+{
+ "_note": "Real DataForSEO ChatGPT LLM Scraper response captured on 2026-10-17 through the DataForSEO connector (image blocks removed, nothing else changed).",
+ "_captured_at": "2026-10-17T00:00:00.000Z",
+ "_request": {
+  "keyword": "best electrician in Sydney, NSW",
+  "location_name": "Australia",
+  "language_code": "en",
+  "force_web_search": true
+ },
+ "tasks": [
+  {
+   "status_code": 20000,
+   "result": [
+    {
+     "keyword": "best electrician in Sydney, NSW",
+     "items": [
+      {
+       "type": "chat_gpt_text",
+       "markdown": "If you’re looking for the **best electrician in Sydney, NSW**, I’d shortlist businesses based on customer reviews, experience, service coverage and whether they’re qualified for the specific work you need.\n\nOne current Sydney directory ranking, updated in October 2026, puts Hello Electrical, Scott Electrics and ACA Mobile among its top three. Other highly rated local businesses have strong review records and specialise in emergency work or more complex electrical installations.\n\n## My shortlist of Sydney electricians\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "50 Best Electricians in Sydney (2026): Ranked by Real Reviews",
+         "domain": "www.starworks.com.au",
+         "url": "https://www.starworks.com.au/best/electricians/sydney?utm_source=chatgpt.com",
+         "source_name": "Starworks"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "5 Best Electricians in Sydney (2026)",
+         "domain": "www.bestinhood.com",
+         "url": "https://www.bestinhood.com/sydney/home-maintenance-and-repair/best-electricians-in-sydney/?utm_source=chatgpt.com",
+         "source_name": "Best in Hood"
+        }
+       ],
+       "rank_group": 1,
+       "rank_absolute": 1
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n## 1\\. Hello Electrical | Electrician Sydney\n\n(Best overall pick) 5.0/5 · 460 reviews\n\nA strong option for residential electrical work, lighting, switchboard upgrades and fault finding. Customers frequently praise the team’s communication and tidy workmanship.\n\n17 Milton Pl, Forestville NSW 2086, Australia\n\n[Website](https://helloelectrical.com.au/) ·  \\+61 2 8000 1185\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Website",
+         "domain": "helloelectrical.com.au",
+         "url": "https://helloelectrical.com.au/"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Hello Electrical | Electrician Sydney",
+         "category": "local_business",
+         "markdown": "Hello Electrical | Electrician Sydney"
+        }
+       ],
+       "rank_group": 2,
+       "rank_absolute": 2
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n## 2\\. Scott Electrics\n\n5.0/5 · 381 reviews\n\nWorth considering for general electrical work, renovations, strata properties and emergency call-outs. Also advertises Level 2 electrical services for specialised supply and metering work.\n\nEastern Suburbs, 235, Shop 32/285 New South Head Rd, Edgecliff NSW 2027, Australia\n\n[Website](https://scottelectrics.com.au/)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Website",
+         "domain": "scottelectrics.com.au",
+         "url": "https://scottelectrics.com.au/"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Scott Electrics",
+         "category": "local_business",
+         "markdown": "Scott Electrics"
+        }
+       ],
+       "rank_group": 3,
+       "rank_absolute": 3
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n## 3\\. High Demand Electrical\n\n5.0/5 · 347 reviews\n\nA good candidate for urgent electrical faults, 24/7 emergency assistance and Level 2 ASP work, including certain supply and metering jobs.\n\nLevel 36/1 Macquarie Pl, Sydney NSW 2000, Australia\n\n[Website](https://hdlevel2electriciansydney.com.au/)\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Website",
+         "domain": "hdlevel2electriciansydney.com.au",
+         "url": "https://hdlevel2electriciansydney.com.au/"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "High Demand Electrical",
+         "category": "local_business",
+         "markdown": "High Demand Electrical"
+        }
+       ],
+       "rank_group": 4,
+       "rank_absolute": 4
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n## 4\\. KJB Electrical Contractors\n\n5.0/5 · 280 reviews\n\nA good option to compare for homes and properties in Sydney’s Eastern Suburbs, including lighting, repairs and electrical maintenance.\n\n55 Oberon St, Randwick NSW 2031, Australia\n\n\\+61 416 339 882 · [Website](https://kjbelectricalcontractors.com/)\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Website",
+         "domain": "kjbelectricalcontractors.com",
+         "url": "https://kjbelectricalcontractors.com/"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "KJB Electrical Contractors",
+         "category": "local_business",
+         "markdown": "KJB Electrical Contractors"
+        }
+       ],
+       "rank_group": 5,
+       "rank_absolute": 5
+      },
+      {
+       "type": "chat_gpt_local_businesses",
+       "items": [
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Hello Electrical | Electrician Sydney",
+         "description": "Electrician",
+         "address": "17 Milton Pl, Forestville NSW 2086, Australia",
+         "phone": "+61 2 8000 1185",
+         "reviews_count": 460,
+         "url": "https://www.helloelectrical.com.au/",
+         "domain": "www.helloelectrical.com.au",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 460,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "Scott Electrics",
+         "description": "Electrician",
+         "address": "Eastern Suburbs, 235, Shop 32/285 New South Head Rd, Edgecliff NSW 2027, Australia",
+         "phone": "+61 2 7206 1568",
+         "reviews_count": 381,
+         "url": "https://scottelectrics.com.au/",
+         "domain": "scottelectrics.com.au",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 381,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "High Demand Electrical",
+         "description": "Electrician",
+         "address": "Level 36/1 Macquarie Pl, Sydney NSW 2000, Australia",
+         "phone": "+61 402 559 777",
+         "reviews_count": 347,
+         "url": "https://www.hdlevel2electriciansydney.com.au/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+         "domain": "www.hdlevel2electriciansydney.com.au",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 347,
+          "rating_max": 5
+         }
+        },
+        {
+         "type": "chat_gpt_local_businesses_element",
+         "title": "KJB Electrical Contractors",
+         "description": "Electrician",
+         "address": "55 Oberon St, Randwick NSW 2031, Australia",
+         "phone": "+61 416 339 882",
+         "reviews_count": 280,
+         "url": "https://kjbelectricalcontractors.com/",
+         "domain": "kjbelectricalcontractors.com",
+         "rating": {
+          "rating_type": "Max5",
+          "value": 5,
+          "votes_count": 280,
+          "rating_max": 5
+         }
+        }
+       ],
+       "rank_group": 6,
+       "rank_absolute": 6
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n## How to choose the right one\n\n- **For a standard home repair or installation\\:** Start with Hello Electrical or Scott Electrics.\n- **For an urgent fault or power supply issue\\:** Contact High Demand Electrical and confirm the call-out fee and arrival time.\n- **Before booking\\:** Verify the electrical contractor licence, request a written quote and check whether the quote includes GST and call-out charges.\n\n## Let me narrow it down\n\nWhat suburb in Sydney is the job in, and what do you need done?",
+       "rank_group": 7,
+       "rank_absolute": 7
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

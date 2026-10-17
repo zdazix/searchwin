@@ -5,8 +5,9 @@
 import { normalizeName, nameTokens, stem, hostMatches, hostOf } from './normalize.js';
 
 /** Builds what the matcher needs to know about the client once. */
-export function makeClient({ name, domain, city, state }, settings) {
-  const generic = new Set((settings.generic_name_words || []).map((w) => stem(w.toLowerCase())));
+export function makeClient({ name, domain, city, state, service }, settings) {
+  // Generic words come from the list plus the words of the service itself, in the site's own language ("Klempner", "plombier").
+  const generic = new Set([...(settings.generic_name_words || []).map((w) => stem(w.toLowerCase())), ...nameTokens(service || '')]);
   const placeWords = new Set([
     ...nameTokens(city || ''),
     ...nameTokens(state || '')

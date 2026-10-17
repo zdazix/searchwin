@@ -14,12 +14,13 @@ function secret() {
 
 const sign = (payload, key) => crypto.createHmac('sha256', key).update(payload).digest('base64url');
 
-/** @param business { domain, name, service, city, state } */
+/** @param business { domain, name, service, city, state, country, language, prompts } */
 export function issueTicket(business, now = Date.now()) {
   const key = secret();
   if (!key) throw Object.assign(new Error('CHECK_TICKET_SECRET is not set'), { code: 'config' });
   const payload = Buffer.from(JSON.stringify({
-    d: business.domain, n: business.name || null, s: business.service, c: business.city, st: business.state,
+    d: business.domain, n: business.name || null, s: business.service, c: business.city, st: business.state || null,
+    k: business.country || 'US', l: business.language || 'en', p: business.prompts || null,
     exp: now + LIMITS.ticketMs
   })).toString('base64url');
   return `${payload}.${sign(payload, key)}`;
@@ -28,7 +29,7 @@ export function issueTicket(business, now = Date.now()) {
 /** @returns the business from the ticket, or null when it is forged, malformed or expired. */
 export function readTicket(ticket, now = Date.now()) {
   const key = secret();
-  if (!key || typeof ticket !== 'string' || ticket.length > 2000) return null;
+  if (!key || typeof ticket !== 'string' || ticket.length > 4000) return null;
   const [payload, mac] = ticket.split('.');
   if (!payload || !mac) return null;
   const expected = Buffer.from(sign(payload, key));
@@ -37,5 +38,5 @@ export function readTicket(ticket, now = Date.now()) {
   let t;
   try { t = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8')); } catch { return null; }
   if (!t || typeof t.exp !== 'number' || t.exp < now) return null;
-  return { domain: t.d, name: t.n, service: t.s, city: t.c, state: t.st };
+  return { domain: t.d, name: t.n, service: t.s, city: t.c, state: t.st, country: t.k || 'US', language: t.l || 'en', prompts: Array.isArray(t.p) ? t.p : null };
 }

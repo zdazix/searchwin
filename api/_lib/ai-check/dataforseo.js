@@ -13,14 +13,14 @@ export class DataForSeoError extends Error {
   }
 }
 
-async function once({ keyword, tag, auth, timeoutMs, fetchImpl }) {
+async function once({ keyword, tag, auth, timeoutMs, fetchImpl, locationCode, language }) {
   const started = Date.now();
   let res;
   try {
     res = await fetchImpl(ENDPOINT, {
       method: 'POST',
       headers: { authorization: `Basic ${auth}`, 'content-type': 'application/json' },
-      body: JSON.stringify([{ keyword, location_code: 2840, language_code: 'en', force_web_search: true, tag }]),
+      body: JSON.stringify([{ keyword, location_code: locationCode, language_code: language, force_web_search: true, tag }]),
       signal: AbortSignal.timeout(timeoutMs)
     });
   } catch (err) {
@@ -46,11 +46,13 @@ async function once({ keyword, tag, auth, timeoutMs, fetchImpl }) {
  * One live ChatGPT answer. One retry on a network error, timeout or a status other than 20000
  * (the spec's rule), but only when the first attempt failed fast enough that a typical answer
  * still fits before `deadline` (the function's own time limit). Bad credentials are not retried.
+ * @param locationCode DataForSEO location (country) code, default 2840 = United States
+ * @param language language of the question; the retry uses English in case the language is not supported
  * @param deadline epoch ms by which the call must be over
  * @returns {Promise<{ raw: object, result: object, cost: number, ms: number, attempts: number }>}
  */
 export async function chatgptLive(keyword, {
-  tag, fetchImpl = fetch, deadline = Date.now() + LIMITS.functionMs - 10000,
+  tag, fetchImpl = fetch, locationCode = 2840, language = 'en', deadline = Date.now() + LIMITS.functionMs - 10000,
   timeoutMs = LIMITS.dataforseoTimeoutMs, typicalMs = LIMITS.dataforseoTypicalMs
 } = {}) {
   const login = env('DATAFORSEO_LOGIN'), password = env('DATAFORSEO_PASSWORD');
@@ -60,7 +62,7 @@ export async function chatgptLive(keyword, {
   for (let attempt = 1; ; attempt++) {
     const left = deadline - Date.now();
     try {
-      const r = await once({ keyword, tag, auth, timeoutMs: Math.max(1000, Math.min(timeoutMs, left)), fetchImpl });
+      const r = await once({ keyword, tag, auth, timeoutMs: Math.max(1000, Math.min(timeoutMs, left)), fetchImpl, locationCode, language: attempt === 1 ? language : 'en' });
       return { raw: r.body, result: r.task.result?.[0] || null, cost: cost + r.cost, ms: ms + r.ms, attempts: attempt };
     } catch (err) {
       cost += Number(err.cost || 0);

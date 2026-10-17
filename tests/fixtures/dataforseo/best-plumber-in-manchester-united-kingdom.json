@@ -1,0 +1,171 @@
+{
+ "_note": "Real DataForSEO ChatGPT LLM Scraper response captured on 2026-10-17 through the DataForSEO connector (image blocks removed, nothing else changed).",
+ "_captured_at": "2026-10-17T00:00:00.000Z",
+ "_request": {
+  "keyword": "best plumber in Manchester, United Kingdom",
+  "location_name": "United Kingdom",
+  "language_code": "en",
+  "force_web_search": true
+ },
+ "tasks": [
+  {
+   "status_code": 20000,
+   "result": [
+    {
+     "keyword": "best plumber in Manchester, United Kingdom",
+     "items": [
+      {
+       "type": "chat_gpt_text",
+       "markdown": "I’ve searched for highly rated plumbers in Manchester, UK. Based on current customer ratings and review counts, **JB7 Plumbing and Heating Limited** is a strong all-round choice, while a few other firms are worth comparing depending on whether you need an emergency repair, a leak fixed, or general plumbing work. [trustedtraders.which.co.uk](https://trustedtraders.which.co.uk/plumbers-in-manchester?utm_source=chatgpt.com)[www.checkatrade.com](https://www.checkatrade.com/Search/Plumber/in/Manchester?utm_source=chatgpt.com)[www.trustatrader.com](https://www.trustatrader.com/plumbers-in-Manchester?utm_source=chatgpt.com)\n\n## Best plumbers in Manchester\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Plumbers in Manchester",
+         "domain": "trustedtraders.which.co.uk",
+         "url": "https://trustedtraders.which.co.uk/plumbers-in-manchester?utm_source=chatgpt.com",
+         "source_name": "Which? Trusted Traders"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Find 54+ Trusted Plumbers in Manchester",
+         "domain": "www.checkatrade.com",
+         "url": "https://www.checkatrade.com/Search/Plumber/in/Manchester?utm_source=chatgpt.com",
+         "source_name": "Checkatrade"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Find the most trusted local Plumbers in Manchester",
+         "domain": "www.trustatrader.com",
+         "url": "https://www.trustatrader.com/plumbers-in-Manchester?utm_source=chatgpt.com",
+         "source_name": "TrustATrader"
+        }
+       ],
+       "rank_group": 1,
+       "rank_absolute": 1
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n### 1\\. JB7 Plumbing and Heating Limited\n\n(Top all-round pick) 4.9/5 on Which? Trusted Traders\n\nWhich? lists 256 reviews, and Checkatrade reports a 9.74/10 rating across more than 1,100 reviews. Offers general plumbing, repairs and emergency plumbing services.\n\n07928 486113\n\nqueries\\@jbplumbing.co.uk\n\nM14 7EN\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Plumbers in Manchester",
+         "domain": "trustedtraders.which.co.uk",
+         "url": "https://trustedtraders.which.co.uk/plumbers-in-manchester?utm_source=chatgpt.com",
+         "source_name": "Which? Trusted Traders"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Find 54+ Trusted Plumbers in Manchester",
+         "domain": "www.checkatrade.com",
+         "url": "https://www.checkatrade.com/Search/Plumber/in/Manchester?utm_source=chatgpt.com",
+         "source_name": "Checkatrade"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Find the most trusted local Plumbers in Manchester",
+         "domain": "www.trustatrader.com",
+         "url": "https://www.trustatrader.com/plumbers-in-Manchester?utm_source=chatgpt.com",
+         "source_name": "TrustATrader"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "JB7 Plumbing and Heating Limited",
+         "category": "local_business",
+         "markdown": "JB7 Plumbing and Heating Limited"
+        }
+       ],
+       "rank_group": 2,
+       "rank_absolute": 2
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n### 2\\. Nelson Plumbing & Heating Ltd\n\n9.89/10 · 519 Checkatrade reviews\n\nA strong option for everyday plumbing, shower repairs, radiators and bathroom or kitchen plumbing.\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Find 54+ Trusted Plumbers in Manchester",
+         "domain": "www.checkatrade.com",
+         "url": "https://www.checkatrade.com/Search/Plumber/in/Manchester?utm_source=chatgpt.com",
+         "source_name": "Checkatrade"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Nelson Plumbing & Heating Ltd",
+         "category": "local_business",
+         "markdown": "Nelson Plumbing & Heating Ltd"
+        }
+       ],
+       "rank_group": 3,
+       "rank_absolute": 3
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n### 3\\. Responsive Plumbing\n\n10/10 · 626 reviews on Checkatrade\n\nWorth considering for bathroom and kitchen plumbing, blocked sinks and general plumbing work. The high rating is encouraging, although it's sensible to confirm availability and pricing directly.\n\n---\n\n",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Find 54+ Trusted Plumbers in Manchester",
+         "domain": "www.checkatrade.com",
+         "url": "https://www.checkatrade.com/Search/Plumber/in/Manchester?utm_source=chatgpt.com",
+         "source_name": "Checkatrade"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "Responsive Plumbing",
+         "category": "local_business",
+         "markdown": "Responsive Plumbing"
+        }
+       ],
+       "rank_group": 4,
+       "rank_absolute": 4
+      },
+      {
+       "type": "chat_gpt_text",
+       "markdown": "\n\n### 4\\. CC Plumbing & Heating\n\n4.96/5 · 168 TrustATrader reviews\n\nAn established option covering the North West, with positive customer feedback for plumbing installation and repairs.\n\n## Which one should you choose?\n\n- **General plumbing or repairs\\:** JB7 Plumbing and Heating.\n- **Shower, radiator or bathroom work\\:** Nelson Plumbing &amp; Heating.\n- **Blocked sink or routine plumbing\\:** Responsive Plumbing.\n- **Another established local option\\:** CC Plumbing &amp; Heating.\n\nRatings are a useful starting point, not a guarantee of quality. Ask for a written quote, call-out fee, VAT details and workmanship guarantee before agreeing to the job.",
+       "sources": [
+        {
+         "type": "chat_gpt_source",
+         "title": "Plumbers in Manchester",
+         "domain": "trustedtraders.which.co.uk",
+         "url": "https://trustedtraders.which.co.uk/plumbers-in-manchester?utm_source=chatgpt.com",
+         "source_name": "Which? Trusted Traders"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Find 54+ Trusted Plumbers in Manchester",
+         "domain": "www.checkatrade.com",
+         "url": "https://www.checkatrade.com/Search/Plumber/in/Manchester?utm_source=chatgpt.com",
+         "source_name": "Checkatrade"
+        },
+        {
+         "type": "chat_gpt_source",
+         "title": "Find the most trusted local Plumbers in Manchester",
+         "domain": "www.trustatrader.com",
+         "url": "https://www.trustatrader.com/plumbers-in-Manchester?utm_source=chatgpt.com",
+         "source_name": "TrustATrader"
+        }
+       ],
+       "brand_entities": [
+        {
+         "type": "chat_gpt_brand_entity",
+         "title": "CC Plumbing & Heating",
+         "category": "local_business",
+         "markdown": "CC Plumbing & Heating"
+        }
+       ],
+       "rank_group": 5,
+       "rank_absolute": 5
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

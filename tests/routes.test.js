@@ -28,15 +28,18 @@ delete process.env.TELEGRAM_BOT_TOKEN;
 
 const fixtures = fs.readdirSync(path.join(here, 'fixtures', 'dataforseo')).map((f) => JSON.parse(fs.readFileSync(path.join(here, 'fixtures', 'dataforseo', f), 'utf8')));
 let dfsCalls = [];
+let dfsBodies = [];
 const realFetch = globalThis.fetch;
 globalThis.fetch = async (input, init = {}) => {
   const url = typeof input === 'string' ? input : input.url;
   if (!url.startsWith('https://api.dataforseo.com/')) return realFetch(input, init);
   const [{ keyword }] = JSON.parse(init.body);
   dfsCalls.push(keyword);
+  dfsBodies.push(JSON.parse(init.body)[0]);
   const auth = Buffer.from(String(init.headers.authorization).replace('Basic ', ''), 'base64').toString();
   if (auth !== 'test:good') return new Response(JSON.stringify({ status_code: 40100, status_message: 'You are not authorized to access this resource.' }), { status: 401 });
-  const fx = fixtures.find((f) => f._request.keyword.includes('Austin'));
+  const city = ['Berlin', 'Manchester', 'Sydney'].find((c) => keyword.includes(c)) || 'Austin';
+  const fx = fixtures.find((f) => f._request.keyword.includes(city));
   return new Response(JSON.stringify({ status_code: 20000, tasks: [{ status_code: 20000, cost: 0.004, result: [fx.tasks[0].result[0]] }] }));
 };
 dns.promises.resolveMx = async (d) => { if (d.endsWith('.invalid')) throw Object.assign(new Error('x'), { code: 'ENOTFOUND' }); return [{ exchange: 'mx.' + d, priority: 1 }]; };
@@ -45,7 +48,15 @@ const SITES = {
   'ironcladtexas.com': { name: 'Ironclad Plumbing', service: 'plumber', city: 'Austin', state: 'TX' },
   'nocity.com': { name: 'Roam Plumbing', service: 'plumber', city: null, state: null },
   'saas-demo.com': { name: 'Demo', service: 'crm software', city: null, state: null, is_local_business: false },
-  'maple.ca': { name: 'Maple Plumbing', service: 'plumber', city: 'Toronto', state: null, country: 'CA' }
+  'maple.ca': { name: 'Maple Plumbing', service: 'plumber', city: 'Toronto', state: null, country: 'CA' },
+  'moscow-demo.ru': { name: 'Moskva Santekhnika', service: 'plumber', city: 'Moscow', state: null, country: 'RU' },
+  'nocountry.com': { name: 'Roam Plumbing', service: 'plumber', city: 'Dallas', state: 'TX', country: null },
+  'manchester-demo.co.uk': { name: 'Nelson Plumbing & Heating Ltd', service: 'plumber', city: 'Manchester', state: null, country: 'GB' },
+  'sydney-demo.com.au': { name: 'Scott Electrics', service: 'electrician', city: 'Sydney', state: 'NSW', country: 'AU' },
+  'berlin-demo.de': {
+    name: 'Schwalm Heizung & Sanitär GmbH', service: 'klempner', city: 'Berlin', state: null, country: 'DE', language: 'de',
+    questions: ['Wer ist der beste Klempner in Berlin?', 'Wen soll ich für einen Klempner in Berlin anrufen? Ich brauche jemanden Zuverlässigen', 'Bestbewertete Klempner in Berlin mit guten Bewertungen']
+  }
 };
 let siteReads = [];
 deps.parseSite = async (domain) => {
@@ -60,7 +71,7 @@ before(async () => {
   for (const f of fs.readdirSync(path.join(root, 'db', 'migrations')).sort()) await pg.exec(fs.readFileSync(path.join(root, 'db', 'migrations', f), 'utf8'));
   setDb({ query: async (t, p = []) => (await pg.query(t, p)).rows });
 });
-beforeEach(() => { dfsCalls = []; siteReads = []; process.env.DATAFORSEO_PASSWORD = 'good'; });
+beforeEach(() => { dfsCalls = []; dfsBodies = []; siteReads = []; process.env.DATAFORSEO_PASSWORD = 'good'; });
 
 const post = async (route, body) => {
   const r = await route.POST(new Request('http://localhost/api/ai-check/x', {
@@ -74,7 +85,7 @@ test('parse → three real answers → totals on the page → lead saved, no ema
   assert.equal(p.status, 200);
   assert.equal(p.body.status, 'ready');
   assert.equal(p.body.website, 'ironcladtexas.com');
-  assert.deepEqual(p.body.business, { name: 'Ironclad Plumbing', service: 'plumber', city: 'Austin', state: 'TX' });
+  assert.deepEqual(p.body.business, { name: 'Ironclad Plumbing', service: 'plumber', city: 'Austin', state: 'TX', country: 'US', language: 'en' });
   assert.deepEqual(p.body.prompts, [
     'best plumber in Austin, TX',
     'who should I call for plumber near Austin TX? I need someone reliable',
@@ -140,24 +151,81 @@ test('missing city asks for it; the typed-in fields skip reading the site again'
   assert.deepEqual(p.body.needs, ['city_state']);
   assert.ok(!p.body.ticket);
   siteReads = [];
-  const again = await post(parseRoute, { website: 'nocity.com', turnstile_token: 'x', manual: { name: 'Roam Plumbing', service: 'plumber', city_state: 'Dallas, Texas' } });
+  const again = await post(parseRoute, { website: 'nocity.com', turnstile_token: 'x', manual: { name: 'Roam Plumbing', service: 'plumber', city_state: 'Dallas, Texas', country: 'US' } });
   assert.equal(again.body.status, 'ready');
   assert.deepEqual(siteReads, []);
   assert.equal(again.body.prompts[0], 'best plumber in Dallas, TX');
-  const bad = await post(parseRoute, { website: 'nocity.com', turnstile_token: 'x', manual: { service: 'plumber', city_state: 'Atlantis' } });
+  const bad = await post(parseRoute, { website: 'nocity.com', turnstile_token: 'x', manual: { service: 'plumber', city_state: 'Atlantis', country: 'US' } });
   assert.equal(bad.status, 400);
   assert.equal(bad.body.error, 'city_state');
 });
 
-test('unreadable site asks for all three fields; non-local and non-US sites stop', async () => {
+test('unreadable site asks for all fields; non-local sites and unsupported countries stop', async () => {
   const u = await post(parseRoute, { website: 'unknown-site.com', turnstile_token: 'x' });
   assert.equal(u.body.status, 'needs_input');
   assert.ok(u.body.site_unreadable);
-  assert.deepEqual(u.body.needs, ['name', 'service', 'city_state']);
+  assert.deepEqual(u.body.needs, ['name', 'service', 'city_state', 'country']);
   assert.equal((await post(parseRoute, { website: 'saas-demo.com', turnstile_token: 'x' })).body.status, 'not_local');
-  assert.equal((await post(parseRoute, { website: 'maple.ca', turnstile_token: 'x' })).body.status, 'not_us');
+  assert.equal((await post(parseRoute, { website: 'moscow-demo.ru', turnstile_token: 'x' })).body.status, 'unsupported_country');
+  const typed = await post(parseRoute, { website: 'nocountry.com', turnstile_token: 'x' });
+  assert.equal(typed.body.status, 'needs_input');
+  assert.deepEqual(typed.body.needs, ['country']);
   assert.equal((await post(parseRoute, { website: 'not a site' })).status, 400);
   assert.equal(dfsCalls.length, 0);
+});
+
+test('a Canadian business needs no state; the question names the country', async () => {
+  const p = await post(parseRoute, { website: 'maple.ca', turnstile_token: 'x' });
+  assert.equal(p.body.status, 'ready');
+  assert.equal(p.body.business.country, 'CA');
+  assert.equal(p.body.prompts[0], 'best plumber in Toronto, Canada');
+  assert.equal(p.body.prompts[1], 'who should I call for plumber near Toronto, Canada? I need someone reliable');
+});
+
+test('UK: the question carries the country and DataForSEO gets the UK location; the client is found without a local-business block', async () => {
+  const p = await post(parseRoute, { website: 'manchester-demo.co.uk', turnstile_token: 'x' });
+  assert.equal(p.body.status, 'ready');
+  assert.equal(p.body.prompts[0], 'best plumber in Manchester, United Kingdom');
+  const a = await post(askRoute, { ticket: p.body.ticket, idx: 1 });
+  assert.equal(a.status, 200);
+  assert.deepEqual([dfsBodies[0].location_code, dfsBodies[0].language_code], [2826, 'en']);
+  assert.equal(a.body.client.found, true);
+  assert.equal(a.body.client.position, 2);
+});
+
+test('Germany: questions in German, German location and language, found by domain', async () => {
+  const p = await post(parseRoute, { website: 'berlin-demo.de', turnstile_token: 'x' });
+  assert.equal(p.body.status, 'ready');
+  assert.equal(p.body.business.language, 'de');
+  assert.equal(p.body.prompts[0], 'Wer ist der beste Klempner in Berlin?');
+  const a = await post(askRoute, { ticket: p.body.ticket, idx: 1 });
+  assert.equal(a.status, 200);
+  assert.deepEqual([dfsBodies[0].keyword, dfsBodies[0].location_code, dfsBodies[0].language_code], ['Wer ist der beste Klempner in Berlin?', 2276, 'de']);
+  assert.ok(a.body.businesses.length >= 3 && a.body.businesses[0].rating === 5);
+});
+
+test('Australia: state code kept, Sydney electrician found at its position', async () => {
+  const p = await post(parseRoute, { website: 'sydney-demo.com.au', turnstile_token: 'x' });
+  assert.equal(p.body.prompts[0], 'best electrician in Sydney, NSW');
+  const a = await post(askRoute, { ticket: p.body.ticket, idx: 1 });
+  assert.equal(dfsBodies[0].location_code, 2036);
+  assert.equal(a.body.client.position, 2);
+});
+
+test('the online-business popup saves website and email as an online lead, no check data', async () => {
+  const r = await post(auditRoute, {
+    kind: 'online', email: 'founder@saas-demo.com', turnstile_token: 'x', website: 'https://www.saas-demo.com/pricing',
+    business: { name: 'should be ignored', city: 'Austin' }, result: { verdict: 'top_pick', mentions_count: 3, total: 3 }, attribution: { utm_source: 'google' }
+  });
+  assert.equal(r.status, 200);
+  assert.equal(r.body.kind, 'online');
+  const lead = await one('select * from leads where id = $1', [r.body.lead_id]);
+  assert.equal(lead.kind, 'online');
+  assert.equal(lead.website, 'saas-demo.com');
+  assert.equal(lead.email, 'founder@saas-demo.com');
+  assert.equal(lead.business_name, null);
+  assert.equal(lead.verdict, null);
+  assert.equal(lead.utm_source, 'google');
 });
 
 test('Turnstile is required on parse and on the audit form once a secret is set', async () => {

@@ -8,12 +8,13 @@
 
 import { json, error, readJson, background } from '../_lib/http.js';
 import { DEFAULT_SETTINGS, LIMITS, MESSAGES } from '../_lib/config.js';
+import { countryByIso } from '../../assets/js/ai-check-countries.js';
+import { buildPrompts } from '../_lib/ai-check/prompts.js';
 import { readTicket } from '../_lib/ai-check/ticket.js';
 import { chatgptLive } from '../_lib/ai-check/dataforseo.js';
 import { parseAnswer } from '../_lib/ai-check/answer.js';
 import { makeClient } from '../_lib/ai-check/match.js';
 import { renderMarkdown } from '../_lib/ai-check/markdown.js';
-import { renderPrompt } from '../_lib/ai-check/normalize.js';
 import { sendTelegram, escapeHtml } from '../_lib/notify/telegram.js';
 
 
@@ -34,12 +35,17 @@ export async function POST(request) {
   const settings = DEFAULT_SETTINGS;
   const idx = Number(body.idx);
   if (!Number.isInteger(idx) || idx < 1 || idx > settings.query_count) return error(400, 'bad_request', 'idx must be 1..' + settings.query_count);
-  const prompt = renderPrompt(settings.prompt_templates[idx - 1], business);
+  const prompts = business.prompts || buildPrompts(business, { settings });
+  if (idx > prompts.length) return error(400, 'bad_request', 'idx must be 1..' + prompts.length);
+  const prompt = prompts[idx - 1];
+  const country = countryByIso(business.country) || countryByIso('US');
 
   try {
-    const r = await chatgptLive(prompt, { tag: `${business.domain}:${idx}`, deadline: started + LIMITS.functionMs - 10000 });
+    const r = await chatgptLive(prompt, {
+      tag: `${business.domain}:${idx}`, locationCode: country.code, language: business.language, deadline: started + LIMITS.functionMs - 10000
+    });
     if (!r.result) throw Object.assign(new Error('DataForSEO returned no result'), { code: 'api' });
-    const client = makeClient({ name: business.name, domain: business.domain, city: business.city, state: business.state }, settings);
+    const client = makeClient({ name: business.name, domain: business.domain, city: business.city, state: business.state, service: business.service }, settings);
     const a = parseAnswer(r.result, client, settings);
     console.log('[ai-check/ask]', JSON.stringify({ domain: business.domain, idx, ms: Date.now() - started, attempts: r.attempts, cost: r.cost, found: a.client.found, rule: a.client.match_rule }));
     return json({

@@ -1,21 +1,23 @@
 // POST /api/ai-check/parse — step 1 of the free check, called by the page.
-// Turnstile → read the client's site (Gemini finds name, service, city, state) → the three
-// questions and a short-lived ticket for /api/ai-check/ask. Nothing is stored.
+// Turnstile → read the client's site (Gemini finds name, service, city, region, country, language)
+// → the three questions and a short-lived ticket for /api/ai-check/ask. Nothing is stored.
 // Time limit: 150 s (vercel.json).
 //
-// body: { website, turnstile_token, manual?: { name, service, city_state } }
-//   manual with service and city_state skips reading the site (the visitor typed them in).
+// body: { website, turnstile_token, manual?: { name, service, city_state, country } }
+//   manual with service, city_state and country skips reading the site (the visitor typed them in).
 // → { status: 'ready', website, business, prompts, ticket }
-//   { status: 'needs_input', website, business, needs: ['name' | 'service' | 'city_state'], site_unreadable }
-//   { status: 'not_local' | 'not_us', website, business }
+//   { status: 'needs_input', website, business, needs: ['name' | 'service' | 'city_state' | 'country'], site_unreadable }
+//   { status: 'not_local' | 'unsupported_country', website, business }
+// business: { name, service, city, state, country, language }; state is the US state code, or the region elsewhere.
 
 import { json, error, readJson, clientIp } from '../_lib/http.js';
-import { DEFAULT_SETTINGS, MESSAGES } from '../_lib/config.js';
-import { normalizeWebsite, normalizeService, parseCityState, renderPrompt } from '../_lib/ai-check/normalize.js';
+import { MESSAGES } from '../_lib/config.js';
+import { normalizeWebsite, normalizeService, parseLocation } from '../_lib/ai-check/normalize.js';
 import { verifyTurnstile } from '../_lib/security/turnstile.js';
 import { deps } from '../_lib/ai-check/deps.js';
 import { issueTicket } from '../_lib/ai-check/ticket.js';
-
+import { buildPrompts } from '../_lib/ai-check/prompts.js';
+import { countryByIso } from '../../assets/js/ai-check-countries.js';
 
 function manualFields(body) {
   const m = body && typeof body.manual === 'object' && body.manual ? body.manual : {};
@@ -25,16 +27,14 @@ function manualFields(body) {
     out.service = normalizeService(m.service);
     if (!out.service) return { error: 'service' };
   }
-  if (typeof m.city_state === 'string' && m.city_state.trim()) {
-    const cs = parseCityState(m.city_state);
-    if (!cs) return { error: 'city_state' };
-    Object.assign(out, cs);
+  if (typeof m.country === 'string' && m.country.trim()) {
+    const c = countryByIso(m.country);
+    if (!c) return { error: 'country' };
+    out.country = c.iso;
   }
+  // The location is parsed once the country is known (US needs a state, other countries don't).
+  if (typeof m.city_state === 'string' && m.city_state.trim()) out.location = m.city_state;
   return out;
-}
-
-function prompts(business, settings = DEFAULT_SETTINGS) {
-  return settings.prompt_templates.slice(0, settings.query_count).map((t) => renderPrompt(t, business));
 }
 
 export async function POST(request) {
@@ -47,33 +47,47 @@ export async function POST(request) {
     const captcha = await verifyTurnstile(body.turnstile_token, clientIp(request));
     if (!captcha.ok) return error(403, 'captcha', MESSAGES.captcha);
 
-    const typedIn = !!(manual.service && manual.city && manual.state);
+    const typedIn = !!(manual.service && manual.location && manual.country);
     let parse = null;
     if (!typedIn) {
       parse = await deps.parseSite(site.domain);
       if (!parse.ok) console.warn('[ai-check/parse]', site.domain, parse.reason, parse.error || '');
     }
     const d = parse?.ok ? parse.data : {};
+
+    // Country: what the visitor chose, else what the site says. A country DataForSEO has no location for stops here.
+    const siteCountry = d.country ? String(d.country).toUpperCase() : null;
+    const country = manual.country || (siteCountry && countryByIso(siteCountry) ? siteCountry : null);
+
+    let city = d.city || null, state = d.state || null;
+    if (manual.location) {
+      const loc = parseLocation(manual.location, country || 'US');
+      if (!loc) return error(400, 'city_state', MESSAGES[(country || 'US') === 'US' ? 'city_state' : 'city']);
+      city = loc.city; state = loc.state;
+    }
     const business = {
       name: manual.name || d.name || null,
       service: manual.service || d.service || null,
-      city: manual.city || d.city || null,
-      state: manual.state || d.state || null
+      city, state, country,
+      language: d.language || 'en'
     };
     const base = { website: site.domain, business };
 
     if (!typedIn) {
-      if (!parse.ok) return json({ ...base, status: 'needs_input', needs: ['name', 'service', 'city_state'], site_unreadable: true });
-      if (d.is_local_business === false) return json({ ...base, status: 'not_local' });
-      if (d.country && d.country !== 'US' && !manual.state) return json({ ...base, status: 'not_us' });
-      const needs = [];
-      if (!business.service) needs.push('service');
-      if (!business.city || !business.state) needs.push('city_state');
-      if (needs.length) return json({ ...base, status: 'needs_input', needs, site_unreadable: false });
+      if (!parse.ok) return json({ ...base, status: 'needs_input', needs: ['name', 'service', 'city_state', 'country'], site_unreadable: true });
+      if (d.is_local_business === false && !manual.service) return json({ ...base, status: 'not_local' });
+      if (siteCountry && !countryByIso(siteCountry) && !manual.country) return json({ ...base, status: 'unsupported_country' });
     }
+    const needs = [];
+    if (!business.service) needs.push('service');
+    if (!business.country) needs.push('country');
+    // Outside the US a city is enough; a US business needs its state too.
+    if (!business.city || ((business.country || 'US') === 'US' && !business.state)) needs.push('city_state');
+    if (needs.length) return json({ ...base, status: 'needs_input', needs, site_unreadable: false });
 
-    const ticket = issueTicket({ domain: site.domain, ...business });
-    return json({ ...base, status: 'ready', prompts: prompts(business), ticket });
+    const prompts = buildPrompts(business, { questions: d.questions });
+    const ticket = issueTicket({ domain: site.domain, ...business, prompts });
+    return json({ ...base, status: 'ready', prompts, ticket });
   } catch (err) {
     if (err.status === 400 || err.status === 413) return error(err.status, 'bad_request', err.message);
     console.error('[ai-check/parse]', err);

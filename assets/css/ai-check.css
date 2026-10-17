@@ -20,8 +20,16 @@
 /* ---------- Screen 1 ---------- */
 .ac-hero { padding: calc(var(--nav-h) + clamp(28px, 6vw, 72px)) 0 clamp(48px, 7vw, 88px); }
 .ac-hero__inner { display: grid; justify-items: center; gap: 18px; text-align: center; }
-.ac-hero__title { max-width: 17ch; font-size: clamp(2.25rem, 1.35rem + 3.6vw, 4rem); }
-.ac-hero__lead { max-width: 54ch; }
+.ac-hero__title { max-width: 24ch; font-size: clamp(2rem, 1.25rem + 3.2vw, 3.5rem); }
+.ac-hero__lead { max-width: 56ch; }
+.ac-hero__for { max-width: 56ch; padding: 10px 16px; border-radius: var(--r-md); background: var(--cream-2); font-size: .9375rem; line-height: 1.5; color: var(--ink-2); }
+.ac-hero__for b { color: var(--ink); }
+.ac-fields .field select, .ac-dialog .field select {
+  width: 100%; height: 50px; padding: 0 12px; border: 1px solid var(--line-2); border-radius: var(--r-sm);
+  background: #FDFCFA; font: inherit; font-size: 1rem; color: var(--ink);
+}
+.ac-fields .field select:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 4px rgba(198, 244, 50, .6); }
+.ac-fields .field.is-invalid select { border-color: #B8452A; }
 
 .ac-form {
   display: grid;
@@ -40,7 +48,24 @@
 .ac-form__note { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: .8125rem; color: var(--muted); }
 .ac-form__note span { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
 .ac-form__note svg { width: 14px; height: 14px; color: var(--olive); }
+.ac-form__online { font-size: .875rem; color: var(--muted); }
+.ac-linkbtn { padding: 0; border: 0; background: none; font: inherit; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+
+/* Popup for online businesses */
+.ac-dialog { position: fixed; inset: 0; margin: auto; height: fit-content; width: min(480px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 0; border: 0; border-radius: var(--r-lg); background: var(--cream, #f6f4ef); color: var(--ink); box-shadow: 0 30px 80px rgba(0, 0, 0, .35); overflow: auto; }
+.ac-dialog::backdrop { background: rgba(20, 18, 14, .55); }
+.ac-dialog__form { position: relative; display: grid; gap: 14px; padding: clamp(20px, 4vw, 30px); }
+.ac-dialog__close { position: absolute; top: 10px; right: 10px; display: grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: 50%; background: transparent; color: var(--ink); cursor: pointer; }
+.ac-dialog__close svg { width: 18px; height: 18px; }
+.ac-dialog__title { padding-right: 36px; font-family: var(--font-serif); font-size: 1.5rem; line-height: 1.15; }
+.ac-dialog__text { margin-top: -4px; color: var(--ink-2); font-size: .9375rem; }
+.ac-dialog__alert { padding: 10px 12px; border-radius: var(--r-md); background: #fbeae6; color: #8a2a16; font-size: .875rem; }
+.ac-dialog__done { display: grid; justify-items: start; gap: 12px; }
+.ac-dialog__alert[hidden], .ac-dialog__done[hidden], .ac-dialog .field[hidden], .ac-dialog [data-ac-online-submit][hidden], .ac-dialog .ac-consent[hidden], .ac-dialog__text[hidden] { display: none; }
+.ac-dialog__done:focus { outline: none; }
 .ac-turnstile:empty { display: none; }
+/* A Turnstile challenge, if Cloudflare ever shows one, must be visible even while the landing part is hidden. */
+body > .ac-turnstile { position: fixed; left: 50%; bottom: 16px; z-index: 60; transform: translateX(-50%); }
 
 @media (min-width: 600px) {
   .ac-form__row { grid-template-columns: minmax(0, 1fr) auto; }
@@ -295,3 +320,5 @@
   .ac-answer { transition: none; transform: none; }
   .is-running > .ac-progress__icon, .is-queued > .ac-progress__icon { animation-duration: 3s; }
 }
+
+.ac-state__actions .btn { max-width: 100%; height: auto; min-height: 48px; padding-block: 10px; white-space: normal; text-align: center; }

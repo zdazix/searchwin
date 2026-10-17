@@ -15,17 +15,24 @@ const SCHEMA = {
     name: nullableString('Business name as customers know it, without legal suffixes like LLC.'),
     service: nullableString('Main service in the words a customer would type into ChatGPT, 1-4 lower-case words, e.g. "emergency plumber", "dentist", "personal injury lawyer", "roof repair". Not marketing language.'),
     city: nullableString('Main city the business serves, e.g. "Austin".'),
-    state: nullableString('Two-letter US state code for that city, e.g. "TX". Null if not in the US or unknown.'),
-    country: nullableString('Two-letter ISO country code of the business, e.g. "US", "CA", "GB". Null if unknown.'),
+    state: nullableString('Region of that city: for the US the two-letter state code (e.g. "TX"); for Canada and Australia the two-letter province or state code (e.g. "ON", "NSW"); elsewhere the region name as the site writes it, or null.'),
+    country: nullableString('Two-letter ISO country code of the business, e.g. "US", "CA", "GB", "DE". Null if unknown.'),
+    language: nullableString('Two-letter ISO 639-1 code of the main language of the website, e.g. "en", "de", "fr", "es".'),
+    questions: { type: 'ARRAY', nullable: true, items: { type: 'STRING' }, description: 'Only when the website language is not English: exactly three natural questions in that language, how a customer would ask ChatGPT, built from the service and the city as the site writes them. Null when the site is in English.' },
     is_local_business: { type: 'BOOLEAN', description: 'True if it serves customers in a specific local area (home services, clinics, law firms, contractors, salons, restaurants, auto shops, agents). False for SaaS, online-only stores, national brands, media, directories and marketplaces.' },
     confidence: { type: 'NUMBER', description: '0 to 1: how sure you are about name, service and city together.' }
   },
-  required: ['name', 'service', 'city', 'state', 'country', 'is_local_business', 'confidence']
+  required: ['name', 'service', 'city', 'state', 'country', 'language', 'questions', 'is_local_business', 'confidence']
 };
 
 const SYSTEM = `You read what a website says about a business and fill in a small form.
 Use only what the pages say. Prefer structured data and addresses for the city; if the business serves an area ("serving Greater Austin"), use that main city.
-For "service", write what a customer would type when asking ChatGPT who to call: short, plain and lower case ("plumber", "emergency plumber", "family dentist", "personal injury lawyer", "ac repair"). Never use slogans or phrases like "plumbing solutions".
+For "service", write what a customer would type when asking ChatGPT who to call: short, plain and lower case ("plumber", "emergency plumber", "family dentist", "personal injury lawyer", "ac repair"), in the language of the website. Never use slogans or phrases like "plumbing solutions".
+The business can be in any country. Write the city as the website writes it.
+For "questions" (only if the website is not in English) adapt these three English questions into the website's language, keeping them natural:
+1. "best {service} in {city}"
+2. "who should I call for {service} near {city}? I need someone reliable"
+3. "top rated {service} in {city} with good reviews"
 Return null for anything the pages don't show.`;
 
 function llmError(code, message, extra = {}) {

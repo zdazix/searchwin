@@ -1,13 +1,16 @@
-// POST /api/ai-check/audit — the email form under the result. Turnstile → email check →
-// a row in `leads` → Telegram message. No email is sent to the visitor at this stage.
+// POST /api/ai-check/audit — the email form under the result, and the popup for online
+// businesses ("not a local business?"). Turnstile → email check → a row in `leads` → Telegram
+// message. No email is sent to the visitor at this stage.
 //
-// body: { email, turnstile_token, website, business: { name, service, city, state },
-//         result: { mentions_count, total, best_position, verdict }, attribution }
+// body: { email, turnstile_token, website, attribution, kind?: 'local' | 'online',
+//         business: { name, service, city, state }, result: { mentions_count, total, best_position, verdict } }
+//   kind 'online' comes from the popup: just website and email, no check was run.
 // → { ok, lead_id, event_id, due_at }
 
 import { json, error, readJson, clientIp, background, attributionFrom } from '../_lib/http.js';
 import { CONSENT_VERSION, LIMITS, MESSAGES, VERDICTS } from '../_lib/config.js';
-import { normalizeWebsite, normalizeService, normalizeState, cleanCity } from '../_lib/ai-check/normalize.js';
+import { normalizeWebsite, normalizeService, normalizeState, cleanCity, cleanRegion } from '../_lib/ai-check/normalize.js';
+import { countryByIso } from '../../assets/js/ai-check-countries.js';
 import { verifyTurnstile } from '../_lib/security/turnstile.js';
 import { validateEmail } from '../_lib/leads/email.js';
 import { one } from '../_lib/db.js';
@@ -27,8 +30,10 @@ export async function POST(request) {
     if (!captcha.ok) return error(403, 'captcha', MESSAGES.captcha);
 
     // What the visitor saw on the page. It only describes the lead for us, nothing is billed or decided on it.
-    const b = body.business && typeof body.business === 'object' ? body.business : {};
-    const r = body.result && typeof body.result === 'object' ? body.result : {};
+    const kind = body.kind === 'online' ? 'online' : 'local';
+    const b = kind === 'local' && body.business && typeof body.business === 'object' ? body.business : {};
+    const country = kind === 'local' ? countryByIso(b.country)?.iso || null : null;
+    const r = kind === 'local' && body.result && typeof body.result === 'object' ? body.result : {};
     const verdict = typeof r.verdict === 'string' && VERDICTS[r.verdict] ? r.verdict : null;
     const total = count(r.total), mentions = count(r.mentions_count);
     const a = attributionFrom(body, request);
@@ -36,18 +41,21 @@ export async function POST(request) {
     const lead = await one(
       `insert into leads (email, website, business_name, service, city, state, mentions_count, total_answers, best_position, verdict,
           consent_text_version, user_agent, landing_url, referrer, utm_source, utm_medium, utm_campaign, utm_content, utm_term,
-          gclid, gbraid, wbraid, fbclid, fbp, fbc)
-       values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25)
+          gclid, gbraid, wbraid, fbclid, fbp, fbc, kind, country)
+       values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27)
        returning id, created_at`,
       [v.email, site.domain, str(b.name, 120), normalizeService(str(b.service, 60) || '') || null, cleanCity(str(b.city, 60) || '') || null,
-        normalizeState(str(b.state, 30) || ''), mentions, total, count(r.best_position), verdict,
+        country === 'US' || !country ? normalizeState(str(b.state, 30) || '') : cleanRegion(str(b.state, 40) || ''), mentions, total, count(r.best_position), verdict,
         CONSENT_VERSION, (request.headers.get('user-agent') || '').slice(0, 500), a.landing_url, a.referrer,
-        a.utm_source, a.utm_medium, a.utm_campaign, a.utm_content, a.utm_term, a.gclid, a.gbraid, a.wbraid, a.fbclid, a.fbp, a.fbc]
+        a.utm_source, a.utm_medium, a.utm_campaign, a.utm_content, a.utm_term, a.gclid, a.gbraid, a.wbraid, a.fbclid, a.fbp, a.fbc, kind, country]
     );
     const due = new Date(new Date(lead.created_at).getTime() + LIMITS.auditDueHours * 3600e3);
 
-    const place = [str(b.city, 60), str(b.state, 30)].filter(Boolean).join(', ');
-    background(sendTelegram(
+    const place = [str(b.city, 60), str(b.state, 40), country && country !== 'US' ? country : null].filter(Boolean).join(', ');
+    background(sendTelegram(kind === 'online' ?
+      `🆕 Заявка: онлайн-бизнес (не местный)\n<b>${escapeHtml(site.domain)}</b>\nEmail: ${escapeHtml(v.email)}\n` +
+      `Источник: ${escapeHtml([a.utm_source, a.utm_campaign].filter(Boolean).join(' / ') || (a.gclid ? 'Google Ads' : a.fbclid ? 'Meta' : 'прямой заход'))}\n` +
+      `Срок: ${due.toISOString().slice(0, 16).replace('T', ' ')} UTC` :
       `🆕 Заявка на аудит\n<b>${escapeHtml(str(b.name, 120) || site.domain)}</b> — ${escapeHtml(site.domain)}\n` +
       `${escapeHtml(str(b.service, 60) || '')}${place ? ', ' + escapeHtml(place) : ''}\n` +
       `Email: ${escapeHtml(v.email)}\n` +
@@ -55,7 +63,7 @@ export async function POST(request) {
       `Источник: ${escapeHtml([a.utm_source, a.utm_campaign].filter(Boolean).join(' / ') || (a.gclid ? 'Google Ads' : a.fbclid ? 'Meta' : 'прямой заход'))}\n` +
       `Срок: ${due.toISOString().slice(0, 16).replace('T', ' ')} UTC`
     ));
-    return json({ ok: true, lead_id: lead.id, event_id: `lead_${lead.id}`, due_at: due.toISOString() });
+    return json({ ok: true, lead_id: lead.id, event_id: `lead_${lead.id}`, due_at: due.toISOString(), kind });
   } catch (err) {
     if (err.status === 400 || err.status === 413) return error(err.status, 'bad_request', err.message);
     console.error('[ai-check/audit]', err);

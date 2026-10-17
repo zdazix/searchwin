@@ -1,53 +1,675 @@
 {
-  "_note": "Hand-labelled expectations for the real ChatGPT answers in tests/fixtures/dataforseo. found=false cases are businesses ChatGPT did not name; any match there would be a false positive.",
-  "cases": [
-    { "fixture": "best-plumber-in-austin-tx", "client": { "name": "Ironclad Plumbing", "domain": "ironcladtexas.com", "city": "Austin", "state": "TX" }, "expect": { "found": true, "position": 3, "rule": "domain" } },
-    { "fixture": "best-plumber-in-austin-tx", "client": { "name": "Stan's Heating, Air, Plumbing & Electrical", "domain": "stansac.com", "city": "Austin", "state": "TX" }, "expect": { "found": true, "position": null, "rule": "text" } },
-    { "fixture": "best-plumber-in-austin-tx", "client": { "name": "Austin Plumbing Pros", "domain": "austinplumbingpros.com", "city": "Austin", "state": "TX" }, "expect": { "found": false } },
-    { "fixture": "best-plumber-in-austin-tx", "client": { "name": "Bright Line Plumbing", "domain": "brightlineplumbing.com", "city": "Austin", "state": "TX" }, "expect": { "found": false } },
-
-    { "fixture": "who-should-i-call-for-roof-repair-near-tampa-fl-i-need-someo", "client": { "name": "Tampa Roof Repair", "domain": "tamparoofrepair.com", "city": "Tampa", "state": "FL" }, "expect": { "found": true, "position": 1, "rule": "domain" } },
-    { "fixture": "who-should-i-call-for-roof-repair-near-tampa-fl-i-need-someo", "client": { "name": "Roof Panda", "domain": "roofpanda-tampa.com", "city": "Tampa", "state": "FL" }, "expect": { "found": true, "position": 2, "rule": "exact" } },
-    { "fixture": "who-should-i-call-for-roof-repair-near-tampa-fl-i-need-someo", "client": { "name": "Panda Roofing & Gutters", "domain": "pandaroofing.com", "city": "Tampa", "state": "FL" }, "expect": { "found": false } },
-    { "fixture": "who-should-i-call-for-roof-repair-near-tampa-fl-i-need-someo", "client": { "name": "Tampa Roofing Company", "domain": "tamparoofingco.com", "city": "Tampa", "state": "FL" }, "expect": { "found": false } },
-
-    { "fixture": "best-ac-repair-in-phoenix-az", "client": { "name": "Integrity Air Conditioning & Heating", "domain": "integrityair.com", "city": "Phoenix", "state": "AZ" }, "expect": { "found": true, "position": 1, "rule": "exact" } },
-    { "fixture": "best-ac-repair-in-phoenix-az", "client": { "name": "Cool Zone Air Conditioning & Heating", "domain": "coolzoneair.com", "city": "Phoenix", "state": "AZ" }, "expect": { "found": true, "position": 5, "rule": "domain" } },
-    { "fixture": "best-ac-repair-in-phoenix-az", "client": { "name": "Desert Air Conditioning", "domain": "desertairac.com", "city": "Phoenix", "state": "AZ" }, "expect": { "found": false } },
-
-    { "fixture": "best-personal-injury-lawyer-in-atlanta-ga", "client": { "name": "Kim Law", "domain": "thekimlaw.com", "city": "Atlanta", "state": "GA" }, "expect": { "found": true, "position": 4, "rule": "domain" } },
-    { "fixture": "best-personal-injury-lawyer-in-atlanta-ga", "client": { "name": "Tobin Injury Law", "domain": "tobinlaw.com", "city": "Atlanta", "state": "GA" }, "expect": { "found": true, "position": 2, "rule": "fuzzy" } },
-    { "fixture": "best-personal-injury-lawyer-in-atlanta-ga", "client": { "name": "The Baer Law Firm", "domain": "baerfirm.com", "city": "Atlanta", "state": "GA" }, "expect": { "found": true, "position": 1, "rule": "exact" } },
-    { "fixture": "best-personal-injury-lawyer-in-atlanta-ga", "client": { "name": "Atlanta Injury Law Group", "domain": "atlantainjurylawgroup.com", "city": "Atlanta", "state": "GA" }, "expect": { "found": false } },
-
-    { "fixture": "who-should-i-call-for-electrician-near-charlotte-nc-i-need-s", "client": { "name": "Gianni Electrical Service", "domain": "giannielectrical.net", "city": "Charlotte", "state": "NC" }, "expect": { "found": true, "position": 3, "rule": "domain" } },
-    { "fixture": "who-should-i-call-for-electrician-near-charlotte-nc-i-need-s", "client": { "name": "US Electric Contractors", "domain": "us-electric.net", "city": "Charlotte", "state": "NC" }, "expect": { "found": true, "position": 2, "rule": "exact" } },
-    { "fixture": "who-should-i-call-for-electrician-near-charlotte-nc-i-need-s", "client": { "name": "Charlotte Electric Pros", "domain": "charlotteelectricpros.com", "city": "Charlotte", "state": "NC" }, "expect": { "found": false } },
-
-    { "fixture": "top-rated-pest-control-in-houston-tx-with-good-reviews", "client": { "name": "Hunter Pest Control", "domain": "hunterpest.com", "city": "Houston", "state": "TX" }, "expect": { "found": true, "position": 4, "rule": "domain" } },
-    { "fixture": "top-rated-pest-control-in-houston-tx-with-good-reviews", "client": { "name": "Hunter Termite & Pest", "domain": "huntertermite.com", "city": "Houston", "state": "TX" }, "expect": { "found": false } },
-    { "fixture": "top-rated-pest-control-in-houston-tx-with-good-reviews", "client": { "name": "Kindred Smithson Pest Control", "domain": "smithsonpest.com", "city": "Houston", "state": "TX" }, "expect": { "found": false } },
-
-    { "fixture": "top-rated-dentist-in-denver-co-with-good-reviews", "client": { "name": "Metro Dental Care", "domain": "metrodentalcare.com", "city": "Denver", "state": "CO" }, "expect": { "found": true, "position": 1, "rule": "domain" } },
-    { "fixture": "top-rated-dentist-in-denver-co-with-good-reviews", "client": { "name": "Smile Studio Dental", "domain": "smilestudiodental.com", "city": "Denver", "state": "CO" }, "expect": { "found": true, "position": 4, "rule": "exact" } },
-    { "fixture": "top-rated-dentist-in-denver-co-with-good-reviews", "client": { "name": "Denver Smile Studio", "domain": "denversmilestudio.com", "city": "Denver", "state": "CO" }, "expect": { "found": false } },
-
-    { "fixture": "best-auto-repair-shop-in-columbus-oh", "client": { "name": "Glacier Auto Repair", "domain": "glacierautorepairs.com", "city": "Columbus", "state": "OH" }, "expect": { "found": true, "position": 4, "rule": "domain" } },
-    { "fixture": "best-auto-repair-shop-in-columbus-oh", "client": { "name": "Columbus Auto Repair", "domain": "columbusautorepair.com", "city": "Columbus", "state": "OH" }, "expect": { "found": false } },
-
-    { "fixture": "who-should-i-call-for-septic-tank-pumping-near-boise-id-i-ne", "client": { "name": "Express Septic & Drain Cleaning", "domain": "expressseptic.com", "city": "Boise", "state": "ID" }, "expect": { "found": true, "position": 3, "rule": "exact" } },
-    { "fixture": "who-should-i-call-for-septic-tank-pumping-near-boise-id-i-ne", "client": { "name": "Mike's Septic and Drain", "domain": "mikesseptic.com", "city": "Boise", "state": "ID" }, "expect": { "found": true, "position": 2, "rule": "exact" } },
-    { "fixture": "who-should-i-call-for-septic-tank-pumping-near-boise-id-i-ne", "client": { "name": "Idaho Septic Solutions", "domain": "idahosepticsolutions.com", "city": "Boise", "state": "ID" }, "expect": { "found": false } },
-
-    { "fixture": "top-rated-house-cleaning-service-in-seattle-wa-with-good-rev", "client": { "name": "Rain City Maids", "domain": "raincitymaids.com", "city": "Seattle", "state": "WA" }, "expect": { "found": true, "position": 3, "rule": "domain" } },
-    { "fixture": "top-rated-house-cleaning-service-in-seattle-wa-with-good-rev", "client": { "name": "Seattle Green Earth Cleaning", "domain": "seattlegec.com", "city": "Seattle", "state": "WA" }, "expect": { "found": true, "position": 5, "rule": "domain" } },
-
-    { "fixture": "best-garage-door-repair-in-las-vegas-nv", "client": { "name": "Kurbsyde Garage Doors", "domain": "kurbsydegaragedoors.com", "city": "Las Vegas", "state": "NV" }, "expect": { "found": true, "position": 4, "rule": "exact" } },
-    { "fixture": "best-garage-door-repair-in-las-vegas-nv", "client": { "name": "Open Sesame Garage Door Repair", "domain": "opensesamegaragedoorslv.com", "city": "Las Vegas", "state": "NV" }, "expect": { "found": true, "position": 1, "rule": "fuzzy" } },
-    { "fixture": "best-garage-door-repair-in-las-vegas-nv", "client": { "name": "Vegas Garage Door Pros", "domain": "vegasgaragedoorpros.com", "city": "Las Vegas", "state": "NV" }, "expect": { "found": false } },
-
-    { "fixture": "who-should-i-call-for-emergency-veterinarian-near-portland-o", "client": { "name": "DoveLewis Emergency Animal Hospital", "domain": "dovelewis.org", "city": "Portland", "state": "OR" }, "expect": { "found": true, "position": 1, "rule": "domain" } },
-    { "fixture": "who-should-i-call-for-emergency-veterinarian-near-portland-o", "client": { "name": "DoveLewis", "domain": "", "city": "Portland", "state": "OR" }, "expect": { "found": true, "position": null, "rule": "text" } },
-    { "fixture": "who-should-i-call-for-emergency-veterinarian-near-portland-o", "client": { "name": "Portland Emergency Vet", "domain": "portlandemergencyvet.com", "city": "Portland", "state": "OR" }, "expect": { "found": false } }
-  ]
+ "_note": "Hand-labelled expectations for the real ChatGPT answers in tests/fixtures/dataforseo. found=false cases are businesses ChatGPT did not name; any match there would be a false positive.",
+ "cases": [
+  {
+   "fixture": "best-plumber-in-austin-tx",
+   "client": {
+    "name": "Ironclad Plumbing",
+    "domain": "ironcladtexas.com",
+    "city": "Austin",
+    "state": "TX"
+   },
+   "expect": {
+    "found": true,
+    "position": 3,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "best-plumber-in-austin-tx",
+   "client": {
+    "name": "Stan's Heating, Air, Plumbing & Electrical",
+    "domain": "stansac.com",
+    "city": "Austin",
+    "state": "TX"
+   },
+   "expect": {
+    "found": true,
+    "position": null,
+    "rule": "text"
+   }
+  },
+  {
+   "fixture": "best-plumber-in-austin-tx",
+   "client": {
+    "name": "Austin Plumbing Pros",
+    "domain": "austinplumbingpros.com",
+    "city": "Austin",
+    "state": "TX"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "best-plumber-in-austin-tx",
+   "client": {
+    "name": "Bright Line Plumbing",
+    "domain": "brightlineplumbing.com",
+    "city": "Austin",
+    "state": "TX"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "who-should-i-call-for-roof-repair-near-tampa-fl-i-need-someo",
+   "client": {
+    "name": "Tampa Roof Repair",
+    "domain": "tamparoofrepair.com",
+    "city": "Tampa",
+    "state": "FL"
+   },
+   "expect": {
+    "found": true,
+    "position": 1,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "who-should-i-call-for-roof-repair-near-tampa-fl-i-need-someo",
+   "client": {
+    "name": "Roof Panda",
+    "domain": "roofpanda-tampa.com",
+    "city": "Tampa",
+    "state": "FL"
+   },
+   "expect": {
+    "found": true,
+    "position": 2,
+    "rule": "exact"
+   }
+  },
+  {
+   "fixture": "who-should-i-call-for-roof-repair-near-tampa-fl-i-need-someo",
+   "client": {
+    "name": "Panda Roofing & Gutters",
+    "domain": "pandaroofing.com",
+    "city": "Tampa",
+    "state": "FL"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "who-should-i-call-for-roof-repair-near-tampa-fl-i-need-someo",
+   "client": {
+    "name": "Tampa Roofing Company",
+    "domain": "tamparoofingco.com",
+    "city": "Tampa",
+    "state": "FL"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "best-ac-repair-in-phoenix-az",
+   "client": {
+    "name": "Integrity Air Conditioning & Heating",
+    "domain": "integrityair.com",
+    "city": "Phoenix",
+    "state": "AZ"
+   },
+   "expect": {
+    "found": true,
+    "position": 1,
+    "rule": "exact"
+   }
+  },
+  {
+   "fixture": "best-ac-repair-in-phoenix-az",
+   "client": {
+    "name": "Cool Zone Air Conditioning & Heating",
+    "domain": "coolzoneair.com",
+    "city": "Phoenix",
+    "state": "AZ"
+   },
+   "expect": {
+    "found": true,
+    "position": 5,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "best-ac-repair-in-phoenix-az",
+   "client": {
+    "name": "Desert Air Conditioning",
+    "domain": "desertairac.com",
+    "city": "Phoenix",
+    "state": "AZ"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "best-personal-injury-lawyer-in-atlanta-ga",
+   "client": {
+    "name": "Kim Law",
+    "domain": "thekimlaw.com",
+    "city": "Atlanta",
+    "state": "GA"
+   },
+   "expect": {
+    "found": true,
+    "position": 4,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "best-personal-injury-lawyer-in-atlanta-ga",
+   "client": {
+    "name": "Tobin Injury Law",
+    "domain": "tobinlaw.com",
+    "city": "Atlanta",
+    "state": "GA"
+   },
+   "expect": {
+    "found": true,
+    "position": 2,
+    "rule": "fuzzy"
+   }
+  },
+  {
+   "fixture": "best-personal-injury-lawyer-in-atlanta-ga",
+   "client": {
+    "name": "The Baer Law Firm",
+    "domain": "baerfirm.com",
+    "city": "Atlanta",
+    "state": "GA"
+   },
+   "expect": {
+    "found": true,
+    "position": 1,
+    "rule": "exact"
+   }
+  },
+  {
+   "fixture": "best-personal-injury-lawyer-in-atlanta-ga",
+   "client": {
+    "name": "Atlanta Injury Law Group",
+    "domain": "atlantainjurylawgroup.com",
+    "city": "Atlanta",
+    "state": "GA"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "who-should-i-call-for-electrician-near-charlotte-nc-i-need-s",
+   "client": {
+    "name": "Gianni Electrical Service",
+    "domain": "giannielectrical.net",
+    "city": "Charlotte",
+    "state": "NC"
+   },
+   "expect": {
+    "found": true,
+    "position": 3,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "who-should-i-call-for-electrician-near-charlotte-nc-i-need-s",
+   "client": {
+    "name": "US Electric Contractors",
+    "domain": "us-electric.net",
+    "city": "Charlotte",
+    "state": "NC"
+   },
+   "expect": {
+    "found": true,
+    "position": 2,
+    "rule": "exact"
+   }
+  },
+  {
+   "fixture": "who-should-i-call-for-electrician-near-charlotte-nc-i-need-s",
+   "client": {
+    "name": "Charlotte Electric Pros",
+    "domain": "charlotteelectricpros.com",
+    "city": "Charlotte",
+    "state": "NC"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "top-rated-pest-control-in-houston-tx-with-good-reviews",
+   "client": {
+    "name": "Hunter Pest Control",
+    "domain": "hunterpest.com",
+    "city": "Houston",
+    "state": "TX"
+   },
+   "expect": {
+    "found": true,
+    "position": 4,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "top-rated-pest-control-in-houston-tx-with-good-reviews",
+   "client": {
+    "name": "Hunter Termite & Pest",
+    "domain": "huntertermite.com",
+    "city": "Houston",
+    "state": "TX"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "top-rated-pest-control-in-houston-tx-with-good-reviews",
+   "client": {
+    "name": "Kindred Smithson Pest Control",
+    "domain": "smithsonpest.com",
+    "city": "Houston",
+    "state": "TX"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "top-rated-dentist-in-denver-co-with-good-reviews",
+   "client": {
+    "name": "Metro Dental Care",
+    "domain": "metrodentalcare.com",
+    "city": "Denver",
+    "state": "CO"
+   },
+   "expect": {
+    "found": true,
+    "position": 1,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "top-rated-dentist-in-denver-co-with-good-reviews",
+   "client": {
+    "name": "Smile Studio Dental",
+    "domain": "smilestudiodental.com",
+    "city": "Denver",
+    "state": "CO"
+   },
+   "expect": {
+    "found": true,
+    "position": 4,
+    "rule": "exact"
+   }
+  },
+  {
+   "fixture": "top-rated-dentist-in-denver-co-with-good-reviews",
+   "client": {
+    "name": "Denver Smile Studio",
+    "domain": "denversmilestudio.com",
+    "city": "Denver",
+    "state": "CO"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "best-auto-repair-shop-in-columbus-oh",
+   "client": {
+    "name": "Glacier Auto Repair",
+    "domain": "glacierautorepairs.com",
+    "city": "Columbus",
+    "state": "OH"
+   },
+   "expect": {
+    "found": true,
+    "position": 4,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "best-auto-repair-shop-in-columbus-oh",
+   "client": {
+    "name": "Columbus Auto Repair",
+    "domain": "columbusautorepair.com",
+    "city": "Columbus",
+    "state": "OH"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "who-should-i-call-for-septic-tank-pumping-near-boise-id-i-ne",
+   "client": {
+    "name": "Express Septic & Drain Cleaning",
+    "domain": "expressseptic.com",
+    "city": "Boise",
+    "state": "ID"
+   },
+   "expect": {
+    "found": true,
+    "position": 3,
+    "rule": "exact"
+   }
+  },
+  {
+   "fixture": "who-should-i-call-for-septic-tank-pumping-near-boise-id-i-ne",
+   "client": {
+    "name": "Mike's Septic and Drain",
+    "domain": "mikesseptic.com",
+    "city": "Boise",
+    "state": "ID"
+   },
+   "expect": {
+    "found": true,
+    "position": 2,
+    "rule": "exact"
+   }
+  },
+  {
+   "fixture": "who-should-i-call-for-septic-tank-pumping-near-boise-id-i-ne",
+   "client": {
+    "name": "Idaho Septic Solutions",
+    "domain": "idahosepticsolutions.com",
+    "city": "Boise",
+    "state": "ID"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "top-rated-house-cleaning-service-in-seattle-wa-with-good-rev",
+   "client": {
+    "name": "Rain City Maids",
+    "domain": "raincitymaids.com",
+    "city": "Seattle",
+    "state": "WA"
+   },
+   "expect": {
+    "found": true,
+    "position": 3,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "top-rated-house-cleaning-service-in-seattle-wa-with-good-rev",
+   "client": {
+    "name": "Seattle Green Earth Cleaning",
+    "domain": "seattlegec.com",
+    "city": "Seattle",
+    "state": "WA"
+   },
+   "expect": {
+    "found": true,
+    "position": 5,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "best-garage-door-repair-in-las-vegas-nv",
+   "client": {
+    "name": "Kurbsyde Garage Doors",
+    "domain": "kurbsydegaragedoors.com",
+    "city": "Las Vegas",
+    "state": "NV"
+   },
+   "expect": {
+    "found": true,
+    "position": 4,
+    "rule": "exact"
+   }
+  },
+  {
+   "fixture": "best-garage-door-repair-in-las-vegas-nv",
+   "client": {
+    "name": "Open Sesame Garage Door Repair",
+    "domain": "opensesamegaragedoorslv.com",
+    "city": "Las Vegas",
+    "state": "NV"
+   },
+   "expect": {
+    "found": true,
+    "position": 1,
+    "rule": "fuzzy"
+   }
+  },
+  {
+   "fixture": "best-garage-door-repair-in-las-vegas-nv",
+   "client": {
+    "name": "Vegas Garage Door Pros",
+    "domain": "vegasgaragedoorpros.com",
+    "city": "Las Vegas",
+    "state": "NV"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "who-should-i-call-for-emergency-veterinarian-near-portland-o",
+   "client": {
+    "name": "DoveLewis Emergency Animal Hospital",
+    "domain": "dovelewis.org",
+    "city": "Portland",
+    "state": "OR"
+   },
+   "expect": {
+    "found": true,
+    "position": 1,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "who-should-i-call-for-emergency-veterinarian-near-portland-o",
+   "client": {
+    "name": "DoveLewis",
+    "domain": "",
+    "city": "Portland",
+    "state": "OR"
+   },
+   "expect": {
+    "found": true,
+    "position": null,
+    "rule": "text"
+   }
+  },
+  {
+   "fixture": "who-should-i-call-for-emergency-veterinarian-near-portland-o",
+   "client": {
+    "name": "Portland Emergency Vet",
+    "domain": "portlandemergencyvet.com",
+    "city": "Portland",
+    "state": "OR"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "best-plumber-in-manchester-united-kingdom",
+   "client": {
+    "name": "JB7 Plumbing and Heating",
+    "domain": "jb7plumbing.co.uk",
+    "city": "Manchester",
+    "state": null,
+    "country": "GB",
+    "service": "plumber"
+   },
+   "expect": {
+    "found": true,
+    "position": 1,
+    "rule": "exact"
+   }
+  },
+  {
+   "fixture": "best-plumber-in-manchester-united-kingdom",
+   "client": {
+    "name": "Nelson Plumbing & Heating Ltd",
+    "domain": "nelsonplumbing.co.uk",
+    "city": "Manchester",
+    "state": null,
+    "country": "GB",
+    "service": "plumber"
+   },
+   "expect": {
+    "found": true,
+    "position": 2,
+    "rule": "exact"
+   }
+  },
+  {
+   "fixture": "best-plumber-in-manchester-united-kingdom",
+   "client": {
+    "name": "Manchester Plumbing Services",
+    "domain": "manchesterplumbingservices.com",
+    "city": "Manchester",
+    "state": null,
+    "country": "GB",
+    "service": "plumber"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "best-plumber-in-manchester-united-kingdom",
+   "client": {
+    "name": "Responsive Heating",
+    "domain": "responsiveheating.co.uk",
+    "city": "Manchester",
+    "state": null,
+    "country": "GB",
+    "service": "plumber"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "wer-ist-der-beste-klempner-in-berlin",
+   "client": {
+    "name": "Facility Fix 24",
+    "domain": "klempner24.com",
+    "city": "Berlin",
+    "state": null,
+    "country": "DE",
+    "service": "klempner"
+   },
+   "expect": {
+    "found": true,
+    "position": 1,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "wer-ist-der-beste-klempner-in-berlin",
+   "client": {
+    "name": "Schwalm Heizung & Sanitär",
+    "domain": "schwalm-berlin.de",
+    "city": "Berlin",
+    "state": null,
+    "country": "DE",
+    "service": "klempner"
+   },
+   "expect": {
+    "found": true,
+    "position": 3,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "wer-ist-der-beste-klempner-in-berlin",
+   "client": {
+    "name": "Berliner Klempner Müller",
+    "domain": "berliner-klempner-mueller.de",
+    "city": "Berlin",
+    "state": null,
+    "country": "DE",
+    "service": "klempner"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "wer-ist-der-beste-klempner-in-berlin",
+   "client": {
+    "name": "Klempner Notdienst Berlin",
+    "domain": "klempner-notdienst-berlin.de",
+    "city": "Berlin",
+    "state": null,
+    "country": "DE",
+    "service": "klempner"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "best-electrician-in-sydney-nsw",
+   "client": {
+    "name": "Scott Electrics",
+    "domain": "scottelectrics.com.au",
+    "city": "Sydney",
+    "state": "NSW",
+    "country": "AU",
+    "service": "electrician"
+   },
+   "expect": {
+    "found": true,
+    "position": 2,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "best-electrician-in-sydney-nsw",
+   "client": {
+    "name": "KJB Electrical",
+    "domain": "kjbelectrical.com.au",
+    "city": "Sydney",
+    "state": "NSW",
+    "country": "AU",
+    "service": "electrician"
+   },
+   "expect": {
+    "found": true,
+    "position": 4,
+    "rule": "fuzzy"
+   }
+  },
+  {
+   "fixture": "best-electrician-in-sydney-nsw",
+   "client": {
+    "name": "Sydney Electrical Pros",
+    "domain": "sydneyelectricalpros.com.au",
+    "city": "Sydney",
+    "state": "NSW",
+    "country": "AU",
+    "service": "electrician"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "best-electrician-in-sydney-nsw",
+   "client": {
+    "name": "Hello Plumbing",
+    "domain": "helloplumbing.com.au",
+    "city": "Sydney",
+    "state": "NSW",
+    "country": "AU",
+    "service": "electrician"
+   },
+   "expect": {
+    "found": false
+   }
+  }
+ ]
 }

@@ -7,6 +7,12 @@ export const DEFAULT_SETTINGS = {
     'who should I call for {service} near {city} {state}? I need someone reliable',
     'top rated {service} in {city} {state} with good reviews'
   ],
+  // Outside the US there are no state codes: {state} is the region as written on the site, or the country name.
+  prompt_templates_intl: [
+    'best {service} in {city}, {state}',
+    'who should I call for {service} near {city}, {state}? I need someone reliable',
+    'top rated {service} in {city}, {state} with good reviews'
+  ],
   // How many of the templates to run (fallback plan in the spec: 3 → 2).
   query_count: 3,
   // Directories and marketplaces never count as a business in the answer.
@@ -16,13 +22,21 @@ export const DEFAULT_SETTINGS = {
     'bestpickreports.com', 'consumeraffairs.com', 'birdeye.com', 'trustanalytica.org', 'houzz.com',
     'porch.com', 'mapquest.com', 'apple.com', 'avvo.com', 'justia.com', 'findlaw.com', 'healthgrades.com',
     'zocdoc.com', 'vitals.com', 'tripadvisor.com', 'bestinhood.com', 'threebestrated.com', 'reddit.com',
-    'linkedin.com', 'instagram.com', 'youtube.com', 'x.com', 'twitter.com', 'wikipedia.org', 'bing.com'
+    'linkedin.com', 'instagram.com', 'youtube.com', 'x.com', 'twitter.com', 'wikipedia.org', 'bing.com',
+    // Review sites and directories outside the US
+    'trustpilot.com', 'yell.com', 'checkatrade.com', 'trustatrader.com', 'ratedpeople.com', 'mybuilder.com', 'which.co.uk', 'trustedtraders.which.co.uk',
+    'yellowpages.ca', 'homestars.com', 'yellowpages.com.au', 'hipages.com.au', 'oneflare.com.au', 'truelocal.com.au', 'starworks.com.au', 'productreview.com.au',
+    'gelbeseiten.de', '11880.com', 'werkenntdenbesten.de', 'jameda.de', 'profimap.de', 'trustlocal.de', 'sanitaerfinden.com', 'dasoertliche.de', 'myhammer.de', 'check24.de',
+    'pagesjaunes.fr', 'doctolib.fr', 'travaux.com', 'habitatpresto.com', 'paginasamarillas.es', 'doctoralia.es', 'habitissimo.es', 'paginegialle.it', 'misterwhat.it',
+    'goudengids.nl', 'zoofy.nl', 'olx.pl', 'pkt.pl', 'oferteo.pl', 'paginasamarelas.pt', 'olx.com.br', 'guiamais.com.br', 'mercadolibre.com'
   ],
   directory_names: [
     'yelp', 'angi', 'angies list', 'homeadvisor', 'home advisor', 'thumbtack', 'bbb', 'better business bureau',
     'google', 'google maps', 'google business profile', 'nextdoor', 'facebook', 'yellow pages', 'expertise',
     'best pick reports', 'consumeraffairs', 'consumer affairs', 'birdeye', 'trustanalytica', 'houzz', 'porch',
-    'avvo', 'justia', 'findlaw', 'healthgrades', 'zocdoc', 'tripadvisor', 'reddit', 'linkedin', 'instagram'
+    'avvo', 'justia', 'findlaw', 'healthgrades', 'zocdoc', 'tripadvisor', 'reddit', 'linkedin', 'instagram',
+    'trustpilot', 'yell', 'checkatrade', 'trustatrader', 'which trusted traders', 'rated people', 'mybuilder', 'homestars', 'hipages', 'oneflare',
+    'gelbeseiten', 'wer kennt den besten', 'jameda', 'profimap', 'pages jaunes', 'pagesjaunes', 'doctolib', 'paginas amarillas', 'pagine gialle'
   ],
   // Words that say what a business does or what it is, not who it is. They never
   // count as the "rarest word" of a name, so "Austin Plumbing" can't match "Austin Plumbing Pros".
@@ -78,6 +92,8 @@ export const MESSAGES = {
   invalid_url: 'Enter your website, e.g. yourbusiness.com',
   captcha: "We couldn't confirm you're human. Refresh the page and try again.",
   city_state: 'Enter a US city and state, e.g. Austin, TX',
+  city: 'Enter a city, e.g. Manchester',
+  country: 'Choose the country of your business',
   service: 'Tell us what you do, e.g. plumber or family dentist',
   expired: 'This check has expired. Run it again, it takes about a minute.',
   answer_failed: "This answer didn't load — it'll be in your full audit.",

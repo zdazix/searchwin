@@ -146,8 +146,8 @@ SaaS (`/saas/`):
 ```
 Браузер /ai-check
   1. POST /api/ai-check/parse   Turnstile → чтение сайта (главная, затем /contact или /about,
-                                защита от SSRF) → Gemini: название, услуга, город, штат
-                                ← три вопроса + подписанный билет на 5 минут
+                                защита от SSRF) → Gemini: название, услуга, город, регион, страна, язык
+                                ← три вопроса + подписанный билет на 5 минут (в билете вопросы, страна, язык)
   2. 3 × POST /api/ai-check/ask  параллельно, по одному на вопрос; каждый ждёт ответ DataForSEO Live
                                 (~45–60 с) и возвращает уже разобранный ответ
      страница показывает ответы по мере прихода и сама считает итог (assets/js/ai-check-core.js)
@@ -158,6 +158,8 @@ SaaS (`/saas/`):
 - `/ask` принимает только билет от `/parse` (HMAC, `CHECK_TICKET_SECRET`): вызвать DataForSEO в обход Turnstile или с произвольным текстом нельзя.
 - В базе хранятся только заявки. Сами проверки нигде не сохраняются: если закрыть вкладку, проверка пропадает (страница предупреждает об этом, пока идут запросы).
 - Если сайт не прочитался или на нём нет услуги или города, страница просит ввести недостающие поля. С заполненными полями `/parse` сайт повторно не читает. Так же работает «Try again».
+- **Любая страна.** Страна берётся с сайта (Gemini) или из выпадающего списка; список стран и коды локаций — из DataForSEO (`assets/js/ai-check-countries.js`, 192 страны; Россия и Китай там отсутствуют, для них страница предлагает попап «онлайн-бизнес»). В США нужен штат («Austin, TX»), в остальных странах достаточно города. Вопросы: в США — шаблоны из ТЗ; в странах с английским — те же вопросы с регионом или названием страны; на других языках три вопроса пишет Gemini на языке сайта (при ошибке — английские). Язык сайта передаётся в DataForSEO; если язык не поддержан, повтор идёт с английским.
+- **Не местный бизнес** (SaaS, интернет-магазин): ссылка «Not a local business?» под формой и кнопка на экране отказа открывают попап с двумя полями, сайт и email. Заявка попадает в `leads` с `kind = 'online'` и в Telegram с пометкой «онлайн-бизнес»; запросов к ChatGPT и Gemini при этом нет.
 - Защита: только Turnstile. Лимитов по IP и дневного бюджета в коде нет — следите за расходом в кабинете DataForSEO (там можно поставить лимит) и в Google AI Studio / Google Cloud.
 
 **Распознавание** (`api/_lib/ai-check/match.js`) идёт по правилам ТЗ: домен → точное имя → похожее имя (token set ≥ 0,9 плюс совпадение самого длинного значимого слова, без слов-услуг и города) → имя в тексте ответа. Список бизнесов берётся из блока локальных компаний ответа ChatGPT, а если его нет, из `brand_entities` без каталогов. Шаблоны вопросов и списки исключений лежат в `api/_lib/config.js`.
@@ -171,7 +173,7 @@ SaaS (`/saas/`):
 | `assets/js/ai-check-tracking.js` | cookie `sw_attr` (UTM и click ID, 90 дней), Meta Pixel, gtag (Google Ads + GA4) |
 | `api/ai-check/parse.js`, `ask.js`, `audit.js`, `config.js` | четыре функции Vercel |
 | `api/_lib/` | логика: чтение сайта, Gemini, DataForSEO, распознавание, билет, email, Telegram |
-| `db/migrations/001_leads.sql` | таблица `leads` |
+| `db/migrations/001_leads.sql`, `002_leads_kind.sql` | таблица `leads`; вторая миграция добавляет колонки `kind` и `country` |
 | `db/drop-old-stage1.sql` | только если вы уже запускали первую версию миграции (`001_ai_check.sql`) |
 | `privacy/`, `terms/` | черновики Privacy Policy и Terms ⚠️ показать юристу, вписать штат в Terms |
 | `tests/` | тесты и 12 реальных ответов ChatGPT (DataForSEO) в `tests/fixtures/dataforseo` |
@@ -179,7 +181,7 @@ SaaS (`/saas/`):
 ### Настройка (один раз)
 
 1. **Vercel.** Подключите репозиторий к проекту Vercel и выберите production-ветку. Framework Preset: Other, Build Command и Output Directory пустые. `vercel.json` уже задаёт лимит функций и заголовки noindex.
-2. **База.** Neon через Vercel Marketplace: переменная `DATABASE_URL` появится сама. В SQL Editor консоли Neon выполните `db/migrations/001_leads.sql`. Если раньше вы уже выполняли первую версию миграции, сначала выполните `db/drop-old-stage1.sql` (удаляет её восемь таблиц, данных в них ещё нет).
+2. **База.** Neon через Vercel Marketplace: переменная `DATABASE_URL` появится сама. В SQL Editor консоли Neon по очереди (каждый раз очищая окно) выполните `db/migrations/001_leads.sql`, затем `db/migrations/002_leads_kind.sql`. Без второй миграции заявки не сохраняются. Если раньше вы уже выполняли первую версию миграции, сначала выполните `db/drop-old-stage1.sql` (удаляет её восемь таблиц, данных в них ещё нет).
 3. **Переменные окружения** из [`.env.example`](.env.example): DataForSEO, `GEMINI_API_KEY`, Turnstile, `CHECK_TICKET_SECRET` (случайная строка), публичные ID Meta Pixel, Google Ads и GA4, по желанию Telegram. После изменения переменных сделайте Redeploy.
 4. **Turnstile:** Cloudflare → Turnstile → Add widget → домен `searchwin.ai`, режим Invisible.
 5. **Google Ads:** две конверсии — check_completed и audit_requested (для неё включите Enhanced conversions for leads через тег Google). Метки впишите в `PUBLIC_GADS_LABEL_*`.

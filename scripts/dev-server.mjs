@@ -46,7 +46,14 @@ const DEMO_SITES = {
   'dovelewis.org': { name: 'DoveLewis Emergency Animal Hospital', service: 'emergency veterinarian', city: 'Portland', state: 'OR' },
   'nocity-demo.com': { name: 'Roam Plumbing', service: 'plumber', city: null, state: null },
   'saas-demo.com': { name: 'Demo SaaS', service: 'project management software', city: null, state: null, is_local_business: false },
-  'toronto-demo.ca': { name: 'Maple Plumbing', service: 'plumber', city: 'Toronto', state: null, country: 'CA' }
+  'toronto-demo.ca': { name: 'Maple Plumbing', service: 'plumber', city: 'Toronto', state: null, country: 'CA' },
+  'manchester-demo.co.uk': { name: 'Nelson Plumbing & Heating Ltd', service: 'plumber', city: 'Manchester', state: null, country: 'GB' },
+  'sydney-demo.com.au': { name: 'Scott Electrics', service: 'electrician', city: 'Sydney', state: 'NSW', country: 'AU' },
+  'berlin-demo.de': {
+    name: 'Schwalm Heizung & Sanitär GmbH', service: 'klempner', city: 'Berlin', state: null, country: 'DE', language: 'de',
+    questions: ['Wer ist der beste Klempner in Berlin?', 'Wen soll ich für einen Klempner in Berlin anrufen? Ich brauche jemanden Zuverlässigen', 'Bestbewertete Klempner in Berlin mit guten Bewertungen']
+  },
+  'moscow-demo.ru': { name: 'Moskva Santekhnika', service: 'plumber', city: 'Moscow', state: null, country: 'RU' }
 };
 const { deps } = await import(pathToFileURL(path.join(root, 'api/_lib/ai-check/deps.js')).href);
 deps.parseSite = async (domain) => {
@@ -67,8 +74,8 @@ globalThis.fetch = async (input, init = {}) => {
   await new Promise((r) => setTimeout(r, Number(process.env.DEV_DFS_DELAY_MS || 4000) * (0.6 + Math.random() * 0.8)));
   if (auth !== 'dev:dev') return new Response(JSON.stringify({ status_code: 40100, status_message: 'You are not authorized to access this resource.' }), { status: 401 });
   const [{ keyword }] = JSON.parse(init.body);
-  const city = (keyword.match(/(?:in|near)\s+([A-Z][a-z]+(?: [A-Z][a-z]+)?)/) || [])[1] || '';
-  const fx = fixtures.find((f) => f._request.keyword.includes(city)) || fixtures[0];
+  const city = (keyword.match(/(?:in|near)\s+([A-Z][\p{L}]+(?: [A-Z][\p{L}]+)?)/u) || [])[1] || '';
+  const fx = fixtures.find((f) => city && f._request.keyword.includes(city)) || fixtures[0];
   const result = { ...fx.tasks[0].result[0], keyword, model: 'recorded-fixture', datetime: fx._captured_at };
   return new Response(JSON.stringify({ status_code: 20000, cost: 0.004, tasks: [{ status_code: 20000, status_message: 'Ok.', cost: 0.004, result: [result] }] }), { status: 200 });
 };

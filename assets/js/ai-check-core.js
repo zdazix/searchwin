@@ -15,7 +15,7 @@ export function hostMatches(host, domain) {
   return host === domain || host.endsWith('.' + domain);
 }
 
-const NAME_TAILS = new Set(['llc', 'inc', 'co', 'corp', 'company', 'the']);
+const NAME_TAILS = new Set(['llc', 'inc', 'co', 'corp', 'company', 'the', 'ltd', 'limited', 'plc', 'gmbh', 'pty', 'llp', 'sarl', 'srl']);
 
 /**
  * Business name normalisation from the spec: lower case → & to "and" → no punctuation →
@@ -23,9 +23,10 @@ const NAME_TAILS = new Set(['llc', 'inc', 'co', 'corp', 'company', 'the']);
  */
 export function normalizeName(input) {
   if (typeof input !== 'string') return '';
-  let s = input.normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  // Accents are dropped from Latin letters only (é → e); other scripts keep theirs (й stays й).
+  let s = input.normalize('NFKD').replace(/([a-zA-Z])[\u0300-\u036f]+/g, '$1').normalize('NFC').toLowerCase();
   s = s.replace(/&amp;/g, '&').replace(/&/g, ' and ').replace(/\+/g, ' and ');
-  s = s.replace(/['’‘`]/g, '').replace(/\.(?=\S)/g, '').replace(/[^a-z0-9]+/g, ' ');
+  s = s.replace(/['’‘`]/g, '').replace(/\.(?=\S)/g, '').replace(/[^\p{L}\p{N}]+/gu, ' ');
   return s.split(' ').filter((w) => w && !NAME_TAILS.has(w)).join(' ');
 }
 

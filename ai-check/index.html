@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Does ChatGPT Recommend Your Business? Free Check · SearchWin.ai</title>
-  <meta name="description" content="See in about a minute whether ChatGPT names your local business when customers ask who to call. Free, no sign-up, real ChatGPT answers.">
+  <title>Does ChatGPT Recommend Your Local Business? Free Check · SearchWin.ai</title>
+  <meta name="description" content="A free check for local businesses in any country: see in about a minute whether ChatGPT names you when customers ask who to hire, and who it recommends instead. Real ChatGPT answers, no sign-up.">
   <link rel="canonical" href="https://searchwin.ai/ai-check/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#F6F4EF">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="SearchWin.ai">
-  <meta property="og:title" content="When customers ask ChatGPT, does it name you?">
-  <meta property="og:description" content="A free check with real ChatGPT answers for US local businesses. Takes about a minute.">
+  <meta property="og:title" content="Customers ask ChatGPT who to hire. Does it name you?">
+  <meta property="og:description" content="A free check for local businesses: see where you stand in ChatGPT and who it recommends instead. About a minute.">
   <meta property="og:url" content="https://searchwin.ai/ai-check/">
   <meta property="og:image" content="https://searchwin.ai/assets/img/og.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -50,26 +50,27 @@
        ============================================================ -->
   <section class="ac-hero" id="check" aria-labelledby="ac-title">
     <div class="container ac-hero__inner">
-      <p class="eyebrow">Free AI visibility check</p>
-      <h1 class="h1 ac-hero__title" id="ac-title">When customers ask ChatGPT, does it name you?</h1>
-      <p class="lead ac-hero__lead">We ask ChatGPT three questions your customers ask before they call someone, and show you exactly who it recommends. About a minute, no sign-up.</p>
+      <p class="eyebrow">Free check for local businesses</p>
+      <h1 class="h1 ac-hero__title" id="ac-title">Customers now ask ChatGPT who to hire. Is it you, or your competitor?</h1>
+      <p class="lead ac-hero__lead">People who ask are ready to hire, so they are some of your most valuable customers. In about a minute, see where you stand in ChatGPT's answers and who it recommends instead of you.</p>
+      <p class="ac-hero__for"><b>Made for local businesses</b> that win customers in their own area, like plumbers, dentists, lawyers, clinics and restaurants. Any country.</p>
 
       <form class="ac-form card" data-ac-form novalidate>
         <div class="field" data-field="website">
-          <label for="ac-website">Your business website</label>
+          <label for="ac-website">Your local business website</label>
           <div class="ac-form__row">
             <input id="ac-website" name="website" type="url" inputmode="url" autocomplete="url" placeholder="yourbusiness.com"
                    autocapitalize="none" autocorrect="off" spellcheck="false" required aria-describedby="ac-website-error">
             <button class="btn btn--primary btn--lg ac-form__go" type="submit" data-ac-submit>
-              <span data-ac-submit-label>Check my business</span>
+              <span data-ac-submit-label>See who ChatGPT picks</span>
               <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
             </button>
           </div>
           <p class="field__error" id="ac-website-error" data-error-for="website">Enter your website, e.g. yourbusiness.com</p>
         </div>
         <p class="ac-form__alert" data-ac-alert role="alert" hidden></p>
-        <div class="ac-turnstile" data-ac-turnstile></div>
-        <p class="ac-form__note"><span><svg aria-hidden="true"><use href="#i-check"></use></svg>Real ChatGPT answers</span><span><svg aria-hidden="true"><use href="#i-check"></use></svg>No email needed</span><span><svg aria-hidden="true"><use href="#i-check"></use></svg>US local businesses</span></p>
+        <p class="ac-form__note"><span><svg aria-hidden="true"><use href="#i-check"></use></svg>Real ChatGPT answers</span><span><svg aria-hidden="true"><use href="#i-check"></use></svg>No email needed</span><span><svg aria-hidden="true"><use href="#i-check"></use></svg>Any country</span></p>
+        <p class="ac-form__online">Not a local business? <button class="ac-linkbtn" type="button" data-ac-online-open>Get an audit for your online business</button></p>
       </form>
     </div>
   </section>
@@ -99,10 +100,15 @@
           <input id="ac-service" name="service" type="text" placeholder="e.g. emergency plumber" maxlength="60" autocapitalize="none">
           <p class="field__error" data-error-for="service">Tell us what you do, e.g. plumber or family dentist</p>
         </div>
+        <div class="field" data-field="country" hidden>
+          <label for="ac-country">Country</label>
+          <select id="ac-country" name="country" autocomplete="country"><option value="">Choose a country</option></select>
+          <p class="field__error" data-error-for="country">Choose the country of your business</p>
+        </div>
         <div class="field" data-field="city_state" hidden>
-          <label for="ac-city">City, State</label>
-          <input id="ac-city" name="city_state" type="text" placeholder="e.g. Austin, TX" autocomplete="address-level2" maxlength="60">
-          <p class="field__error" data-error-for="city_state">Enter a US city and state, e.g. Austin, TX</p>
+          <label for="ac-city" data-ac-city-label>City, State</label>
+          <input id="ac-city" name="city_state" type="text" placeholder="e.g. Austin, TX" autocomplete="address-level2" maxlength="80">
+          <p class="field__error" data-error-for="city_state" data-ac-city-error>Enter a US city and state, e.g. Austin, TX</p>
         </div>
         <div class="ac-fields__actions">
           <button class="btn btn--primary" type="submit" data-ac-fields-submit>Check my business</button>
@@ -227,6 +233,37 @@
   </section>
 
 </main>
+
+<div class="ac-turnstile" data-ac-turnstile></div>
+
+<!-- Popup for businesses the instant check isn't built for: website and email, handled by hand -->
+<dialog class="ac-dialog" data-ac-online aria-labelledby="ac-online-title">
+  <form class="ac-dialog__form" data-ac-online-form method="dialog" novalidate>
+    <button class="ac-dialog__close" type="button" data-ac-online-close aria-label="Close"><svg aria-hidden="true"><use href="#i-x"></use></svg></button>
+    <p class="ac-dialog__title" id="ac-online-title">A free audit for your online business</p>
+    <p class="ac-dialog__text">The instant check is built for local businesses. If you run a SaaS, an online store, an agency or any business that isn't tied to one city, leave your website and email. We'll review how AI assistants talk about you and email you the audit within 48 hours.</p>
+    <div class="field" data-field="website">
+      <label for="ac-o-site">Your website</label>
+      <input id="ac-o-site" name="website" type="text" inputmode="url" autocomplete="url" placeholder="yourcompany.com" autocapitalize="none" autocorrect="off" spellcheck="false" required>
+      <p class="field__error">Enter your website, e.g. yourcompany.com</p>
+    </div>
+    <div class="field" data-field="email">
+      <label for="ac-o-email">Email</label>
+      <input id="ac-o-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@yourcompany.com" required>
+      <p class="field__error">Enter a valid email, e.g. name@yourcompany.com</p>
+    </div>
+    <p class="ac-dialog__alert" data-ac-online-alert role="alert" hidden></p>
+    <button class="btn btn--primary btn--lg btn--block" type="submit" data-ac-online-submit>Send me the audit</button>
+    <div class="ac-turnstile ac-turnstile--dialog" data-ac-turnstile-online></div>
+    <p class="form__micro ac-consent">By continuing you agree to get your results and occasional emails from SearchWin.ai. Unsubscribe anytime. <a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms</a>.</p>
+    <div class="ac-dialog__done" data-ac-online-done hidden tabindex="-1">
+      <span class="form__done-icon"><svg aria-hidden="true"><use href="#i-check"></use></svg></span>
+      <p class="ac-dialog__title">Done.</p>
+      <p class="ac-dialog__text">We'll email your audit within 48 hours. Check your inbox (and spam folder).</p>
+      <button class="btn btn--dark" type="button" data-ac-online-close>Close</button>
+    </div>
+  </form>
+</dialog>
 
 <a class="btn btn--primary ac-sticky" href="#audit" data-ac-sticky hidden>Get my full audit<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
 
