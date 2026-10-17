@@ -19,11 +19,9 @@
 
 /* ---------- Screen 1 ---------- */
 .ac-hero { padding: calc(var(--nav-h) + clamp(28px, 6vw, 72px)) 0 clamp(48px, 7vw, 88px); }
-.ac-hero__inner { display: grid; justify-items: center; gap: 18px; text-align: center; }
+.ac-hero__inner { display: grid; justify-items: center; gap: 14px; text-align: center; }
 .ac-hero__title { max-width: 24ch; font-size: clamp(2rem, 1.25rem + 3.2vw, 3.5rem); }
 .ac-hero__lead { max-width: 56ch; }
-.ac-hero__for { max-width: 56ch; padding: 10px 16px; border-radius: var(--r-md); background: var(--cream-2); font-size: .9375rem; line-height: 1.5; color: var(--ink-2); }
-.ac-hero__for b { color: var(--ink); }
 .ac-fields .field select, .ac-dialog .field select {
   width: 100%; height: 50px; padding: 0 12px; border: 1px solid var(--line-2); border-radius: var(--r-sm);
   background: #FDFCFA; font: inherit; font-size: 1rem; color: var(--ink);
@@ -45,10 +43,10 @@
 .ac-form .field input { height: 56px; font-size: 1.0625rem; }
 .ac-form__go { width: 100%; }
 .ac-form__alert { padding: 12px 14px; border-radius: var(--r-sm); background: #FBEDE8; color: #8F2F18; font-size: .9375rem; }
-.ac-form__note { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: .8125rem; color: var(--muted); }
+.ac-form__note { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 14px; font-size: .8125rem; color: var(--muted); }
 .ac-form__note span { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
 .ac-form__note svg { width: 14px; height: 14px; color: var(--olive); }
-.ac-form__online { font-size: .875rem; color: var(--muted); }
+.ac-form__online { margin-top: -4px; font-size: .875rem; color: var(--muted); }
 .ac-linkbtn { padding: 0; border: 0; background: none; font: inherit; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
 
 /* Popup for online businesses */
