@@ -8,7 +8,10 @@
 
 /* Nav: logo and one quiet link, nothing that leads away from the check */
 .ac-nav .nav__bar { gap: 16px; }
-.ac-nav__link { height: 40px; margin-left: auto; font-size: .9375rem; }
+.ac-nav__right { display: flex; align-items: center; gap: 18px; margin-left: auto; }
+.ac-nav__link, .ac-nav__lang { display: inline-flex; align-items: center; height: 40px; font-size: .9375rem; white-space: nowrap; }
+.ac-nav__lang { color: var(--muted); }
+.ac-nav__lang:hover { color: var(--ink); }
 .ac-is-result .ac-nav__link { display: none; }
 
 /* [hidden] always wins over component display rules on this page */
@@ -264,11 +267,12 @@ body > .ac-turnstile { position: fixed; left: 50%; bottom: 16px; z-index: 60; tr
 
 /* ---------- Screen 4: audit request ---------- */
 .ac-audit { padding: clamp(56px, 8vw, 104px) 0; }
-.ac-audit__grid { display: grid; gap: 28px; align-items: start; }
+.ac-audit__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; align-items: start; }
 .ac-audit__copy { display: grid; gap: 16px; }
 .ac-audit .h2 { max-width: 22ch; }
 .ac-audit__form { position: relative; display: grid; gap: 14px; }
 .ac-audit__form .field input { height: 54px; font-size: 1.0625rem; }
+.ac-audit__form { grid-template-columns: minmax(0, 1fr); }
 .ac-audit__price { font-size: .9375rem; color: var(--ink-2); }
 .ac-audit__price b { color: var(--ink); }
 .ac-consent a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
@@ -347,6 +351,16 @@ body > .ac-turnstile { position: fixed; left: 50%; bottom: 16px; z-index: 60; tr
 }
 
 .ac-state__actions .btn { max-width: 100%; height: auto; min-height: 48px; padding-block: 10px; white-space: normal; text-align: center; }
+
+@media (max-width: 340px) {
+  .ac-nav__link { display: none; }
+  .ac-form__go { padding-inline: 12px; gap: 6px; font-size: .9375rem; }
+  .ac-form .card, .ac-form { padding-inline: 12px; }
+}
+@media (max-width: 400px) {
+  .ac-nav__right { gap: 12px; }
+  .ac-nav__link, .ac-nav__lang { font-size: .875rem; }
+}
 
 @media (max-width: 480px) {
   .ac-hero__badge { padding: 6px 12px; font-size: .6875rem; letter-spacing: .04em; }

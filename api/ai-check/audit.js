@@ -8,7 +8,7 @@
 // → { ok, lead_id, event_id, due_at }
 
 import { json, error, readJson, clientIp, background, attributionFrom } from '../_lib/http.js';
-import { CONSENT_VERSION, LIMITS, MESSAGES, VERDICTS } from '../_lib/config.js';
+import { consentVersion, LIMITS, MESSAGES, VERDICTS } from '../_lib/config.js';
 import { normalizeWebsite, normalizeState, cleanRegion } from '../_lib/ai-check/normalize.js';
 import { countryByIso } from '../../assets/js/ai-check-countries.js';
 import { verifyTurnstile } from '../_lib/security/turnstile.js';
@@ -52,7 +52,7 @@ export async function POST(request) {
        returning id, created_at`,
       [v.email, site.domain, str(b.name, 120), str(b.service, 60), str(b.city, 60),
         country === 'US' || !country ? normalizeState(str(b.state, 30) || '') : cleanRegion(str(b.state, 40) || ''), mentions, total, count(r.best_position), verdict,
-        CONSENT_VERSION, (request.headers.get('user-agent') || '').slice(0, 500), a.landing_url, a.referrer,
+        consentVersion(a.ui_lang), (request.headers.get('user-agent') || '').slice(0, 500), a.landing_url, a.referrer,
         a.utm_source, a.utm_medium, a.utm_campaign, a.utm_content, a.utm_term, a.gclid, a.gbraid, a.wbraid, a.fbclid, a.fbp, a.fbc, kind, country, answers.length ? JSON.stringify(answers) : null]
     );
     const due = new Date(new Date(lead.created_at).getTime() + LIMITS.auditDueHours * 3600e3);
@@ -62,7 +62,7 @@ export async function POST(request) {
       business: { name: str(b.name, 120), service: str(b.service, 60), city: str(b.city, 60), state: str(b.state, 40), country },
       result: { mentions, total, best_position: count(r.best_position) }, verdictLabel: verdict ? VERDICTS[verdict].label : null,
       due: due.toISOString().slice(0, 16).replace('T', ' '), a, userAgent: request.headers.get('user-agent') || '',
-      consent: CONSENT_VERSION, answers
+      consent: consentVersion(a.ui_lang), answers
     })));
     return json({ ok: true, lead_id: lead.id, event_id: `lead_${lead.id}`, due_at: due.toISOString(), kind });
   } catch (err) {

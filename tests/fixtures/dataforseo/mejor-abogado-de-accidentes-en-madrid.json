@@ -1,0 +1,315 @@
+{
+  "_note": "Real DataForSEO ChatGPT LLM Scraper response captured on 2026-10-20 through the DataForSEO connector (image blocks removed, one very long Google Maps source URL shortened, nothing else changed).",
+  "_captured_at": "2026-10-20T00:00:00.000Z",
+  "_request": {
+    "keyword": "mejor abogado de accidentes en Madrid",
+    "location_name": "Spain",
+    "language_code": "es",
+    "force_web_search": true
+  },
+  "tasks": [
+    {
+      "status_code": 20000,
+      "result": [
+        {
+          "keyword": "mejor abogado de accidentes en Madrid",
+          "items": [
+            {
+              "type": "chat_gpt_text",
+              "markdown": "Si buscas el **mejor abogado de accidentes en Madrid**, te recomiendo comparar despachos especializados en accidentes de tráfico, lesiones personales e indemnizaciones, en lugar de elegir únicamente por las estrellas de Google.\n\nPara escoger bien, fíjate especialmente en estos puntos\\:\n\n- **Especialización\\:** experiencia en accidentes de coche, moto, atropellos o accidentes como peatón.\n- **Indemnización\\:** que conozca el baremo de accidentes de tráfico vigente en España.\n- **Honorarios\\:** si trabaja a porcentaje de la indemnización y qué gastos adicionales puede cobrar.\n- **Atención personal\\:** que te explique el procedimiento, los plazos y las posibilidades reales de tu caso.\n\n## Mis 4 opciones más interesantes en Madrid\n\nHe contrastado directorios y fichas de despachos. Esta sería mi selección inicial para pedir presupuesto y comparar experiencia, valoraciones y especialización. Las reseñas son una referencia, no una garantía de resultados. [ranking.madrid](https://ranking.madrid/abogados/accidentes-trafico/madrid/?utm_source=chatgpt.com)[legalrank.es](https://legalrank.es/listados/abogados-accidentes-de-trafico/madrid/?utm_source=chatgpt.com)[losmejoresdemadrid.com](https://losmejoresdemadrid.com/abogados-accidentes-trafico/?utm_source=chatgpt.com)\n\n",
+              "sources": [
+                {
+                  "type": "chat_gpt_source",
+                  "title": "10 Mejores abogados de accidentes de trafico en Madrid [octubre 2026]",
+                  "domain": "ranking.madrid",
+                  "url": "https://ranking.madrid/abogados/accidentes-trafico/madrid/?utm_source=chatgpt.com",
+                  "source_name": "ranking.madrid",
+                  "publication_date": "2026-08-31 00:00:00 +00:00"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Los Mejores Abogados de accidentes de tráfico en Madrid",
+                  "domain": "legalrank.es",
+                  "url": "https://legalrank.es/listados/abogados-accidentes-de-trafico/madrid/?utm_source=chatgpt.com",
+                  "source_name": "Comparativa y Opiniones"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Los 10 Mejores Abogados de Accidentes de Tráfico de Madrid | Ranking 2026",
+                  "domain": "losmejoresdemadrid.com",
+                  "url": "https://losmejoresdemadrid.com/abogados-accidentes-trafico/?utm_source=chatgpt.com",
+                  "source_name": "Cerca de mí"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## 1\\. Legalcar Abogados\n\n4,9/5 · Más de 1.300 reseñas\n\nEspecializado en accidentes de tráfico, lesiones, secuelas y reclamaciones frente a aseguradoras. Lo pondría entre los primeros para solicitar una valoración del caso. [ranking.madrid](https://ranking.madrid/abogados/accidentes-trafico/madrid/?utm_source=chatgpt.com)[legalrank.es](https://legalrank.es/listados/abogados-accidentes-de-trafico/madrid/?utm_source=chatgpt.com)[losmejoresdemadrid.com](https://losmejoresdemadrid.com/abogados-accidentes-trafico/?utm_source=chatgpt.com)\n\nAv. del Mediterráneo, 7, 1.º D, Madrid\n\nTel. 912 40 22 72\n\n[Web y contacto](https://www.legalcar.com/)\n\n---\n\n",
+              "sources": [
+                {
+                  "type": "chat_gpt_source",
+                  "title": "10 Mejores abogados de accidentes de trafico en Madrid [octubre 2026]",
+                  "domain": "ranking.madrid",
+                  "url": "https://ranking.madrid/abogados/accidentes-trafico/madrid/?utm_source=chatgpt.com",
+                  "source_name": "ranking.madrid",
+                  "publication_date": "2026-08-31 00:00:00 +00:00"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Los Mejores Abogados de accidentes de tráfico en Madrid",
+                  "domain": "legalrank.es",
+                  "url": "https://legalrank.es/listados/abogados-accidentes-de-trafico/madrid/?utm_source=chatgpt.com",
+                  "source_name": "Comparativa y Opiniones"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Los 10 Mejores Abogados de Accidentes de Tráfico de Madrid | Ranking 2026",
+                  "domain": "losmejoresdemadrid.com",
+                  "url": "https://losmejoresdemadrid.com/abogados-accidentes-trafico/?utm_source=chatgpt.com",
+                  "source_name": "Cerca de mí"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Legalcar Abogados",
+                  "snippet": "Av. del Mediterráneo, 7, 1º D, Retiro, 28007 Madrid, Spain",
+                  "domain": "www.google.com",
+                  "url": "https://www.google.com/maps/place/?q=place_id%3AChIJ_UDfeBYpQg0RDRpUJbIOIbA&hl=en&utm_source=chatgpt.com",
+                  "source_name": "google.com"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "AMA-Abogados Accidentes de Tráfico Madrid",
+                  "snippet": "Ronda de Segovia, 18, Arganzuela, 28005 Madrid, Spain",
+                  "domain": "www.google.com",
+                  "url": "https://www.google.com/maps/place/?q=place_id%3AChIJ2-yIpXonQg0R0wosuIGf6nU&hl=en&utm_source=chatgpt.com",
+                  "source_name": "google.com"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Demanda tu Lesión | Abogados de accidentes de tráfico",
+                  "snippet": "Torre de Cristal, P.º de la Castellana, 259C, Piso 18, Fuencarral-El Pardo, 28046 Madrid, Spain",
+                  "domain": "www.google.com",
+                  "url": "https://www.google.com/maps/place/Demanda+tu+Lesi%C3%B3n/?hl=en&utm_source=chatgpt.com",
+                  "source_name": "google.com"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Web y contacto",
+                  "domain": "www.legalcar.com",
+                  "url": "https://www.legalcar.com/",
+                  "markdown": "[Web y contacto](https://www.legalcar.com/)"
+                }
+              ],
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "Legalcar Abogados",
+                  "category": "local_business",
+                  "markdown": "Legalcar Abogados"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## 2\\. AMA-Abogados Accidentes de Tráfico Madrid\n\n5,0/5 · Más de 560 reseñas\n\nAlternativa especializada en indemnizaciones por accidentes de coche, moto, bicicleta y atropellos. [ranking.madrid](https://ranking.madrid/abogados/accidentes-trafico/madrid/?utm_source=chatgpt.com)[legalrank.es](https://legalrank.es/listados/abogados-accidentes-de-trafico/madrid/?utm_source=chatgpt.com)[losmejoresdemadrid.com](https://losmejoresdemadrid.com/abogados-accidentes-trafico/?utm_source=chatgpt.com)\n\nRonda de Segovia, 18, Madrid\n\nTel. 674 16 98 05\n\n[Buscar web oficial](https://www.google.com/search?q=AMA+Abogados+Accidentes+de+Tr%C3%A1fico+Madrid)\n\n---\n\n",
+              "sources": [
+                {
+                  "type": "chat_gpt_source",
+                  "title": "10 Mejores abogados de accidentes de trafico en Madrid [octubre 2026]",
+                  "domain": "ranking.madrid",
+                  "url": "https://ranking.madrid/abogados/accidentes-trafico/madrid/?utm_source=chatgpt.com",
+                  "source_name": "ranking.madrid",
+                  "publication_date": "2026-08-31 00:00:00 +00:00"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Los Mejores Abogados de accidentes de tráfico en Madrid",
+                  "domain": "legalrank.es",
+                  "url": "https://legalrank.es/listados/abogados-accidentes-de-trafico/madrid/?utm_source=chatgpt.com",
+                  "source_name": "Comparativa y Opiniones"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Los 10 Mejores Abogados de Accidentes de Tráfico de Madrid | Ranking 2026",
+                  "domain": "losmejoresdemadrid.com",
+                  "url": "https://losmejoresdemadrid.com/abogados-accidentes-trafico/?utm_source=chatgpt.com",
+                  "source_name": "Cerca de mí"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "AMA-Abogados Accidentes de Tráfico Madrid",
+                  "snippet": "Ronda de Segovia, 18, Arganzuela, 28005 Madrid, Spain",
+                  "domain": "www.google.com",
+                  "url": "https://www.google.com/maps/place/?q=place_id%3AChIJ2-yIpXonQg0R0wosuIGf6nU&hl=en&utm_source=chatgpt.com",
+                  "source_name": "google.com"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Buscar web oficial",
+                  "domain": "www.google.com",
+                  "url": "https://www.google.com/search?q=AMA+Abogados+Accidentes+de+Tr%C3%A1fico+Madrid",
+                  "markdown": "[Buscar web oficial](https://www.google.com/search?q=AMA+Abogados+Accidentes+de+Tr%C3%A1fico+Madrid)"
+                }
+              ],
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "AMA-Abogados Accidentes de Tráfico Madrid",
+                  "category": "local_business",
+                  "markdown": "AMA-Abogados Accidentes de Tráfico Madrid"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## 3\\. Accidentalia\n\n5,0/5 · Más de 350 reseñas\n\nInteresante para reclamar lesiones y secuelas, con atención a la parte médico-pericial del expediente. [ranking.madrid](https://ranking.madrid/abogados/accidentes-trafico/madrid/?utm_source=chatgpt.com)[legalrank.es](https://legalrank.es/listados/abogados-accidentes-de-trafico/madrid/?utm_source=chatgpt.com)[losmejoresdemadrid.com](https://losmejoresdemadrid.com/abogados-accidentes-trafico/?utm_source=chatgpt.com)\n\nP.º de la Ermita del Santo, 40, Madrid\n\nTel. 677 37 99 68\n\n[Web y contacto](https://www.accidentalia.es/)\n\n---\n\n",
+              "sources": [
+                {
+                  "type": "chat_gpt_source",
+                  "title": "10 Mejores abogados de accidentes de trafico en Madrid [octubre 2026]",
+                  "domain": "ranking.madrid",
+                  "url": "https://ranking.madrid/abogados/accidentes-trafico/madrid/?utm_source=chatgpt.com",
+                  "source_name": "ranking.madrid",
+                  "publication_date": "2026-08-31 00:00:00 +00:00"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Accidentalia - Abogados de Indemnización por accidentes de tráfico",
+                  "snippet": "P.º de la Ermita del Santo, 40, Latina, 28011 Madrid, Spain",
+                  "domain": "www.google.com",
+                  "url": "https://www.google.com/maps/place/?q=place_id%3AChIJG_u2R-cnQg0RxKA5qB2EeRs&hl=en&utm_source=chatgpt.com",
+                  "source_name": "google.com"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Web y contacto",
+                  "domain": "www.accidentalia.es",
+                  "url": "https://www.accidentalia.es/",
+                  "markdown": "[Web y contacto](https://www.accidentalia.es/)"
+                }
+              ],
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "Accidentalia",
+                  "category": "local_business",
+                  "markdown": "Accidentalia"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## 4\\. Demanda tu Lesión\n\n4,9/5 · 370 reseñas\n\nOtra opción para accidentes con lesiones, secuelas o fallecimientos, con apoyo técnico y pericial según la información publicada. [ranking.madrid](https://ranking.madrid/abogados/accidentes-trafico/madrid/?utm_source=chatgpt.com)[legalrank.es](https://legalrank.es/listados/abogados-accidentes-de-trafico/madrid/?utm_source=chatgpt.com)[losmejoresdemadrid.com](https://losmejoresdemadrid.com/abogados-accidentes-trafico/?utm_source=chatgpt.com)\n\nTorre de Cristal, P.º de la Castellana, 259C, Madrid\n\nTel. 911 19 05 75\n\n[Web y contacto](https://www.google.com/search?q=Demanda+tu+Lesi%C3%B3n+Madrid)\n\n",
+              "sources": [
+                {
+                  "type": "chat_gpt_source",
+                  "title": "10 Mejores abogados de accidentes de trafico en Madrid [octubre 2026]",
+                  "domain": "ranking.madrid",
+                  "url": "https://ranking.madrid/abogados/accidentes-trafico/madrid/?utm_source=chatgpt.com",
+                  "source_name": "ranking.madrid",
+                  "publication_date": "2026-08-31 00:00:00 +00:00"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Demanda tu Lesión | Abogados de accidentes de tráfico",
+                  "snippet": "Torre de Cristal, P.º de la Castellana, 259C, Piso 18, Fuencarral-El Pardo, 28046 Madrid, Spain",
+                  "domain": "www.google.com",
+                  "url": "https://www.google.com/maps/place/Demanda+tu+Lesi%C3%B3n/?hl=en&utm_source=chatgpt.com",
+                  "source_name": "google.com"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Web y contacto",
+                  "domain": "www.google.com",
+                  "url": "https://www.google.com/search?q=Demanda+tu+Lesi%C3%B3n+Madrid",
+                  "markdown": "[Web y contacto](https://www.google.com/search?q=Demanda+tu+Lesi%C3%B3n+Madrid)"
+                }
+              ],
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "Demanda tu Lesión",
+                  "category": "local_business",
+                  "markdown": "Demanda tu Lesión"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_local_businesses",
+              "items": [
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "Legalcar Abogados",
+                  "description": "Personal injury attorney",
+                  "address": "Av. del Mediterráneo, 7, 1º D, Retiro, 28007 Madrid, Spain",
+                  "phone": "+34 912 40 22 72",
+                  "reviews_count": 1341,
+                  "url": "https://www.legalcar.com/",
+                  "domain": "www.legalcar.com",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 4.9,
+                    "votes_count": 1341,
+                    "rating_max": 5
+                  }
+                },
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "AMA-Abogados Accidentes de Tráfico Madrid",
+                  "description": "Personal injury attorney",
+                  "address": "Ronda de Segovia, 18, Arganzuela, 28005 Madrid, Spain",
+                  "phone": "+34 674 16 98 05",
+                  "reviews_count": 563,
+                  "url": "https://abogadodeaccidente.es/",
+                  "domain": "abogadodeaccidente.es",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 5,
+                    "votes_count": 563,
+                    "rating_max": 5
+                  }
+                },
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "Accidentalia - Abogados de Indemnización por accidentes de tráfico",
+                  "description": "Lawyer",
+                  "address": "P.º de la Ermita del Santo, 40, Latina, 28011 Madrid, Spain",
+                  "phone": "+34 677 37 99 68",
+                  "reviews_count": 358,
+                  "url": "https://accidentalia.es/abogados-accidentes-de-trafico-e-indemnizacion-por-accidente/",
+                  "domain": "accidentalia.es",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 5,
+                    "votes_count": 358,
+                    "rating_max": 5
+                  }
+                },
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "Demanda tu Lesión | Abogados de accidentes de tráfico",
+                  "description": "Personal injury attorney",
+                  "address": "Torre de Cristal, P.º de la Castellana, 259C, Piso 18, Fuencarral-El Pardo, 28046 Madrid, Spain",
+                  "phone": "+34 911 19 05 75",
+                  "reviews_count": 370,
+                  "url": "https://www.demandatulesion.com/?utm_source=gmb&utm_medium=organic&utm_campaign=google-my-business",
+                  "domain": "www.demandatulesion.com",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 4.9,
+                    "votes_count": 370,
+                    "rating_max": 5
+                  }
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## ¿Cuál elegiría?\n\n- **Para empezar\\:** Legalcar, por su especialización y el volumen de reseñas.\n- **Para comparar otra opinión\\:** AMA Abogados.\n- **Si hay lesiones importantes o secuelas\\:** pediría también una valoración a Accidentalia o Demanda tu Lesión.\n\nAntes de contratar, pide por escrito el porcentaje de honorarios, el IVA, los gastos de peritos y qué sucede si no se obtiene indemnización. Confirma también que el abogado que llevará tu caso esté colegiado y que defienda tus intereses de forma independiente de la aseguradora.\n\n## Te puedo recomendar uno más adecuado para tu caso\n\n¿Qué tipo de accidente has tenido?\n\n1\\. Tipo de accidente\n\nCoche o moto\n\nAtropello o bicicleta\n\nAccidente laboral\n\nOtro tipo de accidente\n\n---\n\n2\\. ¿Has sufrido lesiones?\n\nSí, tengo lesiones\n\nSí, tengo secuelas graves\n\nSolo daños materiales\n\n---\n\n3\\. ¿En qué situación estás?\n\nAcabo de tener el accidente\n\nLa aseguradora me ha ofrecido una indemnización\n\nLa aseguradora no quiere pagar\n\nYa tengo abogado, pero quiero cambiar\n\n[Encontrar el abogado más adecuado]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

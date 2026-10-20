@@ -6,12 +6,29 @@
 
 import { summarize } from './ai-check-core.js';
 import { COUNTRIES, countryByIso } from './ai-check-countries.js';
+import { LANG, t, PATHS, THANKS_PATHS, fmtDate, fmtRating, fmtCount } from './ai-check-i18n.js';
 
 var API = '/api/ai-check/';
 
 var $ = function (sel, root) { return (root || document).querySelector(sel); };
 var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
 var track = window.acTrack || { attribution: function () { return {}; }, config: Promise.resolve({}), checkCompleted: function () {}, auditRequested: function () {} };
+
+/* The attribution sent with every request also says which language page the visitor used. */
+function attribution() {
+  var a = track.attribution() || {};
+  a.ui_lang = LANG;
+  return a;
+}
+
+/* Text for a server error: the page's own language, never the server's English message (except in English). */
+function errText(data, fallbackKey) {
+  var code = data && data.error;
+  if (code === 'city_state') return t(!el.country.value || el.country.value === 'US' ? 'err.city_state' : 'err.city');
+  if (code && t.has('err.' + code)) return t('err.' + code);
+  if (LANG === 'en' && data && data.message) return data.message;
+  return t(fallbackKey || 'err.generic');
+}
 
 var el = {
   hero: $('#check'), form: $('[data-ac-form]'), website: $('#ac-website'), submit: $('[data-ac-submit]'), submitLabel: $('[data-ac-submit-label]'),
@@ -50,10 +67,6 @@ function icon(name) {
   use.setAttribute('href', '#i-' + name);
   svg.appendChild(use);
   return svg;
-}
-
-function fmtDate(d) {
-  return (d ? new Date(d) : new Date()).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
 async function api(path, body) {
@@ -150,11 +163,11 @@ el.form.addEventListener('submit', async function (e) {
   e.preventDefault();
   var site = el.website.value.trim();
   if (!looksLikeSite(site)) {
-    setFieldError(el.website, true, 'Enter your website, e.g. yourbusiness.com');
+    setFieldError(el.website, true, t('err.invalid_url'));
     el.website.focus();
     return;
   }
-  busy(el.submit, true, 'Starting…');
+  busy(el.submit, true, t('btn.starting'));
   formAlert('');
   var token = await turnstileToken();
   S.website = site.replace(/^https?:\/\//i, '').replace(/^www\./i, '').split(/[/?#]/)[0].toLowerCase();
@@ -162,15 +175,15 @@ el.form.addEventListener('submit', async function (e) {
   setRecog();
   showRun();
   resetResult();
-  setScore('Reading your website…');
+  setScore(t('score.reading'));
   renderProgress('running');
-  var r = await api('parse', { website: site, turnstile_token: token, attribution: track.attribution() });
-  busy(el.submit, false, 'See who ChatGPT picks');
+  var r = await api('parse', { website: site, turnstile_token: token, attribution: attribution() });
+  busy(el.submit, false, t('btn.submit'));
   if (!r.ok) {
     // Nothing was checked yet: back to the form with the reason.
     hideRun();
-    if (r.data.error === 'invalid_url') setFieldError(el.website, true, r.data.message);
-    else formAlert(r.data.message || 'We could not start the check. Check your connection and try again.');
+    if (r.data.error === 'invalid_url') setFieldError(el.website, true, errText(r.data));
+    else formAlert(errText(r.data, 'err.start'));
     return;
   }
   handleParse(r.data);
@@ -211,16 +224,16 @@ function resetResult() {
   el.why.hidden = true;
 }
 
-function bizName() { return S.business.name || S.website || 'your business'; }
+function bizName() { return S.business.name || S.website || t('biz.fallback'); }
 function placeOf(b) {
   if (!b.city) return '';
   if (b.state) return b.city + ', ' + b.state;
   var c = b.country && b.country !== 'US' && countryByIso(b.country);
-  return c ? b.city + ', ' + c.name : b.city;
+  return c ? b.city + ', ' + countryName(c) : b.city;
 }
 function setRecog() {
   var b = S.business, place = placeOf(b);
-  el.recogText.textContent = b.service && place ? b.service + ' in ' + place : S.website || 'your website';
+  el.recogText.textContent = b.service && place ? t('recog.in', { service: b.service, place: place }) : S.website || t('site.fallback');
 }
 function setScore(text) { el.score.textContent = text; }
 
@@ -233,24 +246,20 @@ function handleParse(d) {
   if (d.status === 'needs_input') return openFields(d.needs, d.site_unreadable ? 'unreadable' : 'missing');
   if (d.status === 'not_local') {
     el.scorebar.hidden = true;
-    showState('not_local', 'This check is built for local businesses',
-      'It looks like ' + (S.website || 'this site') + ' sells online or across a whole country. The instant check only works for businesses that win customers in their own area. Leave your email and we will audit your online business by hand instead.',
-      [onlineButton(), newCheckButton()]);
+    showState('not_local', t('notlocal.title'), t('notlocal.text', { site: S.website || t('site.fallback') }), [onlineButton(), newCheckButton()]);
   } else if (d.status === 'unsupported_country') {
     el.scorebar.hidden = true;
-    showState('not_local', "We can't check this country yet",
-      "ChatGPT location data isn't available for the country of " + (S.website || 'this site') + ". Leave your email and we will audit your business by hand instead.",
-      [onlineButton(), newCheckButton()]);
+    showState('not_local', t('country.title'), t('country.text', { site: S.website || t('site.fallback') }), [onlineButton(), newCheckButton()]);
   }
 }
 
 /* ---------- Progress ---------- */
 function renderProgress(siteStatus) {
   el.progress.textContent = '';
-  el.progress.appendChild(progressItem('Reading your website', siteStatus));
+  el.progress.appendChild(progressItem(t('progress.read'), siteStatus));
   S.prompts.forEach(function (p, i) {
     var a = S.answers[i + 1];
-    el.progress.appendChild(progressItem('Asking ChatGPT: ' + p, a ? (a.ok ? 'done' : 'failed') : 'running'));
+    el.progress.appendChild(progressItem(t('progress.ask', { prompt: p }), a ? (a.ok ? 'done' : 'failed') : 'running'));
   });
   el.progress.hidden = false;
 }
@@ -258,7 +267,7 @@ function progressItem(text, status) {
   var li = h('li', { class: 'ac-progress__item is-' + status });
   li.appendChild(h('span', { class: 'ac-progress__icon', 'aria-hidden': 'true' }, [status === 'done' ? icon('check') : status === 'failed' ? icon('x') : null]));
   li.appendChild(h('span', { text: text }));
-  li.appendChild(h('span', { class: 'sr-only', text: status === 'done' ? ' done' : status === 'failed' ? ' failed' : ' in progress' }));
+  li.appendChild(h('span', { class: 'sr-only', text: t(status === 'done' ? 'progress.done' : status === 'failed' ? 'progress.failed' : 'progress.running') }));
   return li;
 }
 
@@ -271,7 +280,7 @@ async function startAsks(prompts, ticket) {
   el.state.hidden = true;
   el.scorebar.hidden = false;
   el.why.hidden = false;
-  setScore('Asking ChatGPT about ' + bizName() + '…');
+  setScore(t('score.asking', { biz: bizName() }));
   renderProgress('done');
   await Promise.all(S.prompts.map(function (prompt, i) {
     var idx = i + 1;
@@ -282,7 +291,7 @@ async function startAsks(prompts, ticket) {
       insertInOrder(card, idx);
       renderProgress('done');
       var n = Object.keys(S.answers).length;
-      if (n < S.prompts.length) setScore('Asking ChatGPT about ' + bizName() + '… ' + n + ' of ' + S.prompts.length + ' answers in');
+      if (n < S.prompts.length) setScore(t('score.asking_n', { biz: bizName(), n: n, total: S.prompts.length }));
     });
   }));
   S.running = false;
@@ -295,16 +304,16 @@ function finish() {
   el.progress.hidden = true;
   if (!loaded.length) {
     el.scorebar.hidden = true;
-    showState('failed', "We couldn't get ChatGPT's answers this time.", 'It happens when ChatGPT is slow to answer. Try again in a moment.', [tryAgainButton()]);
+    showState('failed', t('failed.title'), t('failed.text'), [tryAgainButton()]);
     return;
   }
   var s = summarize(loaded, S.website);
   S.summary = s;
-  setScore(s.mentions_count + ' of ' + s.total + ' answers name ' + bizName());
+  setScore(t('score.result', { mentions: s.mentions_count, total: s.total, biz: bizName() }));
   el.badge.hidden = false;
-  el.badge.textContent = s.verdict_label;
+  el.badge.textContent = t('verdict.' + s.verdict);
   el.badge.className = 'ac-badge ' + ({ not_recommended: 'is-miss', sometimes: 'is-some', not_first: 'is-ok', top_pick: 'is-top' }[s.verdict] || '');
-  if (loaded.length < S.prompts.length) showState('partial', '', "One answer didn't load — it'll be in your full audit.", []);
+  if (loaded.length < S.prompts.length) showState('partial', '', t('partial.text'), []);
   renderFinal(s);
   reportCheck(s, loaded);
 }
@@ -321,7 +330,7 @@ function reportCheck(s, loaded) {
       body: JSON.stringify({
         website: S.website, business: S.business, answers: saved,
         result: { mentions_count: s.mentions_count, total: s.total, best_position: s.best_position, verdict: s.verdict },
-        attribution: track.attribution()
+        attribution: attribution()
       })
     }).catch(function () { /* the visitor does not need to know */ });
   } catch (e) { /* same */ }
@@ -335,22 +344,22 @@ function insertInOrder(card, idx) {
 
 function answerLine(a) {
   var c = a.client || {};
-  if (c.found && c.position) return h('p', { class: 'ac-answer__line ac-answer__line--hit' }, [icon('check'), 'You appear at #' + c.position]);
-  if (c.found) return h('p', { class: 'ac-answer__line ac-answer__line--hit' }, [icon('check'), "You're mentioned in the answer, but not in ChatGPT's list of businesses"]);
-  return h('p', { class: 'ac-answer__line ac-answer__line--miss' }, [icon('x'), 'Not mentioned']);
+  if (c.found && c.position) return h('p', { class: 'ac-answer__line ac-answer__line--hit' }, [icon('check'), t('line.at', { pos: c.position })]);
+  if (c.found) return h('p', { class: 'ac-answer__line ac-answer__line--hit' }, [icon('check'), t('line.text_only')]);
+  return h('p', { class: 'ac-answer__line ac-answer__line--miss' }, [icon('x'), t('line.miss')]);
 }
 
 function cardHead(idx, prompt, pill) {
   return h('div', { class: 'ui ui--dark' }, [
     h('p', { class: 'ui__prompt', text: prompt }),
-    h('p', { class: 'ui__meta' }, [h('span', { class: 'ui__src', text: 'ChatGPT / Prompt' }), h('span', { class: 'ui__pill', text: pill })])
+    h('p', { class: 'ui__meta' }, [h('span', { class: 'ui__src', text: t('card.src') }), h('span', { class: 'ui__pill', text: pill })])
   ]);
 }
 
 function answerCard(a) {
   var art = h('article', { class: 'ac-answer', 'data-idx': String(a.idx) });
   var light = h('div', { class: 'ui ui--light' });
-  light.appendChild(h('p', { class: 'ui__title', text: 'Businesses ChatGPT named' }));
+  light.appendChild(h('p', { class: 'ui__title', text: t('card.named') }));
   var list = (a.businesses || []).slice(0, 5);
   // The client stays visible even when ChatGPT listed them below the top five.
   var you = (a.businesses || []).find(function (b) { return b.is_client; });
@@ -361,22 +370,22 @@ function answerCard(a) {
       var li = h('li', { class: 'ac-biz__item' + (b.is_client ? ' is-client' : '') });
       li.appendChild(h('span', { class: 'ac-biz__pos', text: String(b.position) }));
       li.appendChild(h('span', { class: 'ac-biz__name', text: b.name }));
-      if (b.is_client) li.appendChild(h('span', { class: 'ac-biz__you', text: 'You' }));
+      if (b.is_client) li.appendChild(h('span', { class: 'ac-biz__you', text: t('card.you') }));
       if (b.rating != null) {
         li.appendChild(h('span', { class: 'ac-biz__rate' }, [
-          icon('star'), h('span', { class: 'sr-only', text: 'Rating ' }), Number(b.rating).toFixed(1),
-          b.reviews != null ? ' · ' + Number(b.reviews).toLocaleString('en-US') : '', b.reviews != null ? h('span', { class: 'sr-only', text: ' reviews' }) : null
+          icon('star'), h('span', { class: 'sr-only', text: t('card.rating') }), fmtRating(b.rating),
+          b.reviews != null ? ' · ' + fmtCount(b.reviews) : '', b.reviews != null ? h('span', { class: 'sr-only', text: t('card.reviews') }) : null
         ]));
       }
       ol.appendChild(li);
     });
     light.appendChild(ol);
   } else {
-    light.appendChild(h('p', { class: 'ac-answer__none', text: "ChatGPT didn't list specific businesses in this answer." }));
+    light.appendChild(h('p', { class: 'ac-answer__none', text: t('card.none') }));
   }
   light.appendChild(answerLine(a));
   if (a.answer_html) light.appendChild(answerPreview(a.answer_html));
-  art.appendChild(cardHead(a.idx, a.prompt, 'Answer ' + a.idx + ' of ' + S.prompts.length));
+  art.appendChild(cardHead(a.idx, a.prompt, t('card.n', { n: a.idx, total: S.prompts.length })));
   art.appendChild(light);
   return art;
 }
@@ -384,14 +393,14 @@ function answerCard(a) {
 /* ChatGPT's own words: the start of the answer, fading out, with a button for the rest. */
 function answerPreview(html) {
   var wrap = h('div', { class: 'ac-preview' });
-  wrap.appendChild(h('p', { class: 'ac-preview__label', text: "ChatGPT's answer" }));
+  wrap.appendChild(h('p', { class: 'ac-preview__label', text: t('card.label') }));
   var body = h('div', { class: 'ac-md ac-preview__body', html: html });
   wrap.appendChild(body);
-  var btn = h('button', { class: 'ac-preview__more', type: 'button', 'aria-expanded': 'false', text: 'Read the full answer' });
+  var btn = h('button', { class: 'ac-preview__more', type: 'button', 'aria-expanded': 'false', text: t('card.more') });
   btn.addEventListener('click', function () {
     var open = wrap.classList.toggle('is-open');
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    btn.textContent = open ? 'Show less' : 'Read the full answer';
+    btn.textContent = open ? t('card.less') : t('card.more');
   });
   wrap.appendChild(btn);
   return wrap;
@@ -399,8 +408,8 @@ function answerPreview(html) {
 
 function failedCard(idx, prompt) {
   return h('article', { class: 'ac-answer ac-answer--failed', 'data-idx': String(idx) }, [
-    cardHead(idx, prompt, "Didn't load"),
-    h('p', { class: 'ac-answer__note', text: "This answer didn't load — it'll be in your full audit." })
+    cardHead(idx, prompt, t('card.failed_pill')),
+    h('p', { class: 'ac-answer__note', text: t('card.failed_note') })
   ]);
 }
 
@@ -414,7 +423,7 @@ function showState(kind, title, text, actions) {
 }
 
 function newCheckButton() {
-  return h('a', { class: 'btn btn--dark', href: '/ai-check/', text: 'Check another website' });
+  return h('a', { class: 'btn btn--dark', href: PATHS[LANG], text: t('btn.again') });
 }
 
 function knownFields() {
@@ -428,12 +437,12 @@ function knownFields() {
 
 /* Runs the check again with what we already know: no second visit to the site. */
 function tryAgainButton() {
-  var b = h('button', { class: 'btn btn--primary', type: 'button', text: 'Try again' });
+  var b = h('button', { class: 'btn btn--primary', type: 'button', text: t('btn.retry') });
   b.addEventListener('click', async function () {
     busy(b, true);
     var r = await api('parse', { website: S.website, manual: knownFields(), turnstile_token: await turnstileToken() });
     busy(b, false);
-    if (!r.ok) { showState('failed', "We couldn't restart the check.", r.data.message || 'Try again in a minute.', [newCheckButton()]); return; }
+    if (!r.ok) { showState('failed', t('err.restart'), errText(r.data, 'err.retry_later'), [newCheckButton()]); return; }
     resetResult();
     handleParse(r.data);
   });
@@ -441,14 +450,24 @@ function tryAgainButton() {
 }
 
 /* ---------- Fields the site didn't give us ---------- */
-COUNTRIES.forEach(function (c) { el.country.appendChild(h('option', { value: c.iso, text: c.name })); });
+/* Country names in the page's language; the list is sorted the way that language sorts. */
+var regionNames = null;
+try { if (LANG !== 'en' && typeof Intl.DisplayNames === 'function') regionNames = new Intl.DisplayNames([LANG], { type: 'region' }); } catch (e) { regionNames = null; }
+function countryName(c) {
+  var n = null;
+  try { n = regionNames && regionNames.of(c.iso); } catch (e) { n = null; }
+  return n && n !== c.iso ? n : c.name;
+}
+COUNTRIES.map(function (c) { return { iso: c.iso, name: countryName(c) }; })
+  .sort(function (a, b) { return a.name.localeCompare(b.name, LANG); })
+  .forEach(function (c) { el.country.appendChild(h('option', { value: c.iso, text: c.name })); });
 
 /* The place field depends on the country: a US business needs its state, everywhere else a city is enough. */
 function syncPlaceField() {
   var us = !el.country.value || el.country.value === 'US';
-  el.cityLabel.textContent = us ? 'City, State' : 'City, region (optional)';
-  el.cityInput.placeholder = us ? 'e.g. Austin, TX' : 'e.g. Manchester';
-  el.cityError.textContent = us ? 'Enter a US city and state, e.g. Austin, TX' : 'Enter a city, e.g. Manchester';
+  el.cityLabel.textContent = t(us ? 'place.us' : 'place.other');
+  el.cityInput.placeholder = t(us ? 'place.us_ph' : 'place.other_ph');
+  el.cityError.textContent = t(us ? 'err.city_state' : 'err.city');
 }
 el.country.addEventListener('change', function () { setFieldError(el.country, false); syncPlaceField(); });
 
@@ -465,8 +484,8 @@ function openFields(needs, mode) {
   if (b.country) el.country.value = b.country;
   syncPlaceField();
   var titles = {
-    unreadable: ["We couldn't read this site", 'Add a few details and we will ask ChatGPT about your business.'],
-    missing: ['Almost there', show.city_state && show.service ? "We couldn't find what you do or where on your site." : show.city_state ? 'Your site works across an area. Which city should we ask about?' : "We couldn't tell what you do from your site."]
+    unreadable: [t('fields.unreadable.title'), t('fields.unreadable.text')],
+    missing: [t('fields.missing.title'), t(show.city_state && show.service ? 'fields.missing.both' : show.city_state ? 'fields.missing.city' : 'fields.missing.service')]
   }[mode];
   el.scorebar.hidden = true;
   el.fieldsTitle.textContent = titles[0];
@@ -495,8 +514,8 @@ el.fields.addEventListener('submit', async function (e) {
   busy(el.fieldsSubmit, false);
   if (!r.ok) {
     var field = r.data.error && $('#ac-' + (r.data.error === 'city_state' ? 'city' : r.data.error));
-    if (field) setFieldError(field, true, r.data.message);
-    else showState('limit', r.data.message || 'Something went wrong. Try again.', '', []);
+    if (field) setFieldError(field, true, errText(r.data));
+    else showState('limit', errText(r.data, 'err.generic'), '', []);
     return;
   }
   el.fields.hidden = true;
@@ -505,7 +524,7 @@ el.fields.addEventListener('submit', async function (e) {
 
 /* ---------- Popup for online businesses: website + email, handled by hand ---------- */
 function onlineButton() {
-  var b = h('button', { class: 'btn btn--primary', type: 'button', text: 'Get a free audit for your online business' });
+  var b = h('button', { class: 'btn btn--primary', type: 'button', text: t('btn.online') });
   b.addEventListener('click', openOnline);
   return b;
 }
@@ -535,12 +554,12 @@ el.onlineForm.addEventListener('submit', async function (e) {
   if (!okSite || !okEmail) { (okSite ? el.onlineEmail : el.onlineSite).focus(); return; }
   busy(el.onlineSubmit, true);
   el.onlineAlert.hidden = true;
-  var r = await api('audit', { kind: 'online', website: site, email: email, turnstile_token: await tsOnline.token(), attribution: track.attribution() });
+  var r = await api('audit', { kind: 'online', website: site, email: email, turnstile_token: await tsOnline.token(), attribution: attribution() });
   if (!r.ok) {
     busy(el.onlineSubmit, false);
-    if (r.data.error === 'invalid_url') setFieldError(el.onlineSite, true, r.data.message);
-    else if (/^email_/.test(r.data.error || '')) setFieldError(el.onlineEmail, true, r.data.message);
-    else { el.onlineAlert.textContent = r.data.message || 'We could not send your request. Try again.'; el.onlineAlert.hidden = false; }
+    if (r.data.error === 'invalid_url') setFieldError(el.onlineSite, true, errText(r.data));
+    else if (/^email_/.test(r.data.error || '')) setFieldError(el.onlineEmail, true, errText(r.data));
+    else { el.onlineAlert.textContent = errText(r.data, 'err.send'); el.onlineAlert.hidden = false; }
     return;
   }
   goThanks({ kind: 'online', event_id: r.data.event_id, due_at: r.data.due_at, email: email, website: site });
@@ -552,21 +571,21 @@ function renderFinal(s) {
 
   el.competitors.textContent = '';
   s.competitors.forEach(function (c) {
-    el.competitors.appendChild(h('li', {}, [h('b', { text: c.name }), h('span', { text: c.label })]));
+    el.competitors.appendChild(h('li', {}, [h('b', { text: c.name }), h('span', { text: t(s.total === 1 ? 'comp.one' : 'comp.many', { count: c.count, total: s.total }) })]));
   });
-  if (!s.competitors.length) el.competitors.appendChild(h('li', {}, [h('span', { text: 'ChatGPT named no other businesses.' })]));
+  if (!s.competitors.length) el.competitors.appendChild(h('li', {}, [h('span', { text: t('final.no_comp') })]));
   el.sources.textContent = '';
   s.sources.forEach(function (src) {
-    el.sources.appendChild(h('li', { class: src.is_client ? 'is-client' : '' }, [icon('globe'), h('b', { text: src.domain }), src.is_client ? h('span', { class: 'ac-src__you', text: 'your site' }) : null]));
+    el.sources.appendChild(h('li', { class: src.is_client ? 'is-client' : '' }, [icon('globe'), h('b', { text: src.domain }), src.is_client ? h('span', { class: 'ac-src__you', text: t('final.your_site') }) : null]));
   });
-  if (!s.sources.length) el.sources.appendChild(h('li', {}, [h('span', { text: 'No sources were cited.' })]));
+  if (!s.sources.length) el.sources.appendChild(h('li', {}, [h('span', { text: t('final.no_src') })]));
   el.teasers.hidden = false;
 
   el.legal.hidden = false;
-  el.legal.textContent = 'AI answers change from one question to the next. This check shows what ChatGPT answered on ' + fmtDate() + '.';
+  el.legal.textContent = t('final.legal', { date: fmtDate() });
   el.again.hidden = false;
 
-  el.offer.textContent = s.offer_title;
+  el.offer.textContent = t('offer.' + s.verdict);
   el.biz.textContent = bizName();
   el.audit.hidden = false;
 
@@ -605,7 +624,7 @@ function setupSticky() {
    are sent from that page, so they are not cut off by the navigation. */
 function goThanks(info) {
   try { sessionStorage.setItem('ac_thanks', JSON.stringify(info)); } catch (e) { /* the page still works without it */ }
-  location.assign('/ai-check/thank-you/');
+  location.assign(THANKS_PATHS[LANG]);
 }
 
 el.email.addEventListener('input', function () { setFieldError(el.email, false); });
@@ -613,7 +632,7 @@ el.auditForm.addEventListener('submit', async function (e) {
   e.preventDefault();
   var email = el.email.value.trim();
   if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,24}$/i.test(email)) {
-    setFieldError(el.email, true, 'Enter a valid email, e.g. name@yourbusiness.com');
+    setFieldError(el.email, true, t('err.email_format'));
     el.email.focus();
     return;
   }
@@ -626,11 +645,11 @@ el.auditForm.addEventListener('submit', async function (e) {
     business: S.business,
     result: { mentions_count: s.mentions_count, total: s.total, best_position: s.best_position, verdict: s.verdict },
     answers: Object.keys(S.answers).map(Number).sort().map(function (k) { return S.answers[k]; }).filter(function (a) { return a.ok && a.saved; }).map(function (a) { return a.saved; }),
-    attribution: track.attribution()
+    attribution: attribution()
   });
   if (!r.ok) {
     busy(el.auditSubmit, false);
-    setFieldError(el.email, true, r.data.message || 'We could not send your request. Try again.');
+    setFieldError(el.email, true, errText(r.data, 'err.send'));
     return;
   }
   goThanks({ kind: 'local', event_id: r.data.event_id, due_at: r.data.due_at, email: email, name: bizName(), website: S.website,

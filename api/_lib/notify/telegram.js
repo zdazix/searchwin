@@ -46,6 +46,7 @@ export async function sendTelegramLong(html) {
   return ok;
 }
 
+const LANG_LABEL = { en: 'английская (/ai-check/)', es: '🇪🇸 испанская (/es/ai-check/)' };
 const clip = (s, n) => { const t = String(s ?? ''); return t.length > n ? t.slice(0, n) + '…' : t; };
 const row = (label, value) => (value === null || value === undefined || value === '' ? '' : `${label}: ${escapeHtml(value)}\n`);
 
@@ -60,7 +61,7 @@ export function leadMessage(l) {
   let t = online ? '🆕 <b>Заявка: онлайн-бизнес</b> (не местный, проверка не запускалась)\n\n'
     : check ? '🔎 <b>Мини-проверка пройдена</b> (email не оставлен)\n\n'
     : '🆕 <b>Полный лид</b> (проверка пройдена, аудит запрошен)\n\n';
-  t += row('Сайт', l.site) + row('Email', l.email);
+  t += row('Сайт', l.site) + row('Email', l.email) + row('Язык страницы', LANG_LABEL[a.ui_lang]);
   if (!online) {
     t += row('Бизнес', b.name) + row('Услуга', b.service) + row('Место', place);
     if (l.result && l.result.total) {
@@ -96,7 +97,7 @@ export function startMessage({ site, status, business, a, userAgent }) {
   const b = business || {}, at = a || {};
   const place = [b.city, b.state, b.country && b.country !== 'US' ? b.country : null].filter(Boolean).join(', ');
   let t = '▶️ <b>Запущена проверка</b> (результат придёт отдельным сообщением, если человек дождётся ответов)\n\n';
-  t += row('Сайт', site) + row('Статус', START_STATUS[status] || status);
+  t += row('Сайт', site) + row('Язык страницы', LANG_LABEL[at.ui_lang]) + row('Статус', START_STATUS[status] || status);
   t += row('Бизнес', b.name) + row('Услуга', b.service) + row('Место', place);
   t += '\n<b>Источник</b>\n' + row('utm_source', at.utm_source) + row('utm_medium', at.utm_medium) + row('utm_campaign', at.utm_campaign) +
     row('utm_content', at.utm_content) + row('utm_term', at.utm_term) + row('gclid', at.gclid) + row('gbraid', at.gbraid) +

@@ -790,6 +790,128 @@
    "expect": {
     "found": false
    }
+  },
+  {
+   "fixture": "mejor-abogado-de-accidentes-en-madrid",
+   "client": {
+    "name": "Legalcar Abogados",
+    "domain": "legalcar.com",
+    "city": "Madrid"
+   },
+   "expect": {
+    "found": true,
+    "position": 1,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "mejor-abogado-de-accidentes-en-madrid",
+   "client": {
+    "name": "Accidentalia",
+    "domain": "accidentalia.es",
+    "city": "Madrid"
+   },
+   "expect": {
+    "found": true,
+    "position": 3,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "mejor-abogado-de-accidentes-en-madrid",
+   "client": {
+    "name": "Abogados Accidentes Madrid",
+    "domain": "abogadosaccidentesmadrid.es",
+    "city": "Madrid"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "a-quien-deberia-llamar-aire-acondicionado-cerca-de-valencia",
+   "client": {
+    "name": "Layre Climatización",
+    "domain": "layre.es",
+    "city": "Valencia"
+   },
+   "expect": {
+    "found": true,
+    "position": 2,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "a-quien-deberia-llamar-aire-acondicionado-cerca-de-valencia",
+   "client": {
+    "name": "Climatización Valencia",
+    "domain": "climatizacionvalencia.es",
+    "city": "Valencia"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "clinica-dental-mejor-valorada-en-sevilla",
+   "client": {
+    "name": "Clínica EMET S.L.",
+    "domain": "emet-demo.es",
+    "city": "Sevilla"
+   },
+   "expect": {
+    "found": true,
+    "position": 1,
+    "rule": "exact"
+   }
+  },
+  {
+   "fixture": "clinica-dental-mejor-valorada-en-sevilla",
+   "client": {
+    "name": "Clínica Dental Dobleese",
+    "domain": "dobleese-demo.es",
+    "city": "Sevilla"
+   },
+   "expect": {
+    "found": true,
+    "position": null,
+    "rule": "text"
+   }
+  },
+  {
+   "fixture": "clinica-dental-mejor-valorada-en-sevilla",
+   "client": {
+    "name": "Clínica Dental Sevilla",
+    "domain": "clinicadentalsevilla.es",
+    "city": "Sevilla"
+   },
+   "expect": {
+    "found": false
+   }
+  },
+  {
+   "fixture": "clinica-de-bienestar-mejor-valorada-en-barcelona",
+   "client": {
+    "name": "Holistic Barcelona",
+    "domain": "holisticbarcelona.com",
+    "city": "Barcelona"
+   },
+   "expect": {
+    "found": true,
+    "position": 2,
+    "rule": "domain"
+   }
+  },
+  {
+   "fixture": "clinica-de-bienestar-mejor-valorada-en-barcelona",
+   "client": {
+    "name": "Barcelona Wellness Clinic",
+    "domain": "barcelonawellnessclinic.es",
+    "city": "Barcelona"
+   },
+   "expect": {
+    "found": false
+   }
   }
  ]
 }

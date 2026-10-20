@@ -61,6 +61,8 @@ export function attributionFrom(body, request) {
     utm_content: pick('utm_content'), utm_term: pick('utm_term'),
     gclid: pick('gclid'), gbraid: pick('gbraid'), wbraid: pick('wbraid'), fbclid: pick('fbclid'),
     fbp: c._fbp || pick('fbp'), fbc: c._fbc || pick('fbc'),
-    landing_url: pick('landing_url', 1000), referrer: pick('referrer', 1000)
+    landing_url: pick('landing_url', 1000), referrer: pick('referrer', 1000),
+    // Which language page the visitor used (only the Spanish page says so); not stored, shown in Telegram.
+    ui_lang: pick('ui_lang', 5) === 'es' ? 'es' : 'en'
   };
 }

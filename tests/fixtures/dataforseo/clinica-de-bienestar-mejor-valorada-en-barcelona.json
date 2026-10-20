@@ -1,0 +1,175 @@
+{
+  "_note": "Real DataForSEO ChatGPT LLM Scraper response captured on 2026-10-20 through the DataForSEO connector (image blocks removed, nothing else changed).",
+  "_captured_at": "2026-10-20T00:00:00.000Z",
+  "_request": {
+    "keyword": "clínica de bienestar mejor valorada en Barcelona con buenas reseñas",
+    "location_name": "Spain",
+    "language_code": "es",
+    "force_web_search": true
+  },
+  "tasks": [
+    {
+      "status_code": 20000,
+      "result": [
+        {
+          "keyword": "clínica de bienestar mejor valorada en Barcelona con buenas reseñas",
+          "items": [
+            {
+              "type": "chat_gpt_text",
+              "markdown": "He buscado centros de bienestar y clínicas en Barcelona con buenas valoraciones y un número significativo de reseñas. Hay una diferencia importante: algunos se especializan en **salud integral y terapias**, mientras que otros se centran en **medicina estética o masajes y relajación**\\. La mejor opción depende de lo que quieras tratar.\n\n## Clínicas y centros de bienestar mejor valorados en Barcelona\n\n"
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## 1\\. Bwell Clinic Sarrià\n\n**5,0/5** \\(136 reseñas)\n\nSarrià–Sant Gervasi · Carrer del Dr. Roux, 123\n\nLa opción que priorizaría si buscas bienestar con una base sanitaria: fisioterapia, traumatología, osteopatía, nutrición y ejercicio supervisado.\n\nTel. 677 76 69 46\n\n---\n\n",
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "Bwell Clinic Sarrià",
+                  "category": "local_business",
+                  "markdown": "Bwell Clinic Sarrià"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## 2\\. Holistic Barcelona\n\n**5,0/5** \\(160 reseñas)\n\nEixample · Gran Via de les Corts Catalanes, 646\n\nPara quienes prefieren un enfoque holístico, con trabajo corporal, terapias integrativas y rituales de bienestar. Conviene consultar previamente qué terapia se adapta a tus necesidades.\n\n---\n\n",
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "Holistic Barcelona",
+                  "category": "local_business",
+                  "markdown": "Holistic Barcelona"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## 3\\. RegenElit Clinic\n\n**5,0/5** \\(187 reseñas)\n\nEixample · Rambla de Catalunya, 66, 2.º A\n\nCentro de medicina estética y bienestar integrativo. Interesante si buscas tratamientos centrados en la piel y servicios médico-estéticos; verifica las credenciales del profesional para el tratamiento concreto.\n\nTel. 600 69 31 65\n\n---\n\n",
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "RegenElit Clinic",
+                  "category": "local_business",
+                  "markdown": "RegenElit Clinic"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## 4\\. Santé Aesthetic Clinic\n\n**4,9/5** \\(955 reseñas)\n\nEixample · Avenida Diagonal, 384\n\nUna alternativa con un volumen considerable de opiniones, especializada en medicina estética, tratamientos corporales, láser y servicios de bienestar.\n\nTel. 699 14 58 87\n\n---\n\n",
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "Santé Aesthetic Clinic",
+                  "category": "local_business",
+                  "markdown": "Santé Aesthetic Clinic"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## 5\\. Ocean Spa\n\n**4,9/5** \\(569 reseñas)\n\nEixample · Carrer de València, 469\n\nIdeal si por bienestar te refieres a masajes relajantes o terapéuticos y una experiencia tipo spa, más que a una consulta médica.\n\nTel. 937 14 82 74\n\nLas puntuaciones y el número de reseñas proceden de los resultados de búsqueda consultados en octubre de 2026 y pueden cambiar. Una puntuación alta no garantiza por sí sola la calidad clínica.\n\n## Ubicación de los centros\n",
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "Ocean Spa",
+                  "category": "local_business",
+                  "markdown": "Ocean Spa"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_local_businesses",
+              "items": [
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "Bwell Clinic Sarrià - Traumatología-Fisioterapia-Osteopatía-Nutrición- Embarazo Y Post Parto-Fisio Pediátrica-Entrenamiento",
+                  "description": "Wellness center",
+                  "address": "Carrer del Dr. Roux, 123, Sarrià-Sant Gervasi, 08017 Barcelona, Spain",
+                  "phone": "+34 677 76 69 46",
+                  "reviews_count": 136,
+                  "url": "http://www.bwellclinic.es/",
+                  "domain": "www.bwellclinic.es",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 5,
+                    "votes_count": 136,
+                    "rating_max": 5
+                  }
+                },
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "holistic barcelona",
+                  "description": "Wellness center",
+                  "address": "Gran Via de les Corts Catalanes, 646, Entresuelo 3, Eixample, 08007 Barcelona, Spain",
+                  "phone": "+34 626 08 92 42",
+                  "reviews_count": 160,
+                  "url": "https://www.holisticbarcelona.com/",
+                  "domain": "www.holisticbarcelona.com",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 5,
+                    "votes_count": 160,
+                    "rating_max": 5
+                  }
+                },
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "RegenElit Clinic",
+                  "description": "Medical Center",
+                  "address": "Rambla de Catalunya, 66, Piso 2 A, Eixample, 08007 Barcelona, Spain",
+                  "phone": "+34 600 69 31 65",
+                  "reviews_count": 187,
+                  "url": "https://regenelit.com/",
+                  "domain": "regenelit.com",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 5,
+                    "votes_count": 187,
+                    "rating_max": 5
+                  }
+                },
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "Santé Aesthetic Clinic",
+                  "description": "Specialized clinic",
+                  "address": "Av. Diagonal, 384, Eixample, Eixample, 08037 Barcelona, Spain",
+                  "phone": "+34 699 14 58 87",
+                  "reviews_count": 955,
+                  "url": "https://santeclinics.com/",
+                  "domain": "santeclinics.com",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 4.9,
+                    "votes_count": 955,
+                    "rating_max": 5
+                  }
+                },
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "Ocean Spa",
+                  "description": "Massage spa",
+                  "address": "Carrer de València, 469, Eixample, 08013 Barcelona, Spain",
+                  "phone": "+34 937 14 82 74",
+                  "reviews_count": 569,
+                  "url": "https://oceanspa.es/",
+                  "domain": "oceanspa.es",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 4.9,
+                    "votes_count": 569,
+                    "rating_max": 5
+                  }
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## Mi recomendación\n\n- **Para salud integral, fisioterapia y nutrición\\:** Bwell Clinic Sarrià.\n- **Para terapias holísticas\\:** Holistic Barcelona.\n- **Para medicina estética\\:** RegenElit Clinic o Santé Aesthetic Clinic.\n- **Para relajarte con masajes\\:** Ocean Spa.\n\nPara afinar la búsqueda y encontrar la mejor opción para ti, **¿qué tipo de bienestar estás buscando?**\n\n1\\. ¿Qué servicio necesitas?\n\nSalud integral y prevención\n\nMedicina funcional o regenerativa\n\nMedicina estética y antienvejecimiento\n\nNutrición y control de peso\n\nFisioterapia y dolor corporal\n\nMasajes, estrés y relajación\n\n---\n\n2\\. ¿En qué zona?\n\nToda Barcelona\n\nEixample y centro\n\nSarrià–Sant Gervasi\n\nGràcia\n\n---\n\n3\\. Presupuesto aproximado por visita\n\nMenos de 60 €\n\n60–120 €\n\nMás de 120 €\n\nFlexible; priorizo calidad\n\n[Encontrar la mejor para mí]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

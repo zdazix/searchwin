@@ -53,6 +53,14 @@ const DEMO_SITES = {
     name: 'Schwalm Heizung & Sanitär GmbH', service: 'klempner', city: 'Berlin', state: null, country: 'DE', language: 'de',
     questions: ['Wer ist der beste Klempner in Berlin?', 'Wen soll ich für einen Klempner in Berlin anrufen? Ich brauche jemanden Zuverlässigen', 'Bestbewertete Klempner in Berlin mit guten Bewertungen']
   },
+  'legalcar.com': {
+    name: 'Legalcar Abogados', service: 'abogado de accidentes', city: 'Madrid', state: null, country: 'ES', language: 'es',
+    questions: ['mejor abogado de accidentes en Madrid', '¿a quién debería llamar para un abogado de accidentes cerca de Madrid? Necesito a alguien de confianza', 'abogado de accidentes mejor valorado en Madrid con buenas reseñas']
+  },
+  'madrid-demo.es': {
+    name: 'Abogados Ejemplo Madrid', service: 'abogado de accidentes', city: 'Madrid', state: null, country: 'ES', language: 'es',
+    questions: ['mejor abogado de accidentes en Madrid', '¿a quién debería llamar para un abogado de accidentes cerca de Madrid? Necesito a alguien de confianza', 'abogado de accidentes mejor valorado en Madrid con buenas reseñas']
+  },
   'moscow-demo.ru': { name: 'Moskva Santekhnika', service: 'plumber', city: 'Moscow', state: null, country: 'RU' }
 };
 const { deps } = await import(pathToFileURL(path.join(root, 'api/_lib/ai-check/deps.js')).href);
@@ -73,9 +81,11 @@ globalThis.fetch = async (input, init = {}) => {
   const auth = Buffer.from(String(init.headers?.authorization || '').replace('Basic ', ''), 'base64').toString();
   await new Promise((r) => setTimeout(r, Number(process.env.DEV_DFS_DELAY_MS || 4000) * (0.6 + Math.random() * 0.8)));
   if (auth !== 'dev:dev') return new Response(JSON.stringify({ status_code: 40100, status_message: 'You are not authorized to access this resource.' }), { status: 401 });
-  const [{ keyword }] = JSON.parse(init.body);
-  const city = (keyword.match(/(?:in|near)\s+([A-Z][\p{L}]+(?: [A-Z][\p{L}]+)?)/u) || [])[1] || '';
-  const fx = fixtures.find((f) => city && f._request.keyword.includes(city)) || fixtures[0];
+  const [{ keyword, language_code: lang }] = JSON.parse(init.body);
+  const city = (keyword.match(/(?:in|near|en|cerca de)\s+(\p{Lu}[\p{L}]+)/u) || [])[1] || '';
+  // The recorded answers of the question's language; the one for the same city if there is one.
+  const pool = fixtures.filter((f) => f._request.language_code === lang);
+  const fx = (city && (pool.find((f) => f._request.keyword.includes(city)) || fixtures.find((f) => f._request.keyword.includes(city)))) || pool[0] || fixtures[0];
   const result = { ...fx.tasks[0].result[0], keyword, model: 'recorded-fixture', datetime: fx._captured_at };
   return new Response(JSON.stringify({ status_code: 20000, cost: 0.004, tasks: [{ status_code: 20000, status_message: 'Ok.', cost: 0.004, result: [result] }] }), { status: 200 });
 };

@@ -29,6 +29,7 @@ export const DEFAULT_SETTINGS = {
     'yellowpages.ca', 'homestars.com', 'yellowpages.com.au', 'hipages.com.au', 'oneflare.com.au', 'truelocal.com.au', 'starworks.com.au', 'productreview.com.au',
     'gelbeseiten.de', '11880.com', 'werkenntdenbesten.de', 'jameda.de', 'profimap.de', 'trustlocal.de', 'sanitaerfinden.com', 'dasoertliche.de', 'myhammer.de', 'check24.de',
     'pagesjaunes.fr', 'doctolib.fr', 'travaux.com', 'habitatpresto.com', 'paginasamarillas.es', 'doctoralia.es', 'habitissimo.es', 'paginegialle.it', 'misterwhat.it',
+    'trustlocal.es', 'topdoctors.es', 'cylex.es', 'infoisinfo.es', 'milanuncios.com', 'treatwell.es', 'classpass.com', 'fresha.com', 'doctoralia.com.mx', 'tripadvisor.es', 'ranking.madrid', 'legalrank.es', 'rootcostdental.com',
     'goudengids.nl', 'zoofy.nl', 'olx.pl', 'pkt.pl', 'oferteo.pl', 'paginasamarelas.pt', 'olx.com.br', 'guiamais.com.br', 'mercadolibre.com'
   ],
   directory_names: [
@@ -37,7 +38,7 @@ export const DEFAULT_SETTINGS = {
     'best pick reports', 'consumeraffairs', 'consumer affairs', 'birdeye', 'trustanalytica', 'houzz', 'porch',
     'avvo', 'justia', 'findlaw', 'healthgrades', 'zocdoc', 'tripadvisor', 'reddit', 'linkedin', 'instagram',
     'trustpilot', 'yell', 'checkatrade', 'trustatrader', 'which trusted traders', 'rated people', 'mybuilder', 'homestars', 'hipages', 'oneflare',
-    'gelbeseiten', 'wer kennt den besten', 'jameda', 'profimap', 'pages jaunes', 'pagesjaunes', 'doctolib', 'paginas amarillas', 'pagine gialle'
+    'gelbeseiten', 'wer kennt den besten', 'jameda', 'profimap', 'pages jaunes', 'pagesjaunes', 'doctolib', 'paginas amarillas', 'pagine gialle', 'trustlocal', 'habitissimo', 'doctoralia', 'top doctors', 'cylex', 'milanuncios', 'treatwell', 'classpass', 'fresha', 'infoisinfo'
   ],
   // Words that say what a business does or what it is, not who it is. They never
   // count as the "rarest word" of a name, so "Austin Plumbing" can't match "Austin Plumbing Pros".
@@ -64,7 +65,15 @@ export const DEFAULT_SETTINGS = {
     'landscaping', 'landscape', 'lawn', 'tree', 'trees', 'garden', 'pool', 'pools', 'fence', 'fencing', 'concrete',
     'construction', 'contractor', 'contractors', 'contracting', 'builders', 'builder', 'remodeling', 'renovation',
     'painting', 'painters', 'painter', 'flooring', 'floors', 'kitchen', 'bath', 'cabinets', 'moving', 'movers',
-    'storage', 'insurance', 'agency', 'realty', 'real', 'estate', 'accounting', 'tax', 'cpa', 'consulting'
+    'storage', 'insurance', 'agency', 'realty', 'real', 'estate', 'accounting', 'tax', 'cpa', 'consulting',
+    // Spanish (accents are dropped by the name normaliser): articles, company forms and what a business does
+    'de', 'del', 'la', 'el', 'los', 'las', 'y', 'e', 'en', 'sl', 'slu', 'sa',
+    'servicio', 'servicios', 'empresa', 'empresas', 'centro', 'centros', 'instituto', 'grupo', 'despacho', 'despachos', 'bufete', 'estudio',
+    'abogado', 'abogados', 'letrado', 'letrados', 'accidente', 'accidentes', 'trafico', 'indemnizacion', 'indemnizaciones', 'lesion', 'lesiones',
+    'clinica', 'clinicas', 'dental', 'dentales', 'dentista', 'dentistas', 'odontologia', 'odontologo', 'bienestar', 'salud', 'medico', 'medica', 'medicina', 'estetica', 'fisioterapia', 'fisioterapeuta',
+    'fontanero', 'fontaneros', 'fontaneria', 'electricista', 'electricistas', 'electrico', 'climatizacion', 'aire', 'acondicionado', 'calefaccion', 'frio', 'calor',
+    'reforma', 'reformas', 'obra', 'obras', 'construccion', 'pintor', 'pintores', 'pintura', 'cerrajero', 'cerrajeros', 'cerrajeria', 'limpieza', 'mantenimiento', 'reparacion', 'reparaciones', 'instalacion', 'instalaciones',
+    'taller', 'talleres', 'mecanico', 'veterinario', 'veterinaria', 'peluqueria', 'mudanzas', 'transportes', 'asesoria', 'gestoria', 'inmobiliaria', 'seguros'
   ]
 };
 
@@ -88,6 +97,8 @@ export function env(name, fallback) {
 
 // Shown next to the email field; stored with every lead.
 export const CONSENT_VERSION = '2026-10-14';
+// The Spanish page shows its own consent text, so it is stored as its own version.
+export const consentVersion = (lang) => (lang === 'es' ? `${CONSENT_VERSION}-es` : CONSENT_VERSION);
 
 export const MESSAGES = {
   invalid_url: 'Enter your website, e.g. yourbusiness.com',

@@ -1,5 +1,7 @@
 /* Thank-you page after an audit request: the date, the booking calendar and the conversion events.
    The details come from the page the visitor just left (sessionStorage); without them the page still works. */
+import { LANG, t, fmtWhen } from './ai-check-i18n.js';
+
 (function () {
   'use strict';
 
@@ -10,15 +12,15 @@
 
   /* Text: the date and the business, written with textContent only */
   var due = info.due_at ? new Date(info.due_at) : new Date(Date.now() + 48 * 3600e3);
-  var when = due.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' });
+  var when = fmtWhen(due);
   var lead = $('[data-thanks-lead]');
   if (lead) {
     lead.textContent = '';
-    lead.appendChild(document.createTextNode("We'll email your AI visibility audit + 45-day roadmap" + (info.name ? ' for ' + info.name : '') + ' by '));
+    lead.appendChild(document.createTextNode(t('thanks.lead1') + (info.name ? t('thanks.for', { name: info.name }) : '') + t('thanks.by')));
     var b = document.createElement('b');
     b.textContent = when;
     lead.appendChild(b);
-    lead.appendChild(document.createTextNode('. Check your inbox (and the spam folder).'));
+    lead.appendChild(document.createTextNode(t('thanks.lead2')));
   }
 
   /* The conversion events go out here, once per request (acTrack remembers the event id) */
@@ -36,6 +38,8 @@
     if (u.protocol !== 'https:') return;
     // Google Calendar appointment pages take no prefill parameters; Calendly and Cal.com take the email.
     if (info.email && !/calendar\.google\.com$/.test(u.hostname) && !u.searchParams.has('email')) u.searchParams.set('email', info.email);
+    // Google's scheduling page follows the language of the page it is shown on.
+    if (/calendar\.google\.com$/.test(u.hostname) && LANG !== 'en' && !u.searchParams.has('hl')) u.searchParams.set('hl', LANG);
     if (/(^|\.)calendly\.com$/.test(u.hostname)) {
       u.searchParams.set('embed_domain', location.hostname);
       u.searchParams.set('embed_type', 'Inline');
@@ -43,7 +47,7 @@
     }
     var frame = document.createElement('iframe');
     frame.src = u.href;
-    frame.title = 'Book a free call';
+    frame.title = t('thanks.frame');
     frame.loading = 'lazy';
     frame.setAttribute('allow', 'payment');
     box.textContent = '';

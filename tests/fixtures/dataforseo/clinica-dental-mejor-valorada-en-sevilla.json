@@ -1,0 +1,192 @@
+{
+  "_note": "Real DataForSEO ChatGPT LLM Scraper response captured on 2026-10-20 through the DataForSEO connector (image blocks removed, nothing else changed).",
+  "_captured_at": "2026-10-20T00:00:00.000Z",
+  "_request": {
+    "keyword": "clínica dental mejor valorada en Sevilla con buenas reseñas",
+    "location_name": "Spain",
+    "language_code": "es",
+    "force_web_search": true
+  },
+  "tasks": [
+    {
+      "status_code": 20000,
+      "result": [
+        {
+          "keyword": "clínica dental mejor valorada en Sevilla con buenas reseñas",
+          "items": [
+            {
+              "type": "chat_gpt_text",
+              "markdown": "He buscado clínicas dentales de Sevilla comparando las valoraciones de los pacientes y el número de reseñas. Para elegir una buena opción, me fijaría especialmente en las que mantienen una nota de 4,9–5,0 sobre 5 con cientos de opiniones, en lugar de guiarme solo por una puntuación perfecta.\n\nSegún los rankings y directorios consultados en octubre de 2026, estas son algunas de las clínicas que más destacan. [xn--andaluca-i2a.org](https://xn--andaluca-i2a.org/sevilla/salud/dentistas/?utm_source=chatgpt.com)[xn--andaluca-i2a.org](https://xn--andaluca-i2a.org/sevilla/mejores/dentistas/?utm_source=chatgpt.com)[rootcostdental.com](https://rootcostdental.com/ranking-clinicas-dentales/sevilla?utm_source=chatgpt.com)\n\n## Las clínicas dentales que te recomiendo mirar\n\n",
+              "sources": [
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Dentistas en Sevilla: las 138 comprobadas",
+                  "domain": "xn--andaluca-i2a.org",
+                  "url": "https://xn--andaluca-i2a.org/sevilla/salud/dentistas/?utm_source=chatgpt.com",
+                  "source_name": "andalucía.org"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Mejores dentistas de Sevilla, con su porqué",
+                  "domain": "xn--andaluca-i2a.org",
+                  "url": "https://xn--andaluca-i2a.org/sevilla/mejores/dentistas/?utm_source=chatgpt.com",
+                  "source_name": "andalucía.org"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Las 10 clínicas dentales mejor valoradas de Sevilla (2026)",
+                  "domain": "rootcostdental.com",
+                  "url": "https://rootcostdental.com/ranking-clinicas-dentales/sevilla?utm_source=chatgpt.com",
+                  "source_name": "Rootcost Dental",
+                  "publication_date": "2026-09-14 00:00:00 +00:00"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## 1\\. Clínica Dental Dobleese\n\n(Mi primera opción para comparar)\n\n5,0/5 · más de 1.300 reseñas según el ranking consultado\n\nDestaca por la gran cantidad de opiniones positivas. Es una buena candidata para empezar a comparar si buscas odontología general o tratamientos estéticos.\n\nZona: Triana, calle Farmacéutico Murillo Herrera, 3.\n\n[Ver ranking y datos](https://rootcostdental.com/ranking-clinicas-dentales/sevilla)\n\n---\n\n",
+              "sources": [
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Ver ranking y datos",
+                  "domain": "rootcostdental.com",
+                  "url": "https://rootcostdental.com/ranking-clinicas-dentales/sevilla",
+                  "markdown": "[Ver ranking y datos](https://rootcostdental.com/ranking-clinicas-dentales/sevilla)"
+                }
+              ],
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "Clínica Dental Dobleese",
+                  "category": "local_business",
+                  "markdown": "Clínica Dental Dobleese"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## 2\\. Clínica EMET S.L\n\n5,0/5 · más de 1.000 reseñas\n\nUna opción especialmente interesante si te viene bien Triana. Ofrece tratamientos odontológicos generales y restauradores.\n\nDirección: Pelay Correa, 83, 41010 Sevilla, Spain\n\nTel.\n\n---\n\n",
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "Clínica EMET S.L",
+                  "category": "local_business",
+                  "markdown": "Clínica EMET S.L"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## 3\\. Instituto Dental Lebrón\n\n5,0/5 · más de 400 reseñas\n\nAlternativa a considerar si buscas una clínica con servicios de odontología general y estética dental.\n\nDirección: Av. de Kansas City, 32, 41007 Sevilla, Spain\n\nTel.\n\n---\n\n",
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "Instituto Dental Lebrón",
+                  "category": "local_business",
+                  "markdown": "Instituto Dental Lebrón"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## 4\\. Clinica Dental Manosalbas\n\n5,0/5 · más de 300 reseñas\n\nPuede encajar si vives en Sevilla Este y buscas una clínica con servicios de ortodoncia, endodoncia e implantología.\n\nDirección: Av. del Deporte, 14, Local 3, 41020 Sevilla, Spain\n\nTel.\n\n---\n\n",
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "Clinica Dental Manosalbas",
+                  "category": "local_business",
+                  "markdown": "Clinica Dental Manosalbas"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## 5\\. Julián Saiz Clínica Dental\n\n4,9/5 · cerca de 600 reseñas\n\nUna alternativa sólida en la zona de Nervión, con servicios que incluyen ortodoncia, periodoncia, cirugía oral y odontología infantil.\n\nDirección: Av. de la Buhaira, 10, 41018 Sevilla, Spain\n\nTel.\n\n## Localiza las clínicas en el mapa\n",
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "Julián Saiz Clínica Dental",
+                  "category": "local_business",
+                  "markdown": "Julián Saiz Clínica Dental"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_local_businesses",
+              "items": [
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "Clínica EMET S.L",
+                  "description": "Dental clinic",
+                  "address": "Pelay Correa, 83, 41010 Sevilla, Spain",
+                  "phone": "+34 955 38 96 14",
+                  "reviews_count": 1060,
+                  "url": "https://www.clinicaemet.com/contacto/",
+                  "domain": "www.clinicaemet.com",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 5,
+                    "votes_count": 1060,
+                    "rating_max": 5
+                  }
+                },
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "Instituto Dental Lebrón",
+                  "description": "Dental clinic",
+                  "address": "Av. de Kansas City, 32, 41007 Sevilla, Spain",
+                  "phone": "+34 692 71 84 55",
+                  "reviews_count": 414,
+                  "url": "https://institutodentallebron.com/",
+                  "domain": "institutodentallebron.com",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 5,
+                    "votes_count": 414,
+                    "rating_max": 5
+                  }
+                },
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "Clinica Dental Manosalbas",
+                  "description": "Dental clinic",
+                  "address": "Av. del Deporte, 14, Local 3, 41020 Sevilla, Spain",
+                  "phone": "+34 628 19 97 38",
+                  "reviews_count": 327,
+                  "url": "http://www.clinicadental-manosalbas.com/",
+                  "domain": "www.clinicadental-manosalbas.com",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 5,
+                    "votes_count": 327,
+                    "rating_max": 5
+                  }
+                },
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "Julián Saiz Clínica Dental",
+                  "description": "Dentist",
+                  "address": "Av. de la Buhaira, 10, 41018 Sevilla, Spain",
+                  "phone": "+34 954 53 35 94",
+                  "reviews_count": 587,
+                  "url": "https://clinicajuliansaiz.com/dentista-sevilla/",
+                  "domain": "clinicajuliansaiz.com",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 4.9,
+                    "votes_count": 587,
+                    "rating_max": 5
+                  }
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## ¿Cuál elegiría?\n\n- **Para empezar por las reseñas\\:** Clínica Dental Dobleese, por su combinación de puntuación perfecta y gran volumen de opiniones.\n- **Para Triana\\:** Clínica Dental EMET.\n- **Para Sevilla Este\\:** Clínica Dental Manosalbas.\n- **Para Nervión\\:** Julián Saiz Clínica Dental.\n\nLas puntuaciones y el número de reseñas pueden variar. Antes de contratar un tratamiento costoso, pediría un presupuesto desglosado y una explicación de las alternativas, especialmente en implantes, ortodoncia o estética dental.\n\n**Para afinar la recomendación\\:** ¿qué tratamiento necesitas: una revisión o limpieza, un empaste, implantes, ortodoncia o estética dental? Con eso puedo priorizar las clínicas más adecuadas para tu caso."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

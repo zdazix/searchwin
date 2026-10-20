@@ -1,0 +1,128 @@
+{
+  "_note": "Real DataForSEO ChatGPT LLM Scraper response captured on 2026-10-20 through the DataForSEO connector (image blocks removed, nothing else changed).",
+  "_captured_at": "2026-10-20T00:00:00.000Z",
+  "_request": {
+    "keyword": "¿a quién debería llamar para un técnico de aire acondicionado cerca de Valencia? Necesito a alguien de confianza",
+    "location_name": "Spain",
+    "language_code": "es",
+    "force_web_search": true
+  },
+  "tasks": [
+    {
+      "status_code": 20000,
+      "result": [
+        {
+          "keyword": "¿a quién debería llamar para un técnico de aire acondicionado cerca de Valencia? Necesito a alguien de confianza",
+          "items": [
+            {
+              "type": "chat_gpt_text",
+              "markdown": "Si buscas un técnico de aire acondicionado de confianza en Valencia, yo priorizaría una empresa con buenas valoraciones, experiencia en reparación y un presupuesto claro antes de empezar a trabajar. He encontrado varias opciones con buenas referencias públicas en Valencia y alrededores.\n\n## Mis recomendaciones\n\n"
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## 1\\. Climatron\n\n4,9/5 · 420 reseñas\n\nBurjassot · C/ de Manuel Dualde, 1A\n\nUna de mis primeras opciones por su volumen de reseñas y su especialización en reparación, instalación y mantenimiento.\n\nTel. 669 77 77 50\n\n---\n\n",
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "Climatron",
+                  "category": "local_business",
+                  "markdown": "Climatron"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## 2\\. Layre Climatización\n\n4,9/5 · 214 reseñas\n\nRascaña, Valencia · C/ de Motilla del Palancar, 4\n\nBuena alternativa si necesitas reparar un aparato existente o realizar mantenimiento. También trabaja con sistemas de ventilación y climatización.\n\nTel. 688 91 93 23\n\n---\n\n",
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "Layre Climatización",
+                  "category": "local_business",
+                  "markdown": "Layre Climatización"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## 3\\. Aire Clim\n\n4,8/5 · 189 reseñas\n\nQuatre Carreres · C/ de Bèrnia, 13\n\nInteresante para averías domésticas, mantenimiento e instalaciones. Las opiniones publicadas destacan la rapidez y el cuidado en los acabados.\n\nTel. 691 25 75 47\n\nWeb: [aireclim.com](https://aireclim.com/)\n\n",
+              "sources": [
+                {
+                  "type": "chat_gpt_source",
+                  "title": "aireclim.com",
+                  "domain": "aireclim.com",
+                  "url": "https://aireclim.com/",
+                  "markdown": "[aireclim.com](https://aireclim.com/)"
+                }
+              ],
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "Aire Clim",
+                  "category": "local_business",
+                  "markdown": "Aire Clim"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_local_businesses",
+              "items": [
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "Climatron",
+                  "description": "Air conditioning contractor",
+                  "address": "C/ de Manuel Dualde, 1A, bajo, 46100 Burjassot, Valencia, Spain",
+                  "phone": "+34 669 77 77 50",
+                  "reviews_count": 420,
+                  "url": "https://climatron.net/",
+                  "domain": "climatron.net",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 4.9,
+                    "votes_count": 420,
+                    "rating_max": 5
+                  }
+                },
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "Layre",
+                  "description": "Air conditioning repair service",
+                  "address": "Carrer de Motilla del Palancar, 4, bajo, Rascaña, 46019 València, Valencia, Spain",
+                  "phone": "+34 688 91 93 23",
+                  "reviews_count": 214,
+                  "url": "http://www.layre.es/",
+                  "domain": "www.layre.es",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 4.9,
+                    "votes_count": 214,
+                    "rating_max": 5
+                  }
+                },
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "Aire Clim",
+                  "description": "Air conditioning contractor",
+                  "address": "C. de Bèrnia, 13, Quatre Carreres, 46013 València, Valencia, Spain",
+                  "phone": "+34 691 25 75 47",
+                  "reviews_count": 189,
+                  "url": "https://aireclim.com/",
+                  "domain": "aireclim.com",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 4.8,
+                    "votes_count": 189,
+                    "rating_max": 5
+                  }
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\nLas valoraciones son una buena primera señal, pero no garantizan por sí solas la calidad del trabajo. Para evitar sorpresas, pregunta por el coste del desplazamiento, el diagnóstico, la garantía de reparación y si te entregan presupuesto antes de cambiar piezas.\n\n## Te ayudo a elegir el más adecuado\n\nUna pregunta importante: **¿en qué localidad estás exactamente?** ¿Valencia capital o algún pueblo cercano, como Paterna, Torrent, Burjassot, Mislata o Sagunto?\n\nCon eso puedo afinar la búsqueda y recomendarte opciones que realmente te queden cerca. También dime si el aire acondicionado **no enfría, pierde agua, no enciende o necesita instalación**, para priorizar al técnico adecuado."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

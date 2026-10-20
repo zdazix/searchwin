@@ -164,6 +164,7 @@ SaaS (`/saas/`):
 - **Запуск проверки тоже приходит в Telegram** («▶️ Запущена проверка»): сайт, что определили (бизнес, услуга, место), статус (ждём ответы / просим уточнить данные / сайт не местный / страна не поддерживается) и метки рекламы. Сообщение одно на проверку: повторные вызовы после уточнения полей или «Try again» не дублируются. Так видны и те, кто закрыл вкладку, не дождавшись ответов. В базу это не пишется.
 - **Каждая завершённая проверка сохраняется и уходит в Telegram, даже без email.** Страница вызывает `POST /api/ai-check/report`: строка в таблице `checks` (сайт, бизнес, итог, подписанные ответы, метки рекламы), сообщение «Мини-проверка пройдена (email не оставлен)». Принимаются только ответы, подписанные сервером; одна и та же проверка сохраняется один раз. Миграция `db/migrations/004_checks.sql`.
 - **Ответы сохраняются с заявкой** (`leads.answers`, массив до 3 объектов): `idx`, `prompt` (точный keyword), `location_code`, `language_code`, `checked_at` (UTC), `answer_text` (полный ответ, markdown), `sources` (все URL: цитаты и ссылки из текста). Каждый ответ подписан сервером (HMAC, `CHECK_TICKET_SECRET`) при получении от DataForSEO, а `/audit` сохраняет только ответы с верной подписью: правки в браузере отбрасываются. `service` и `city` сохраняются так, как были использованы в вопросах. Миграция: `db/migrations/003_leads_answers.sql`.
+- **Испанская версия** `/es/ai-check/` и `/es/ai-check/thank-you/`. Тот же код: `assets/js/ai-check.js` читает язык из `<html lang>`, тексты, которые подставляют скрипты (ошибки, статусы, вердикты, даты, страны через `Intl.DisplayNames`), лежат в `assets/js/ai-check-i18n.js` (en/es), статичные тексты — в двух HTML-файлах. Серверные коды ошибок на странице заменяются текстом на её языке. Вопросы к ChatGPT пишутся на языке сайта клиента (Gemini), поэтому испанский сайт получает испанские вопросы и ответы из Испании (`location_code` 2724, `language_code` `es`); примеры на странице — три реальных испанских ответа (Мадрид, Валенсия, Севилья), записанные через DataForSEO. Страница передаёт `ui_lang` вместе с метками: в Telegram приходит строка «Язык страницы», а согласие в `leads.consent_text_version` пишется как `2026-10-14-es` (миграции не нужны). Privacy и Terms остались английскими, на испанской странице рядом стоит пометка «(en inglés)» ⚠️ для испанских посетителей (GDPR/LSSI) юрист должен посмотреть и перевести их. Добавить язык: словарь в i18n.js, две страницы и ссылка-переключатель; тест `tests/i18n.test.js` следит, чтобы ключи, хуки скрипта и структура страниц совпадали.
 - Защита: только Turnstile. Лимитов по IP и дневного бюджета в коде нет — следите за расходом в кабинете DataForSEO (там можно поставить лимит) и в Google AI Studio / Google Cloud.
 
 **Распознавание** (`api/_lib/ai-check/match.js`) идёт по правилам ТЗ: домен → точное имя → похожее имя (token set ≥ 0,9 плюс совпадение самого длинного значимого слова, без слов-услуг и города) → имя в тексте ответа. Список бизнесов берётся из блока локальных компаний ответа ChatGPT, а если его нет, из `brand_entities` без каталогов. Шаблоны вопросов и списки исключений лежат в `api/_lib/config.js`.
@@ -173,6 +174,7 @@ SaaS (`/saas/`):
 | Где | Что |
 |---|---|
 | `ai-check/index.html`, `assets/js/ai-check.js`, `assets/css/ai-check.css` | страница: экраны 1–4, все состояния, закреплённая кнопка на телефоне |
+| `es/ai-check/index.html`, `es/ai-check/thank-you/index.html`, `assets/js/ai-check-i18n.js` | испанская версия и словарь en/es для текстов из скриптов |
 | `assets/js/ai-check-core.js` | итог по ответам (вердикт, конкуренты, источники); общий для страницы и сервера |
 | `assets/js/ai-check-tracking.js` | cookie `sw_attr` (UTM и click ID, 90 дней), Meta Pixel, gtag (Google Ads + GA4) |
 | `api/ai-check/parse.js`, `ask.js`, `audit.js`, `config.js` | четыре функции Vercel |
@@ -180,7 +182,7 @@ SaaS (`/saas/`):
 | `db/migrations/001_leads.sql`, `002_leads_kind.sql`, `003_leads_answers.sql`, `004_checks.sql` | таблица `leads`; вторая миграция добавляет `kind` и `country`, третья колонку `answers` (jsonb), четвёртая таблицу `checks` для проверок без email |
 | `db/drop-old-stage1.sql` | только если вы уже запускали первую версию миграции (`001_ai_check.sql`) |
 | `privacy/`, `terms/` | черновики Privacy Policy и Terms ⚠️ показать юристу, вписать штат в Terms |
-| `tests/` | тесты и 12 реальных ответов ChatGPT (DataForSEO) в `tests/fixtures/dataforseo` |
+| `tests/` | тесты и 21 реальный ответ ChatGPT (DataForSEO, 4 из них на испанском) в `tests/fixtures/dataforseo` |
 
 ### Настройка (один раз)
 
@@ -202,7 +204,7 @@ npm test          # юнит- и интеграционные тесты (Node t
 npm run dev       # весь сайт и функции на http://localhost:8787, заявки — на /__dev/leads
 ```
 
-`npm run dev` работает без ключей: база в памяти; DataForSEO отвечает записанными реальными ответами из `tests/fixtures/dataforseo`; вместо Gemini для демо-доменов (`ironcladtexas.com`, `giannielectrical.net`, `brightline-demo.com`, `dovelewis.org`, `nocity-demo.com`, `saas-demo.com`, `toronto-demo.ca`) отдаются готовые данные, любой другой домен ведёт себя как нечитаемый сайт. Подмена есть только в `scripts/dev-server.mjs` и тестах; в рабочем коде режима заглушек нет. Новые реальные ответы для тестов можно записать с вашими ключами: `node scripts/record-fixture.mjs "best plumber in Austin, TX"`.
+`npm run dev` работает без ключей: база в памяти; DataForSEO отвечает записанными реальными ответами из `tests/fixtures/dataforseo`; вместо Gemini для демо-доменов (`ironcladtexas.com`, `giannielectrical.net`, `brightline-demo.com`, `dovelewis.org`, `nocity-demo.com`, `saas-demo.com`, `toronto-demo.ca`; для испанской страницы `legalcar.com` (найден на 1 месте) и `madrid-demo.es` (не найден)) отдаются готовые данные, любой другой домен ведёт себя как нечитаемый сайт. Подмена есть только в `scripts/dev-server.mjs` и тестах; в рабочем коде режима заглушек нет. Новые реальные ответы для тестов можно записать с вашими ключами: `node scripts/record-fixture.mjs "best plumber in Austin, TX"`.
 
 ## Стек и лицензии
 

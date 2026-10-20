@@ -15,7 +15,7 @@ export function hostMatches(host, domain) {
   return host === domain || host.endsWith('.' + domain);
 }
 
-const NAME_TAILS = new Set(['llc', 'inc', 'co', 'corp', 'company', 'the', 'ltd', 'limited', 'plc', 'gmbh', 'pty', 'llp', 'sarl', 'srl']);
+const NAME_TAILS = new Set(['llc', 'inc', 'co', 'corp', 'company', 'the', 'ltd', 'limited', 'plc', 'gmbh', 'pty', 'llp', 'sarl', 'srl', 'sl', 'slu', 'sa']);
 
 /**
  * Business name normalisation from the spec: lower case → & to "and" → no punctuation →

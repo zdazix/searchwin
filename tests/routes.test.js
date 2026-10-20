@@ -41,7 +41,7 @@ globalThis.fetch = async (input, init = {}) => {
   dfsBodies.push(JSON.parse(init.body)[0]);
   const auth = Buffer.from(String(init.headers.authorization).replace('Basic ', ''), 'base64').toString();
   if (auth !== 'test:good') return new Response(JSON.stringify({ status_code: 40100, status_message: 'You are not authorized to access this resource.' }), { status: 401 });
-  const city = ['Berlin', 'Manchester', 'Sydney'].find((c) => keyword.includes(c)) || 'Austin';
+  const city = ['Berlin', 'Manchester', 'Sydney', 'Madrid'].find((c) => keyword.includes(c)) || 'Austin';
   const fx = fixtures.find((f) => f._request.keyword.includes(city));
   return new Response(JSON.stringify({ status_code: 20000, tasks: [{ status_code: 20000, cost: 0.004, result: [fx.tasks[0].result[0]] }] }));
 };
@@ -56,6 +56,14 @@ const SITES = {
   'nocountry.com': { name: 'Roam Plumbing', service: 'plumber', city: 'Dallas', state: 'TX', country: null },
   'manchester-demo.co.uk': { name: 'Nelson Plumbing & Heating Ltd', service: 'plumber', city: 'Manchester', state: null, country: 'GB' },
   'sydney-demo.com.au': { name: 'Scott Electrics', service: 'electrician', city: 'Sydney', state: 'NSW', country: 'AU' },
+  'legalcar.com': {
+    name: 'Legalcar Abogados', service: 'abogado de accidentes', city: 'Madrid', state: null, country: 'ES', language: 'es',
+    questions: ['mejor abogado de accidentes en Madrid', '¿a quién debería llamar para un abogado de accidentes cerca de Madrid? Necesito a alguien de confianza', 'abogado de accidentes mejor valorado en Madrid con buenas reseñas']
+  },
+  'madrid-demo.es': {
+    name: 'Abogados Ejemplo Madrid', service: 'abogado de accidentes', city: 'Madrid', state: null, country: 'ES', language: 'es',
+    questions: ['mejor abogado de accidentes en Madrid', '¿a quién debería llamar para un abogado de accidentes cerca de Madrid? Necesito a alguien de confianza', 'abogado de accidentes mejor valorado en Madrid con buenas reseñas']
+  },
   'berlin-demo.de': {
     name: 'Schwalm Heizung & Sanitär GmbH', service: 'klempner', city: 'Berlin', state: null, country: 'DE', language: 'de',
     questions: ['Wer ist der beste Klempner in Berlin?', 'Wen soll ich für einen Klempner in Berlin anrufen? Ich brauche jemanden Zuverlässigen', 'Bestbewertete Klempner in Berlin mit guten Bewertungen']
@@ -223,6 +231,24 @@ test('Germany: questions in German, German location and language, found by domai
   assert.deepEqual([a.body.saved.location_code, a.body.saved.language_code, a.body.saved.prompt], [2276, 'de', 'Wer ist der beste Klempner in Berlin?']);
 });
 
+test('Spain: questions in Spanish, Spanish location and language, found by domain with a Spanish answer', async () => {
+  const p = await post(parseRoute, { website: 'legalcar.com', turnstile_token: 'x' });
+  assert.equal(p.body.status, 'ready');
+  assert.equal(p.body.business.language, 'es');
+  assert.equal(p.body.prompts[0], 'mejor abogado de accidentes en Madrid');
+  const a = await post(askRoute, { ticket: p.body.ticket, idx: 1 });
+  assert.equal(a.status, 200);
+  assert.deepEqual([dfsBodies[0].keyword, dfsBodies[0].location_code, dfsBodies[0].language_code], ['mejor abogado de accidentes en Madrid', 2724, 'es']);
+  assert.equal(a.body.client.found, true);
+  assert.equal(a.body.client.position, 1);
+  assert.equal(a.body.businesses[0].name, 'Legalcar Abogados');
+  assert.ok(a.body.answer_html.includes('Especialización') && !/<script|<img/.test(a.body.answer_html));
+  const miss = await post(parseRoute, { website: 'madrid-demo.es', turnstile_token: 'x' });
+  const b = await post(askRoute, { ticket: miss.body.ticket, idx: 1 });
+  assert.equal(b.body.client.found, false);
+  assert.ok(b.body.businesses.length >= 3);
+});
+
 test('Australia: city only in the question, Sydney electrician found at its position', async () => {
   const p = await post(parseRoute, { website: 'sydney-demo.com.au', turnstile_token: 'x' });
   assert.equal(p.body.prompts[0], 'best electrician in Sydney');
@@ -327,6 +353,23 @@ test('Telegram gets the full lead: online (website, email, all marketing data) a
     const full = telegramSent.join('\n');
     for (const piece of ['Полный лид', 'Ironclad Plumbing', 'plumber', 'Austin, TX', 'Итог: 3 из 3', 'utm_source: google', 'gclid: G-1', 'Ответы ChatGPT', 'best plumber in Austin, TX', '2840 / en', 'ID заявки: ' + loc.body.lead_id]) assert.ok(full.includes(piece), piece);
     assert.ok(telegramSent.every((t) => t.length <= 4000));
+  } finally { delete process.env.TELEGRAM_BOT_TOKEN; delete process.env.TELEGRAM_CHAT_ID; }
+});
+
+test('the Spanish page is told apart: its own consent version, and Telegram names the language', async () => {
+  process.env.TELEGRAM_BOT_TOKEN = 't'; process.env.TELEGRAM_CHAT_ID = '1';
+  try {
+    telegramSent = [];
+    const es = await post(auditRoute, { kind: 'online', email: 'ana@tienda-demo.es', turnstile_token: 'x', website: 'tienda-demo.es', attribution: { ui_lang: 'es', landing_url: 'https://searchwin.ai/es/ai-check/' } });
+    assert.equal(es.status, 200);
+    await new Promise((r) => setTimeout(r, 50));
+    const msg = telegramSent.join('\n');
+    assert.ok(msg.includes('Язык страницы: 🇪🇸 испанская') && msg.includes('Версия согласия: 2026-10-14-es'), msg);
+    telegramSent = [];
+    await post(auditRoute, { kind: 'online', email: 'bob@tienda-demo.com', turnstile_token: 'x', website: 'tienda-demo.com', attribution: { ui_lang: 'fr' } });
+    await new Promise((r) => setTimeout(r, 50));
+    const en = telegramSent.join('\n');
+    assert.ok(en.includes('Язык страницы: английская') && /Версия согласия: 2026-10-14$/m.test(en), en);
   } finally { delete process.env.TELEGRAM_BOT_TOKEN; delete process.env.TELEGRAM_CHAT_ID; }
 });
 

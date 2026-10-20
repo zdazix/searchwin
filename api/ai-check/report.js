@@ -8,7 +8,7 @@
 
 import crypto from 'node:crypto';
 import { json, error, readJson, background, attributionFrom } from '../_lib/http.js';
-import { CONSENT_VERSION, MESSAGES, VERDICTS } from '../_lib/config.js';
+import { MESSAGES, VERDICTS } from '../_lib/config.js';
 import { normalizeWebsite, normalizeState, cleanRegion } from '../_lib/ai-check/normalize.js';
 import { countryByIso } from '../../assets/js/ai-check-countries.js';
 import { verifyAnswer } from '../_lib/ai-check/ticket.js';
