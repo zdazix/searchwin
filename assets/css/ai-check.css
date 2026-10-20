@@ -355,3 +355,58 @@ body > .ac-turnstile { position: fixed; left: 50%; bottom: 16px; z-index: 60; tr
   .ac-form__note { font-size: .75rem; gap: 4px 12px; }
   .ac-form__note svg { width: 13px; height: 13px; }
 }
+
+/* ---------- Result page: white cards like the form, black question, red "not mentioned", answer preview ---------- */
+.ac-recog, .ac-why, .ac-answer__note, .ac-state--partial {
+  border: 0;
+  background: #fff;
+  box-shadow: var(--shadow-card);
+}
+.ac-recog { padding: 14px 18px; color: var(--ink); }
+.ac-why { padding: 20px 22px; font-size: 1rem; line-height: 1.55; }
+.ac-why__title { font-size: 1.0625rem; font-weight: 700; }
+
+.ac-run .ui--light {
+  background: #fff;
+  box-shadow: var(--shadow-card);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.ac-run .ac-biz__item, .ac-run .ac-comp li, .ac-run .ac-src li { background: #fff; box-shadow: inset 0 0 0 1px rgba(26, 24, 19, .12); }
+.ac-run .ac-biz__item.is-client, .ac-run .ac-src li.is-client { background: var(--lime-tint); box-shadow: inset 0 0 0 1.5px var(--lime-2); }
+.ac-run .ui__title { font-size: 1.0625rem; font-weight: 700; }
+
+/* The question: black card, white text */
+.ac-answer .ui--dark { background: #000; box-shadow: 0 22px 44px -26px rgba(0, 0, 0, .7); }
+.ac-answer .ui--dark .ui__prompt { font-size: 1.1875rem; font-weight: 600; line-height: 1.3; color: #fff; }
+.ac-answer .ui--dark .ui__src { color: rgba(255, 255, 255, .6); }
+.ac-answer .ui--dark .ui__pill { background: #1c1c1c; color: #fff; }
+
+/* The verdict of each answer, on a colour background */
+.ac-answer__line { margin-top: 14px; padding: 12px 14px; border-radius: 12px; font-size: 1rem; }
+.ac-answer__line--miss { background: #FBDCD5; color: #9A2410; }
+.ac-answer__line--hit { background: #E4F6BC; color: #2F5707; }
+.ac-answer__line svg { width: 20px; height: 20px; }
+
+/* ChatGPT's own words: the start of the answer, fading out */
+.ac-preview { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(26, 24, 19, .12); }
+.ac-preview__label { margin-bottom: 8px; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+.ac-preview__body { position: relative; max-height: 11.5em; overflow: hidden; font-size: 1rem; line-height: 1.6; }
+.ac-preview:not(.is-open) .ac-preview__body {
+  -webkit-mask-image: linear-gradient(#000 35%, transparent 100%);
+  mask-image: linear-gradient(#000 35%, transparent 100%);
+}
+.ac-preview.is-open .ac-preview__body { max-height: none; overflow: visible; }
+.ac-preview__more { margin-top: 10px; padding: 0; border: 0; background: none; font: inherit; font-size: .9375rem; font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+
+/* Locked platforms: white cards too */
+.ac-lock { border: 0; background: #fff; box-shadow: var(--shadow-card); }
+.ac-lock:hover { background: #fff; transform: translateY(-1px); }
+.ac-lock--more { box-shadow: 0 0 0 3px var(--lime), var(--shadow-card); }
+.ac-lock__head { font-size: 1rem; }
+.ac-lock__head b { font-weight: 700; }
+
+/* The offer under the result: bigger */
+.ac-audit__offer { font-size: .9375rem; font-weight: 700; letter-spacing: .08em; }
+.ac-audit .h2 { max-width: 20ch; font-size: clamp(2rem, 1.15rem + 3.4vw, 3.5rem); line-height: 1.08; }
+.ac-audit__list { gap: 14px; font-size: 1.125rem; line-height: 1.5; }

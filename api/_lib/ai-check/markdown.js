@@ -27,7 +27,9 @@ const marked = new Marked({
     html({ text }) { return escapeHtml(String(text).replace(/<[^>]*>/g, '')); },
     image() { return ''; },
     checkbox() { return ''; },
-    link({ href, tokens }) {
+    link({ href, tokens, text }) {
+      // ChatGPT's citation chips ("www.site.com" as the link text) are dropped: the sources have their own block.
+      if (/^(https?:\/\/)?(www\.)?[a-z0-9-]+(\.[a-z0-9-]+)+(\/\S*)?$/i.test(String(text || '').trim())) return '';
       const inner = this.parser.parseInline(tokens);
       const safe = safeHref(href);
       return safe ? `<a href="${escapeHtml(safe)}" rel="nofollow noopener noreferrer" target="_blank">${inner}</a>` : inner;

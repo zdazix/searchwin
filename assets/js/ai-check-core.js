@@ -3,7 +3,7 @@
 // check record on the server. No dependencies, plain ES module.
 
 export const VERDICTS = {
-  not_recommended: { label: 'Not recommended', offer: 'Find out why ChatGPT skips you' },
+  not_recommended: { label: 'Not recommended', offer: 'Find out why AI results skip you' },
   sometimes: { label: 'Sometimes recommended', offer: 'Find out how to show up every time' },
   not_first: { label: 'Recommended, not first', offer: 'Find out how to become the first name' },
   top_pick: { label: 'Top pick', offer: 'Keep it: see where competitors are catching up' }

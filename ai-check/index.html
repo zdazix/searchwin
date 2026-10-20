@@ -69,7 +69,7 @@
           <p class="field__error" id="ac-website-error" data-error-for="website">Enter your website, e.g. yourbusiness.com</p>
         </div>
         <p class="ac-form__alert" data-ac-alert role="alert" hidden></p>
-        <p class="ac-form__note"><span><svg aria-hidden="true"><use href="#i-check-bold"></use></svg>Real ChatGPT answers</span><span><svg aria-hidden="true"><use href="#i-check-bold"></use></svg>No email needed</span><span><svg aria-hidden="true"><use href="#i-check-bold"></use></svg>Pure value in 60 sec</span></p>
+        <p class="ac-form__note"><span><svg aria-hidden="true"><use href="#i-check-bold"></use></svg>Real ChatGPT answers</span><span><svg aria-hidden="true"><use href="#i-check-bold"></use></svg>No email needed</span><span><svg aria-hidden="true"><use href="#i-check-bold"></use></svg>Pure value in 30 sec</span></p>
       </form>
       <p class="ac-form__online">Not a local business? <button class="ac-linkbtn" type="button" data-ac-online-open>Get an audit for your online business</button></p>
     </div>
@@ -133,13 +133,23 @@
       <div class="ac-answers" data-ac-answers></div>
 
       <div class="ac-locked" data-ac-locked hidden>
-        <button class="ac-lock" type="button" data-ac-to-audit>
-          <span class="ac-lock__head"><svg aria-hidden="true"><use href="#i-lock"></use></svg><b>Google AI Mode</b> — checked in your full audit</span>
-          <span class="ac-lock__sub">Google's AI answers show up right in regular search — where most of your customers look.</span>
+        <button class="ac-lock ac-lock--more" type="button" data-ac-to-audit>
+          <span class="ac-lock__head"><svg aria-hidden="true"><use href="#i-lock"></use></svg><b>ChatGPT</b> — 7 more questions in your full audit (10 in total)</span>
+          <span class="ac-lock__sub">You saw 3 of them. The full audit asks ChatGPT 10 real high-intent questions your customers ask.</span>
           <span class="ac-lock__blur" aria-hidden="true"><i></i><i></i><i></i></span>
         </button>
         <button class="ac-lock" type="button" data-ac-to-audit>
-          <span class="ac-lock__head"><svg aria-hidden="true"><use href="#i-lock"></use></svg><b>Gemini</b> — checked in your full audit</span>
+          <span class="ac-lock__head"><svg aria-hidden="true"><use href="#i-lock"></use></svg><b>Google AI Overviews</b> — 10 questions in your full audit</span>
+          <span class="ac-lock__sub">The AI summary at the very top of Google search, above the regular results.</span>
+          <span class="ac-lock__blur" aria-hidden="true"><i></i><i></i><i></i></span>
+        </button>
+        <button class="ac-lock" type="button" data-ac-to-audit>
+          <span class="ac-lock__head"><svg aria-hidden="true"><use href="#i-lock"></use></svg><b>Google AI Mode</b> — 10 questions in your full audit</span>
+          <span class="ac-lock__sub">Google's AI answers show up right in regular search, where most of your customers look.</span>
+          <span class="ac-lock__blur" aria-hidden="true"><i></i><i></i><i></i></span>
+        </button>
+        <button class="ac-lock" type="button" data-ac-to-audit>
+          <span class="ac-lock__head"><svg aria-hidden="true"><use href="#i-lock"></use></svg><b>Gemini</b> — 10 questions in your full audit</span>
           <span class="ac-lock__blur" aria-hidden="true"><i></i><i></i><i></i></span>
         </button>
       </div>
@@ -166,12 +176,12 @@
   <section class="ac-audit band band--dark" id="audit" data-ac-audit hidden aria-labelledby="ac-audit-title">
     <div class="container ac-audit__grid">
       <div class="ac-audit__copy">
-        <p class="eyebrow" data-ac-offer>Find out how to show up every time</p>
-        <h2 class="h2" id="ac-audit-title">Get your full AI visibility audit + 45-day roadmap for <span data-ac-biz>your business</span></h2>
-        <ul class="list list--light">
-          <li>Your visibility on 20 real customer questions in ChatGPT, Gemini and Google AI Mode, and which competitors win them</li>
-          <li>A 45-day AI search sprint for your niche and city: what to do each week, what you can do yourself and what to hand off</li>
-          <li>Free, in your inbox within 48 hours</li>
+        <p class="eyebrow ac-audit__offer" data-ac-offer>Find out why AI results skip you</p>
+        <h2 class="h2" id="ac-audit-title">Get your AI visibility audit + 45-day roadmap for <span data-ac-biz>your business</span></h2>
+        <ul class="list list--light ac-audit__list">
+          <li>We ask ChatGPT, Gemini and Google AI 10 real high-intent customer questions and show where you appear, and where you don’t</li>
+          <li>Who AI recommends instead, and what they have that you don’t: reviews, listings, website signals</li>
+          <li>Your top 3 fixes and a 45-day AI Search boost sprint specially for your company: what to do step by step</li>
         </ul>
       </div>
       <form class="form card ac-audit__form" data-ac-audit-form novalidate>

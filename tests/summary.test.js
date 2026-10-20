@@ -20,7 +20,7 @@ test('verdict table from the spec', () => {
   assert.equal(summarize([answer(true, 2), answer(true, 3), answer(true, null)]).verdict, 'not_first');
   assert.equal(summarize([answer(true, 1), answer(true, 3), answer(true, 2)]).verdict, 'top_pick');
   const s = summarize([answer(false), answer(false), answer(false)]);
-  assert.equal(s.offer_title, 'Find out why ChatGPT skips you');
+  assert.equal(s.offer_title, 'Find out why AI results skip you');
   assert.equal(s.verdict_label, 'Not recommended');
 });
 

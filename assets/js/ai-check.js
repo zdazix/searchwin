@@ -356,14 +356,26 @@ function answerCard(a) {
     light.appendChild(h('p', { class: 'ac-answer__none', text: "ChatGPT didn't list specific businesses in this answer." }));
   }
   light.appendChild(answerLine(a));
-  if (a.answer_html) {
-    var det = h('details', { class: 'ac-full' }, [h('summary', { text: "Show ChatGPT's full answer" })]);
-    det.appendChild(h('div', { class: 'ac-md', html: a.answer_html }));
-    light.appendChild(det);
-  }
+  if (a.answer_html) light.appendChild(answerPreview(a.answer_html));
   art.appendChild(cardHead(a.idx, a.prompt, 'Answer ' + a.idx + ' of ' + S.prompts.length));
   art.appendChild(light);
   return art;
+}
+
+/* ChatGPT's own words: the start of the answer, fading out, with a button for the rest. */
+function answerPreview(html) {
+  var wrap = h('div', { class: 'ac-preview' });
+  wrap.appendChild(h('p', { class: 'ac-preview__label', text: "ChatGPT's answer" }));
+  var body = h('div', { class: 'ac-md ac-preview__body', html: html });
+  wrap.appendChild(body);
+  var btn = h('button', { class: 'ac-preview__more', type: 'button', 'aria-expanded': 'false', text: 'Read the full answer' });
+  btn.addEventListener('click', function () {
+    var open = wrap.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.textContent = open ? 'Show less' : 'Read the full answer';
+  });
+  wrap.appendChild(btn);
+  return wrap;
 }
 
 function failedCard(idx, prompt) {

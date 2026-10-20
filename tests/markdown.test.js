@@ -25,6 +25,12 @@ test('only http(s) links survive and attributes cannot be broken out of', () => 
   assert.ok(!/<div|onclick/i.test(renderMarkdown('<div onclick="x()">block</div>')));
 });
 
+test('citation chips (links whose text is a bare domain) are dropped, normal links stay', () => {
+  const html = renderMarkdown('Best is **Acme** [www.yelp.com](https://www.yelp.com/x)[uk.trustpilot.com](https://uk.trustpilot.com/y) and [the guide](https://a.com/g).');
+  assert.ok(!/yelp|trustpilot/.test(html), html);
+  assert.match(html, /<a href="https:\/\/a\.com\/g"[^>]*>the guide<\/a>/);
+});
+
 test('headings are demoted below the page headings', () => {
   assert.match(renderMarkdown('# Best plumbers\n\ntext'), /<h3>Best plumbers<\/h3>/);
 });
