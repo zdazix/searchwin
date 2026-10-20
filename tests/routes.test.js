@@ -17,6 +17,7 @@ import { summarize } from '../assets/js/ai-check-core.js';
 import * as parseRoute from '../api/ai-check/parse.js';
 import * as askRoute from '../api/ai-check/ask.js';
 import * as auditRoute from '../api/ai-check/audit.js';
+import * as reportRoute from '../api/ai-check/report.js';
 import * as configRoute from '../api/ai-check/config.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -302,9 +303,9 @@ test('config gives the page public IDs only', async () => {
   delete process.env.PUBLIC_META_PIXEL_ID;
 });
 
-test('only the leads table exists', async () => {
+test('only the leads and checks tables exist', async () => {
   const tables = (await query(`select table_name from information_schema.tables where table_schema = 'public' order by 1`)).map((r) => r.table_name);
-  assert.deepEqual(tables, ['leads']);
+  assert.deepEqual(tables, ['checks', 'leads']);
 });
 
 test('Telegram gets the full lead: online (website, email, all marketing data) and local (plus the answers)', async () => {
@@ -326,5 +327,41 @@ test('Telegram gets the full lead: online (website, email, all marketing data) a
     const full = telegramSent.join('\n');
     for (const piece of ['Полный лид', 'Ironclad Plumbing', 'plumber', 'Austin, TX', 'Итог: 3 из 3', 'utm_source: google', 'gclid: G-1', 'Ответы ChatGPT', 'best plumber in Austin, TX', '2840 / en', 'ID заявки: ' + loc.body.lead_id]) assert.ok(full.includes(piece), piece);
     assert.ok(telegramSent.every((t) => t.length <= 4000));
+  } finally { delete process.env.TELEGRAM_BOT_TOKEN; delete process.env.TELEGRAM_CHAT_ID; }
+});
+
+test('a finished check without an email is saved once and reaches Telegram with the full data', async () => {
+  process.env.TELEGRAM_BOT_TOKEN = 't'; process.env.TELEGRAM_CHAT_ID = '1';
+  try {
+    telegramSent = [];
+    const p = await post(parseRoute, { website: 'ironcladtexas.com', turnstile_token: 'x' });
+    const ans = await Promise.all([1, 2, 3].map((idx) => post(askRoute, { ticket: p.body.ticket, idx })));
+    const payload = {
+      website: 'ironcladtexas.com', business: p.body.business, answers: ans.map((a) => a.body.saved),
+      result: { mentions_count: 0, total: 3, best_position: null, verdict: 'not_recommended' },
+      attribution: { utm_source: 'meta', utm_campaign: 'spring', fbclid: 'FB-9', landing_url: 'https://searchwin.ai/ai-check/' }
+    };
+    const r1 = await post(reportRoute, payload);
+    assert.equal(r1.status, 200);
+    await new Promise((r) => setTimeout(r, 50));
+    const msg = telegramSent.join('\n');
+    for (const piece of ['Мини-проверка пройдена', 'email не оставлен', 'ironcladtexas.com', 'Итог: 0 из 3', 'utm_campaign: spring', 'fbclid: FB-9', 'Ответы ChatGPT', 'best plumber in Austin, TX']) assert.ok(msg.includes(piece), piece);
+    const row = await one('select * from checks where id = $1', [r1.body.id]);
+    assert.equal(row.website, 'ironcladtexas.com');
+    assert.equal(row.verdict, 'not_recommended');
+    assert.equal(row.answers.length, 3);
+    assert.equal(row.utm_source, 'meta');
+    // The same check reported again: nothing new is stored or sent.
+    telegramSent = [];
+    const r2 = await post(reportRoute, payload);
+    assert.equal(r2.body.duplicate, true);
+    await new Promise((r) => setTimeout(r, 50));
+    assert.equal(telegramSent.length, 0);
+    assert.equal((await one('select count(*)::int as n from checks where website = $1', ['ironcladtexas.com'])).n, 1);
+    // Forged or missing answers save and send nothing.
+    const forged = await post(reportRoute, { ...payload, answers: payload.answers.map((a) => ({ ...a, answer_text: 'made up' })) });
+    assert.equal(forged.status, 400);
+    assert.equal((await post(reportRoute, { website: 'ironcladtexas.com' })).status, 400);
+    assert.equal(telegramSent.length, 0);
   } finally { delete process.env.TELEGRAM_BOT_TOKEN; delete process.env.TELEGRAM_CHAT_ID; }
 });

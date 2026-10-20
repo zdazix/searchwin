@@ -30,7 +30,7 @@ var el = {
 };
 
 /* The check lives here and nowhere else: closing the tab ends it. */
-var S = { website: '', business: {}, prompts: [], answers: {}, running: false, summary: null };
+var S = { website: '', business: {}, prompts: [], answers: {}, running: false, summary: null, reported: false };
 
 function h(tag, attrs, children) {
   var n = document.createElement(tag);
@@ -193,6 +193,7 @@ function hideRun() {
 }
 
 function resetResult() {
+  S.reported = false;
   S.answers = {};
   S.summary = null;
   el.answers.textContent = '';
@@ -305,6 +306,25 @@ function finish() {
   el.badge.className = 'ac-badge ' + ({ not_recommended: 'is-miss', sometimes: 'is-some', not_first: 'is-ok', top_pick: 'is-top' }[s.verdict] || '');
   if (loaded.length < S.prompts.length) showState('partial', '', "One answer didn't load — it'll be in your full audit.", []);
   renderFinal(s);
+  reportCheck(s, loaded);
+}
+
+/* Every finished check is reported once, with or without an email, so it is saved and reaches Telegram. */
+function reportCheck(s, loaded) {
+  if (S.reported) return;
+  S.reported = true;
+  var saved = loaded.map(function (a) { return a.saved; }).filter(Boolean);
+  if (!saved.length) return;
+  try {
+    fetch(API + 'report', {
+      method: 'POST', headers: { 'content-type': 'application/json' }, keepalive: true, credentials: 'same-origin',
+      body: JSON.stringify({
+        website: S.website, business: S.business, answers: saved,
+        result: { mentions_count: s.mentions_count, total: s.total, best_position: s.best_position, verdict: s.verdict },
+        attribution: track.attribution()
+      })
+    }).catch(function () { /* the visitor does not need to know */ });
+  } catch (e) { /* same */ }
 }
 
 function insertInOrder(card, idx) {

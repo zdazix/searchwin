@@ -90,7 +90,7 @@ dns.promises.resolveMx = async (domain) => {
 // ---------- Functions and static files ----------
 const fn = async (file) => import(pathToFileURL(path.join(root, file)).href);
 const routes = [
-  [/^\/api\/ai-check\/(parse|ask|audit|config)\/?$/, (m) => `api/ai-check/${m[1]}.js`]
+  [/^\/api\/ai-check\/(parse|ask|audit|config|report)\/?$/, (m) => `api/ai-check/${m[1]}.js`]
 ];
 const MIME = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.mjs': 'text/javascript', '.json': 'application/json',
   '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.woff2': 'font/woff2', '.txt': 'text/plain', '.xml': 'application/xml', '.ico': 'image/x-icon' };
@@ -128,6 +128,7 @@ http.createServer(async (req, res) => {
       res.end(Buffer.from(await response.arrayBuffer()));
       return;
     }
+    if (url.pathname === '/__dev/checks') { res.writeHead(200, { 'content-type': 'application/json' }).end(JSON.stringify((await pg.query('select id, website, business_name, verdict, mentions_count, utm_source, jsonb_array_length(answers) as answers from checks order by created_at desc')).rows, null, 2)); return; }
     if (url.pathname === '/__dev/leads') { res.writeHead(200, { 'content-type': 'application/json' }).end(JSON.stringify(await globalThis.__devLeads(), null, 2)); return; }
     // Like on Vercel, server code and private folders are never served as files.
     if (/^\/(api|db|scripts|tests|docs|node_modules)\//.test(url.pathname) || /^\/\.env/.test(url.pathname)) { res.writeHead(404).end('Not found'); return; }

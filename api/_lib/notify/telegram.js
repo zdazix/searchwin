@@ -55,9 +55,11 @@ const row = (label, value) => (value === null || value === undefined || value ==
  */
 export function leadMessage(l) {
   const b = l.business || {}, a = l.a || {};
-  const online = l.kind === 'online';
+  const online = l.kind === 'online', check = l.kind === 'check';
   const place = [b.city, b.state, b.country && b.country !== 'US' ? b.country : null].filter(Boolean).join(', ');
-  let t = online ? '🆕 <b>Заявка: онлайн-бизнес</b> (не местный, проверка не запускалась)\n\n' : '🆕 <b>Полный лид</b> (проверка пройдена, аудит запрошен)\n\n';
+  let t = online ? '🆕 <b>Заявка: онлайн-бизнес</b> (не местный, проверка не запускалась)\n\n'
+    : check ? '🔎 <b>Мини-проверка пройдена</b> (email не оставлен)\n\n'
+    : '🆕 <b>Полный лид</b> (проверка пройдена, аудит запрошен)\n\n';
   t += row('Сайт', l.site) + row('Email', l.email);
   if (!online) {
     t += row('Бизнес', b.name) + row('Услуга', b.service) + row('Место', place);
