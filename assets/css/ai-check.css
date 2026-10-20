@@ -310,16 +310,17 @@ body > .ac-turnstile { position: fixed; left: 50%; bottom: 16px; z-index: 60; tr
 }
 .ac-steps b { color: var(--ink); font-weight: 600; }
 .ac-example__media { min-height: 0; padding: clamp(16px, 4vw, 44px); }
-.ac-answer--example { width: 100%; max-width: 480px; }
+.ac-answer--example { width: 100%; max-width: 480px; align-content: start; }
 
 /* Examples slider: swipe on touch, the pills below jump to a slide */
 .ac-example__media { grid-template-columns: minmax(0, 1fr); }
 .ac-slides { min-width: 0; width: 100%; position: relative; display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; border-radius: var(--r-md); }
 .ac-slides::-webkit-scrollbar { display: none; }
 .ac-slides:focus-visible { outline: 3px solid var(--lime); outline-offset: 4px; }
-.ac-slide { flex: 0 0 100%; display: flex; justify-content: center; scroll-snap-align: center; }
+.ac-slide { flex: 0 0 100%; display: flex; align-items: flex-start; justify-content: center; scroll-snap-align: center; }
 .ac-example__tag {
   justify-self: start;
+  align-self: start;
   padding: 4px 10px;
   border-radius: 999px;
   background: var(--ink);
@@ -352,7 +353,7 @@ body > .ac-turnstile { position: fixed; left: 50%; bottom: 16px; z-index: 60; tr
 }
 
 @media (max-width: 480px) {
-  .ac-form__note { font-size: .75rem; gap: 4px 12px; }
+  .ac-form__note { font-size: .75rem; gap: 4px 12px; justify-content: center; }
   .ac-form__note svg { width: 13px; height: 13px; }
 }
 
