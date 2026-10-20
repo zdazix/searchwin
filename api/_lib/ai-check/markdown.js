@@ -1,32 +1,47 @@
 // ChatGPT's markdown → safe HTML for the "Show full answer" block. No images, no scripts,
 // links open in a new tab with rel="nofollow noopener noreferrer".
+//
+// The safety comes from the renderer itself, not from a second pass: raw HTML in the answer
+// never reaches the output (its tags are dropped, its text kept), images are dropped, links
+// keep only http(s) addresses. No HTML sanitiser library is needed, which also keeps this
+// module free of packages that older Node versions on Vercel cannot load.
 
 import { Marked } from 'marked';
-import sanitizeHtml from 'sanitize-html';
 
-const marked = new Marked({ gfm: true, breaks: false });
+const escapeHtml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 
-const OPTIONS = {
-  allowedTags: ['p', 'br', 'hr', 'h3', 'h4', 'h5', 'strong', 'em', 'b', 'i', 'ul', 'ol', 'li', 'a', 'code', 'pre',
-    'blockquote', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'del'],
-  allowedAttributes: { a: ['href', 'rel', 'target'] },
-  allowedSchemes: ['http', 'https'],
-  allowProtocolRelative: false,
-  disallowedTagsMode: 'discard',
-  // Headings shift down so the answer never outranks the page's own headings.
-  transformTags: {
-    h1: 'h3', h2: 'h3', h6: 'h5',
-    a: (tagName, attribs) => ({
-      tagName: 'a',
-      attribs: { href: attribs.href, rel: 'nofollow noopener noreferrer', target: '_blank' }
-    })
-  },
-  exclusiveFilter: (frame) => frame.tag === 'a' && !frame.attribs.href
-};
+function safeHref(href) {
+  try {
+    const u = new URL(String(href).trim());
+    return u.protocol === 'http:' || u.protocol === 'https:' ? u.href : null;
+  } catch { return null; }
+}
+
+// Headings shift down so the answer never outranks the page's own headings.
+const HEADING_LEVEL = { 1: 3, 2: 3, 3: 3, 4: 4, 5: 5, 6: 5 };
+
+const marked = new Marked({
+  gfm: true,
+  breaks: false,
+  renderer: {
+    html({ text }) { return escapeHtml(String(text).replace(/<[^>]*>/g, '')); },
+    image() { return ''; },
+    checkbox() { return ''; },
+    link({ href, tokens }) {
+      const inner = this.parser.parseInline(tokens);
+      const safe = safeHref(href);
+      return safe ? `<a href="${escapeHtml(safe)}" rel="nofollow noopener noreferrer" target="_blank">${inner}</a>` : inner;
+    },
+    heading({ tokens, depth }) {
+      const level = HEADING_LEVEL[depth] || 3;
+      return `<h${level}>${this.parser.parseInline(tokens)}</h${level}>\n`;
+    }
+  }
+});
 
 export function renderMarkdown(md) {
   if (typeof md !== 'string' || !md.trim()) return '';
-  // Image syntax is dropped before parsing, so no <img> ever reaches the sanitiser.
+  // Image syntax is dropped before parsing as well, so no <img> can come out of any path.
   const noImages = md.replace(/!\[[^\]]*\]\([^)]*\)/g, '');
-  return sanitizeHtml(marked.parse(noImages), OPTIONS).trim();
+  return marked.parse(noImages).trim();
 }

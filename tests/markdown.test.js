@@ -18,6 +18,13 @@ test('links get nofollow noopener and open in a new tab', () => {
   assert.match(html, /<a href="https:\/\/www\.yelp\.com\/biz\/x" rel="nofollow noopener noreferrer" target="_blank">Yelp<\/a>/);
 });
 
+test('only http(s) links survive and attributes cannot be broken out of', () => {
+  assert.ok(!/href="javascript|href="data|href="vbscript/i.test(renderMarkdown('[a](javascript:alert(1)) [b](data:text/html,x) [c](vbscript:x)')));
+  const html = renderMarkdown('[ok](https://a.com/?q="><img src=x onerror=alert(1)>)');
+  assert.ok(!/<img|onerror=/i.test(html), html);
+  assert.ok(!/<div|onclick/i.test(renderMarkdown('<div onclick="x()">block</div>')));
+});
+
 test('headings are demoted below the page headings', () => {
   assert.match(renderMarkdown('# Best plumbers\n\ntext'), /<h3>Best plumbers<\/h3>/);
 });
