@@ -248,6 +248,7 @@ test('a broken DataForSEO key fails the answer visibly and is not retried', asyn
   const r = await post(askRoute, { ticket: t, idx: 2 });
   assert.equal(r.status, 502);
   assert.equal(r.body.error, 'answer_failed');
+  assert.equal(r.body.code, 'auth');
   assert.equal(r.body.prompt, 'who should I call for plumber near Austin TX? I need someone reliable');
   assert.equal(dfsCalls.length, 1);
 });

@@ -18,12 +18,24 @@ import { renderMarkdown } from '../_lib/ai-check/markdown.js';
 import { sendTelegram, escapeHtml } from '../_lib/notify/telegram.js';
 
 
-// A broken key fails every check, so it is worth a Telegram message, but not three per check.
-let lastKeyAlert = 0;
-function alertBadKey(err) {
-  if (Date.now() - lastKeyAlert < 3600e3) return;
-  lastKeyAlert = Date.now();
-  background(sendTelegram(`⚠️ DataForSEO не принимает ключ, проверки не работают: ${escapeHtml(err.message)}`));
+// A failure with a clear cause is worth a Telegram message (once an hour per cause), so a broken key
+// or an empty balance is noticed on the first check and not from a visitor's complaint.
+const HINTS = {
+  auth: 'DataForSEO не принимает логин или пароль. Нужен API-пароль со страницы API Access (не пароль от входа в кабинет), без пробелов.',
+  config: 'В Vercel не заданы DATAFORSEO_LOGIN и DATAFORSEO_PASSWORD (или не сделан Redeploy).',
+  timeout: 'DataForSEO не ответил за отведённое время. Если повторяется, проверьте лимит времени функций в Vercel (нужно 150 с).',
+  network: 'Сервер не достучался до DataForSEO.',
+  api: 'DataForSEO вернул ошибку. Частая причина: на балансе нет денег (раздел Billing).'
+};
+const lastAlert = new Map();
+function alertFailure(err, business, idx) {
+  const code = err.code || 'error';
+  if (Date.now() - (lastAlert.get(code) || 0) < 3600e3) return;
+  lastAlert.set(code, Date.now());
+  background(sendTelegram(
+    `⚠️ Запрос к ChatGPT не удался (${escapeHtml(code)})\nСайт: ${escapeHtml(business.domain)}, вопрос ${idx}\n` +
+    `Ошибка: ${escapeHtml(String(err.message).slice(0, 300))}\n${HINTS[code] || ''}`
+  ));
 }
 
 export async function POST(request) {
@@ -61,7 +73,7 @@ export async function POST(request) {
     });
   } catch (err) {
     console.error('[ai-check/ask]', business.domain, idx, err.code || '', err.message, `${Date.now() - started} ms`);
-    if (err.code === 'auth' || err.code === 'config') alertBadKey(err);
-    return error(502, 'answer_failed', MESSAGES.answer_failed, { idx, prompt });
+    alertFailure(err, business, idx);
+    return error(502, 'answer_failed', MESSAGES.answer_failed, { idx, prompt, code: err.code || 'error' });
   }
 }

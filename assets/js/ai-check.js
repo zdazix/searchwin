@@ -276,6 +276,7 @@ async function startAsks(prompts, ticket) {
   await Promise.all(S.prompts.map(function (prompt, i) {
     var idx = i + 1;
     return api('ask', { ticket: ticket, idx: idx }).then(function (r) {
+      if (!r.ok && window.console) console.warn('[ai-check] answer ' + idx + ' failed:', r.status, r.data && r.data.code);
       S.answers[idx] = r.ok ? Object.assign({ ok: true }, r.data) : { ok: false, idx: idx, prompt: prompt };
       var card = r.ok ? answerCard(S.answers[idx]) : failedCard(idx, prompt);
       insertInOrder(card, idx);
