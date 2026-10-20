@@ -21,12 +21,11 @@ var el = {
   scorebar: $('.ac-scorebar'), score: $('[data-ac-score]'), badge: $('[data-ac-badge]'), progress: $('[data-ac-progress]'), state: $('[data-ac-state]'), why: $('[data-ac-why]'),
   answers: $('[data-ac-answers]'), locked: $('[data-ac-locked]'), teasers: $('[data-ac-teasers]'),
   competitors: $('[data-ac-competitors]'), sources: $('[data-ac-sources]'), legal: $('[data-ac-legal]'), again: $('[data-ac-again]'),
-  audit: $('[data-ac-audit]'), auditForm: $('[data-ac-audit-form]'), auditSubmit: $('[data-ac-audit-submit]'), auditDone: $('[data-ac-audit-done]'),
-  auditDoneText: $('[data-ac-audit-done-text]'), offer: $('[data-ac-offer]'), biz: $('[data-ac-biz]'), email: $('#ac-email'),
+  audit: $('[data-ac-audit]'), auditForm: $('[data-ac-audit-form]'), auditSubmit: $('[data-ac-audit-submit]'), offer: $('[data-ac-offer]'), biz: $('[data-ac-biz]'), email: $('#ac-email'),
   sticky: $('[data-ac-sticky]'), landing: $$('[data-ac-landing]'),
   country: $('#ac-country'), cityInput: $('#ac-city'), cityLabel: $('[data-ac-city-label]'), cityError: $('[data-ac-city-error]'),
   online: $('[data-ac-online]'), onlineForm: $('[data-ac-online-form]'), onlineSite: $('#ac-o-site'), onlineEmail: $('#ac-o-email'),
-  onlineSubmit: $('[data-ac-online-submit]'), onlineAlert: $('[data-ac-online-alert]'), onlineDone: $('[data-ac-online-done]'),
+  onlineSubmit: $('[data-ac-online-submit]'), onlineAlert: $('[data-ac-online-alert]'),
   onlineTurnstile: $('[data-ac-turnstile-online]')
 };
 
@@ -494,9 +493,6 @@ function openOnline() {
   var site = S.website || el.website.value.trim();
   if (!el.onlineSite.value && site) el.onlineSite.value = site;
   el.onlineAlert.hidden = true;
-  el.onlineDone.hidden = true;
-  $$('.field, [data-ac-online-submit], .ac-consent, .ac-dialog__text, .ac-dialog__title', el.onlineForm).forEach(function (n) { n.hidden = false; });
-  $('#ac-online-title').hidden = false;
   tsOnline.load();
   if (typeof el.online.showModal === 'function') el.online.showModal(); else el.online.setAttribute('open', '');
   (el.onlineSite.value ? el.onlineEmail : el.onlineSite).focus();
@@ -520,19 +516,14 @@ el.onlineForm.addEventListener('submit', async function (e) {
   busy(el.onlineSubmit, true);
   el.onlineAlert.hidden = true;
   var r = await api('audit', { kind: 'online', website: site, email: email, turnstile_token: await tsOnline.token(), attribution: track.attribution() });
-  busy(el.onlineSubmit, false);
   if (!r.ok) {
+    busy(el.onlineSubmit, false);
     if (r.data.error === 'invalid_url') setFieldError(el.onlineSite, true, r.data.message);
     else if (/^email_/.test(r.data.error || '')) setFieldError(el.onlineEmail, true, r.data.message);
     else { el.onlineAlert.textContent = r.data.message || 'We could not send your request. Try again.'; el.onlineAlert.hidden = false; }
     return;
   }
-  track.auditRequested(r.data.event_id, { kind: 'online' }, email);
-  el.onlineSite.value = ''; el.onlineEmail.value = '';
-  $$('.field, [data-ac-online-submit], .ac-consent, .ac-dialog__text', el.onlineForm).forEach(function (n) { n.hidden = true; });
-  $('#ac-online-title').hidden = true;
-  el.onlineDone.hidden = false;
-  el.onlineDone.focus();
+  goThanks({ kind: 'online', event_id: r.data.event_id, due_at: r.data.due_at, email: email, website: site });
 });
 
 /* ---------- Result, teasers, audit ---------- */
@@ -590,13 +581,11 @@ function setupSticky() {
   window.addEventListener('resize', update);
 }
 
-function auditDone(dueIso) {
-  var due = dueIso ? new Date(dueIso) : new Date(Date.now() + 48 * 3600e3);
-  el.auditDoneText.textContent = "We'll email your full audit + roadmap by " + due.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' }) + '. Check your inbox (and spam folder).';
-  el.auditForm.classList.add('is-done');
-  $$('.field, [data-ac-audit-submit], .ac-consent, .ac-audit__price', el.auditForm).forEach(function (n) { n.hidden = true; });
-  el.auditDone.hidden = false;
-  el.sticky.hidden = true;
+/* After a request the visitor lands on the thank-you page (calendar there). The conversion events
+   are sent from that page, so they are not cut off by the navigation. */
+function goThanks(info) {
+  try { sessionStorage.setItem('ac_thanks', JSON.stringify(info)); } catch (e) { /* the page still works without it */ }
+  location.assign('/ai-check/thank-you/');
 }
 
 el.email.addEventListener('input', function () { setFieldError(el.email, false); });
@@ -618,14 +607,13 @@ el.auditForm.addEventListener('submit', async function (e) {
     result: { mentions_count: s.mentions_count, total: s.total, best_position: s.best_position, verdict: s.verdict },
     attribution: track.attribution()
   });
-  busy(el.auditSubmit, false);
   if (!r.ok) {
+    busy(el.auditSubmit, false);
     setFieldError(el.email, true, r.data.message || 'We could not send your request. Try again.');
     return;
   }
-  track.auditRequested(r.data.event_id, { verdict: s.verdict, service: S.business.service }, email);
-  auditDone(r.data.due_at);
-  el.auditDone.focus();
+  goThanks({ kind: 'local', event_id: r.data.event_id, due_at: r.data.due_at, email: email, name: bizName(), website: S.website,
+    verdict: s.verdict, service: S.business.service, mentions_count: s.mentions_count, total: s.total });
 });
 
 /* Closing the tab mid-check loses the answers, so the browser asks first. */

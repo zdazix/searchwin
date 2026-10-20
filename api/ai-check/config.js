@@ -14,6 +14,8 @@ export function GET() {
       audit_requested: env('PUBLIC_GADS_LABEL_AUDIT_REQUESTED', null)
     },
     ga4_id: env('PUBLIC_GA4_ID', null),
+    // Scheduling page shown on the thank-you page (Calendly, Cal.com, HubSpot Meetings...), https only.
+    booking_url: env('PUBLIC_BOOKING_URL', null),
     consent_version: CONSENT_VERSION
   }, 200, { 'cache-control': 'public, max-age=300' });
 }

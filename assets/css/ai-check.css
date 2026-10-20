@@ -410,3 +410,25 @@ body > .ac-turnstile { position: fixed; left: 50%; bottom: 16px; z-index: 60; tr
 .ac-audit__offer { font-size: .9375rem; font-weight: 700; letter-spacing: .08em; }
 .ac-audit .h2 { max-width: 20ch; font-size: clamp(2rem, 1.15rem + 3.4vw, 3.5rem); line-height: 1.08; }
 .ac-audit__list { gap: 14px; font-size: 1.125rem; line-height: 1.5; }
+
+/* ---------- Thank-you page ---------- */
+.ac-thanks { padding: calc(var(--nav-h) + clamp(24px, 5vw, 56px)) 0 clamp(48px, 7vw, 88px); }
+.ac-thanks__inner { display: grid; justify-items: center; gap: 22px; max-width: 880px; }
+.ac-thanks__head { display: grid; justify-items: center; gap: 14px; text-align: center; }
+.ac-thanks__icon { display: grid; place-items: center; width: 72px; height: 72px; border-radius: 20px; background: var(--lime); }
+.ac-thanks__icon svg { width: 34px; height: 34px; }
+.ac-thanks__title { max-width: 18ch; font-size: clamp(2.25rem, 1.4rem + 3.4vw, 3.75rem); }
+.ac-thanks__lead { max-width: 52ch; }
+.ac-thanks__lead b { color: var(--ink); }
+.ac-thanks__card { width: 100%; padding: clamp(20px, 3.5vw, 32px); border-radius: var(--r-lg); background: #fff; box-shadow: var(--shadow-card); }
+.ac-thanks__h { margin-bottom: 14px; font-family: var(--font-serif); font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); line-height: 1.15; }
+.ac-thanks__text { margin: -6px 0 18px; color: var(--ink-2); }
+.ac-thanks__steps { font-size: 1.0625rem; }
+.ac-thanks__calendar { min-height: 56px; }
+.ac-thanks__calendar.has-frame { min-height: 700px; overflow: hidden; border-radius: var(--r-md); box-shadow: inset 0 0 0 1px rgba(26, 24, 19, .12); }
+.ac-thanks__calendar iframe { display: block; width: 100%; height: 700px; border: 0; }
+@media (max-width: 480px) { .ac-thanks__calendar.has-frame, .ac-thanks__calendar iframe { min-height: 760px; height: 760px; } }
+
+/* The price line above the email field: bigger, on a backing */
+.ac-audit__price { padding: 12px 16px; border-radius: 12px; background: var(--lime-tint); font-size: 1.0625rem; font-weight: 500; color: var(--ink); }
+.ac-audit__price b { font-weight: 700; }
