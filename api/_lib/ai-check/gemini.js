@@ -28,7 +28,7 @@ const SCHEMA = {
 const SYSTEM = `You read what a website says about a business and fill in a small form.
 Use only what the pages say. Prefer structured data and addresses for the city; if the business serves an area ("serving Greater Austin"), use that main city.
 For "service", write what a customer would type when asking ChatGPT who to call: short, plain and lower case ("plumber", "emergency plumber", "family dentist", "personal injury lawyer", "ac repair"), in the language of the website. Never use slogans or phrases like "plumbing solutions".
-The business can be in any country. Write the city as the website writes it.
+The business can be in any country. Write the city as the website writes it. In the questions name only the city, never the region, county or country (people ask \"best plumber in Marbella\", not \"in Marbella, Málaga\").
 For "questions" (only if the website is not in English) adapt these three English questions into the website's language, keeping them natural:
 1. "best {service} in {city}"
 2. "who should I call for {service} near {city}? I need someone reliable"

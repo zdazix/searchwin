@@ -7,11 +7,12 @@ export const DEFAULT_SETTINGS = {
     'who should I call for {service} near {city} {state}? I need someone reliable',
     'top rated {service} in {city} {state} with good reviews'
   ],
-  // Outside the US there are no state codes: {state} is the region as written on the site, or the country name.
+  // Outside the US people name just the city ("best plumber in Marbella"); the country is set by the
+  // DataForSEO location, so no region or country goes into the question.
   prompt_templates_intl: [
-    'best {service} in {city}, {state}',
-    'who should I call for {service} near {city}, {state}? I need someone reliable',
-    'top rated {service} in {city}, {state} with good reviews'
+    'best {service} in {city}',
+    'who should I call for {service} near {city}? I need someone reliable',
+    'top rated {service} in {city} with good reviews'
   ],
   // How many of the templates to run (fallback plan in the spec: 3 → 2).
   query_count: 3,

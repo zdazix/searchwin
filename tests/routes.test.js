@@ -174,18 +174,18 @@ test('unreadable site asks for all fields; non-local sites and unsupported count
   assert.equal(dfsCalls.length, 0);
 });
 
-test('a Canadian business needs no state; the question names the country', async () => {
+test('a Canadian business needs no state; the question names only the city', async () => {
   const p = await post(parseRoute, { website: 'maple.ca', turnstile_token: 'x' });
   assert.equal(p.body.status, 'ready');
   assert.equal(p.body.business.country, 'CA');
-  assert.equal(p.body.prompts[0], 'best plumber in Toronto, Canada');
-  assert.equal(p.body.prompts[1], 'who should I call for plumber near Toronto, Canada? I need someone reliable');
+  assert.equal(p.body.prompts[0], 'best plumber in Toronto');
+  assert.equal(p.body.prompts[1], 'who should I call for plumber near Toronto? I need someone reliable');
 });
 
-test('UK: the question carries the country and DataForSEO gets the UK location; the client is found without a local-business block', async () => {
+test('UK: the question names the city, DataForSEO gets the UK location; the client is found without a local-business block', async () => {
   const p = await post(parseRoute, { website: 'manchester-demo.co.uk', turnstile_token: 'x' });
   assert.equal(p.body.status, 'ready');
-  assert.equal(p.body.prompts[0], 'best plumber in Manchester, United Kingdom');
+  assert.equal(p.body.prompts[0], 'best plumber in Manchester');
   const a = await post(askRoute, { ticket: p.body.ticket, idx: 1 });
   assert.equal(a.status, 200);
   assert.deepEqual([dfsBodies[0].location_code, dfsBodies[0].language_code], [2826, 'en']);
@@ -204,9 +204,9 @@ test('Germany: questions in German, German location and language, found by domai
   assert.ok(a.body.businesses.length >= 3 && a.body.businesses[0].rating === 5);
 });
 
-test('Australia: state code kept, Sydney electrician found at its position', async () => {
+test('Australia: city only in the question, Sydney electrician found at its position', async () => {
   const p = await post(parseRoute, { website: 'sydney-demo.com.au', turnstile_token: 'x' });
-  assert.equal(p.body.prompts[0], 'best electrician in Sydney, NSW');
+  assert.equal(p.body.prompts[0], 'best electrician in Sydney');
   const a = await post(askRoute, { ticket: p.body.ticket, idx: 1 });
   assert.equal(dfsBodies[0].location_code, 2036);
   assert.equal(a.body.client.position, 2);

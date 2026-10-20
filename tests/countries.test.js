@@ -33,18 +33,18 @@ test('locations: a US state is required in the US, a city is enough elsewhere', 
   assert.equal(cleanRegion('x'), null);
 });
 
-test('questions: US templates from the spec, the region or country elsewhere, the site\'s own language when given', () => {
+test('questions: US templates from the spec, only the city elsewhere, the site\'s own language when given', () => {
   assert.deepEqual(buildPrompts({ service: 'plumber', city: 'Austin', state: 'TX' }), [
     'best plumber in Austin, TX',
     'who should I call for plumber near Austin TX? I need someone reliable',
     'top rated plumber in Austin TX with good reviews'
   ]);
-  assert.equal(buildPrompts({ service: 'electrician', city: 'Sydney', state: 'NSW', country: 'AU' })[0], 'best electrician in Sydney, NSW');
-  assert.equal(buildPrompts({ service: 'plumber', city: 'Dublin', state: null, country: 'IE' })[2], 'top rated plumber in Dublin, Ireland with good reviews');
+  assert.equal(buildPrompts({ service: 'electrician', city: 'Sydney', state: 'NSW', country: 'AU' })[0], 'best electrician in Sydney');
+  assert.equal(buildPrompts({ service: 'plumber', city: 'Dublin', state: null, country: 'IE' })[2], 'top rated plumber in Dublin with good reviews');
   const de = ['Wer ist der beste Klempner in Berlin?', 'Wen soll ich für einen Klempner in Berlin anrufen? Ich brauche jemanden Zuverlässigen', 'Bestbewertete Klempner in Berlin mit guten Bewertungen'];
   assert.deepEqual(buildPrompts({ service: 'klempner', city: 'Berlin', country: 'DE' }, { questions: de }), de);
   // Questions that look wrong (too short, with links, too few) are not used.
-  assert.match(buildPrompts({ service: 'klempner', city: 'Berlin', country: 'DE' }, { questions: ['hi', 'http://x.com', 'a'] })[0], /^best klempner in Berlin, Germany$/);
+  assert.match(buildPrompts({ service: 'klempner', city: 'Berlin', country: 'DE' }, { questions: ['hi', 'http://x.com', 'a'] })[0], /^best klempner in Berlin$/);
   assert.match(buildPrompts({ service: 'klempner', city: 'Berlin', country: 'DE' }, { questions: [de[0]] })[0], /^best klempner/);
   // The US ignores questions: the spec's wording is fixed.
   assert.equal(buildPrompts({ service: 'plumber', city: 'Austin', state: 'TX', country: 'US' }, { questions: de })[0], 'best plumber in Austin, TX');
