@@ -34,7 +34,8 @@
     var u;
     try { u = new URL(url); } catch (e) { return; }
     if (u.protocol !== 'https:') return;
-    if (info.email && !u.searchParams.has('email')) u.searchParams.set('email', info.email);
+    // Google Calendar appointment pages take no prefill parameters; Calendly and Cal.com take the email.
+    if (info.email && !/calendar\.google\.com$/.test(u.hostname) && !u.searchParams.has('email')) u.searchParams.set('email', info.email);
     if (/(^|\.)calendly\.com$/.test(u.hostname)) {
       u.searchParams.set('embed_domain', location.hostname);
       u.searchParams.set('embed_type', 'Inline');

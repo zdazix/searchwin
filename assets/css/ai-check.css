@@ -417,7 +417,7 @@ body > .ac-turnstile { position: fixed; left: 50%; bottom: 16px; z-index: 60; tr
 .ac-thanks__head { display: grid; justify-items: center; gap: 14px; text-align: center; }
 .ac-thanks__icon { display: grid; place-items: center; width: 72px; height: 72px; border-radius: 20px; background: var(--lime); }
 .ac-thanks__icon svg { width: 34px; height: 34px; }
-.ac-thanks__title { max-width: 18ch; font-size: clamp(2.25rem, 1.4rem + 3.4vw, 3.75rem); }
+.ac-thanks__title { max-width: 22ch; font-size: clamp(2.25rem, 1.4rem + 3.4vw, 3.75rem); }
 .ac-thanks__lead { max-width: 52ch; }
 .ac-thanks__lead b { color: var(--ink); }
 .ac-thanks__card { width: 100%; padding: clamp(20px, 3.5vw, 32px); border-radius: var(--r-lg); background: #fff; box-shadow: var(--shadow-card); }

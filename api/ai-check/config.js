@@ -15,7 +15,8 @@ export function GET() {
     },
     ga4_id: env('PUBLIC_GA4_ID', null),
     // Scheduling page shown on the thank-you page (Calendly, Cal.com, HubSpot Meetings...), https only.
-    booking_url: env('PUBLIC_BOOKING_URL', null),
+    // Default: SearchWin's Google Calendar appointment page; PUBLIC_BOOKING_URL overrides it.
+    booking_url: env('PUBLIC_BOOKING_URL', 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0nMNtPX0HDsTx3pVTMc8l9mppMHpmESzTgeJPALHeeQmlYbsm35-h1eiGLW6PqEohX5YjgMYP-?gv=true'),
     consent_version: CONSENT_VERSION
   }, 200, { 'cache-control': 'public, max-age=300' });
 }
