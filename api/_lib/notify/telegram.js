@@ -83,3 +83,25 @@ export function leadMessage(l) {
   }
   return t.trim();
 }
+
+const START_STATUS = {
+  ready: 'вопросы к ChatGPT заданы, ждём ответы',
+  needs_input: 'сайт прочитан не полностью, человека просим уточнить данные',
+  not_local: 'сайт не местный, человеку показан попап для онлайн-бизнеса',
+  unsupported_country: 'страна не поддерживается, человеку показан попап для онлайн-бизнеса'
+};
+
+/** A check was started: the visitor entered a site and passed the bot check; results may or may not follow. */
+export function startMessage({ site, status, business, a, userAgent }) {
+  const b = business || {}, at = a || {};
+  const place = [b.city, b.state, b.country && b.country !== 'US' ? b.country : null].filter(Boolean).join(', ');
+  let t = '▶️ <b>Запущена проверка</b> (результат придёт отдельным сообщением, если человек дождётся ответов)\n\n';
+  t += row('Сайт', site) + row('Статус', START_STATUS[status] || status);
+  t += row('Бизнес', b.name) + row('Услуга', b.service) + row('Место', place);
+  t += '\n<b>Источник</b>\n' + row('utm_source', at.utm_source) + row('utm_medium', at.utm_medium) + row('utm_campaign', at.utm_campaign) +
+    row('utm_content', at.utm_content) + row('utm_term', at.utm_term) + row('gclid', at.gclid) + row('gbraid', at.gbraid) +
+    row('wbraid', at.wbraid) + row('fbclid', at.fbclid);
+  if (!(at.utm_source || at.utm_medium || at.utm_campaign || at.gclid || at.gbraid || at.wbraid || at.fbclid)) t += 'прямой заход или метки не переданы\n';
+  t += row('Страница входа', clip(at.landing_url, 300)) + row('Реферер', clip(at.referrer, 300)) + '\n' + row('Устройство', clip(userAgent, 200));
+  return t.trim();
+}

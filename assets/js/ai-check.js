@@ -164,7 +164,7 @@ el.form.addEventListener('submit', async function (e) {
   resetResult();
   setScore('Reading your website…');
   renderProgress('running');
-  var r = await api('parse', { website: site, turnstile_token: token });
+  var r = await api('parse', { website: site, turnstile_token: token, attribution: track.attribution() });
   busy(el.submit, false, 'See who ChatGPT picks');
   if (!r.ok) {
     // Nothing was checked yet: back to the form with the reason.

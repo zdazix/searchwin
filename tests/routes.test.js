@@ -365,3 +365,29 @@ test('a finished check without an email is saved once and reaches Telegram with 
     assert.equal(telegramSent.length, 0);
   } finally { delete process.env.TELEGRAM_BOT_TOKEN; delete process.env.TELEGRAM_CHAT_ID; }
 });
+
+test('Telegram hears about a started check once: not for follow-ups with typed-in fields', async () => {
+  process.env.TELEGRAM_BOT_TOKEN = 't'; process.env.TELEGRAM_CHAT_ID = '1';
+  try {
+    const attribution = { utm_source: 'google', utm_campaign: 'brand', gclid: 'G-7', landing_url: 'https://searchwin.ai/ai-check/' };
+    telegramSent = [];
+    await post(parseRoute, { website: 'ironcladtexas.com', turnstile_token: 'x', attribution });
+    await new Promise((r) => setTimeout(r, 50));
+    assert.equal(telegramSent.length, 1);
+    for (const piece of ['Запущена проверка', 'ironcladtexas.com', 'ждём ответы', 'Ironclad Plumbing', 'Austin, TX', 'utm_campaign: brand', 'gclid: G-7']) assert.ok(telegramSent[0].includes(piece), piece);
+
+    telegramSent = [];
+    await post(parseRoute, { website: 'saas-demo.com', turnstile_token: 'x', attribution });
+    await post(parseRoute, { website: 'nocity.com', turnstile_token: 'x' });
+    await new Promise((r) => setTimeout(r, 50));
+    assert.equal(telegramSent.length, 2);
+    assert.ok(telegramSent[0].includes('не местный') || telegramSent[1].includes('не местный'));
+    assert.ok(telegramSent.some((t) => t.includes('прямой заход')));
+
+    telegramSent = [];
+    await post(parseRoute, { website: 'nocity.com', turnstile_token: 'x', manual: { name: 'Roam', service: 'plumber', city_state: 'Dallas, TX', country: 'US' } });
+    await post(parseRoute, { website: 'ironcladtexas.com', turnstile_token: 'x', manual: { service: 'plumber', city_state: 'Austin, TX', country: 'US' } });
+    await new Promise((r) => setTimeout(r, 50));
+    assert.equal(telegramSent.length, 0);
+  } finally { delete process.env.TELEGRAM_BOT_TOKEN; delete process.env.TELEGRAM_CHAT_ID; }
+});
