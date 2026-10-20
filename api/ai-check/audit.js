@@ -9,9 +9,10 @@
 
 import { json, error, readJson, clientIp, background, attributionFrom } from '../_lib/http.js';
 import { CONSENT_VERSION, LIMITS, MESSAGES, VERDICTS } from '../_lib/config.js';
-import { normalizeWebsite, normalizeService, normalizeState, cleanCity, cleanRegion } from '../_lib/ai-check/normalize.js';
+import { normalizeWebsite, normalizeState, cleanRegion } from '../_lib/ai-check/normalize.js';
 import { countryByIso } from '../../assets/js/ai-check-countries.js';
 import { verifyTurnstile } from '../_lib/security/turnstile.js';
+import { verifyAnswer } from '../_lib/ai-check/ticket.js';
 import { validateEmail } from '../_lib/leads/email.js';
 import { one } from '../_lib/db.js';
 import { sendTelegram, escapeHtml } from '../_lib/notify/telegram.js';
@@ -21,7 +22,8 @@ const count = (v) => (Number.isInteger(v) && v >= 0 && v <= 10 ? v : null);
 
 export async function POST(request) {
   try {
-    const body = await readJson(request);
+    // The saved answers can be long (full ChatGPT texts), so this body may be larger than the default.
+    const body = await readJson(request, 600000);
     const site = normalizeWebsite(body.website);
     if (!site.ok) return error(400, 'invalid_url', MESSAGES.invalid_url);
     const v = await validateEmail(body.email);
@@ -37,17 +39,21 @@ export async function POST(request) {
     const verdict = typeof r.verdict === 'string' && VERDICTS[r.verdict] ? r.verdict : null;
     const total = count(r.total), mentions = count(r.mentions_count);
     const a = attributionFrom(body, request);
+    // Only answers signed by /ask are kept, so the stored text is what DataForSEO really returned.
+    const answers = kind === 'local' && Array.isArray(body.answers)
+      ? body.answers.slice(0, 3).filter(verifyAnswer).map(({ sig, ...keep }) => keep)
+      : [];
 
     const lead = await one(
       `insert into leads (email, website, business_name, service, city, state, mentions_count, total_answers, best_position, verdict,
           consent_text_version, user_agent, landing_url, referrer, utm_source, utm_medium, utm_campaign, utm_content, utm_term,
-          gclid, gbraid, wbraid, fbclid, fbp, fbc, kind, country)
-       values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27)
+          gclid, gbraid, wbraid, fbclid, fbp, fbc, kind, country, answers)
+       values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28::jsonb)
        returning id, created_at`,
-      [v.email, site.domain, str(b.name, 120), normalizeService(str(b.service, 60) || '') || null, cleanCity(str(b.city, 60) || '') || null,
+      [v.email, site.domain, str(b.name, 120), str(b.service, 60), str(b.city, 60),
         country === 'US' || !country ? normalizeState(str(b.state, 30) || '') : cleanRegion(str(b.state, 40) || ''), mentions, total, count(r.best_position), verdict,
         CONSENT_VERSION, (request.headers.get('user-agent') || '').slice(0, 500), a.landing_url, a.referrer,
-        a.utm_source, a.utm_medium, a.utm_campaign, a.utm_content, a.utm_term, a.gclid, a.gbraid, a.wbraid, a.fbclid, a.fbp, a.fbc, kind, country]
+        a.utm_source, a.utm_medium, a.utm_campaign, a.utm_content, a.utm_term, a.gclid, a.gbraid, a.wbraid, a.fbclid, a.fbp, a.fbc, kind, country, answers.length ? JSON.stringify(answers) : null]
     );
     const due = new Date(new Date(lead.created_at).getTime() + LIMITS.auditDueHours * 3600e3);
 

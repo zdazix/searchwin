@@ -82,6 +82,15 @@ export function answerBusinesses(result, settings) {
 }
 
 /** Sources ChatGPT cited, unique by URL, in order of first appearance. */
+/** Every URL the answer cites or links: the source list plus the links written in the text, in order, without repeats. */
+export function answerUrls(result, markdown) {
+  const out = [];
+  const add = (u) => { if (typeof u === 'string' && /^https?:\/\//i.test(u) && !out.includes(u)) out.push(u); };
+  for (const s of answerSources(result)) add(s.url);
+  for (const m of String(markdown || '').matchAll(/\]\((https?:\/\/[^\s)]+)\)|(?<![(\w])(https?:\/\/[^\s)<>\]]+)/g)) add(m[1] || m[2]);
+  return out;
+}
+
 export function answerSources(result) {
   const list = Array.isArray(result?.sources) && result.sources.length
     ? result.sources

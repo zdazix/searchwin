@@ -62,8 +62,9 @@ export async function chatgptLive(keyword, {
   for (let attempt = 1; ; attempt++) {
     const left = deadline - Date.now();
     try {
-      const r = await once({ keyword, tag, auth, timeoutMs: Math.max(1000, Math.min(timeoutMs, left)), fetchImpl, locationCode, language: attempt === 1 ? language : 'en' });
-      return { raw: r.body, result: r.task.result?.[0] || null, cost: cost + r.cost, ms: ms + r.ms, attempts: attempt };
+      const used = attempt === 1 ? language : 'en';
+      const r = await once({ keyword, tag, auth, timeoutMs: Math.max(1000, Math.min(timeoutMs, left)), fetchImpl, locationCode, language: used });
+      return { raw: r.body, result: r.task.result?.[0] || null, cost: cost + r.cost, ms: ms + r.ms, attempts: attempt, locationCode, language: used };
     } catch (err) {
       cost += Number(err.cost || 0);
       ms += Number(err.ms || 0);

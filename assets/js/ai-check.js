@@ -605,6 +605,7 @@ el.auditForm.addEventListener('submit', async function (e) {
     website: S.website,
     business: S.business,
     result: { mentions_count: s.mentions_count, total: s.total, best_position: s.best_position, verdict: s.verdict },
+    answers: Object.keys(S.answers).map(Number).sort().map(function (k) { return S.answers[k]; }).filter(function (a) { return a.ok && a.saved; }).map(function (a) { return a.saved; }),
     attribution: track.attribution()
   });
   if (!r.ok) {

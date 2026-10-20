@@ -40,3 +40,23 @@ export function readTicket(ticket, now = Date.now()) {
   if (!t || typeof t.exp !== 'number' || t.exp < now) return null;
   return { domain: t.d, name: t.n, service: t.s, city: t.c, state: t.st, country: t.k || 'US', language: t.l || 'en', prompts: Array.isArray(t.p) ? t.p : null };
 }
+
+/**
+ * The answers saved with a request come back from the visitor's browser. Each one carries a signature
+ * made here when the answer was fetched, so what is stored is exactly what DataForSEO returned.
+ */
+const answerBody = (a) => JSON.stringify([a.prompt, a.location_code, a.language_code, a.checked_at, a.answer_text, a.sources]);
+
+export function signAnswer(a) {
+  const key = secret();
+  if (!key) throw Object.assign(new Error('CHECK_TICKET_SECRET is not set'), { code: 'config' });
+  return sign(answerBody(a), key);
+}
+
+export function verifyAnswer(a) {
+  const key = secret();
+  if (!key || !a || typeof a.sig !== 'string') return false;
+  const expected = Buffer.from(sign(answerBody(a), key));
+  const given = Buffer.from(a.sig);
+  return expected.length === given.length && crypto.timingSafeEqual(expected, given);
+}

@@ -113,6 +113,7 @@ test('parse → three real answers → totals on the page → lead saved, no ema
   const ok = await post(auditRoute, {
     email: ' Owner@IroncladTexas.com ', turnstile_token: 'x', website: 'ironcladtexas.com', business: p.body.business,
     result: { mentions_count: s.mentions_count, total: s.total, best_position: s.best_position, verdict: s.verdict },
+    answers: [...answers.map((a) => a.body.saved), { ...answers[0].body.saved, answer_text: 'edited in the browser' }],
     attribution: { utm_source: 'meta', utm_campaign: 'launch', fbclid: 'abc', gclid: 'g1', landing_url: 'https://searchwin.ai/ai-check/?utm_source=meta' }
   });
   assert.equal(ok.status, 200);
@@ -128,6 +129,20 @@ test('parse → three real answers → totals on the page → lead saved, no ema
   assert.equal(lead.utm_source, 'meta');
   assert.equal(lead.gclid, 'g1');
   assert.equal(lead.fbclid, 'abc');
+  // The saved answers: exactly what was asked and what came back; the edited copy is dropped.
+  assert.equal(lead.answers.length, 3);
+  lead.answers.forEach((x, i) => {
+    assert.equal(x.idx, i + 1);
+    assert.equal(x.prompt, p.body.prompts[i]);
+    assert.equal(x.location_code, 2840);
+    assert.equal(x.language_code, 'en');
+    assert.match(x.checked_at, /^\d{4}-\d\d-\d\dT[\d:.]+Z$/);
+    assert.ok(x.answer_text.length > 200 && !x.answer_text.includes('edited in the browser'));
+    assert.ok(Array.isArray(x.sources) && x.sources.every((u) => /^https?:\/\//.test(u)) && new Set(x.sources).size === x.sources.length);
+    assert.equal(x.sig, undefined);
+  });
+  assert.equal(lead.service, 'plumber');
+  assert.equal(lead.city, 'Austin');
   assert.ok(lead.consent_text_version);
 });
 
@@ -202,6 +217,7 @@ test('Germany: questions in German, German location and language, found by domai
   assert.equal(a.status, 200);
   assert.deepEqual([dfsBodies[0].keyword, dfsBodies[0].location_code, dfsBodies[0].language_code], ['Wer ist der beste Klempner in Berlin?', 2276, 'de']);
   assert.ok(a.body.businesses.length >= 3 && a.body.businesses[0].rating === 5);
+  assert.deepEqual([a.body.saved.location_code, a.body.saved.language_code, a.body.saved.prompt], [2276, 'de', 'Wer ist der beste Klempner in Berlin?']);
 });
 
 test('Australia: city only in the question, Sydney electrician found at its position', async () => {

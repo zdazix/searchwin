@@ -10,9 +10,9 @@ import { json, error, readJson, background } from '../_lib/http.js';
 import { DEFAULT_SETTINGS, LIMITS, MESSAGES } from '../_lib/config.js';
 import { countryByIso } from '../../assets/js/ai-check-countries.js';
 import { buildPrompts } from '../_lib/ai-check/prompts.js';
-import { readTicket } from '../_lib/ai-check/ticket.js';
+import { readTicket, signAnswer } from '../_lib/ai-check/ticket.js';
 import { chatgptLive } from '../_lib/ai-check/dataforseo.js';
-import { parseAnswer } from '../_lib/ai-check/answer.js';
+import { parseAnswer, answerUrls } from '../_lib/ai-check/answer.js';
 import { makeClient } from '../_lib/ai-check/match.js';
 import { renderMarkdown } from '../_lib/ai-check/markdown.js';
 import { sendTelegram, escapeHtml } from '../_lib/notify/telegram.js';
@@ -59,6 +59,12 @@ export async function POST(request) {
     if (!r.result) throw Object.assign(new Error('DataForSEO returned no result'), { code: 'api' });
     const client = makeClient({ name: business.name, domain: business.domain, city: business.city, state: business.state, service: business.service }, settings);
     const a = parseAnswer(r.result, client, settings);
+    // What goes into the lead if the visitor asks for the audit: exactly what was sent and what came back.
+    const saved = {
+      idx, prompt, location_code: r.locationCode, language_code: r.language, checked_at: new Date().toISOString(),
+      answer_text: a.markdown, sources: answerUrls(r.result, a.markdown)
+    };
+    saved.sig = signAnswer(saved);
     console.log('[ai-check/ask]', JSON.stringify({ domain: business.domain, idx, ms: Date.now() - started, attempts: r.attempts, cost: r.cost, found: a.client.found, rule: a.client.match_rule }));
     return json({
       idx,
@@ -69,7 +75,8 @@ export async function POST(request) {
       client: { found: a.client.found, position: a.client.position, rule: a.client.match_rule },
       sources: a.sources.map((s) => ({ domain: s.domain })).filter((s) => s.domain),
       answer_html: renderMarkdown(a.markdown),
-      answered_at: a.datetime || new Date().toISOString()
+      answered_at: a.datetime || new Date().toISOString(),
+      saved: saved
     });
   } catch (err) {
     console.error('[ai-check/ask]', business.domain, idx, err.code || '', err.message, `${Date.now() - started} ms`);
