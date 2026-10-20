@@ -27,11 +27,13 @@ delete process.env.TURNSTILE_SECRET_KEY;
 delete process.env.TELEGRAM_BOT_TOKEN;
 
 const fixtures = fs.readdirSync(path.join(here, 'fixtures', 'dataforseo')).map((f) => JSON.parse(fs.readFileSync(path.join(here, 'fixtures', 'dataforseo', f), 'utf8')));
+let telegramSent = [];
 let dfsCalls = [];
 let dfsBodies = [];
 const realFetch = globalThis.fetch;
 globalThis.fetch = async (input, init = {}) => {
   const url = typeof input === 'string' ? input : input.url;
+  if (url.startsWith('https://api.telegram.org/')) { telegramSent.push(JSON.parse(init.body).text); return new Response('{"ok":true}'); }
   if (!url.startsWith('https://api.dataforseo.com/')) return realFetch(input, init);
   const [{ keyword }] = JSON.parse(init.body);
   dfsCalls.push(keyword);
@@ -303,4 +305,26 @@ test('config gives the page public IDs only', async () => {
 test('only the leads table exists', async () => {
   const tables = (await query(`select table_name from information_schema.tables where table_schema = 'public' order by 1`)).map((r) => r.table_name);
   assert.deepEqual(tables, ['leads']);
+});
+
+test('Telegram gets the full lead: online (website, email, all marketing data) and local (plus the answers)', async () => {
+  process.env.TELEGRAM_BOT_TOKEN = 't'; process.env.TELEGRAM_CHAT_ID = '1';
+  try {
+    telegramSent = [];
+    const attribution = { utm_source: 'google', utm_medium: 'cpc', utm_campaign: 'brand', utm_content: 'ad1', utm_term: 'kw', gclid: 'G-1', fbclid: 'F-1', landing_url: 'https://searchwin.ai/ai-check/?utm_source=google', referrer: 'https://google.com/' };
+    const on = await post(auditRoute, { kind: 'online', email: 'a@saas-demo.com', turnstile_token: 'x', website: 'saas-demo.com', attribution });
+    await new Promise((r) => setTimeout(r, 50));
+    const msg = telegramSent.join('\n');
+    for (const piece of ['онлайн-бизнес', 'saas-demo.com', 'a@saas-demo.com', 'utm_campaign: brand', 'utm_term: kw', 'gclid: G-1', 'fbclid: F-1', 'https://searchwin.ai/ai-check/?utm_source=google', 'https://google.com/', 'ID заявки: ' + on.body.lead_id]) assert.ok(msg.includes(piece), piece);
+
+    telegramSent = [];
+    const p = await post(parseRoute, { website: 'ironcladtexas.com', turnstile_token: 'x' });
+    const answers = await Promise.all([1, 2, 3].map((idx) => post(askRoute, { ticket: p.body.ticket, idx })));
+    const loc = await post(auditRoute, { email: 'o@ironcladtexas.com', turnstile_token: 'x', website: 'ironcladtexas.com', business: p.body.business,
+      result: { mentions_count: 3, total: 3, best_position: 3, verdict: 'not_first' }, answers: answers.map((a) => a.body.saved), attribution });
+    await new Promise((r) => setTimeout(r, 50));
+    const full = telegramSent.join('\n');
+    for (const piece of ['Полный лид', 'Ironclad Plumbing', 'plumber', 'Austin, TX', 'Итог: 3 из 3', 'utm_source: google', 'gclid: G-1', 'Ответы ChatGPT', 'best plumber in Austin, TX', '2840 / en', 'ID заявки: ' + loc.body.lead_id]) assert.ok(full.includes(piece), piece);
+    assert.ok(telegramSent.every((t) => t.length <= 4000));
+  } finally { delete process.env.TELEGRAM_BOT_TOKEN; delete process.env.TELEGRAM_CHAT_ID; }
 });

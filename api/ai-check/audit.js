@@ -15,7 +15,7 @@ import { verifyTurnstile } from '../_lib/security/turnstile.js';
 import { verifyAnswer } from '../_lib/ai-check/ticket.js';
 import { validateEmail } from '../_lib/leads/email.js';
 import { one } from '../_lib/db.js';
-import { sendTelegram, escapeHtml } from '../_lib/notify/telegram.js';
+import { sendTelegramLong, leadMessage } from '../_lib/notify/telegram.js';
 
 const str = (v, max) => (typeof v === 'string' && v.trim() ? v.trim().slice(0, max) : null);
 const count = (v) => (Number.isInteger(v) && v >= 0 && v <= 10 ? v : null);
@@ -57,18 +57,13 @@ export async function POST(request) {
     );
     const due = new Date(new Date(lead.created_at).getTime() + LIMITS.auditDueHours * 3600e3);
 
-    const place = [str(b.city, 60), str(b.state, 40), country && country !== 'US' ? country : null].filter(Boolean).join(', ');
-    background(sendTelegram(kind === 'online' ?
-      `🆕 Заявка: онлайн-бизнес (не местный)\n<b>${escapeHtml(site.domain)}</b>\nEmail: ${escapeHtml(v.email)}\n` +
-      `Источник: ${escapeHtml([a.utm_source, a.utm_campaign].filter(Boolean).join(' / ') || (a.gclid ? 'Google Ads' : a.fbclid ? 'Meta' : 'прямой заход'))}\n` +
-      `Срок: ${due.toISOString().slice(0, 16).replace('T', ' ')} UTC` :
-      `🆕 Заявка на аудит\n<b>${escapeHtml(str(b.name, 120) || site.domain)}</b> — ${escapeHtml(site.domain)}\n` +
-      `${escapeHtml(str(b.service, 60) || '')}${place ? ', ' + escapeHtml(place) : ''}\n` +
-      `Email: ${escapeHtml(v.email)}\n` +
-      `Итог: ${mentions ?? '?'} из ${total ?? '?'}${verdict ? ' (' + VERDICTS[verdict].label + ')' : ''}\n` +
-      `Источник: ${escapeHtml([a.utm_source, a.utm_campaign].filter(Boolean).join(' / ') || (a.gclid ? 'Google Ads' : a.fbclid ? 'Meta' : 'прямой заход'))}\n` +
-      `Срок: ${due.toISOString().slice(0, 16).replace('T', ' ')} UTC`
-    ));
+    background(sendTelegramLong(leadMessage({
+      kind, id: lead.id, site: site.domain, email: v.email,
+      business: { name: str(b.name, 120), service: str(b.service, 60), city: str(b.city, 60), state: str(b.state, 40), country },
+      result: { mentions, total, best_position: count(r.best_position) }, verdictLabel: verdict ? VERDICTS[verdict].label : null,
+      due: due.toISOString().slice(0, 16).replace('T', ' '), a, userAgent: request.headers.get('user-agent') || '',
+      consent: CONSENT_VERSION, answers
+    })));
     return json({ ok: true, lead_id: lead.id, event_id: `lead_${lead.id}`, due_at: due.toISOString(), kind });
   } catch (err) {
     if (err.status === 400 || err.status === 413) return error(err.status, 'bad_request', err.message);
