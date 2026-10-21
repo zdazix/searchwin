@@ -1,4 +1,7 @@
-/* SearchWin.ai free AI check: attribution cookie, Meta Pixel, Google Ads and GA4.
+/* SearchWin.ai free AI check: attribution, cookie consent, Meta Pixel, Google Ads and GA4.
+   Where the law asks for consent (EEA, UK, Switzerland, or an unknown location) no tag loads and no
+   tracking cookie is set until the visitor accepts; elsewhere they load right away. The choice is kept
+   in local storage and can be changed with the "Cookie settings" link in the footer.
    Tags load after the page has rendered, so they never delay the first screen.
    Browser events only for now; each carries an event_id so a server-side Conversions API
    can be added later without double counting. */
@@ -6,6 +9,7 @@
   'use strict';
 
   var preview = /[?&]preview=1\b/.test(location.search);
+  var LANG = String(document.documentElement.getAttribute('lang') || 'en').slice(0, 2).toLowerCase() === 'es' ? 'es' : 'en';
 
   function getCookie(name) {
     var m = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/[.$?*|{}()[\]\\/+^]/g, '\\$&') + '=([^;]*)'));
@@ -16,8 +20,18 @@
   }
   function store(key, val) { try { if (val === undefined) return localStorage.getItem(key); localStorage.setItem(key, val); } catch (e) { return null; } return null; }
 
-  /* ---------- First-party attribution, 90 days ---------- */
+  /* ---------- State ---------- */
+  var cfg = {};
+  var ready = false;     // the tags are running
+  var started = false;   // startTags() has run once
+  var blocked = false;   // the visitor said no: nothing is sent
+  var queue = [];        // events that wait for the tags (or for the visitor's answer)
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
+
+  /* ---------- First-party attribution, 90 days (kept in memory until cookies are allowed) ---------- */
   var KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'gbraid', 'wbraid', 'fbclid'];
+  var CLICK_IDS = ['gclid', 'gbraid', 'wbraid', 'fbclid'];
   var params = new URLSearchParams(location.search);
   var attr = {};
   try { attr = JSON.parse(getCookie('sw_attr') || '{}') || {}; } catch (e) { attr = {}; }
@@ -35,20 +49,102 @@
     attr[k] = fresh[k];
   });
   if (fresh.gclid || fresh.gbraid || fresh.wbraid) attr.click_seen = Date.now();
-  setCookie('sw_attr', JSON.stringify(attr), 90);
-  if (fresh.fbclid && !getCookie('_fbc')) setCookie('_fbc', 'fb.1.' + Date.now() + '.' + fresh.fbclid, 90);
+  function persistAttr() {
+    setCookie('sw_attr', JSON.stringify(attr), 90);
+    if (fresh.fbclid && !getCookie('_fbc')) setCookie('_fbc', 'fb.1.' + Date.now() + '.' + fresh.fbclid, 90);
+  }
+
+  /* ---------- Consent ---------- */
+  var CONSENT_KEY = 'sw_consent';
+  var CONSENT_DAYS = 180;
+  var TEXT = {
+    en: {
+      label: 'Cookies', body: 'We use cookies and similar tools to measure visits and show you relevant ads. Accept or reject the non-essential ones; the check works either way.',
+      policy: 'Privacy Policy', accept: 'Accept', reject: 'Reject'
+    },
+    es: {
+      label: 'Cookies', body: 'Usamos cookies y herramientas similares para medir las visitas y mostrarte anuncios relevantes. Puedes aceptar o rechazar las no esenciales; la comprobación funciona igual.',
+      policy: 'Política de privacidad (en inglés)', accept: 'Aceptar', reject: 'Rechazar'
+    }
+  }[LANG];
+
+  function readConsent() {
+    try {
+      var c = JSON.parse(store(CONSENT_KEY) || 'null');
+      if (c && (c.v === 'all' || c.v === 'necessary') && Date.now() - c.t < CONSENT_DAYS * 86400e3) return c.v;
+    } catch (e) { /* no valid choice stored */ }
+    return null;
+  }
+  function consentSignals(on) {
+    var v = on ? 'granted' : 'denied';
+    return { ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: v };
+  }
+  function consentUpdate(on) {
+    gtag('consent', 'update', consentSignals(on));
+    if (window.fbq) window.fbq('consent', on ? 'grant' : 'revoke');
+  }
+  function clearTrackingCookies() {
+    var host = location.hostname, parts = host.split('.'), domains = [''];
+    for (var i = 0; i < parts.length - 1; i++) domains.push(parts.slice(i).join('.'));
+    document.cookie.split('; ').forEach(function (c) {
+      var name = c.split('=')[0];
+      if (!/^(_ga|_gid|_gcl|_fb|sw_attr)/.test(name)) return;
+      domains.forEach(function (d) { document.cookie = name + '=; Max-Age=0; Path=/' + (d ? '; Domain=' + d : ''); });
+    });
+  }
+
+  var banner = null;
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text) n.textContent = text;
+    return n;
+  }
+  function showBanner() {
+    if (!banner) {
+      banner = el('div', 'ac-consent-bar');
+      banner.setAttribute('role', 'region');
+      banner.setAttribute('aria-label', TEXT.label);
+      var p = el('p', 'ac-consent-bar__text', TEXT.body + ' ');
+      var a = el('a', null, TEXT.policy);
+      a.href = '/privacy/';
+      p.appendChild(a);
+      var actions = el('div', 'ac-consent-bar__actions');
+      var no = el('button', 'btn btn--sm btn--ghost', TEXT.reject);
+      var yes = el('button', 'btn btn--sm btn--dark', TEXT.accept);
+      no.type = yes.type = 'button';
+      no.addEventListener('click', function () { applyChoice('necessary'); });
+      yes.addEventListener('click', function () { applyChoice('all'); });
+      actions.appendChild(no);
+      actions.appendChild(yes);
+      banner.appendChild(p);
+      banner.appendChild(actions);
+      document.body.appendChild(banner);
+    }
+    banner.hidden = false;
+  }
+  function applyChoice(v) {
+    store(CONSENT_KEY, JSON.stringify({ v: v, t: Date.now() }));
+    if (v === 'all') {
+      blocked = false;
+      if (!started) startTags();
+      else { consentUpdate(true); persistAttr(); }
+    } else {
+      blocked = true;
+      queue = [];
+      if (started) consentUpdate(false);
+      clearTrackingCookies();
+    }
+    if (banner) banner.hidden = true;
+  }
+  document.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('[data-ac-cookie-settings]')) showBanner();
+  });
 
   /* ---------- Config: public IDs from the server ---------- */
   var config = fetch('/api/ai-check/config', { credentials: 'same-origin' })
     .then(function (r) { return r.ok ? r.json() : {}; })
     .catch(function () { return {}; });
-
-  /* ---------- Queues: events wait until the tags are ready ---------- */
-  var queue = [];
-  var ready = false;
-  var cfg = {};
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { window.dataLayer.push(arguments); }
 
   function fired(id) {
     var list = [];
@@ -66,9 +162,12 @@
     document.head.appendChild(s);
   }
 
-  function initTags(c) {
-    cfg = c || {};
-    if (preview) { ready = true; queue = []; return; }
+  /* Tags start only when tracking is allowed: consent given, or no consent needed in the visitor's region. */
+  function startTags() {
+    if (started) return;
+    started = true;
+    blocked = false;
+    persistAttr();
     if (cfg.meta_pixel_id) {
       /* Meta Pixel base code */
       (function (f, b, e, v, n, t, s) {
@@ -81,6 +180,9 @@
     }
     var gid = cfg.google_ads_id || cfg.ga4_id;
     if (gid) {
+      // Consent Mode v2: denied first, then granted, both before the tag is configured.
+      gtag('consent', 'default', consentSignals(false));
+      gtag('consent', 'update', consentSignals(true));
       loadScript('https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gid));
       gtag('js', new Date());
       if (cfg.google_ads_id) gtag('config', cfg.google_ads_id, { allow_enhanced_conversions: true });
@@ -90,7 +192,22 @@
     queue.splice(0).forEach(function (fn) { fn(); });
   }
 
-  function whenReady(fn) { if (ready) fn(); else queue.push(fn); }
+  function initTags(c) {
+    cfg = c || {};
+    if (preview) { persistAttr(); ready = true; queue = []; return; }
+    var anyTag = cfg.meta_pixel_id || cfg.google_ads_id || cfg.ga4_id;
+    var choice = readConsent();
+    var needsConsent = cfg.consent_required !== false;   // unknown means ask
+    if (choice === 'all' || (choice === null && !needsConsent)) startTags();
+    else if (choice === null) { if (anyTag) showBanner(); }
+    else { blocked = true; }
+  }
+
+  // Events wait until the tags are running (or the visitor's answer is known); a "no" drops them.
+  function whenReady(fn) {
+    if (blocked) return;
+    if (ready) fn(); else queue.push(fn);
+  }
 
   function start() { config.then(initTags); }
   if (document.readyState === 'complete') setTimeout(start, 1200);
@@ -106,30 +223,34 @@
     attribution: function () {
       var a = {};
       for (var k in attr) if (Object.prototype.hasOwnProperty.call(attr, k) && typeof attr[k] === 'string') a[k] = attr[k];
-      a.fbp = getCookie('_fbp');
-      a.fbc = getCookie('_fbc');
+      // Ad click IDs and Meta browser IDs only travel with the lead while tracking is allowed.
+      if ((started && !blocked) || preview) { a.fbp = getCookie('_fbp'); a.fbc = getCookie('_fbc'); }
+      else CLICK_IDS.forEach(function (k) { delete a[k]; });
       return a;
     },
     // The visitor sent a website and the server accepted it (before any answer exists): the "sent a site" audience.
     checkStarted: function (eventId, data) {
-      if (!eventId || fired(eventId)) return;
+      if (!eventId) return;
       whenReady(function () {
+        if (fired(eventId)) return;
         if (window.fbq && cfg.meta_pixel_id) window.fbq('trackCustom', 'CheckStarted', Object.assign({ content_name: 'ai_check_site' }, data), { eventID: eventId });
         adsConversion(cfg.google_ads_labels && cfg.google_ads_labels.check_started, { transaction_id: eventId });
         if (cfg.ga4_id) gtag('event', 'check_started', data || {});
       });
     },
     checkCompleted: function (eventId, data) {
-      if (!eventId || fired(eventId)) return;
+      if (!eventId) return;
       whenReady(function () {
+        if (fired(eventId)) return;
         if (window.fbq && cfg.meta_pixel_id) window.fbq('track', 'ViewContent', Object.assign({ content_name: 'ai_check_result' }, data), { eventID: eventId });
         adsConversion(cfg.google_ads_labels && cfg.google_ads_labels.check_completed, { transaction_id: eventId });
         if (cfg.ga4_id) gtag('event', 'check_completed', data || {});
       });
     },
     auditRequested: function (eventId, data, email) {
-      if (!eventId || fired(eventId)) return;
+      if (!eventId) return;
       whenReady(function () {
+        if (fired(eventId)) return;
         if (window.fbq && cfg.meta_pixel_id) {
           if (email) window.fbq('init', cfg.meta_pixel_id, { em: String(email).trim().toLowerCase() });
           window.fbq('track', 'Lead', Object.assign({ content_name: 'ai_check_audit' }, data), { eventID: eventId });

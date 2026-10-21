@@ -4,7 +4,24 @@
 import { json } from '../_lib/http.js';
 import { env, CONSENT_VERSION } from '../_lib/config.js';
 
-export function GET() {
+// Countries where tracking needs the visitor's consent first: EU, the other EEA states, the UK and Switzerland.
+const CONSENT_COUNTRIES = new Set([
+  'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE',
+  'IS', 'LI', 'NO', 'GB', 'CH'
+]);
+
+/**
+ * Does the cookie banner apply? PUBLIC_CONSENT_BANNER: "eu" (default: those countries, and anywhere the
+ * country is unknown), "all" (everyone) or "off" (nobody).
+ */
+export function consentRequired(country, mode = env('PUBLIC_CONSENT_BANNER', 'eu')) {
+  if (mode === 'off') return false;
+  if (mode === 'all') return true;
+  const c = String(country || '').trim().toUpperCase();
+  return !c || CONSENT_COUNTRIES.has(c);
+}
+
+export function GET(request) {
   return json({
     turnstile_site_key: env('PUBLIC_TURNSTILE_SITE_KEY', null),
     meta_pixel_id: env('PUBLIC_META_PIXEL_ID', null),
@@ -18,6 +35,8 @@ export function GET() {
     // Scheduling page shown on the thank-you page (Calendly, Cal.com, HubSpot Meetings...), https only.
     // Default: SearchWin's Google Calendar appointment page; PUBLIC_BOOKING_URL overrides it.
     booking_url: env('PUBLIC_BOOKING_URL', 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0nMNtPX0HDsTx3pVTMc8l9mppMHpmESzTgeJPALHeeQmlYbsm35-h1eiGLW6PqEohX5YjgMYP-?gv=true'),
-    consent_version: CONSENT_VERSION
-  }, 200, { 'cache-control': 'public, max-age=300' });
+    consent_version: CONSENT_VERSION,
+    // Vercel tells the function the visitor's country; the answer differs per visitor, so it is not shared-cached.
+    consent_required: consentRequired(request?.headers?.get('x-vercel-ip-country'))
+  }, 200, { 'cache-control': 'private, max-age=300' });
 }
