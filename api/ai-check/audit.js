@@ -14,7 +14,7 @@ import { countryByIso } from '../../assets/js/ai-check-countries.js';
 import { verifyTurnstile } from '../_lib/security/turnstile.js';
 import { verifyAnswer } from '../_lib/ai-check/ticket.js';
 import { validateEmail } from '../_lib/leads/email.js';
-import { one } from '../_lib/db.js';
+import { one, query } from '../_lib/db.js';
 import { sendTelegramLong, leadMessage } from '../_lib/notify/telegram.js';
 
 const str = (v, max) => (typeof v === 'string' && v.trim() ? v.trim().slice(0, max) : null);
@@ -64,6 +64,8 @@ export async function POST(request) {
       due: due.toISOString().slice(0, 16).replace('T', ' '), a, userAgent: request.headers.get('user-agent') || '',
       consent: consentVersion(a.ui_lang), answers
     })));
+    // Link the cookie answer of this browser to the lead (best effort: the consents table may not exist yet).
+    if (a.visitor_id) await query('update consents set lead_id = $1 where visitor_id = $2 and lead_id is null', [lead.id, a.visitor_id]).catch(() => {});
     return json({ ok: true, lead_id: lead.id, event_id: `lead_${lead.id}`, due_at: due.toISOString(), kind });
   } catch (err) {
     if (err.status === 400 || err.status === 413) return error(err.status, 'bad_request', err.message);

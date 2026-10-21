@@ -100,7 +100,7 @@ dns.promises.resolveMx = async (domain) => {
 // ---------- Functions and static files ----------
 const fn = async (file) => import(pathToFileURL(path.join(root, file)).href);
 const routes = [
-  [/^\/api\/ai-check\/(parse|ask|audit|config|report)\/?$/, (m) => `api/ai-check/${m[1]}.js`]
+  [/^\/api\/ai-check\/(parse|ask|audit|config|report|consent)\/?$/, (m) => `api/ai-check/${m[1]}.js`]
 ];
 const MIME = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.mjs': 'text/javascript', '.json': 'application/json',
   '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.woff2': 'font/woff2', '.txt': 'text/plain', '.xml': 'application/xml', '.ico': 'image/x-icon' };

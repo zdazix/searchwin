@@ -57,6 +57,7 @@
   /* ---------- Consent ---------- */
   var CONSENT_KEY = 'sw_consent';
   var CONSENT_DAYS = 180;
+  var BANNER_VERSION = 'cb-2026-10-21';
   var TEXT = {
     en: {
       label: 'Cookies', body: 'We use cookies and similar tools to measure visits and show you relevant ads. Accept or reject the non-essential ones; the check works either way.',
@@ -123,8 +124,26 @@
     }
     banner.hidden = false;
   }
+  function visitorId() {
+    var id = store('sw_vid');
+    if (!/^[0-9a-f-]{36}$/i.test(id || '')) {
+      id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : 'xxxxxxxx-xxxx-4xxx-8xxx-xxxxxxxxxxxx'.replace(/x/g, function () { return Math.floor(Math.random() * 16).toString(16); });
+      store('sw_vid', id);
+    }
+    return id;
+  }
+  /* The answer is also saved on the server as proof of consent (time, choice, language; no IP). */
+  function recordChoice(v) {
+    try {
+      fetch('/api/ai-check/consent', {
+        method: 'POST', headers: { 'content-type': 'application/json' }, keepalive: true, credentials: 'same-origin',
+        body: JSON.stringify({ visitor_id: visitorId(), choice: v, lang: LANG, banner_version: BANNER_VERSION })
+      }).catch(function () { /* the choice still applies in this browser */ });
+    } catch (e) { /* same */ }
+  }
   function applyChoice(v) {
     store(CONSENT_KEY, JSON.stringify({ v: v, t: Date.now() }));
+    if (!preview) recordChoice(v);
     if (v === 'all') {
       blocked = false;
       if (!started) startTags();
@@ -226,6 +245,8 @@
       // Ad click IDs and Meta browser IDs only travel with the lead while tracking is allowed.
       if ((started && !blocked) || preview) { a.fbp = getCookie('_fbp'); a.fbc = getCookie('_fbc'); }
       else CLICK_IDS.forEach(function (k) { delete a[k]; });
+      var vid = store('sw_vid');
+      if (vid) a.visitor_id = vid;
       return a;
     },
     // The visitor sent a website and the server accepted it (before any answer exists): the "sent a site" audience.

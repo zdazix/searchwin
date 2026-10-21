@@ -19,6 +19,7 @@ import * as askRoute from '../api/ai-check/ask.js';
 import * as auditRoute from '../api/ai-check/audit.js';
 import * as reportRoute from '../api/ai-check/report.js';
 import * as configRoute from '../api/ai-check/config.js';
+import * as consentRoute from '../api/ai-check/consent.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(here, '..');
@@ -329,9 +330,9 @@ test('config gives the page public IDs only', async () => {
   delete process.env.PUBLIC_META_PIXEL_ID;
 });
 
-test('only the leads and checks tables exist', async () => {
+test('only the leads, checks and consents tables exist', async () => {
   const tables = (await query(`select table_name from information_schema.tables where table_schema = 'public' order by 1`)).map((r) => r.table_name);
-  assert.deepEqual(tables, ['checks', 'leads']);
+  assert.deepEqual(tables, ['checks', 'consents', 'leads']);
 });
 
 test('Telegram gets the full lead: online (website, email, all marketing data) and local (plus the answers)', async () => {
@@ -433,4 +434,18 @@ test('Telegram hears about a started check once: not for follow-ups with typed-i
     await new Promise((r) => setTimeout(r, 50));
     assert.equal(telegramSent.length, 0);
   } finally { delete process.env.TELEGRAM_BOT_TOKEN; delete process.env.TELEGRAM_CHAT_ID; }
+});
+
+test('the cookie answer is saved without IP or user agent, and linked to the lead of the same browser', async () => {
+  const vid = '3f2b8c1e-6d4a-4b7e-9a10-2c5d7e8f9a01';
+  const ok = await post(consentRoute, { visitor_id: vid, choice: 'all', lang: 'es', banner_version: 'cb-test' });
+  assert.equal(ok.status, 200);
+  assert.equal((await post(consentRoute, { visitor_id: 'nope', choice: 'all' })).status, 400);
+  assert.equal((await post(consentRoute, { visitor_id: vid, choice: 'maybe' })).status, 400);
+  const lead = await post(auditRoute, { kind: 'online', email: 'z@consent-demo.com', turnstile_token: 'x', website: 'consent-demo.com', attribution: { visitor_id: vid } });
+  assert.equal(lead.status, 200);
+  const rows = await query('select * from consents where visitor_id = $1', [vid]);
+  assert.equal(rows.length, 1);
+  assert.deepEqual([rows[0].choice, rows[0].lang, rows[0].banner_version, rows[0].lead_id], ['all', 'es', 'cb-test', lead.body.lead_id]);
+  assert.deepEqual(Object.keys(rows[0]).sort(), ['banner_version', 'choice', 'country', 'created_at', 'id', 'lang', 'lead_id', 'visitor_id']);
 });

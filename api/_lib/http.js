@@ -52,6 +52,7 @@ export function background(promise) {
 }
 
 /** Attribution fields the page sends with a request (from the first-party cookie). */
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 export function attributionFrom(body, request) {
   const a = body && typeof body.attribution === 'object' && body.attribution ? body.attribution : {};
   const pick = (k, max = 300) => (typeof a[k] === 'string' && a[k] ? a[k].slice(0, max) : null);
@@ -63,6 +64,8 @@ export function attributionFrom(body, request) {
     fbp: c._fbp || pick('fbp'), fbc: c._fbc || pick('fbc'),
     landing_url: pick('landing_url', 1000), referrer: pick('referrer', 1000),
     // Which language page the visitor used (only the Spanish page says so); not stored, shown in Telegram.
-    ui_lang: pick('ui_lang', 5) === 'es' ? 'es' : 'en'
+    ui_lang: pick('ui_lang', 5) === 'es' ? 'es' : 'en',
+    // Random id the browser made when it answered the cookie banner; links the lead to that answer.
+    visitor_id: UUID_RE.test(a.visitor_id || '') ? a.visitor_id.toLowerCase() : null
   };
 }
