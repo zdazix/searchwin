@@ -325,7 +325,7 @@ test('config gives the page public IDs only', async () => {
   const body = await (await configRoute.GET()).json();
   assert.equal(body.meta_pixel_id, '123');
   assert.ok(!JSON.stringify(body).includes('should-not-leak'));
-  assert.deepEqual(Object.keys(body.google_ads_labels).sort(), ['audit_requested', 'check_completed']);
+  assert.deepEqual(Object.keys(body.google_ads_labels).sort(), ['audit_requested', 'check_completed', 'check_started']);
   delete process.env.PUBLIC_META_PIXEL_ID;
 });
 

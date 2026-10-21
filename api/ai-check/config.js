@@ -10,6 +10,7 @@ export function GET() {
     meta_pixel_id: env('PUBLIC_META_PIXEL_ID', null),
     google_ads_id: env('PUBLIC_GOOGLE_ADS_ID', null),
     google_ads_labels: {
+      check_started: env('PUBLIC_GADS_LABEL_CHECK_STARTED', null),
       check_completed: env('PUBLIC_GADS_LABEL_CHECK_COMPLETED', null),
       audit_requested: env('PUBLIC_GADS_LABEL_AUDIT_REQUESTED', null)
     },

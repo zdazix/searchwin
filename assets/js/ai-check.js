@@ -12,7 +12,7 @@ var API = '/api/ai-check/';
 
 var $ = function (sel, root) { return (root || document).querySelector(sel); };
 var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
-var track = window.acTrack || { attribution: function () { return {}; }, config: Promise.resolve({}), checkCompleted: function () {}, auditRequested: function () {} };
+var track = window.acTrack || { attribution: function () { return {}; }, config: Promise.resolve({}), checkStarted: function () {}, checkCompleted: function () {}, auditRequested: function () {} };
 
 /* The attribution sent with every request also says which language page the visitor used. */
 function attribution() {
@@ -186,6 +186,8 @@ el.form.addEventListener('submit', async function (e) {
     else formAlert(errText(r.data, 'err.start'));
     return;
   }
+  // The site was accepted: this is the "sent a website" event for the ad audiences.
+  track.checkStarted('cs_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8), { status: r.data.status, language: LANG });
   handleParse(r.data);
 });
 

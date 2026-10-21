@@ -110,6 +110,15 @@
       a.fbc = getCookie('_fbc');
       return a;
     },
+    // The visitor sent a website and the server accepted it (before any answer exists): the "sent a site" audience.
+    checkStarted: function (eventId, data) {
+      if (!eventId || fired(eventId)) return;
+      whenReady(function () {
+        if (window.fbq && cfg.meta_pixel_id) window.fbq('trackCustom', 'CheckStarted', Object.assign({ content_name: 'ai_check_site' }, data), { eventID: eventId });
+        adsConversion(cfg.google_ads_labels && cfg.google_ads_labels.check_started, { transaction_id: eventId });
+        if (cfg.ga4_id) gtag('event', 'check_started', data || {});
+      });
+    },
     checkCompleted: function (eventId, data) {
       if (!eventId || fired(eventId)) return;
       whenReady(function () {
