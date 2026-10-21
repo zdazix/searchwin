@@ -24,6 +24,8 @@ export function consentRequired(country, mode = env('PUBLIC_CONSENT_BANNER', 'eu
 export function GET(request) {
   return json({
     turnstile_site_key: env('PUBLIC_TURNSTILE_SITE_KEY', null),
+    // Google Tag Manager container. When set, GTM runs the tags and the page only sends it events.
+    gtm_id: env('PUBLIC_GTM_ID', 'GTM-N9FM3HSM'),
     meta_pixel_id: env('PUBLIC_META_PIXEL_ID', null),
     google_ads_id: env('PUBLIC_GOOGLE_ADS_ID', null),
     google_ads_labels: {

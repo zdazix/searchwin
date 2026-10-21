@@ -27,6 +27,7 @@ test('config tells the page whether to ask, from the country Vercel reports, and
     return { body: await r.json(), cache: r.headers.get('cache-control') };
   };
   const es = await ask('ES'), us = await ask('US'), none = await ask(null);
+  assert.equal(es.body.gtm_id, 'GTM-N9FM3HSM');
   assert.equal(es.body.consent_required, true);
   assert.equal(us.body.consent_required, false);
   assert.equal(none.body.consent_required, true);
