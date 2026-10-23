@@ -47,7 +47,7 @@ var el = {
 };
 
 /* The check lives here and nowhere else: closing the tab ends it. */
-var S = { website: '', business: {}, prompts: [], answers: {}, running: false, summary: null, reported: false };
+var S = { website: '', business: {}, prompts: [], answers: {}, running: false, summary: null, reported: false, tg: '' };
 
 function h(tag, attrs, children) {
   var n = document.createElement(tag);
@@ -172,6 +172,7 @@ el.form.addEventListener('submit', async function (e) {
   var token = await turnstileToken();
   S.website = site.replace(/^https?:\/\//i, '').replace(/^www\./i, '').split(/[/?#]/)[0].toLowerCase();
   S.business = {};
+  S.tg = '';   // a new visit to the check starts a new Telegram message
   setRecog();
   showRun();
   resetResult();
@@ -240,6 +241,7 @@ function setRecog() {
 function setScore(text) { el.score.textContent = text; }
 
 function handleParse(d) {
+  if (d.tg) S.tg = d.tg;
   S.website = d.website || S.website;
   S.business = d.business || {};
   setRecog();
@@ -330,11 +332,13 @@ function reportCheck(s, loaded) {
     fetch(API + 'report', {
       method: 'POST', headers: { 'content-type': 'application/json' }, keepalive: true, credentials: 'same-origin',
       body: JSON.stringify({
+        tg: S.tg,
         website: S.website, business: S.business, answers: saved,
         result: { mentions_count: s.mentions_count, total: s.total, best_position: s.best_position, verdict: s.verdict },
         attribution: attribution()
       })
-    }).catch(function () { /* the visitor does not need to know */ });
+    }).then(function (res) { return res.json(); }).then(function (d) { if (d && d.tg) S.tg = d.tg; })
+      .catch(function () { /* the visitor does not need to know */ });
   } catch (e) { /* same */ }
 }
 
@@ -442,7 +446,7 @@ function tryAgainButton() {
   var b = h('button', { class: 'btn btn--primary', type: 'button', text: t('btn.retry') });
   b.addEventListener('click', async function () {
     busy(b, true);
-    var r = await api('parse', { website: S.website, manual: knownFields(), turnstile_token: await turnstileToken() });
+    var r = await api('parse', { website: S.website, manual: knownFields(), tg: S.tg, turnstile_token: await turnstileToken() });
     busy(b, false);
     if (!r.ok) { showState('failed', t('err.restart'), errText(r.data, 'err.retry_later'), [newCheckButton()]); return; }
     resetResult();
@@ -512,7 +516,7 @@ el.fields.addEventListener('submit', async function (e) {
   });
   if (!ok) return;
   busy(el.fieldsSubmit, true);
-  var r = await api('parse', { website: S.website, manual: manual, turnstile_token: await turnstileToken() });
+  var r = await api('parse', { website: S.website, manual: manual, tg: S.tg, turnstile_token: await turnstileToken() });
   busy(el.fieldsSubmit, false);
   if (!r.ok) {
     var field = r.data.error && $('#ac-' + (r.data.error === 'city_state' ? 'city' : r.data.error));
@@ -556,7 +560,7 @@ el.onlineForm.addEventListener('submit', async function (e) {
   if (!okSite || !okEmail) { (okSite ? el.onlineEmail : el.onlineSite).focus(); return; }
   busy(el.onlineSubmit, true);
   el.onlineAlert.hidden = true;
-  var r = await api('audit', { kind: 'online', website: site, email: email, turnstile_token: await tsOnline.token(), attribution: attribution() });
+  var r = await api('audit', { kind: 'online', tg: S.tg, website: site, email: email, turnstile_token: await tsOnline.token(), attribution: attribution() });
   if (!r.ok) {
     busy(el.onlineSubmit, false);
     if (r.data.error === 'invalid_url') setFieldError(el.onlineSite, true, errText(r.data));
@@ -641,6 +645,7 @@ el.auditForm.addEventListener('submit', async function (e) {
   busy(el.auditSubmit, true);
   var s = S.summary || {};
   var r = await api('audit', {
+    tg: S.tg,
     email: email,
     turnstile_token: await turnstileToken(),
     website: S.website,

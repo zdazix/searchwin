@@ -10,13 +10,13 @@
 //   { status: 'not_local' | 'unsupported_country', website, business }
 // business: { name, service, city, state, country, language }; state is the US state code, or the region elsewhere.
 
-import { json, error, readJson, clientIp, background, attributionFrom } from '../_lib/http.js';
-import { sendTelegram, startMessage } from '../_lib/notify/telegram.js';
+import { json, error, readJson, clientIp, attributionFrom } from '../_lib/http.js';
+import { sendTelegramMessage, upsertTelegram, startMessage } from '../_lib/notify/telegram.js';
 import { MESSAGES } from '../_lib/config.js';
 import { normalizeWebsite, normalizeService, parseLocation } from '../_lib/ai-check/normalize.js';
 import { verifyTurnstile } from '../_lib/security/turnstile.js';
 import { deps } from '../_lib/ai-check/deps.js';
-import { issueTicket } from '../_lib/ai-check/ticket.js';
+import { issueTicket, issueTgToken, readTgToken } from '../_lib/ai-check/ticket.js';
 import { buildPrompts } from '../_lib/ai-check/prompts.js';
 import { countryByIso } from '../../assets/js/ai-check-countries.js';
 
@@ -73,29 +73,35 @@ export async function POST(request) {
       language: d.language || 'en'
     };
     const base = { website: site.domain, business };
-    // Telegram hears about every check that is started: the first call for a site only (not the follow-ups
-    // after the visitor fills in missing fields or presses "Try again").
-    const notify = (status) => {
-      if (Object.keys(manual).length) return;
-      background(sendTelegram(startMessage({ site: site.domain, status, business, a: attributionFrom(body, request), userAgent: request.headers.get('user-agent') || '' })));
+    // One Telegram message per visit. The first call for a site sends it and hands the page a token for it;
+    // follow-ups (missing fields filled in, "Try again") edit that message, and send nothing without the token.
+    const prior = readTgToken(body.tg);
+    const notify = async (status) => {
+      const text = startMessage({ site: site.domain, status, business, a: attributionFrom(body, request), userAgent: request.headers.get('user-agent') || '' });
+      if (Object.keys(manual).length) {
+        if (!prior) return null;
+        await upsertTelegram(prior.id, text);
+        return body.tg;
+      }
+      const id = await sendTelegramMessage(text);
+      return id ? issueTgToken({ id }) : null;
     };
 
     if (!typedIn) {
-      if (!parse.ok) { notify('needs_input'); return json({ ...base, status: 'needs_input', needs: ['name', 'service', 'city_state', 'country'], site_unreadable: true }); }
-      if (d.is_local_business === false && !manual.service) { notify('not_local'); return json({ ...base, status: 'not_local' }); }
-      if (siteCountry && !countryByIso(siteCountry) && !manual.country) { notify('unsupported_country'); return json({ ...base, status: 'unsupported_country' }); }
+      if (!parse.ok) return json({ ...base, status: 'needs_input', needs: ['name', 'service', 'city_state', 'country'], site_unreadable: true, tg: await notify('needs_input') });
+      if (d.is_local_business === false && !manual.service) return json({ ...base, status: 'not_local', tg: await notify('not_local') });
+      if (siteCountry && !countryByIso(siteCountry) && !manual.country) return json({ ...base, status: 'unsupported_country', tg: await notify('unsupported_country') });
     }
     const needs = [];
     if (!business.service) needs.push('service');
     if (!business.country) needs.push('country');
     // Outside the US a city is enough; a US business needs its state too.
     if (!business.city || ((business.country || 'US') === 'US' && !business.state)) needs.push('city_state');
-    if (needs.length) { notify('needs_input'); return json({ ...base, status: 'needs_input', needs, site_unreadable: false }); }
+    if (needs.length) return json({ ...base, status: 'needs_input', needs, site_unreadable: false, tg: await notify('needs_input') });
 
     const prompts = buildPrompts(business, { questions: d.questions });
     const ticket = issueTicket({ domain: site.domain, ...business, prompts });
-    notify('ready');
-    return json({ ...base, status: 'ready', prompts, ticket });
+    return json({ ...base, status: 'ready', prompts, ticket, tg: await notify('ready') });
   } catch (err) {
     if (err.status === 400 || err.status === 413) return error(err.status, 'bad_request', err.message);
     console.error('[ai-check/parse]', err);

@@ -24,6 +24,49 @@ export async function sendTelegram(html) {
   }
 }
 
+/** Sends one message and returns its id (null when Telegram is off or refused it). */
+export async function sendTelegramMessage(html) {
+  const token = env('TELEGRAM_BOT_TOKEN'), chatId = env('TELEGRAM_CHAT_ID');
+  if (!token || !chatId) return null;
+  try {
+    const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ chat_id: chatId, text: html.slice(0, 4000), parse_mode: 'HTML', disable_web_page_preview: true }),
+      signal: AbortSignal.timeout(5000)
+    });
+    if (!res.ok) { console.error('[telegram]', res.status, await res.text().catch(() => '')); return null; }
+    const data = await res.json().catch(() => null);
+    const id = data && data.result && data.result.message_id;
+    return Number.isInteger(id) ? id : null;
+  } catch (err) {
+    console.error('[telegram]', err.message);
+    return null;
+  }
+}
+
+/** Replaces the text of a message this bot sent earlier. "Not modified" counts as done. */
+export async function editTelegramMessage(id, html) {
+  const token = env('TELEGRAM_BOT_TOKEN'), chatId = env('TELEGRAM_CHAT_ID');
+  if (!token || !chatId) return false;
+  try {
+    const res = await fetch(`https://api.telegram.org/bot${token}/editMessageText`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ chat_id: chatId, message_id: id, text: html.slice(0, 4000), parse_mode: 'HTML', disable_web_page_preview: true }),
+      signal: AbortSignal.timeout(5000)
+    });
+    if (res.ok) return true;
+    const text = await res.text().catch(() => '');
+    if (/not modified/i.test(text)) return true;
+    console.error('[telegram edit]', res.status, text);
+    return false;
+  } catch (err) {
+    console.error('[telegram edit]', err.message);
+    return false;
+  }
+}
+
 const LIMIT = 3800;
 
 /** Splits a long text into messages Telegram accepts, breaking at line ends. */
@@ -47,6 +90,20 @@ export async function sendTelegramLong(html) {
 }
 
 const LANG_LABEL = { en: 'английская (/ai-check/)', es: '🇪🇸 испанская (/es/ai-check/)' };
+/**
+ * One message per visit: edits the visitor's earlier message when there is one, otherwise sends a new one.
+ * A long text goes into the message as its first part; the rest follows as new messages unless `rest` is false.
+ * @returns the id of the visit's message (null when Telegram is off)
+ */
+export async function upsertTelegram(id, html, { rest = true } = {}) {
+  const parts = splitMessage(html);
+  let mid = id;
+  if (mid && !(await editTelegramMessage(mid, parts[0]))) mid = null;
+  if (!mid) mid = await sendTelegramMessage(parts[0]);
+  if (rest) for (const part of parts.slice(1)) await sendTelegram(part);
+  return mid;
+}
+
 const clip = (s, n) => { const t = String(s ?? ''); return t.length > n ? t.slice(0, n) + '…' : t; };
 const row = (label, value) => (value === null || value === undefined || value === '' ? '' : `${label}: ${escapeHtml(value)}\n`);
 
@@ -75,6 +132,7 @@ export function leadMessage(l) {
   if (!(a.utm_source || a.utm_medium || a.utm_campaign || a.gclid || a.gbraid || a.wbraid || a.fbclid)) t += 'прямой заход или метки не переданы\n';
   t += row('Страница входа', clip(a.landing_url, 300)) + row('Реферер', clip(a.referrer, 300));
   t += '\n' + row('Устройство', clip(l.userAgent, 200)) + row('Срок (UTC)', l.due) + row('ID заявки', l.id) + row('Версия согласия', l.consent);
+  if (l.answersAbove) t += '\nОтветы ChatGPT уже отправлены отдельными сообщениями после проверки (и сохранены в leads.answers).\n';
   if (!online && Array.isArray(l.answers) && l.answers.length) {
     t += '\n<b>Ответы ChatGPT</b> (полные тексты и ссылки сохранены в базе, leads.answers)\n';
     for (const x of l.answers) {

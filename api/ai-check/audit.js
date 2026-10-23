@@ -7,15 +7,15 @@
 //   kind 'online' comes from the popup: just website and email, no check was run.
 // → { ok, lead_id, event_id, due_at }
 
-import { json, error, readJson, clientIp, background, attributionFrom } from '../_lib/http.js';
+import { json, error, readJson, clientIp, attributionFrom } from '../_lib/http.js';
 import { consentVersion, LIMITS, MESSAGES, VERDICTS } from '../_lib/config.js';
 import { normalizeWebsite, normalizeState, cleanRegion } from '../_lib/ai-check/normalize.js';
 import { countryByIso } from '../../assets/js/ai-check-countries.js';
 import { verifyTurnstile } from '../_lib/security/turnstile.js';
-import { verifyAnswer } from '../_lib/ai-check/ticket.js';
+import { verifyAnswer, issueTgToken, readTgToken } from '../_lib/ai-check/ticket.js';
 import { validateEmail } from '../_lib/leads/email.js';
 import { one, query } from '../_lib/db.js';
-import { sendTelegramLong, leadMessage } from '../_lib/notify/telegram.js';
+import { upsertTelegram, leadMessage } from '../_lib/notify/telegram.js';
 
 const str = (v, max) => (typeof v === 'string' && v.trim() ? v.trim().slice(0, max) : null);
 const count = (v) => (Number.isInteger(v) && v >= 0 && v <= 10 ? v : null);
@@ -57,16 +57,19 @@ export async function POST(request) {
     );
     const due = new Date(new Date(lead.created_at).getTime() + LIMITS.auditDueHours * 3600e3);
 
-    background(sendTelegramLong(leadMessage({
+    // The visit's one Telegram message becomes the full lead. If the answers were already posted after the
+    // check, they are not posted again.
+    const prior = readTgToken(body.tg);
+    const mid = await upsertTelegram(prior && prior.id, leadMessage({
       kind, id: lead.id, site: site.domain, email: v.email,
       business: { name: str(b.name, 120), service: str(b.service, 60), city: str(b.city, 60), state: str(b.state, 40), country },
       result: { mentions, total, best_position: count(r.best_position) }, verdictLabel: verdict ? VERDICTS[verdict].label : null,
       due: due.toISOString().slice(0, 16).replace('T', ' '), a, userAgent: request.headers.get('user-agent') || '',
-      consent: consentVersion(a.ui_lang), answers
-    })));
+      consent: consentVersion(a.ui_lang), answers: prior && prior.answers ? [] : answers, answersAbove: !!(prior && prior.answers)
+    }));
     // Link the cookie answer of this browser to the lead (best effort: the consents table may not exist yet).
     if (a.visitor_id) await query('update consents set lead_id = $1 where visitor_id = $2 and lead_id is null', [lead.id, a.visitor_id]).catch(() => {});
-    return json({ ok: true, lead_id: lead.id, event_id: `lead_${lead.id}`, due_at: due.toISOString(), kind });
+    return json({ ok: true, lead_id: lead.id, event_id: `lead_${lead.id}`, due_at: due.toISOString(), kind, tg: mid ? issueTgToken({ id: mid, answers: !!(prior && prior.answers) }) : null });
   } catch (err) {
     if (err.status === 400 || err.status === 413) return error(err.status, 'bad_request', err.message);
     console.error('[ai-check/audit]', err);

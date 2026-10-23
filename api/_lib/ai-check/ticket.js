@@ -42,6 +42,34 @@ export function readTicket(ticket, now = Date.now()) {
 }
 
 /**
+ * One visit is one Telegram message that is edited as the visitor gets further. The page carries this
+ * signed token (the message id, and whether the answers were already posted) from step to step.
+ */
+const TG_TTL_MS = 47 * 3600e3;
+
+export function issueTgToken({ id, answers = false }, now = Date.now()) {
+  const key = secret();
+  if (!key || !Number.isInteger(id)) return null;
+  const payload = Buffer.from(JSON.stringify({ m: id, a: answers ? 1 : 0, exp: now + TG_TTL_MS })).toString('base64url');
+  return `${payload}.${sign(payload, key)}`;
+}
+
+/** @returns { id, answers } or null when forged, malformed or too old to edit. */
+export function readTgToken(token, now = Date.now()) {
+  const key = secret();
+  if (!key || typeof token !== 'string' || token.length > 400) return null;
+  const [payload, mac] = token.split('.');
+  if (!payload || !mac) return null;
+  const expected = Buffer.from(sign(payload, key));
+  const given = Buffer.from(mac);
+  if (expected.length !== given.length || !crypto.timingSafeEqual(expected, given)) return null;
+  let t;
+  try { t = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8')); } catch { return null; }
+  if (!t || !Number.isInteger(t.m) || typeof t.exp !== 'number' || t.exp < now) return null;
+  return { id: t.m, answers: t.a === 1 };
+}
+
+/**
  * The answers saved with a request come back from the visitor's browser. Each one carries a signature
  * made here when the answer was fetched, so what is stored is exactly what DataForSEO returned.
  */

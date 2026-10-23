@@ -30,12 +30,19 @@ delete process.env.TELEGRAM_BOT_TOKEN;
 
 const fixtures = fs.readdirSync(path.join(here, 'fixtures', 'dataforseo')).map((f) => JSON.parse(fs.readFileSync(path.join(here, 'fixtures', 'dataforseo', f), 'utf8')));
 let telegramSent = [];
+let telegramEdits = [];
+let telegramNextId = 100;
 let dfsCalls = [];
 let dfsBodies = [];
 const realFetch = globalThis.fetch;
 globalThis.fetch = async (input, init = {}) => {
   const url = typeof input === 'string' ? input : input.url;
-  if (url.startsWith('https://api.telegram.org/')) { telegramSent.push(JSON.parse(init.body).text); return new Response('{"ok":true}'); }
+  if (url.startsWith('https://api.telegram.org/')) {
+    const b = JSON.parse(init.body);
+    telegramSent.push(b.text);
+    if (url.endsWith('/editMessageText')) { telegramEdits.push({ id: b.message_id, text: b.text }); return new Response('{"ok":true,"result":true}'); }
+    return new Response(JSON.stringify({ ok: true, result: { message_id: ++telegramNextId } }));
+  }
   if (!url.startsWith('https://api.dataforseo.com/')) return realFetch(input, init);
   const [{ keyword }] = JSON.parse(init.body);
   dfsCalls.push(keyword);
@@ -448,4 +455,52 @@ test('the cookie answer is saved without IP or user agent, and linked to the lea
   assert.equal(rows.length, 1);
   assert.deepEqual([rows[0].choice, rows[0].lang, rows[0].banner_version, rows[0].lead_id], ['all', 'es', 'cb-test', lead.body.lead_id]);
   assert.deepEqual(Object.keys(rows[0]).sort(), ['banner_version', 'choice', 'country', 'created_at', 'id', 'lang', 'lead_id', 'visitor_id']);
+});
+
+test('one visit is one Telegram message: started, then the check, then the full lead edit the same message', async () => {
+  process.env.TELEGRAM_BOT_TOKEN = 't'; process.env.TELEGRAM_CHAT_ID = '1';
+  try {
+    telegramSent = []; telegramEdits = [];
+    const p = await post(parseRoute, { website: 'ironcladtexas.com', turnstile_token: 'x' });
+    assert.equal(p.body.status, 'ready');
+    assert.ok(p.body.tg);
+    assert.equal(telegramSent.length, 1);
+    assert.ok(telegramSent[0].includes('Запущена проверка'));
+    const firstId = telegramNextId;
+
+    const answers = await Promise.all([1, 2, 3].map((idx) => post(askRoute, { ticket: p.body.ticket, idx })));
+    const result = { mentions_count: 3, total: 3, best_position: 3, verdict: 'not_first' };
+    const rep = await post(reportRoute, { tg: p.body.tg, website: 'ironcladtexas.com', business: p.body.business, result, answers: answers.map((a) => a.body.saved) });
+    assert.equal(rep.status, 200);
+    assert.ok(rep.body.tg);
+    assert.equal(telegramEdits.length, 1);
+    assert.equal(telegramEdits[0].id, firstId);
+    assert.ok(telegramEdits[0].text.includes('Мини-проверка пройдена') && !telegramEdits[0].text.includes('Запущена'));
+
+    const sentBefore = telegramSent.length;
+    const lead = await post(auditRoute, { tg: rep.body.tg, email: 'one@ironcladtexas.com', turnstile_token: 'x', website: 'ironcladtexas.com', business: p.body.business, result, answers: answers.map((a) => a.body.saved) });
+    assert.equal(lead.status, 200);
+    assert.equal(telegramEdits.length, 2);
+    assert.equal(telegramEdits[1].id, firstId);
+    assert.ok(telegramEdits[1].text.includes('Полный лид') && telegramEdits[1].text.includes('one@ironcladtexas.com'));
+    assert.ok(telegramEdits[1].text.includes('уже отправлены отдельными'));
+    assert.equal(telegramSent.length - sentBefore, 1, 'only the edit, no new message and the answers are not posted twice');
+  } finally { delete process.env.TELEGRAM_BOT_TOKEN; delete process.env.TELEGRAM_CHAT_ID; }
+});
+
+test('without a valid token a stage sends its own message (forged, expired or missing token never edits)', async () => {
+  process.env.TELEGRAM_BOT_TOKEN = 't'; process.env.TELEGRAM_CHAT_ID = '1';
+  try {
+    telegramSent = []; telegramEdits = [];
+    await post(auditRoute, { kind: 'online', tg: 'forged.token', email: 'f@saas-demo.com', turnstile_token: 'x', website: 'saas-demo.com' });
+    assert.equal(telegramEdits.length, 0);
+    assert.equal(telegramSent.length, 1);
+    // A follow-up with typed-in fields edits the start message of the same visit
+    const p = await post(parseRoute, { website: 'nocity.com', turnstile_token: 'x' });
+    assert.equal(p.body.status, 'needs_input');
+    const f = await post(parseRoute, { website: 'nocity.com', turnstile_token: 'x', tg: p.body.tg, manual: { service: 'plumber', city_state: 'Austin, TX', country: 'US' } });
+    assert.equal(f.body.status, 'ready');
+    assert.equal(telegramEdits.length, 1);
+    assert.ok(telegramEdits[0].text.includes('ждём ответы'));
+  } finally { delete process.env.TELEGRAM_BOT_TOKEN; delete process.env.TELEGRAM_CHAT_ID; }
 });

@@ -11,9 +11,9 @@ import { json, error, readJson, background, attributionFrom } from '../_lib/http
 import { MESSAGES, VERDICTS } from '../_lib/config.js';
 import { normalizeWebsite, normalizeState, cleanRegion } from '../_lib/ai-check/normalize.js';
 import { countryByIso } from '../../assets/js/ai-check-countries.js';
-import { verifyAnswer } from '../_lib/ai-check/ticket.js';
+import { verifyAnswer, issueTgToken, readTgToken } from '../_lib/ai-check/ticket.js';
 import { one } from '../_lib/db.js';
-import { sendTelegramLong, leadMessage } from '../_lib/notify/telegram.js';
+import { upsertTelegram, leadMessage } from '../_lib/notify/telegram.js';
 
 const str = (v, max) => (typeof v === 'string' && v.trim() ? v.trim().slice(0, max) : null);
 const count = (v) => (Number.isInteger(v) && v >= 0 && v <= 10 ? v : null);
@@ -51,12 +51,14 @@ export async function POST(request) {
     // Reported again (reload, a second tab): already stored and sent, nothing more to do.
     if (!row) return json({ ok: true, duplicate: true });
 
-    background(sendTelegramLong(leadMessage({
+    // The visit's one Telegram message grows into this stage; the answers follow as separate messages.
+    const prior = readTgToken(body.tg);
+    const mid = await upsertTelegram(prior && prior.id, leadMessage({
       kind: 'check', id: row.id, site: site.domain, email: null, business,
       result: { mentions: count(r.mentions_count), total: count(r.total), best_position: count(r.best_position) },
       verdictLabel: verdict ? VERDICTS[verdict].label : null, a, userAgent, consent: null, answers: kept
-    })));
-    return json({ ok: true, id: row.id });
+    }));
+    return json({ ok: true, id: row.id, tg: mid ? issueTgToken({ id: mid, answers: true }) : null });
   } catch (err) {
     if (err.status === 400 || err.status === 413) return error(err.status, 'bad_request', err.message);
     console.error('[ai-check/report]', err);
