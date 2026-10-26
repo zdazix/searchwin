@@ -1,0 +1,191 @@
+{
+  "_note": "Real DataForSEO ChatGPT LLM Scraper response captured on 2026-10-26 through the DataForSEO connector (image blocks removed, some source lists shortened, nothing else changed).",
+  "_captured_at": "2026-10-26T00:00:00.000Z",
+  "_request": {
+    "keyword": "top rated therapist in Denver CO with good reviews",
+    "location_name": "United States",
+    "language_code": "en",
+    "force_web_search": true
+  },
+  "tasks": [
+    {
+      "status_code": 20000,
+      "result": [
+        {
+          "keyword": "top rated therapist in Denver CO with good reviews",
+          "items": [
+            {
+              "type": "chat_gpt_text",
+              "markdown": "I searched for highly rated therapists in Denver, Colorado, focusing on strong public reviews, established practices, and options for individual or couples counseling.\n\nMy recommendation is to start with practices that have both a **5.0-star rating and a meaningful number of reviews**, rather than choosing solely by a perfect score with only one or two reviews. Ratings and review counts below are based on the listings I found and may change.\n\n## Top-rated therapists and practices in Denver\n\n"
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n### 1\\. Resilience Counseling\n\n**5.0/5** \\(42 reviews)\n\n3570 E 12th Ave \\#313, Denver, CO 80206, United States\n\nA strong starting point for individual therapy, with in-person and online options. The practice is in the Congress Park neighborhood.\n\nPhone: 720-445-6161\n\n---\n\n",
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "Resilience Counseling",
+                  "category": "local_business",
+                  "markdown": "Resilience Counseling"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n### 2\\. Integrated Behavioral Health\n\n**5.0/5** \\(38 reviews)\n\n1120 Delaware St \\#110, Denver, CO 80204, United States\n\nOffers therapy and psychological assessment services, with in-person appointments and telehealth options across Colorado.\n\nPhone: 720-856-0400\n\n---\n\n",
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "Integrated Behavioral Health",
+                  "category": "local_business",
+                  "markdown": "Integrated Behavioral Health"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n### 3\\. Quandary Peak Counseling\n\n**5.0/5** \\(26 reviews)\n\n1777 S Bellaire St Ste 339, Denver, CO 80222, United States\n\nA psychology practice offering psychotherapy and psychological evaluations for adults and adolescents, both in person and via telehealth.\n\nPhone: 720-675-7918\n\n---\n\n",
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "Quandary Peak Counseling",
+                  "category": "local_business",
+                  "markdown": "Quandary Peak Counseling"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n### 4\\. My Denver Therapy\n\n**5.0/5** \\(25 reviews)\n\n4155 E Jewell Ave \\#405, Denver, CO 80222, United States\n\nOffers individual, family, couples, and child therapy, plus teletherapy. Worth considering if you want a practice with several types of services.\n\nPhone: 720-504-4329\n\n---\n\n",
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "My Denver Therapy",
+                  "category": "local_business",
+                  "markdown": "My Denver Therapy"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n### 5\\. A New Story Counseling LLC\n\n**5.0/5** \\(26 reviews)\n\n825 E Speer Blvd \\#9, Denver, CO 80218, United States\n\nOffers individual and couples counseling, with a focus that includes anxiety, life transitions, relationships, and EMDR therapy.\n\nPhone: 720-386-2072\n\nReview counts and ratings are from the available business listings; they are not a guarantee of treatment quality or personal fit.\n\n## See the locations\n",
+              "brand_entities": [
+                {
+                  "type": "chat_gpt_brand_entity",
+                  "title": "A New Story Counseling LLC",
+                  "category": "local_business",
+                  "markdown": "A New Story Counseling LLC"
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_local_businesses",
+              "items": [
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "Resilience Counseling",
+                  "description": "Psychotherapist",
+                  "address": "3570 E 12th Ave #313, Denver, CO 80206, United States",
+                  "phone": "+1 720-445-6161",
+                  "reviews_count": 42,
+                  "url": "https://www.resiliencecounselingco.com/",
+                  "domain": "www.resiliencecounselingco.com",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 5,
+                    "votes_count": 42,
+                    "rating_max": 5
+                  }
+                },
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "Integrated Behavioral Health",
+                  "description": "Child psychologist",
+                  "address": "1120 Delaware St #110, Denver, CO 80204, United States",
+                  "phone": "+1 720-856-0400",
+                  "reviews_count": 38,
+                  "url": "http://integratedbhs.com/",
+                  "domain": "integratedbhs.com",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 5,
+                    "votes_count": 38,
+                    "rating_max": 5
+                  }
+                },
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "Quandary Peak Counseling",
+                  "description": "Psychologist",
+                  "address": "1777 S Bellaire St Ste 339, Denver, CO 80222, United States",
+                  "phone": "+1 720-675-7918",
+                  "reviews_count": 26,
+                  "url": "http://www.quandarypeakcounseling.com/",
+                  "domain": "www.quandarypeakcounseling.com",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 5,
+                    "votes_count": 26,
+                    "rating_max": 5
+                  }
+                },
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "My Denver Therapy",
+                  "description": "Counselor",
+                  "address": "4155 E Jewell Ave #405, Denver, CO 80222, United States",
+                  "phone": "+1 720-504-4329",
+                  "reviews_count": 25,
+                  "url": "https://mydenvertherapy.com/?utm_campaign=SEO&utm_medium=Google_My_Business&utm_source=Website_Click",
+                  "domain": "mydenvertherapy.com",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 5,
+                    "votes_count": 25,
+                    "rating_max": 5
+                  }
+                },
+                {
+                  "type": "chat_gpt_local_businesses_element",
+                  "title": "A New Story Counseling LLC",
+                  "description": "Psychotherapist",
+                  "address": "825 E Speer Blvd #9, Denver, CO 80218, United States",
+                  "phone": "+1 720-386-2072",
+                  "reviews_count": 26,
+                  "url": "https://www.anewstorycounseling.com/",
+                  "domain": "www.anewstorycounseling.com",
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 5,
+                    "votes_count": 26,
+                    "rating_max": 5
+                  }
+                }
+              ]
+            },
+            {
+              "type": "chat_gpt_text",
+              "markdown": "\n\n## Where to find more reviews\n\n- [Psychology Today — Denver therapists](https://www.psychologytoday.com/us/therapists/co/denver)\\: Browse therapist profiles, specialties, insurance, and treatment approaches. [www.psychologytoday.com](https://www.psychologytoday.com/us/therapists/co/denver?utm_source=chatgpt.com)\n- [Healthgrades — Denver psychotherapists](https://www.healthgrades.com/psychotherapy-directory/co-colorado/denver)\\: Compare patient ratings and written reviews. [www.healthgrades.com](https://www.healthgrades.com/psychotherapy-directory/co-colorado/denver?utm_source=chatgpt.com)\n\n**One important tip\\:** Before booking, confirm the therapist's Colorado license, whether they accept your insurance, their current availability, and their experience with your specific concerns.",
+              "sources": [
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Psychology Today — Denver therapists",
+                  "domain": "www.psychologytoday.com",
+                  "url": "https://www.psychologytoday.com/us/therapists/co/denver",
+                  "markdown": "[Psychology Today — Denver therapists](https://www.psychologytoday.com/us/therapists/co/denver)"
+                },
+                {
+                  "type": "chat_gpt_source",
+                  "title": "Healthgrades — Denver psychotherapists",
+                  "domain": "www.healthgrades.com",
+                  "url": "https://www.healthgrades.com/psychotherapy-directory/co-colorado/denver",
+                  "markdown": "[Healthgrades — Denver psychotherapists](https://www.healthgrades.com/psychotherapy-directory/co-colorado/denver)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
