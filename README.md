@@ -196,7 +196,7 @@ SaaS (`/saas/`):
 3. **Переменные окружения** из [`.env.example`](.env.example): DataForSEO, `GEMINI_API_KEY`, Turnstile, `CHECK_TICKET_SECRET` (случайная строка), публичные ID Meta Pixel, Google Ads и GA4, по желанию Telegram. После изменения переменных сделайте Redeploy.
 4. **Turnstile:** Cloudflare → Turnstile → Add widget → домен `searchwin.ai`, режим Invisible.
 5. **Google Ads:** конверсии check_started (сайт отправлен), check_completed (результат показан) и audit_requested (email оставлен; для неё включите Enhanced conversions for leads через тег Google). Метки впишите в `PUBLIC_GADS_LABEL_*`; для аудиторий метка не обязательна.
-6. **Meta:** пиксель сейчас **не установлен**: чтобы включить, впишите его ID в `PUBLIC_META_PIXEL_ID` (ставится напрямую, не через GTM: не добавляйте второй тег Meta в GTM, иначе события задвоятся). Серверный Conversions API и офлайн-конверсии отложены; у событий уже есть `event_id`, чтобы потом добавить их без двойного счёта.
+6. **Meta:** пиксель `1532183152066126` стоит по умолчанию (`PUBLIC_META_PIXEL_ID` его переопределяет), ставится напрямую, а не через GTM: не добавляйте второй тег Meta в GTM, иначе события задвоятся. Серверный Conversions API и офлайн-конверсии отложены; у событий уже есть `event_id`, чтобы потом добавить их без двойного счёта.
 7. **Telegram:** бот через @BotFather, id чата через @userinfobot; бот должен быть добавлен в чат.
 
 Заявки смотрите в Neon (Tables → `leads`) или в Telegram.
