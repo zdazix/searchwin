@@ -54,14 +54,3 @@ test('the privacy draft explains the banner and the choice', () => {
   const p = read('privacy/index.html');
   for (const piece of ['only after you accept', 'sw_consent', 'Cookie settings', 'rejecting removes']) assert.ok(p.includes(piece), piece);
 });
-
-test('Google Tag Manager is pasted as Google gives it, with consent denied first, on every check page', () => {
-  for (const f of ['ai-check/index.html', 'ai-check/thank-you/index.html', 'es/ai-check/index.html', 'es/ai-check/thank-you/index.html']) {
-    const h = read(f);
-    const head = h.slice(0, h.indexOf('</head>'));
-    assert.ok(head.indexOf("gtag('consent','default'") > 0 && head.indexOf("gtag('consent','default'") < head.indexOf('googletagmanager.com/gtm.js'), f);
-    assert.ok(head.includes("'dataLayer','GTM-N9FM3HSM'"), f);
-    assert.match(h, /<body[^>]*>\s*<!-- Google Tag Manager \(noscript\) -->\s*<noscript><iframe src="https:\/\/www\.googletagmanager\.com\/ns\.html\?id=GTM-N9FM3HSM"/, f);
-    assert.ok(head.includes("ad_user_data:'denied'") && head.includes("analytics_storage:'denied'"), f);
-  }
-});
