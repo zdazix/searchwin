@@ -196,10 +196,8 @@
         var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l !== 'dataLayer' ? '&l=' + l : '';
         j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
       })(window, document, 'script', 'dataLayer', cfg.gtm_id);
-      ready = true;
-      queue.splice(0).forEach(function (fn) { fn(); });
-      return;
     }
+    // The Meta Pixel is installed directly (do not also add a Meta tag in GTM, or events count twice).
     if (cfg.meta_pixel_id) {
       /* Meta Pixel base code */
       (function (f, b, e, v, n, t, s) {
@@ -210,7 +208,7 @@
       window.fbq('init', cfg.meta_pixel_id);
       window.fbq('track', 'PageView');
     }
-    var gid = cfg.google_ads_id || cfg.ga4_id;
+    var gid = cfg.gtm_id ? null : (cfg.google_ads_id || cfg.ga4_id);
     if (gid) {
       // Consent Mode v2: denied first, then granted, both before the tag is configured.
       gtag('consent', 'default', consentSignals(false));
@@ -274,34 +272,40 @@
       if (!eventId) return;
       whenReady(function () {
         if (fired(eventId)) return;
-        if (cfg.gtm_id) return push('check_started', eventId, data);
+        if (cfg.gtm_id) push('check_started', eventId, data);
         if (window.fbq && cfg.meta_pixel_id) window.fbq('trackCustom', 'CheckStarted', Object.assign({ content_name: 'ai_check_site' }, data), { eventID: eventId });
-        adsConversion(cfg.google_ads_labels && cfg.google_ads_labels.check_started, { transaction_id: eventId });
-        if (cfg.ga4_id) gtag('event', 'check_started', data || {});
+        if (!cfg.gtm_id) {
+          adsConversion(cfg.google_ads_labels && cfg.google_ads_labels.check_started, { transaction_id: eventId });
+          if (cfg.ga4_id) gtag('event', 'check_started', data || {});
+        }
       });
     },
     checkCompleted: function (eventId, data) {
       if (!eventId) return;
       whenReady(function () {
         if (fired(eventId)) return;
-        if (cfg.gtm_id) return push('check_completed', eventId, data);
+        if (cfg.gtm_id) push('check_completed', eventId, data);
         if (window.fbq && cfg.meta_pixel_id) window.fbq('track', 'ViewContent', Object.assign({ content_name: 'ai_check_result' }, data), { eventID: eventId });
-        adsConversion(cfg.google_ads_labels && cfg.google_ads_labels.check_completed, { transaction_id: eventId });
-        if (cfg.ga4_id) gtag('event', 'check_completed', data || {});
+        if (!cfg.gtm_id) {
+          adsConversion(cfg.google_ads_labels && cfg.google_ads_labels.check_completed, { transaction_id: eventId });
+          if (cfg.ga4_id) gtag('event', 'check_completed', data || {});
+        }
       });
     },
     auditRequested: function (eventId, data, email) {
       if (!eventId) return;
       whenReady(function () {
         if (fired(eventId)) return;
-        if (cfg.gtm_id) return push('generate_lead', eventId, data, email);
+        if (cfg.gtm_id) push('generate_lead', eventId, data, email);
         if (window.fbq && cfg.meta_pixel_id) {
           if (email) window.fbq('init', cfg.meta_pixel_id, { em: String(email).trim().toLowerCase() });
           window.fbq('track', 'Lead', Object.assign({ content_name: 'ai_check_audit' }, data), { eventID: eventId });
         }
-        if (cfg.google_ads_id && email) gtag('set', 'user_data', { email: String(email).trim().toLowerCase() });
-        adsConversion(cfg.google_ads_labels && cfg.google_ads_labels.audit_requested, { transaction_id: eventId });
-        if (cfg.ga4_id) gtag('event', 'generate_lead', data || {});
+        if (!cfg.gtm_id) {
+          if (cfg.google_ads_id && email) gtag('set', 'user_data', { email: String(email).trim().toLowerCase() });
+          adsConversion(cfg.google_ads_labels && cfg.google_ads_labels.audit_requested, { transaction_id: eventId });
+          if (cfg.ga4_id) gtag('event', 'generate_lead', data || {});
+        }
       });
     }
   };
