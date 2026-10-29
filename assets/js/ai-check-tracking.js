@@ -187,16 +187,8 @@
     started = true;
     blocked = false;
     persistAttr();
-    if (cfg.gtm_id) {
-      // Google Tag Manager owns the tags; it starts only now, after consent, with Consent Mode signals set first.
-      gtag('consent', 'default', consentSignals(false));
-      gtag('consent', 'update', consentSignals(true));
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l !== 'dataLayer' ? '&l=' + l : '';
-        j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', cfg.gtm_id);
-    }
+    // Google Tag Manager is in the page HTML (consent was set to "denied" there); its tags may run from now on.
+    if (cfg.gtm_id) gtag('consent', 'update', consentSignals(true));
     // The Meta Pixel is installed directly (do not also add a Meta tag in GTM, or events count twice).
     if (cfg.meta_pixel_id) {
       /* Meta Pixel base code */
