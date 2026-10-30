@@ -36,7 +36,7 @@ export function GET(request) {
     ga4_id: env('PUBLIC_GA4_ID', null),
     // Scheduling page shown on the thank-you page (Calendly, Cal.com, HubSpot Meetings...), https only.
     // Default: SearchWin's Google Calendar appointment page; PUBLIC_BOOKING_URL overrides it.
-    booking_url: env('PUBLIC_BOOKING_URL', 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0nMNtPX0HDsTx3pVTMc8l9mppMHpmESzTgeJPALHeeQmlYbsm35-h1eiGLW6PqEohX5YjgMYP-?gv=true'),
+    booking_url: env('PUBLIC_BOOKING_URL', 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2j4n3mXIM0DGGBGsMuN2NjLLT8QZjBvrHi65i8tWuj0gGiKqUdVEPdok2laSXqHSepE5rsDlv7?gv=true'),
     consent_version: CONSENT_VERSION,
     // Vercel tells the function the visitor's country; the answer differs per visitor, so it is not shared-cached.
     consent_required: consentRequired(request?.headers?.get('x-vercel-ip-country'))
