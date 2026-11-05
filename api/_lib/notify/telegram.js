@@ -131,6 +131,7 @@ export function leadMessage(l) {
     row('utm_content', a.utm_content) + row('utm_term', a.utm_term) + row('gclid', a.gclid) + row('gbraid', a.gbraid) +
     row('wbraid', a.wbraid) + row('fbclid', a.fbclid);
   if (!(a.utm_source || a.utm_medium || a.utm_campaign || a.gclid || a.gbraid || a.wbraid || a.fbclid)) t += 'прямой заход или метки не переданы\n';
+  t += row('Реферер', clip(a.referrer, 300));
   t += '\n' + row('Устройство', clip(l.userAgent, 200)) + row('Срок (UTC)', l.due);
   return t.trim();
 }
@@ -153,6 +154,7 @@ export function startMessage({ site, status, business, a, userAgent }) {
     row('utm_content', at.utm_content) + row('utm_term', at.utm_term) + row('gclid', at.gclid) + row('gbraid', at.gbraid) +
     row('wbraid', at.wbraid) + row('fbclid', at.fbclid);
   if (!(at.utm_source || at.utm_medium || at.utm_campaign || at.gclid || at.gbraid || at.wbraid || at.fbclid)) t += 'прямой заход или метки не переданы\n';
+  t += row('Реферер', clip(at.referrer, 300));
   t += '\n' + row('Устройство', clip(userAgent, 200));
   return t.trim();
 }

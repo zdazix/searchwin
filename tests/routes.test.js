@@ -350,8 +350,8 @@ test('Telegram gets the lead with ad tags and device, without page of entry, ids
     const on = await post(auditRoute, { kind: 'online', email: 'a@saas-demo.com', turnstile_token: 'x', website: 'saas-demo.com', attribution });
     await new Promise((r) => setTimeout(r, 50));
     const msg = telegramSent.join('\n');
-    for (const piece of ['онлайн-бизнес', 'saas-demo.com', 'a@saas-demo.com', 'utm_campaign: brand', 'utm_term: kw', 'gclid: G-1', 'fbclid: F-1']) assert.ok(msg.includes(piece), piece);
-    for (const gone of ['Страница входа', 'Реферер', 'ID заявки', 'Версия согласия']) assert.ok(!msg.includes(gone), gone);
+    for (const piece of ['онлайн-бизнес', 'saas-demo.com', 'a@saas-demo.com', 'utm_campaign: brand', 'utm_term: kw', 'gclid: G-1', 'fbclid: F-1', 'Реферер: https://google.com/']) assert.ok(msg.includes(piece), piece);
+    for (const gone of ['Страница входа', 'ID заявки', 'Версия согласия']) assert.ok(!msg.includes(gone), gone);
 
     telegramSent = [];
     const p = await post(parseRoute, { website: 'ironcladtexas.com', turnstile_token: 'x' });
