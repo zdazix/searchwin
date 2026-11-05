@@ -137,7 +137,7 @@ test('parse → three real answers → totals on the page → lead saved, no ema
   });
   assert.equal(ok.status, 200);
   assert.ok(ok.body.event_id.startsWith('lead_'));
-  assert.ok(new Date(ok.body.due_at) > new Date(Date.now() + 47 * 3600e3));
+  assert.ok(new Date(ok.body.due_at) > new Date(Date.now() + 23 * 3600e3) && new Date(ok.body.due_at) < new Date(Date.now() + 25 * 3600e3));
   const lead = await one('select * from leads where id = $1', [ok.body.lead_id]);
   assert.equal(lead.email, 'owner@ironcladtexas.com');
   assert.equal(lead.website, 'ironcladtexas.com');

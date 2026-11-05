@@ -87,7 +87,7 @@ export const LIMITS = {
   dataforseoTypicalMs: 60000,
   // How long the page may use one parse result to ask ChatGPT.
   ticketMs: 5 * 60000,
-  auditDueHours: 48
+  auditDueHours: 24
 };
 
 export function env(name, fallback) {

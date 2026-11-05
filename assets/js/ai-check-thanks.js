@@ -11,7 +11,7 @@ import { LANG, t, fmtWhen } from './ai-check-i18n.js';
   var track = window.acTrack || { config: Promise.resolve({}), auditRequested: function () {} };
 
   /* Text: the date and the business, written with textContent only */
-  var due = info.due_at ? new Date(info.due_at) : new Date(Date.now() + 48 * 3600e3);
+  var due = info.due_at ? new Date(info.due_at) : new Date(Date.now() + 24 * 3600e3);
   var when = fmtWhen(due);
   var lead = $('[data-thanks-lead]');
   if (lead) {
