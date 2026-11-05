@@ -11,7 +11,8 @@ test('long texts are split at line ends into messages Telegram accepts', () => {
 
 test('the lead text escapes HTML from visitors and skips empty fields', () => {
   const t = leadMessage({ kind: 'online', id: 'i', site: 'x.com', email: 'a<b>@x.com', a: { utm_source: '<script>' }, userAgent: 'UA' });
-  assert.ok(!t.includes('<script>') && t.includes('&lt;script&gt;'));
-  assert.ok(!t.includes('gclid') && !t.includes('utm_medium'));
-  assert.ok(leadMessage({ kind: 'online', site: 'x.com', email: 'e@x.com', a: {} }).includes('прямой заход'));
+  assert.ok(!t.includes('<b>@') && t.includes('a&lt;b&gt;@x.com'));
+  assert.ok(!t.includes('gclid') && !t.includes('utm_medium') && !t.includes('UA'));
+  const short = leadMessage({ kind: 'online', site: 'x.com', email: 'e@x.com', a: {} });
+  assert.ok(short.includes('x.com') && short.includes('e@x.com') && !short.includes('Источник'));
 });
