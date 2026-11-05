@@ -342,7 +342,7 @@ test('only the leads, checks and consents tables exist', async () => {
   assert.deepEqual(tables, ['checks', 'consents', 'leads']);
 });
 
-test('Telegram gets the full lead: online (website, email, all marketing data) and local (plus the answers)', async () => {
+test('Telegram gets the lead with ad tags and device, without page of entry, ids, consent or answers', async () => {
   process.env.TELEGRAM_BOT_TOKEN = 't'; process.env.TELEGRAM_CHAT_ID = '1';
   try {
     telegramSent = [];
@@ -350,7 +350,8 @@ test('Telegram gets the full lead: online (website, email, all marketing data) a
     const on = await post(auditRoute, { kind: 'online', email: 'a@saas-demo.com', turnstile_token: 'x', website: 'saas-demo.com', attribution });
     await new Promise((r) => setTimeout(r, 50));
     const msg = telegramSent.join('\n');
-    for (const piece of ['онлайн-бизнес', 'saas-demo.com', 'a@saas-demo.com', 'utm_campaign: brand', 'utm_term: kw', 'gclid: G-1', 'fbclid: F-1', 'https://searchwin.ai/ai-check/?utm_source=google', 'https://google.com/', 'ID заявки: ' + on.body.lead_id]) assert.ok(msg.includes(piece), piece);
+    for (const piece of ['онлайн-бизнес', 'saas-demo.com', 'a@saas-demo.com', 'utm_campaign: brand', 'utm_term: kw', 'gclid: G-1', 'fbclid: F-1']) assert.ok(msg.includes(piece), piece);
+    for (const gone of ['Страница входа', 'Реферер', 'ID заявки', 'Версия согласия']) assert.ok(!msg.includes(gone), gone);
 
     telegramSent = [];
     const p = await post(parseRoute, { website: 'ironcladtexas.com', turnstile_token: 'x' });
@@ -359,7 +360,8 @@ test('Telegram gets the full lead: online (website, email, all marketing data) a
       result: { mentions_count: 3, total: 3, best_position: 3, verdict: 'not_first' }, answers: answers.map((a) => a.body.saved), attribution });
     await new Promise((r) => setTimeout(r, 50));
     const full = telegramSent.join('\n');
-    for (const piece of ['Полный лид', 'Ironclad Plumbing', 'plumber', 'Austin, TX', 'Итог: 3 из 3', 'utm_source: google', 'gclid: G-1', 'Ответы ChatGPT', 'best plumber in Austin, TX', '2840 / en', 'ID заявки: ' + loc.body.lead_id]) assert.ok(full.includes(piece), piece);
+    for (const piece of ['Полный лид', 'Ironclad Plumbing', 'plumber', 'Austin, TX', 'Итог: 3 из 3', 'utm_source: google', 'gclid: G-1']) assert.ok(full.includes(piece), piece);
+    for (const gone of ['Ответы ChatGPT', 'best plumber in Austin, TX', 'ID заявки']) assert.ok(!full.includes(gone), gone);
     assert.ok(telegramSent.every((t) => t.length <= 4000));
   } finally { delete process.env.TELEGRAM_BOT_TOKEN; delete process.env.TELEGRAM_CHAT_ID; }
 });
@@ -372,12 +374,13 @@ test('the Spanish page is told apart: its own consent version, and Telegram name
     assert.equal(es.status, 200);
     await new Promise((r) => setTimeout(r, 50));
     const msg = telegramSent.join('\n');
-    assert.ok(msg.includes('Язык страницы: 🇪🇸 испанская') && msg.includes('Версия согласия: 2026-10-14-es'), msg);
+    assert.ok(msg.includes('Язык страницы: 🇪🇸 испанская'), msg);
+    assert.equal((await one('select consent_text_version as v from leads where id = $1', [es.body.lead_id])).v, '2026-10-14-es');
     telegramSent = [];
     await post(auditRoute, { kind: 'online', email: 'bob@tienda-demo.com', turnstile_token: 'x', website: 'tienda-demo.com', attribution: { ui_lang: 'fr' } });
     await new Promise((r) => setTimeout(r, 50));
     const en = telegramSent.join('\n');
-    assert.ok(en.includes('Язык страницы: английская') && /Версия согласия: 2026-10-14$/m.test(en), en);
+    assert.ok(en.includes('Язык страницы: английская'), en);
   } finally { delete process.env.TELEGRAM_BOT_TOKEN; delete process.env.TELEGRAM_CHAT_ID; }
 });
 
@@ -396,7 +399,8 @@ test('a finished check without an email is saved once and reaches Telegram with 
     assert.equal(r1.status, 200);
     await new Promise((r) => setTimeout(r, 50));
     const msg = telegramSent.join('\n');
-    for (const piece of ['Мини-проверка пройдена', 'email не оставлен', 'ironcladtexas.com', 'Итог: 0 из 3', 'utm_campaign: spring', 'fbclid: FB-9', 'Ответы ChatGPT', 'best plumber in Austin, TX']) assert.ok(msg.includes(piece), piece);
+    for (const piece of ['Мини-проверка пройдена', 'email не оставлен', 'ironcladtexas.com', 'Итог: 0 из 3', 'utm_campaign: spring', 'fbclid: FB-9']) assert.ok(msg.includes(piece), piece);
+    assert.ok(!msg.includes('Ответы ChatGPT'));
     const row = await one('select * from checks where id = $1', [r1.body.id]);
     assert.equal(row.website, 'ironcladtexas.com');
     assert.equal(row.verdict, 'not_recommended');
@@ -483,7 +487,6 @@ test('one visit is one Telegram message: started, then the check, then the full 
     assert.equal(telegramEdits.length, 2);
     assert.equal(telegramEdits[1].id, firstId);
     assert.ok(telegramEdits[1].text.includes('Полный лид') && telegramEdits[1].text.includes('one@ironcladtexas.com'));
-    assert.ok(telegramEdits[1].text.includes('уже отправлены отдельными'));
     assert.equal(telegramSent.length - sentBefore, 1, 'only the edit, no new message and the answers are not posted twice');
   } finally { delete process.env.TELEGRAM_BOT_TOKEN; delete process.env.TELEGRAM_CHAT_ID; }
 });

@@ -126,20 +126,12 @@ export function leadMessage(l) {
         (l.result.best_position ? `, лучшая позиция #${l.result.best_position}` : '') + '\n';
     }
   }
+  // Ad tags and the device stay; the page of entry, referrer, ids, consent and the answers are in the database (leads / checks).
   t += '\n<b>Источник</b>\n' + row('utm_source', a.utm_source) + row('utm_medium', a.utm_medium) + row('utm_campaign', a.utm_campaign) +
     row('utm_content', a.utm_content) + row('utm_term', a.utm_term) + row('gclid', a.gclid) + row('gbraid', a.gbraid) +
-    row('wbraid', a.wbraid) + row('fbclid', a.fbclid) + row('fbp', a.fbp) + row('fbc', a.fbc);
+    row('wbraid', a.wbraid) + row('fbclid', a.fbclid);
   if (!(a.utm_source || a.utm_medium || a.utm_campaign || a.gclid || a.gbraid || a.wbraid || a.fbclid)) t += 'прямой заход или метки не переданы\n';
-  t += row('Страница входа', clip(a.landing_url, 300)) + row('Реферер', clip(a.referrer, 300));
-  t += '\n' + row('Устройство', clip(l.userAgent, 200)) + row('Срок (UTC)', l.due) + row('ID заявки', l.id) + row('Версия согласия', l.consent);
-  if (l.answersAbove) t += '\nОтветы ChatGPT уже отправлены отдельными сообщениями после проверки (и сохранены в leads.answers).\n';
-  if (!online && Array.isArray(l.answers) && l.answers.length) {
-    t += '\n<b>Ответы ChatGPT</b> (полные тексты и ссылки сохранены в базе, leads.answers)\n';
-    for (const x of l.answers) {
-      t += `\n<b>${x.idx}. ${escapeHtml(x.prompt)}</b>\n` + row('Локация / язык', `${x.location_code} / ${x.language_code}`) + row('Проверено (UTC)', x.checked_at) +
-        escapeHtml(clip(String(x.answer_text).replace(/\s+/g, ' ').trim(), 700)) + `\nИсточников: ${Array.isArray(x.sources) ? x.sources.length : 0}\n`;
-    }
-  }
+  t += '\n' + row('Устройство', clip(l.userAgent, 200)) + row('Срок (UTC)', l.due);
   return t.trim();
 }
 
@@ -161,6 +153,6 @@ export function startMessage({ site, status, business, a, userAgent }) {
     row('utm_content', at.utm_content) + row('utm_term', at.utm_term) + row('gclid', at.gclid) + row('gbraid', at.gbraid) +
     row('wbraid', at.wbraid) + row('fbclid', at.fbclid);
   if (!(at.utm_source || at.utm_medium || at.utm_campaign || at.gclid || at.gbraid || at.wbraid || at.fbclid)) t += 'прямой заход или метки не переданы\n';
-  t += row('Страница входа', clip(at.landing_url, 300)) + row('Реферер', clip(at.referrer, 300)) + '\n' + row('Устройство', clip(userAgent, 200));
+  t += '\n' + row('Устройство', clip(userAgent, 200));
   return t.trim();
 }
