@@ -8,7 +8,7 @@ import { consentRequired, GET } from '../api/ai-check/config.js';
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (f) => fs.readFileSync(path.join(root, f), 'utf8');
 
-test('the cookie banner is asked for in the EU, EEA, UK and Switzerland, and wherever the country is unknown', () => {
+test('when the banner is on, it is asked for in the EU, EEA, UK and Switzerland, and wherever the country is unknown', () => {
   for (const c of ['ES', 'DE', 'FR', 'IT', 'PL', 'SE', 'NO', 'IS', 'LI', 'GB', 'CH', 'es', ' de ']) assert.equal(consentRequired(c, 'eu'), true, c);
   for (const c of ['US', 'CA', 'AU', 'MX', 'BR', 'IN']) assert.equal(consentRequired(c, 'eu'), false, c);
   for (const c of [undefined, null, '', '  ']) assert.equal(consentRequired(c, 'eu'), true, String(c));
@@ -21,6 +21,7 @@ test('PUBLIC_CONSENT_BANNER can ask everyone or nobody', () => {
 });
 
 test('config tells the page whether to ask, from the country Vercel reports, and is not shared-cached', async () => {
+  process.env.PUBLIC_CONSENT_BANNER = 'eu';
   const ask = async (country) => {
     const headers = country ? { 'x-vercel-ip-country': country } : {};
     const r = await GET(new Request('http://localhost/api/ai-check/config', { headers }));
@@ -33,6 +34,8 @@ test('config tells the page whether to ask, from the country Vercel reports, and
   assert.equal(none.body.consent_required, true);
   assert.match(es.cache, /^private\b/);
   assert.equal((await GET()).status, 200);
+  delete process.env.PUBLIC_CONSENT_BANNER;
+  assert.equal((await ask('ES')).body.consent_required, false, 'the banner is off unless switched on');
 });
 
 test('every check page has the "cookie settings" link, in its own language', () => {

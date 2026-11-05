@@ -11,10 +11,10 @@ const CONSENT_COUNTRIES = new Set([
 ]);
 
 /**
- * Does the cookie banner apply? PUBLIC_CONSENT_BANNER: "eu" (default: those countries, and anywhere the
- * country is unknown), "all" (everyone) or "off" (nobody).
+ * Does the cookie banner apply? PUBLIC_CONSENT_BANNER: "off" (default for now: nobody, tags load at once),
+ * "eu" (those countries, and anywhere the country is unknown) or "all" (everyone).
  */
-export function consentRequired(country, mode = env('PUBLIC_CONSENT_BANNER', 'eu')) {
+export function consentRequired(country, mode = env('PUBLIC_CONSENT_BANNER', 'off')) {
   if (mode === 'off') return false;
   if (mode === 'all') return true;
   const c = String(country || '').trim().toUpperCase();
