@@ -136,6 +136,21 @@ export function leadMessage(l) {
   return t.trim();
 }
 
+/** An order request from /start/: the plan, the person and where they came from. */
+export function orderMessage(o) {
+  const a = o.a || {};
+  let t = '🛒 <b>Заказ с сайта</b>\n\n';
+  t += row('Тариф', o.plan) + row('Цена', o.price) + row('Оплата', o.payment === 'split' ? '50/50' : o.payment === 'upfront' ? 'сразу' : null);
+  t += row('Имя', o.name) + row('Email', o.email) + row('Сайт', o.site) + row('Комментарий', clip(o.message, 1500));
+  t += '\n<b>Источник</b>\n' + row('utm_source', a.utm_source) + row('utm_medium', a.utm_medium) + row('utm_campaign', a.utm_campaign) +
+    row('utm_content', a.utm_content) + row('utm_term', a.utm_term) + row('gclid', a.gclid) + row('gbraid', a.gbraid) +
+    row('wbraid', a.wbraid) + row('fbclid', a.fbclid);
+  if (!(a.utm_source || a.utm_medium || a.utm_campaign || a.gclid || a.gbraid || a.wbraid || a.fbclid)) t += 'прямой заход или метки не переданы\n';
+  t += row('Реферер', clip(a.referrer, 300));
+  t += '\n' + row('Устройство', clip(o.userAgent, 200)) + row('ID тарифа', o.planId);
+  return t.trim();
+}
+
 const START_STATUS = {
   ready: 'вопросы к ChatGPT заданы, ждём ответы',
   needs_input: 'сайт прочитан не полностью, человека просим уточнить данные',

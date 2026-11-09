@@ -267,6 +267,14 @@
       if (vid) a.visitor_id = vid;
       return a;
     },
+    // Any other named event (homepage switches, plan buttons, FAQ...): GTM's dataLayer, or GA4 without GTM.
+    event: function (name, params) {
+      if (!name) return;
+      whenReady(function () {
+        if (cfg.gtm_id) window.dataLayer.push(Object.assign({ event: name }, params || {}));
+        else if (cfg.ga4_id) gtag('event', name, params || {});
+      });
+    },
     // The visitor sent a website and the server accepted it (before any answer exists): the "sent a site" audience.
     checkStarted: function (eventId, data) {
       if (!eventId) return;

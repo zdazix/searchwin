@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Start a plan | searchwin.ai</title>
+  <meta name="description" content="Order a fixed-price AI search optimization plan. You get the deliverables list and the price in writing to approve before you pay.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#F6F4EF">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/source-serif-4-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/lexend-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/home.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="start-page">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></g></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav start-nav">
+  <div class="nav__bar">
+    <a class="logo" href="/" aria-label="SearchWin.ai home"><span class="logo__word">searchwin.ai</span></a>
+    <a class="textlink start-nav__back" href="/#pricing">Back to plans</a>
+  </div>
+</header>
+
+<main id="main" class="start">
+  <div class="container start__grid">
+    <div class="start__intro">
+      <p class="eyebrow">Order request</p>
+      <h1 class="h2 start__title" data-start-title>Start a plan</h1>
+      <p class="lead">Send this form and we email you the deliverables list and the fixed price to approve. Nothing is charged until you approve it.</p>
+
+      <aside class="plan start__summary" data-start-summary hidden aria-live="polite">
+        <p class="plan__badge" data-s-line></p>
+        <p class="plan__name" data-s-name></p>
+        <p class="plan__price" data-s-price></p>
+        <p class="plan__billing" data-s-billing></p>
+        <p class="plan__best"><b>Best for:</b> <span data-s-best></span></p>
+        <ul class="plan__list" data-s-items></ul>
+        <p class="plan__recheck"><svg aria-hidden="true"><use href="#i-search"></use></svg><span><b>Re-checked:</b> <span data-s-recheck></span></span></p>
+      </aside>
+
+      <ol class="start__next">
+        <li><b>We check your site</b> and confirm the plan fits. If a smaller one does the job, we say so.</li>
+        <li><b>You get the deliverables list and the price</b> in writing.</li>
+        <li><b>Work starts when you approve</b> and pay: upfront or 50/50 for sprints, monthly for monthly plans.</li>
+      </ol>
+    </div>
+
+    <form class="form card start__form" data-start-form novalidate>
+      <div class="field">
+        <label for="s-plan">Plan</label>
+        <select id="s-plan" name="plan" required>
+          <!-- build:plan-options -->
+          <optgroup label="Local business · 45-day sprint">
+            <option value="local-sprint-get-found">Get Found ($900 one-off)</option>
+            <option value="local-sprint-get-chosen">Get Chosen ($1,900 one-off)</option>
+            <option value="local-sprint-own-the-area">Own the Area ($3,500 one-off)</option>
+            <option value="local-sprint-custom">Custom (fixed quote)</option>
+          </optgroup>
+          <optgroup label="Local business · Monthly plan">
+            <option value="local-monthly-keep">Keep ($390/month)</option>
+            <option value="local-monthly-grow">Grow ($790/month)</option>
+            <option value="local-monthly-lead">Lead ($1,490/month)</option>
+            <option value="local-monthly-custom">Custom (fixed quote)</option>
+          </optgroup>
+          <optgroup label="Online &amp; national · 45-day sprint">
+            <option value="online-sprint-foundation">Foundation ($1,900 one-off)</option>
+            <option value="online-sprint-authority">Authority ($3,900 one-off)</option>
+            <option value="online-sprint-category">Category ($7,500 one-off)</option>
+            <option value="online-sprint-custom">Custom (fixed quote)</option>
+          </optgroup>
+          <optgroup label="Online &amp; national · Monthly plan">
+            <option value="online-monthly-track">Track ($690/month)</option>
+            <option value="online-monthly-scale">Scale ($1,490/month)</option>
+            <option value="online-monthly-lead-the-category">Lead the Category ($2,900/month)</option>
+            <option value="online-monthly-custom">Custom (fixed quote)</option>
+          </optgroup>
+          <!-- /build:plan-options -->
+        </select>
+      </div>
+      <div class="field">
+        <label for="s-cur">Currency</label>
+        <select id="s-cur" name="currency">
+          <option value="usd">US dollars ($)</option>
+          <option value="gbp">British pounds (£)</option>
+          <option value="eur">Euros (€)</option>
+        </select>
+      </div>
+      <fieldset class="field start__pay" data-start-pay>
+        <legend>How would you like to pay for the sprint?</legend>
+        <label class="start__radio"><input type="radio" name="payment" value="upfront" checked> Upfront</label>
+        <label class="start__radio"><input type="radio" name="payment" value="split"> 50/50</label>
+      </fieldset>
+      <div class="field">
+        <label for="s-name">Your name</label>
+        <input id="s-name" name="name" type="text" autocomplete="name" required>
+        <p class="field__error" data-error-for="name">Tell us what to call you.</p>
+      </div>
+      <div class="field">
+        <label for="s-email">Work email</label>
+        <input id="s-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+        <p class="field__error" data-error-for="email">Enter an email like name@yourbusiness.com.</p>
+      </div>
+      <div class="field">
+        <label for="s-site">Business website</label>
+        <input id="s-site" name="website" type="text" autocomplete="url" inputmode="url" placeholder="yourbusiness.com" required autocapitalize="none" spellcheck="false">
+        <p class="field__error" data-error-for="website">Enter your website, for example yourbusiness.com.</p>
+      </div>
+      <div class="field">
+        <label for="s-msg" data-msg-label>Anything we should know? <span class="field__opt">Optional</span></label>
+        <textarea id="s-msg" name="message" rows="4" placeholder="Locations, services, markets, deadlines"></textarea>
+        <p class="field__error" data-error-for="message">Tell us what you need, so we can scope it.</p>
+      </div>
+      <p class="start__alert" data-start-alert role="alert" hidden></p>
+      <button class="btn btn--primary btn--lg btn--block" type="submit" data-start-submit>
+        <span data-submit-label>Send my order request</span>
+        <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+      </button>
+      <p class="form__micro">Nothing is charged now. <a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms</a></p>
+      <div class="start__turnstile" data-start-turnstile></div>
+      <div class="form__done" data-start-done hidden tabindex="-1">
+        <span class="form__done-icon"><svg aria-hidden="true"><use href="#i-check"></use></svg></span>
+        <p class="form__done-title">Request received.</p>
+        <p class="form__done-text" data-done-text>We’ll email you the deliverables list and the fixed price to approve. Nothing is charged until you approve it.</p>
+        <p class="start__done-links"><a class="textlink" href="https://calendar.app.google/hFXU93aX327CiGPj9" target="_blank" rel="noopener" data-booking="start">Prefer to talk? Book a 15-minute call</a></p>
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer class="ac-footer start-footer">
+  <div class="container">
+    <p>© 2026 SearchWin.ai · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="mailto:hi@searchwin.ai">hi@searchwin.ai</a></p>
+  </div>
+</footer>
+
+<!-- build:plans-data -->
+<script type="application/json" id="plans-data">{"local-sprint-get-found":{"name":"Get Found","type":"Local business","line":"45-day sprint","lineId":"sprint","price":900,"unit":"one-off","billing":"One-off · pay upfront or 50/50","bestFor":"1 location, a few core services","items":["Up to 3 services covered","Google Business Profile fix-up: 1 profile","3 new or rebuilt service pages","5 directory and review-site listings","Day-45 report + 30-min review call"],"recheck":"10 questions × 3 AI engines, on day 0 and day 45","custom":false},"local-sprint-get-chosen":{"name":"Get Chosen","type":"Local business","line":"45-day sprint","lineId":"sprint","price":1900,"unit":"one-off","billing":"One-off · pay upfront or 50/50","bestFor":"1 location, wider service list, competitive town","items":["Up to 6 services covered","Google Business Profile fix-up: 1 profile","6 Google posts","6 new or rebuilt service pages","2 area pages","10 directory and review-site listings","Day-45 report + 30-min review call"],"recheck":"20 questions × 4 AI engines, on day 0 and day 45","custom":false},"local-sprint-own-the-area":{"name":"Own the Area","type":"Local business","line":"45-day sprint","lineId":"sprint","price":3500,"unit":"one-off","billing":"One-off · pay upfront or 50/50","bestFor":"Up to 3 locations or a wide service area","items":["Up to 10 services covered","Google Business Profile fix-up: up to 3 profiles","12 Google posts","9 new or rebuilt service pages","5 area pages","15 directory and review-site listings","Day-45 report + 30-min review call"],"recheck":"30 questions × 4 AI engines per location, on day 0 and day 45","custom":false},"local-sprint-custom":{"name":"Custom","type":"Local business","line":"45-day sprint","lineId":"sprint","price":null,"unit":"one-off","billing":"One-off · scoped in writing","bestFor":"4+ locations, franchises, several languages","items":["Multiple locations","Franchises","Several markets or languages","Regulated niches","White-label for other agencies"],"recheck":"The questions and engines we agree, on day 0 and day 45","custom":true},"local-monthly-keep":{"name":"Keep","type":"Local business","line":"Monthly plan","lineId":"monthly","price":390,"unit":"/month","billing":"Billed monthly · cancel any month","bestFor":"Hold what the sprint built","items":["4 Google posts a month","Pages a month: 1 refreshed","Review monitoring + reply drafts","Leads report: calls, forms and bookings","Monthly: 1-page report"],"recheck":"10 questions × 3 AI engines, every month","custom":false},"local-monthly-grow":{"name":"Grow","type":"Local business","line":"Monthly plan","lineId":"monthly","price":790,"unit":"/month","billing":"Billed monthly · cancel any month","bestFor":"Keep adding services and areas","items":["8 Google posts a month","Pages a month: 2 new (service, area or FAQ)","2 new listings a month","Review monitoring + reply drafts","Leads report: calls, forms and bookings","Monthly: report + 30-min call"],"recheck":"20 questions × 4 AI engines, every month","custom":false},"local-monthly-lead":{"name":"Lead","type":"Local business","line":"Monthly plan","lineId":"monthly","price":1490,"unit":"/month","billing":"Billed monthly · cancel any month","bestFor":"Stay first across several locations","items":["12 Google posts a month","Pages a month: 4 new","4 new listings a month","Review monitoring + reply drafts","Local PR outreach: 4 pitches/month","Leads report: calls, forms and bookings","Monthly: report + 30-min call + 90-day roadmap refresh"],"recheck":"30 questions × 4 AI engines per location (up to 3), every month","custom":false},"local-monthly-custom":{"name":"Custom","type":"Local business","line":"Monthly plan","lineId":"monthly","price":null,"unit":"/month","billing":"Monthly · scoped in writing","bestFor":"Groups, franchises, agencies","items":["Multiple locations","Franchises","Several markets or languages","Regulated niches","White-label for other agencies"],"recheck":"The questions and engines we agree, every month","custom":true},"online-sprint-foundation":{"name":"Foundation","type":"Online & national","line":"45-day sprint","lineId":"sprint","price":1900,"unit":"one-off","billing":"One-off · pay upfront or 50/50","bestFor":"One product or service line, one market","items":["Brand facts fixes: facts page, schema, public profiles","3 new answer pages (vs, alternatives, best for)","3 existing pages rewritten for AI answers","2 review platforms set up or fixed","Citation map: top 20 sites AI cites","Day-45 report + 45-min review call"],"recheck":"20 questions × 4 AI engines, on day 0 and day 45","custom":false},"online-sprint-authority":{"name":"Authority","type":"Online & national","line":"45-day sprint","lineId":"sprint","price":3900,"unit":"one-off","billing":"One-off · pay upfront or 50/50","bestFor":"Several lines or a crowded category","items":["Brand facts fixes: facts page, schema, public profiles","6 new answer pages (vs, alternatives, best for)","6 existing pages rewritten for AI answers","4 review platforms set up or fixed","Citation map: top 50 sites AI cites","PR outreach: 10 pitches","Day-45 report + 45-min review call"],"recheck":"40 questions × 5 AI engines, on day 0 and day 45","custom":false},"online-sprint-category":{"name":"Category","type":"Online & national","line":"45-day sprint","lineId":"sprint","price":7500,"unit":"one-off","billing":"One-off · pay upfront or 50/50","bestFor":"Pushing for category leadership, up to 2 markets","items":["Brand facts fixes: facts page, schema, public profiles","12 new answer pages (vs, alternatives, best for)","10 existing pages rewritten for AI answers","6 review platforms set up or fixed","Citation map: top 100 sites AI cites","PR outreach: 25 pitches","Day-45 report + 45-min review call"],"recheck":"80 questions × 5 AI engines, on day 0 and day 45","custom":false},"online-sprint-custom":{"name":"Custom","type":"Online & national","line":"45-day sprint","lineId":"sprint","price":null,"unit":"one-off","billing":"One-off · scoped in writing","bestFor":"Multi-brand, 3+ markets, regulated sectors","items":["Several brands or product lines","3+ markets or languages","Regulated sectors","Marketplaces and large catalogs","White-label for other agencies"],"recheck":"The questions and engines we agree, on day 0 and day 45","custom":true},"online-monthly-track":{"name":"Track","type":"Online & national","line":"Monthly plan","lineId":"monthly","price":690,"unit":"/month","billing":"Billed monthly · cancel any month","bestFor":"Watch and hold your position","items":["Share of AI mentions vs named competitors","1 new answer page a month","1 page refresh a month","Review platform upkeep + review requests","Monthly: 1-page report"],"recheck":"20 questions × 4 AI engines, every month","custom":false},"online-monthly-scale":{"name":"Scale","type":"Online & national","line":"Monthly plan","lineId":"monthly","price":1490,"unit":"/month","billing":"Billed monthly · cancel any month","bestFor":"Win more comparison questions","items":["Share of AI mentions vs named competitors","3 new answer pages a month","2 page refreshes a month","Review platform upkeep + review requests","PR outreach: 5 pitches/month","Monthly: report + 30-min call"],"recheck":"40 questions × 5 AI engines, every month","custom":false},"online-monthly-lead-the-category":{"name":"Lead the Category","type":"Online & national","line":"Monthly plan","lineId":"monthly","price":2900,"unit":"/month","billing":"Billed monthly · cancel any month","bestFor":"Defend first place, 2 markets","items":["Share of AI mentions vs named competitors","6 new answer pages a month","4 page refreshes a month","Review platform upkeep + review requests","PR outreach: 12 pitches/month","Monthly: report + 30-min call + 90-day roadmap refresh"],"recheck":"80 questions × 5 AI engines in 2 markets, every month","custom":false},"online-monthly-custom":{"name":"Custom","type":"Online & national","line":"Monthly plan","lineId":"monthly","price":null,"unit":"/month","billing":"Monthly · scoped in writing","bestFor":"Groups, multi-brand, agencies","items":["Several brands or product lines","3+ markets or languages","Regulated sectors","Marketplaces and large catalogs","White-label for other agencies"],"recheck":"The questions and engines we agree, every month","custom":true}}</script>
+<!-- /build:plans-data -->
+<script src="/assets/js/ai-check-tracking.js" defer></script>
+<script src="/assets/js/start.js" defer></script>
+</body>
+</html>

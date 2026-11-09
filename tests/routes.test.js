@@ -20,6 +20,7 @@ import * as auditRoute from '../api/ai-check/audit.js';
 import * as reportRoute from '../api/ai-check/report.js';
 import * as configRoute from '../api/ai-check/config.js';
 import * as consentRoute from '../api/ai-check/consent.js';
+import * as startRoute from '../api/start.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(here, '..');
@@ -337,9 +338,9 @@ test('config gives the page public IDs only', async () => {
   delete process.env.PUBLIC_META_PIXEL_ID;
 });
 
-test('only the leads, checks and consents tables exist', async () => {
+test('only the leads, checks, consents and orders tables exist', async () => {
   const tables = (await query(`select table_name from information_schema.tables where table_schema = 'public' order by 1`)).map((r) => r.table_name);
-  assert.deepEqual(tables, ['checks', 'consents', 'leads']);
+  assert.deepEqual(tables, ['checks', 'consents', 'leads', 'orders']);
 });
 
 test('Telegram gets the lead with ad tags and device, without page of entry, ids, consent or answers', async () => {
@@ -506,4 +507,38 @@ test('without a valid token a stage sends its own message (forged, expired or mi
     assert.equal(telegramEdits.length, 1);
     assert.ok(telegramEdits[0].text.includes('ждём ответы'));
   } finally { delete process.env.TELEGRAM_BOT_TOKEN; delete process.env.TELEGRAM_CHAT_ID; }
+});
+
+test('an order request from /start/ is checked against the plans, stored and sent to Telegram', async () => {
+  process.env.TELEGRAM_BOT_TOKEN = 't'; process.env.TELEGRAM_CHAT_ID = '1';
+  try {
+    telegramSent = [];
+    const ok = await post(startRoute, { plan: 'local-sprint-get-chosen', currency: 'gbp', payment: 'split', name: 'Ana Test', email: 'ana@plumbing-demo.com',
+      website: 'https://www.plumbing-demo.com/', message: 'Two vans, Austin only', turnstile_token: 'x',
+      attribution: { utm_source: 'google', utm_campaign: 'brand', referrer: 'https://google.com/' } });
+    assert.equal(ok.status, 200);
+    const row = await one('select * from orders where id = $1', [ok.body.id]);
+    assert.deepEqual([row.plan_id, row.plan_name, row.business_type, row.line, row.price, row.currency, row.payment, row.website, row.utm_campaign],
+      ['local-sprint-get-chosen', 'Get Chosen', 'local', 'sprint', 1900, 'GBP', 'split', 'plumbing-demo.com', 'brand']);
+    const msg = telegramSent.join('\n');
+    for (const piece of ['Заказ с сайта', 'Get Chosen (Local business, 45-day sprint)', '£1,900 one-off', '50/50', 'ana@plumbing-demo.com', 'utm_campaign: brand', 'Реферер: https://google.com/']) assert.ok(msg.includes(piece), piece);
+
+    const monthly = await post(startRoute, { plan: 'online-monthly-scale', currency: 'eur', payment: 'split', name: 'Bo', email: 'bo@saas-demo.com', website: 'saas-demo.com', turnstile_token: 'x' });
+    assert.equal(monthly.status, 200);
+    const m = await one('select price, currency, payment from orders where id = $1', [monthly.body.id]);
+    assert.deepEqual([m.price, m.currency, m.payment], [1490, 'EUR', null], 'monthly plans have no upfront/50-50 choice');
+  } finally { delete process.env.TELEGRAM_BOT_TOKEN; delete process.env.TELEGRAM_CHAT_ID; }
+});
+
+test('an order request needs a real plan, a name, a website, an email and, for Custom, a description', async () => {
+  const base = { plan: 'local-sprint-get-found', currency: 'usd', name: 'Ana', email: 'ana@plumbing-demo.com', website: 'plumbing-demo.com', turnstile_token: 'x' };
+  assert.equal((await post(startRoute, { ...base, plan: 'local-sprint-platinum' })).body.error, 'plan');
+  assert.equal((await post(startRoute, { ...base, name: '' })).body.error, 'name');
+  assert.equal((await post(startRoute, { ...base, website: 'not a site' })).body.error, 'invalid_url');
+  assert.match((await post(startRoute, { ...base, email: 'nope' })).body.error, /^email_/);
+  assert.equal((await post(startRoute, { ...base, plan: 'online-sprint-custom' })).body.error, 'message');
+  const custom = await post(startRoute, { ...base, plan: 'online-sprint-custom', message: 'Three brands in the UK and Spain' });
+  assert.equal(custom.status, 200);
+  const row = await one('select price, plan_name from orders where id = $1', [custom.body.id]);
+  assert.deepEqual([row.price, row.plan_name], [null, 'Custom']);
 });

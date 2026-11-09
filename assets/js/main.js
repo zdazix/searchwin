@@ -11,7 +11,8 @@
   var doc = document.documentElement;
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasGSAP = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
-  var animate = hasGSAP && !reduceMotion;
+  // A page opened at an anchor (no-anim, set in its <head>) shows everything at once instead of fading it in late.
+  var animate = hasGSAP && !reduceMotion && !doc.classList.contains('no-anim');
 
   if (animate) {
     doc.classList.add('anim');
