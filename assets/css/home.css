@@ -490,6 +490,8 @@ html.js[data-biz-type="online"] .compare [data-type-panel="local"] { display: no
   .answer__rows { padding-left: 28px; }
   .answer__item { padding: 0 10px; font-size: .875rem; }
   .answer__rate { display: none; }
+  .answer__days button { padding: 0 10px; white-space: nowrap; }
+  .answer__status { padding: 2px 7px; font-size: .6875rem; }
   .stats--two { grid-template-columns: minmax(0, 1fr); }
   .pcards, .flowsteps, .model__grid, .included__list { grid-template-columns: minmax(0, 1fr); }
   .bizswitch { width: 100%; }
@@ -507,6 +509,11 @@ html.js[data-biz-type="online"] .compare [data-type-panel="local"] { display: no
   .home-footer .footer__cols { grid-template-columns: minmax(0, 1fr); }
   .home-cta__actions .btn { width: 100%; }
   .promises--footer { flex-direction: column; align-items: flex-start; }
+}
+/* Small phones: room for the full business name next to its status */
+@media (max-width: 400px) {
+  .answer { padding-left: 8px; padding-right: 8px; }
+  .answer__rows { padding-left: 22px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
