@@ -1,6 +1,6 @@
 # SearchWin.ai
 
-> SearchWin.ai sells AI search optimization and lead generation as a productized service: fixed plans with prices on the page, counted deliverables and results re-checked on a fixed date. Positioning: get recommended by AI and turn it into customers. Fixed price, clear deliverables, results checked on day 45.
+> SearchWin.ai sells AI search optimization and lead generation as a productized service: fixed plans with a fixed price in writing, counted deliverables and results re-checked on a fixed date. Positioning: get recommended by AI and turn it into customers. Fixed price, clear deliverables, results checked on day 45.
 
 Key facts:
 
@@ -10,27 +10,27 @@ Key facts:
 - Engines checked: ChatGPT, Gemini, Google AI Overviews and Google AI Mode; Perplexity is added for online and national plans.
 - What we never do: no guaranteed rankings, leads or revenue; no fake reviews or review gating; no fake accounts or paid posting on Reddit and forums; no lock-in contracts; no hidden fees; you own every page, listing and account.
 - First step: a free AI check (2 minutes, 3 real ChatGPT questions about your business), then a free audit and 45-day roadmap that is yours to keep.
-- Markets: US, UK and EU. Prices show in dollars, pounds or euros, with the same number in each currency.
+- Markets: US, UK and EU. Quotes in dollars, pounds or euros.
 - Contact: hi@searchwin.ai
 
 <!-- build:plans -->
-## Plans and prices
+## Plans
 
-Prices are the same number in US dollars, British pounds and euros. Every plan lists counted deliverables; no plan promises rankings, leads or revenue.
+Every plan has a fixed price, sent in writing with the deliverables list before you pay (in US dollars, British pounds or euros). Every plan lists counted deliverables; no plan promises rankings, leads or revenue.
 
 ### Local business plans
 For businesses that win customers in a town or region. Questions we test look like: "best {service} in {city}", "who should I call for {service} near {city}".
 
 45-day sprint (one-off):
-- Get Found: $900 one-off. Best for: 1 location, a few core services. Up to 3 services covered; Google Business Profile fix-up: 1 profile; 3 new or rebuilt service pages; 5 directory and review-site listings; Day-45 report + 30-min review call. Re-checked: 10 questions × 3 AI engines, on day 0 and day 45.
-- Get Chosen: $1,900 one-off. Best for: 1 location, wider service list, competitive town. Up to 6 services covered; Google Business Profile fix-up: 1 profile; 6 Google posts; 6 new or rebuilt service pages; 2 area pages; 10 directory and review-site listings; Day-45 report + 30-min review call. Re-checked: 20 questions × 4 AI engines, on day 0 and day 45.
-- Own the Area: $3,500 one-off. Best for: Up to 3 locations or a wide service area. Up to 10 services covered; Google Business Profile fix-up: up to 3 profiles; 12 Google posts; 9 new or rebuilt service pages; 5 area pages; 15 directory and review-site listings; Day-45 report + 30-min review call. Re-checked: 30 questions × 4 AI engines per location, on day 0 and day 45.
+- Get Found. Best for: 1 location, a few core services. Up to 3 services covered; Google Business Profile fix-up: 1 profile; 3 new or rebuilt service pages; 5 directory and review-site listings; Day-45 report + 30-min review call. Re-checked: 10 questions × 3 AI engines, on day 0 and day 45.
+- Get Chosen. Best for: 1 location, wider service list, competitive town. Up to 6 services covered; Google Business Profile fix-up: 1 profile; 6 Google posts; 6 new or rebuilt service pages; 2 area pages; 10 directory and review-site listings; Day-45 report + 30-min review call. Re-checked: 20 questions × 4 AI engines, on day 0 and day 45.
+- Own the Area. Best for: Up to 3 locations or a wide service area. Up to 10 services covered; Google Business Profile fix-up: up to 3 profiles; 12 Google posts; 9 new or rebuilt service pages; 5 area pages; 15 directory and review-site listings; Day-45 report + 30-min review call. Re-checked: 30 questions × 4 AI engines per location, on day 0 and day 45.
 - Custom: fixed quote before you pay. 4+ locations, franchises, several languages.
 
 Monthly plan (month to month):
-- Keep: $390/month. Best for: Hold what the sprint built. 4 Google posts a month; Pages a month: 1 refreshed; Review monitoring + reply drafts; Leads report: calls, forms and bookings; Monthly: 1-page report. Re-checked: 10 questions × 3 AI engines, every month.
-- Grow: $790/month. Best for: Keep adding services and areas. 8 Google posts a month; Pages a month: 2 new (service, area or FAQ); 2 new listings a month; Review monitoring + reply drafts; Leads report: calls, forms and bookings; Monthly: report + 30-min call. Re-checked: 20 questions × 4 AI engines, every month.
-- Lead: $1,490/month. Best for: Stay first across several locations. 12 Google posts a month; Pages a month: 4 new; 4 new listings a month; Review monitoring + reply drafts; Local PR outreach: 4 pitches/month; Leads report: calls, forms and bookings; Monthly: report + 30-min call + 90-day roadmap refresh. Re-checked: 30 questions × 4 AI engines per location (up to 3), every month.
+- Keep. Best for: Hold what the sprint built. 4 Google posts a month; Pages a month: 1 refreshed; Review monitoring + reply drafts; Leads report: calls, forms and bookings; Monthly: 1-page report. Re-checked: 10 questions × 3 AI engines, every month.
+- Grow. Best for: Keep adding services and areas. 8 Google posts a month; Pages a month: 2 new (service, area or FAQ); 2 new listings a month; Review monitoring + reply drafts; Leads report: calls, forms and bookings; Monthly: report + 30-min call. Re-checked: 20 questions × 4 AI engines, every month.
+- Lead. Best for: Stay first across several locations. 12 Google posts a month; Pages a month: 4 new; 4 new listings a month; Review monitoring + reply drafts; Local PR outreach: 4 pitches/month; Leads report: calls, forms and bookings; Monthly: report + 30-min call + 90-day roadmap refresh. Re-checked: 30 questions × 4 AI engines per location (up to 3), every month.
 - Custom: fixed quote before you pay. Groups, franchises, agencies.
 
 Not included in any local plan: Ad spend; Paid directory memberships (for example a Checkatrade subscription); Professional photography; A full website redesign; Fake or gated reviews; Guaranteed rankings or lead numbers.
@@ -39,15 +39,15 @@ Not included in any local plan: Ad spend; Paid directory memberships (for exampl
 For B2B services, SaaS, e-commerce and national brands that sell beyond one town. Questions we test look like: "best {category} for {use case}", "{brand} vs {competitor}", "alternatives to {competitor}".
 
 45-day sprint (one-off):
-- Foundation: $1,900 one-off. Best for: One product or service line, one market. Brand facts fixes: facts page, schema, public profiles; 3 new answer pages (vs, alternatives, best for); 3 existing pages rewritten for AI answers; 2 review platforms set up or fixed; Citation map: top 20 sites AI cites; Day-45 report + 45-min review call. Re-checked: 20 questions × 4 AI engines, on day 0 and day 45.
-- Authority: $3,900 one-off. Best for: Several lines or a crowded category. Brand facts fixes: facts page, schema, public profiles; 6 new answer pages (vs, alternatives, best for); 6 existing pages rewritten for AI answers; 4 review platforms set up or fixed; Citation map: top 50 sites AI cites; PR outreach: 10 pitches; Day-45 report + 45-min review call. Re-checked: 40 questions × 5 AI engines, on day 0 and day 45.
-- Category: $7,500 one-off. Best for: Pushing for category leadership, up to 2 markets. Brand facts fixes: facts page, schema, public profiles; 12 new answer pages (vs, alternatives, best for); 10 existing pages rewritten for AI answers; 6 review platforms set up or fixed; Citation map: top 100 sites AI cites; PR outreach: 25 pitches; Day-45 report + 45-min review call. Re-checked: 80 questions × 5 AI engines, on day 0 and day 45.
+- Foundation. Best for: One product or service line, one market. Brand facts fixes: facts page, schema, public profiles; 3 new answer pages (vs, alternatives, best for); 3 existing pages rewritten for AI answers; 2 review platforms set up or fixed; Citation map: top 20 sites AI cites; Day-45 report + 45-min review call. Re-checked: 20 questions × 4 AI engines, on day 0 and day 45.
+- Authority. Best for: Several lines or a crowded category. Brand facts fixes: facts page, schema, public profiles; 6 new answer pages (vs, alternatives, best for); 6 existing pages rewritten for AI answers; 4 review platforms set up or fixed; Citation map: top 50 sites AI cites; PR outreach: 10 pitches; Day-45 report + 45-min review call. Re-checked: 40 questions × 5 AI engines, on day 0 and day 45.
+- Category. Best for: Pushing for category leadership, up to 2 markets. Brand facts fixes: facts page, schema, public profiles; 12 new answer pages (vs, alternatives, best for); 10 existing pages rewritten for AI answers; 6 review platforms set up or fixed; Citation map: top 100 sites AI cites; PR outreach: 25 pitches; Day-45 report + 45-min review call. Re-checked: 80 questions × 5 AI engines, on day 0 and day 45.
 - Custom: fixed quote before you pay. Multi-brand, 3+ markets, regulated sectors.
 
 Monthly plan (month to month):
-- Track: $690/month. Best for: Watch and hold your position. Share of AI mentions vs named competitors; 1 new answer page a month; 1 page refresh a month; Review platform upkeep + review requests; Monthly: 1-page report. Re-checked: 20 questions × 4 AI engines, every month.
-- Scale: $1,490/month. Best for: Win more comparison questions. Share of AI mentions vs named competitors; 3 new answer pages a month; 2 page refreshes a month; Review platform upkeep + review requests; PR outreach: 5 pitches/month; Monthly: report + 30-min call. Re-checked: 40 questions × 5 AI engines, every month.
-- Lead the Category: $2,900/month. Best for: Defend first place, 2 markets. Share of AI mentions vs named competitors; 6 new answer pages a month; 4 page refreshes a month; Review platform upkeep + review requests; PR outreach: 12 pitches/month; Monthly: report + 30-min call + 90-day roadmap refresh. Re-checked: 80 questions × 5 AI engines in 2 markets, every month.
+- Track. Best for: Watch and hold your position. Share of AI mentions vs named competitors; 1 new answer page a month; 1 page refresh a month; Review platform upkeep + review requests; Monthly: 1-page report. Re-checked: 20 questions × 4 AI engines, every month.
+- Scale. Best for: Win more comparison questions. Share of AI mentions vs named competitors; 3 new answer pages a month; 2 page refreshes a month; Review platform upkeep + review requests; PR outreach: 5 pitches/month; Monthly: report + 30-min call. Re-checked: 40 questions × 5 AI engines, every month.
+- Lead the Category. Best for: Defend first place, 2 markets. Share of AI mentions vs named competitors; 6 new answer pages a month; 4 page refreshes a month; Review platform upkeep + review requests; PR outreach: 12 pitches/month; Monthly: report + 30-min call + 90-day roadmap refresh. Re-checked: 80 questions × 5 AI engines in 2 markets, every month.
 - Custom: fixed quote before you pay. Groups, multi-brand, agencies.
 
 Not included in any online plan: Ad spend; Paid review-platform subscriptions; Paid or sponsored placements; Product changes; Guaranteed placements, mentions or revenue. Outreach is counted in pitches sent, not articles won.
@@ -57,8 +57,8 @@ Monthly plans start after a sprint, or after our free audit confirms your basics
 
 ## Pages
 
-- [Home](https://searchwin.ai/): plans and prices for local and for online and national businesses, how it works, a sample day-45 report and FAQ.
-- [Pricing](https://searchwin.ai/#pricing): the 45-day sprint and monthly plans; add ?type=online to the address for online and national plans, ?cur=gbp or ?cur=eur for pounds or euros.
+- [Home](https://searchwin.ai/): plans for local and for online and national businesses, how it works, a sample day-45 report and FAQ.
+- [Plans](https://searchwin.ai/#pricing): the 45-day sprint and monthly plans; add ?type=online to the address for online and national plans.
 - [Sample report](https://searchwin.ai/#sample-report): what the day-45 report, the shared tracker and the before/after table look like (illustrative example).
 - [FAQ](https://searchwin.ai/#faq): AI search optimization vs SEO, engines, what we can and can't promise, ownership, payment.
 - [Free AI check](https://searchwin.ai/ai-check/): see in about a minute whether ChatGPT names a local business, in any country, when customers ask who to hire. Real ChatGPT answers, no sign-up.

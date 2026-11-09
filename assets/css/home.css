@@ -533,3 +533,5 @@ html.js[data-biz-type="online"] .compare [data-type-panel="local"] { display: no
   }
   .answer .media__bg { display: none; }
 }
+/* The <picture> around the sky adds no box, so the image fills the whole card (not a zero-height wrapper) */
+.answer > picture { display: contents; }

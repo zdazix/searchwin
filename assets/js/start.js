@@ -44,6 +44,7 @@
     price.classList.toggle('plan__price--quote', p.custom);
     price.textContent = '';
     if (p.custom) price.textContent = 'Fixed quote before you pay';
+    else if (p.price == null) { price.classList.add('plan__price--quote'); price.textContent = p.quote || 'Fixed price'; }
     else {
       price.appendChild(document.createTextNode(sym + fmt(p.price) + (p.unit.charAt(0) === '/' ? '' : ' ')));
       var unit = document.createElement('span');

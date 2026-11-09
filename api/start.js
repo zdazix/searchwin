@@ -12,7 +12,7 @@ import { verifyTurnstile } from './_lib/security/turnstile.js';
 import { validateEmail } from './_lib/leads/email.js';
 import { one } from './_lib/db.js';
 import { sendTelegram, orderMessage } from './_lib/notify/telegram.js';
-import { findPlan, CURRENCIES, priceWithUnit } from '../data/plans.js';
+import { findPlan, CURRENCIES, priceWithUnit, SHOW_PRICES } from '../data/plans.js';
 
 const str = (v, max) => (typeof v === 'string' && v.trim() ? v.trim().slice(0, max) : null);
 
@@ -36,7 +36,8 @@ export async function POST(request) {
 
     const a = attributionFrom(body, request);
     const userAgent = (request.headers.get('user-agent') || '').slice(0, 500);
-    const priceLabel = plan.tier.custom ? 'fixed quote' : priceWithUnit(cur.symbol, plan.tier.price, plan.line.unit);
+    // While prices are hidden on the site the visitor saw none, so Telegram shows the currency for the quote instead
+    const priceLabel = plan.tier.custom ? 'fixed quote' : SHOW_PRICES ? priceWithUnit(cur.symbol, plan.tier.price, plan.line.unit) : null;
 
     // Telegram first: it is how the team hears about the order, and it must not depend on the database.
     const sent = await sendTelegram(orderMessage({

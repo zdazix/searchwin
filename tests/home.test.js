@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { BUSINESS_TYPES, CURRENCIES, allPlans, cardItems, missingItems, findPlan, lowestSprintPrice } from '../data/plans.js';
+import { BUSINESS_TYPES, CURRENCIES, LINES, SHOW_PRICES, allPlans, cardItems, missingItems, findPlan, lowestSprintPrice } from '../data/plans.js';
 import { FAQ } from '../data/faq.js';
 import { render } from '../scripts/build-home.mjs';
 
@@ -59,10 +59,17 @@ test('the pages are up to date with data/plans.js and data/faq.js (run npm run b
   for (const [file, expected] of Object.entries(render())) assert.equal(read(file), expected, `${file} is stale`);
 });
 
-test('prices, deliverables and FAQ are in the HTML source, for both business types', () => {
+// Any amount of money: "$900", "£1,900", "€ 390", "900 USD"
+const MONEY = /[$£€]\s?\d|\d[\d,.]*\s?(USD|GBP|EUR)\b/;
+
+test('prices (or, while they are hidden, "Fixed price"), deliverables and FAQ are in the HTML source, for both business types', () => {
   for (const p of allPlans()) {
     assert.ok(html.includes(`data-plan="${p.id}"`), p.id);
-    if (!p.tier.custom) assert.ok(html.includes(`data-cur-sym>$</span>${p.tier.price.toLocaleString('en-US')}</span>`), p.id);
+    if (!p.tier.custom && SHOW_PRICES) assert.ok(html.includes(`data-cur-sym>$</span>${p.tier.price.toLocaleString('en-US')}</span>`), p.id);
+    if (!p.tier.custom && !SHOW_PRICES) {
+      const card = html.slice(html.indexOf(`data-plan="${p.id}"`), html.indexOf('</article>', html.indexOf(`data-plan="${p.id}"`)));
+      assert.ok(card.includes(`<p class="plan__price plan__price--quote">${p.line.quote}</p>`), p.id);
+    }
     for (const item of p.tier.custom ? p.tier.cases : cardItems(p)) assert.ok(visible.includes(item), `${p.id}: ${item}`);
   }
   assert.equal((html.match(/<details class="qa" data-faq=/g) || []).length, 10);
@@ -70,9 +77,24 @@ test('prices, deliverables and FAQ are in the HTML source, for both business typ
   assert.ok(html.includes('data-type-panel="local"') && html.includes('data-type-panel="online"'));
 });
 
+test('while prices are hidden, no page, schema or llms.txt carries an amount', { skip: SHOW_PRICES }, () => {
+  for (const file of ['index.html', 'start/index.html', 'llms.txt']) {
+    const t = text(read(file));
+    assert.ok(!MONEY.test(t), `${file}: "${(t.match(MONEY) || [])[0]}"`);
+    // Prices that are only in data/plans.js
+    for (const p of allPlans().filter((x) => !x.tier.custom)) assert.ok(!t.includes(p.tier.price.toLocaleString('en-US') + ' one-off') && !t.includes(p.tier.price.toLocaleString('en-US') + '/month'), `${file}: ${p.id}`);
+  }
+  assert.ok(!/"price(Currency|Specification)?":/.test(html), 'JSON-LD offers carry no price');
+  assert.ok(!/class="(curswitch|pricing__curnote|compare__price|compare__plan-price)/.test(html), 'no currency switch or price rows');
+  assert.ok(!/Price on the page|Plans and prices|prices on the page/i.test(text(html)), 'no copy that promises prices on the page');
+  const data = JSON.parse(read('start/index.html').match(/<script type="application\/json" id="plans-data">([\s\S]*?)<\/script>/)[1]);
+  assert.ok(Object.values(data).every((d) => d.price === null), 'the /start/ data has no prices either');
+});
+
 test('title, description, one H1 and the JSON-LD offers match the plans', () => {
   assert.match(html, /<title>AI Search Optimization &amp; Lead Generation Service, Fixed Plans \| searchwin\.ai<\/title>/);
-  assert.ok(html.includes('<meta name="description" content="Fixed-price AI search optimization and lead generation for local businesses and SMEs. 45-day sprints from $900, monthly plans, counted deliverables.">'));
+  const from = SHOW_PRICES ? ' from $900' : '';
+  assert.ok(html.includes(`<meta name="description" content="Fixed-price AI search optimization and lead generation for local businesses and SMEs. 45-day sprints${from}, monthly plans, counted deliverables.">`));
   assert.equal((html.match(/<h1[\s>]/g) || []).length, 1);
   const ld = JSON.parse(html.match(/<script type="application\/ld\+json">\n([\s\S]*?)\n\s*<\/script>/)[1]);
   const graph = ld['@graph'];
@@ -83,6 +105,8 @@ test('title, description, one H1 and the JSON-LD offers match the plans', () => 
   assert.equal(offers.length, 16);
   for (const p of allPlans().filter((x) => !x.tier.custom)) {
     const o = offers.find((x) => x.url.endsWith(`plan=${p.id}`));
+    assert.ok(o, p.id);
+    if (!SHOW_PRICES) { assert.ok(!('price' in o) && !('priceSpecification' in o), p.id); continue; }
     assert.equal(o.price, String(p.tier.price), p.id);
     assert.equal(o.priceCurrency, 'USD');
     assert.deepEqual(o.priceSpecification.map((s) => s.priceCurrency), ['USD', 'GBP', 'EUR']);
@@ -141,6 +165,7 @@ test('/start/ lists every plan and carries the plan data for the summary', () =>
   for (const p of allPlans()) assert.ok(start.includes(`<option value="${p.id}">`), p.id);
   const data = JSON.parse(start.match(/<script type="application\/json" id="plans-data">([\s\S]*?)<\/script>/)[1]);
   assert.equal(Object.keys(data).length, 16);
-  assert.equal(data['local-sprint-get-found'].price, 900);
+  assert.equal(data['local-sprint-get-found'].price, SHOW_PRICES ? 900 : null);
+  assert.equal(data['local-sprint-get-found'].quote, SHOW_PRICES ? null : LINES.sprint.quote);
   assert.match(start, /noindex/);
 });

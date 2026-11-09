@@ -14,6 +14,11 @@ export const CURRENCIES = [
 ];
 export const DEFAULT_CURRENCY = 'usd';
 
+// false: the site shows no numbers. Cards say "Fixed price" and the visitor gets the price by email with the
+// deliverables list (the numbers below stay here for the team and for when prices go back on the page).
+// true: prices show on the cards, in the tables, the JSON-LD, llms.txt and the order form.
+export const SHOW_PRICES = false;
+
 export const LINES = {
   sprint: {
     label: '45-day sprint',
@@ -21,6 +26,8 @@ export const LINES = {
     intro: 'Build. One-off setup work: fix what stops AI from understanding and trusting you, build the missing pages and listings, set up tracking, then re-check on day 45.',
     unit: 'one-off',
     billing: 'One-off · pay upfront or 50/50',
+    quote: 'Fixed price, one-off',
+    quoteBilling: 'Quoted in writing before you pay · upfront or 50/50',
     schemaUnit: null
   },
   monthly: {
@@ -29,6 +36,8 @@ export const LINES = {
     intro: 'Keep and grow. Ongoing work that only makes sense once the basics exist: monthly re-checks, new pages, review and listing upkeep, outreach and a monthly report.',
     unit: '/month',
     billing: 'Billed monthly · cancel any month',
+    quote: 'Fixed monthly price',
+    quoteBilling: 'Quoted in writing before you pay · cancel any month',
     schemaUnit: 'MON'
   }
 };

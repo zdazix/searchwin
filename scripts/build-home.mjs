@@ -10,7 +10,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  BUSINESS_TYPES, LINES, CURRENCIES, DEFAULT_CURRENCY, MONTHLY_RULE,
+  BUSINESS_TYPES, LINES, CURRENCIES, DEFAULT_CURRENCY, MONTHLY_RULE, SHOW_PRICES,
   allPlans, cardItems, missingItems, formatPrice, priceWithUnit, lowestSprintPrice
 } from '../data/plans.js';
 import { FAQ } from '../data/faq.js';
@@ -28,6 +28,8 @@ const plans = allPlans();
 const planOf = (type, lineId, col) => plans.find((p) => p.type.id === type.id && p.lineId === lineId && p.col === col);
 const startUrl = (plan, cur = DEFAULT_CURRENCY) => `/start/?plan=${plan.id}&amp;cur=${cur}`;
 const price = (n) => `<span class="price"><span class="price__cur" data-cur-sym>${usd.symbol}</span>${formatPrice(n)}</span>`;
+const priceUnit = (t, line) => `${price(t.price)}${line.unit.startsWith('/') ? '' : ' '}`;
+// SHOW_PRICES off (data/plans.js): no number anywhere, the card says "Fixed price" and the price comes by email.
 
 /* ---------------------------------------------------------------- pricing cards */
 
@@ -43,9 +45,12 @@ function card(plan) {
   if (tier.custom) {
     out.push(`  <p class="plan__price plan__price--quote">Fixed quote before you pay</p>`);
     out.push(`  <p class="plan__billing">${lineIdBilling(plan)}</p>`);
-  } else {
-    out.push(`  <p class="plan__price">${price(tier.price)}${line.unit.startsWith('/') ? '' : ' '}<span class="plan__unit">${esc(line.unit)}</span></p>`);
+  } else if (SHOW_PRICES) {
+    out.push(`  <p class="plan__price">${priceUnit(tier, line)}<span class="plan__unit">${esc(line.unit)}</span></p>`);
     out.push(`  <p class="plan__billing">${esc(line.billing)}</p>`);
+  } else {
+    out.push(`  <p class="plan__price plan__price--quote">${esc(line.quote)}</p>`);
+    out.push(`  <p class="plan__billing">${esc(line.quoteBilling)}</p>`);
   }
   out.push(`  <p class="plan__best"><b>Best for:</b> ${esc(tier.bestFor)}</p>`);
   if (tier.custom) {
@@ -132,7 +137,7 @@ function compareBlock() {
       out.push(`      <thead><tr><th scope="col">What you get</th>${tiers.map((t) => `<th scope="col">${esc(t.name)}</th>`).join('')}</tr></thead>`);
       out.push(`      <tbody>`);
       out.push(`        <tr><th scope="row">Best for</th>${tiers.map((t) => `<td>${esc(t.bestFor)}</td>`).join('')}</tr>`);
-      out.push(`        <tr class="compare__price"><th scope="row">Price</th>${tiers.map((t) => `<td>${t.custom ? 'Fixed quote before you pay' : `${price(t.price)}${line.unit.startsWith('/') ? '' : ' '}${esc(line.unit)}`}</td>`).join('')}</tr>`);
+      if (SHOW_PRICES) out.push(`        <tr class="compare__price"><th scope="row">Price</th>${tiers.map((t) => `<td>${t.custom ? 'Fixed quote before you pay' : `${priceUnit(t, line)}${esc(line.unit)}`}</td>`).join('')}</tr>`);
       for (const r of rows) out.push(`        <tr><th scope="row">${esc(r.label)}</th>${r.values.map((v) => `<td>${cell(v)}</td>`).join('')}</tr>`);
       out.push(`      </tbody>`);
       out.push(`    </table>`);
@@ -143,7 +148,8 @@ function compareBlock() {
       tierPlans.forEach((plan) => {
         const t = plan.tier;
         out.push(`    <details class="compare__plan">`);
-        out.push(`      <summary><span>${esc(t.name)}</span><span class="compare__plan-price">${t.custom ? 'Fixed quote' : `${price(t.price)}${line.unit.startsWith('/') ? '' : ' '}${esc(line.unit)}`}</span></summary>`);
+        const tag = SHOW_PRICES ? `<span class="compare__plan-price">${t.custom ? 'Fixed quote' : `${priceUnit(t, line)}${esc(line.unit)}`}</span>` : '';
+        out.push(`      <summary><span>${esc(t.name)}</span>${tag}</summary>`);
         out.push(`      <dl>`);
         out.push(`        <div><dt>Best for</dt><dd>${esc(t.bestFor)}</dd></div>`);
         for (const r of rows) out.push(`        <div><dt>${esc(r.label)}</dt><dd>${cell(r.values[plan.col])}</dd></div>`);
@@ -201,7 +207,7 @@ function offer(plan) {
     url: `${SITE}/start/?plan=${plan.id}`,
     itemOffered: { '@type': 'Service', name: `${tier.name}: ${line.label} for ${type.label.toLowerCase()}s` }
   };
-  if (!tier.custom) {
+  if (SHOW_PRICES && !tier.custom) {
     o.price = String(tier.price);
     o.priceCurrency = 'USD';
     o.priceSpecification = CURRENCIES.map((c) => ({
@@ -246,7 +252,7 @@ function schemaBlock() {
         url: `${SITE}/`,
         logo: `${SITE}/assets/img/apple-touch-icon.png`,
         email: 'hi@searchwin.ai',
-        description: 'AI search optimization and lead generation as a service, with fixed plans: 45-day sprints and month-to-month plans for local businesses and online and national businesses, with prices on the page and counted deliverables.',
+        description: `AI search optimization and lead generation as a service, with fixed plans: 45-day sprints and month-to-month plans for local businesses and online and national businesses, with ${SHOW_PRICES ? 'prices on the page and ' : ''}counted deliverables.`,
         knowsAbout: ['AI search optimization', 'Generative engine optimization', 'Local SEO', 'Google Business Profile', 'Lead generation']
       },
       { '@type': 'WebSite', '@id': `${SITE}/#website`, url: `${SITE}/`, name: 'SearchWin.ai' },
@@ -255,7 +261,7 @@ function schemaBlock() {
         '@id': `${SITE}/#page`,
         url: `${SITE}/`,
         name: 'AI Search Optimization & Lead Generation Service, Fixed Plans | searchwin.ai',
-        description: `Fixed-price AI search optimization and lead generation for local businesses and SMEs. 45-day sprints from $${formatPrice(lowestSprintPrice())}, monthly plans, counted deliverables.`,
+        description: `Fixed-price AI search optimization and lead generation for local businesses and SMEs. 45-day sprints${SHOW_PRICES ? ` from $${formatPrice(lowestSprintPrice())}` : ''}, monthly plans, counted deliverables.`,
         isPartOf: { '@id': `${SITE}/#website` },
         about: { '@id': `${SITE}/#org` }
       },
@@ -274,9 +280,11 @@ function schemaBlock() {
 
 function llmsBlock() {
   const out = [];
-  out.push('## Plans and prices');
+  out.push(SHOW_PRICES ? '## Plans and prices' : '## Plans');
   out.push('');
-  out.push('Prices are the same number in US dollars, British pounds and euros. Every plan lists counted deliverables; no plan promises rankings, leads or revenue.');
+  out.push(SHOW_PRICES
+    ? 'Prices are the same number in US dollars, British pounds and euros. Every plan lists counted deliverables; no plan promises rankings, leads or revenue.'
+    : 'Every plan has a fixed price, sent in writing with the deliverables list before you pay (in US dollars, British pounds or euros). Every plan lists counted deliverables; no plan promises rankings, leads or revenue.');
   for (const type of BUSINESS_TYPES) {
     out.push('');
     out.push(`### ${type.title}`);
@@ -288,7 +296,7 @@ function llmsBlock() {
       type.lines[lineId].tiers.forEach((t, col) => {
         const plan = planOf(type, lineId, col);
         if (t.custom) out.push(`- ${t.name}: fixed quote before you pay. ${t.bestFor}.`);
-        else out.push(`- ${t.name}: ${priceWithUnit('$', t.price, line.unit)}. Best for: ${t.bestFor}. ${cardItems(plan).join('; ')}. Re-checked: ${t.recheck}.`);
+        else out.push(`- ${t.name}${SHOW_PRICES ? `: ${priceWithUnit('$', t.price, line.unit)}` : ''}. Best for: ${t.bestFor}. ${cardItems(plan).join('; ')}. Re-checked: ${t.recheck}.`);
       });
     }
     out.push('');
@@ -308,7 +316,8 @@ function startOptionsBlock() {
       out.push(`<optgroup label="${esc(type.label)} · ${esc(LINES[lineId].label)}">`);
       type.lines[lineId].tiers.forEach((t, col) => {
         const plan = planOf(type, lineId, col);
-        out.push(`  <option value="${plan.id}">${esc(t.name)}${t.custom ? ' (fixed quote)' : ` (${esc(priceWithUnit('$', t.price, LINES[lineId].unit))})`}</option>`);
+        const note = t.custom ? ' (fixed quote)' : SHOW_PRICES ? ` (${esc(priceWithUnit('$', t.price, LINES[lineId].unit))})` : '';
+        out.push(`  <option value="${plan.id}">${esc(t.name)}${note}</option>`);
       });
       out.push(`</optgroup>`);
     }
@@ -324,9 +333,11 @@ function startDataBlock() {
       type: plan.type.label,
       line: plan.line.label,
       lineId: plan.lineId,
-      price: plan.tier.custom ? null : plan.tier.price,
+      // No number in the page source while prices are hidden; the form shows `quote` instead
+      price: plan.tier.custom || !SHOW_PRICES ? null : plan.tier.price,
       unit: plan.line.unit,
-      billing: plan.tier.custom ? lineIdBilling(plan) : plan.line.billing,
+      quote: plan.tier.custom || SHOW_PRICES ? null : plan.line.quote,
+      billing: plan.tier.custom ? lineIdBilling(plan) : SHOW_PRICES ? plan.line.billing : plan.line.quoteBilling,
       bestFor: plan.tier.bestFor,
       items: plan.tier.custom ? plan.tier.cases : cardItems(plan),
       recheck: plan.tier.recheck,

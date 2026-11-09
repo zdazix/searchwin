@@ -40,6 +40,6 @@ export const FAQ = [
   },
   {
     q: 'Do you work outside the US?',
-    a: 'Yes. We work with businesses in the US, the UK and the EU. Prices show in dollars, pounds or euros, with the same number in each currency.'
+    a: 'Yes. We work with businesses in the US, the UK and the EU, and quote in dollars, pounds or euros.'
   }
 ];

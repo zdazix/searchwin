@@ -21,6 +21,7 @@ import * as reportRoute from '../api/ai-check/report.js';
 import * as configRoute from '../api/ai-check/config.js';
 import * as consentRoute from '../api/ai-check/consent.js';
 import * as startRoute from '../api/start.js';
+import { SHOW_PRICES } from '../data/plans.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(here, '..');
@@ -521,7 +522,10 @@ test('an order request from /start/ is checked against the plans, stored and sen
     assert.deepEqual([row.plan_id, row.plan_name, row.business_type, row.line, row.price, row.currency, row.payment, row.website, row.utm_campaign],
       ['local-sprint-get-chosen', 'Get Chosen', 'local', 'sprint', 1900, 'GBP', 'split', 'plumbing-demo.com', 'brand']);
     const msg = telegramSent.join('\n');
-    for (const piece of ['Заказ с сайта', 'Get Chosen (Local business, 45-day sprint)', '£1,900 one-off', '50/50', 'ana@plumbing-demo.com', 'utm_campaign: brand', 'Реферер: https://google.com/']) assert.ok(msg.includes(piece), piece);
+    // The price goes to Telegram only while the site shows it; otherwise the currency for the quote
+    const priceLine = SHOW_PRICES ? '£1,900 one-off' : 'Валюта: GBP';
+    for (const piece of ['Заказ с сайта', 'Get Chosen (Local business, 45-day sprint)', priceLine, '50/50', 'ana@plumbing-demo.com', 'utm_campaign: brand', 'Реферер: https://google.com/']) assert.ok(msg.includes(piece), piece);
+    if (!SHOW_PRICES) assert.ok(!msg.includes('1,900') && !msg.includes('Цена'), 'no hidden price in Telegram');
 
     const monthly = await post(startRoute, { plan: 'online-monthly-scale', currency: 'eur', payment: 'split', name: 'Bo', email: 'bo@saas-demo.com', website: 'saas-demo.com', turnstile_token: 'x' });
     assert.equal(monthly.status, 200);
