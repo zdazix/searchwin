@@ -234,7 +234,7 @@ Lighthouse mobile локально: Performance 97–99, Accessibility 100, SEO 
 
 ### Настройка (один раз)
 
-1. **Vercel.** Подключите репозиторий к проекту Vercel и выберите production-ветку. Framework Preset: Other, Build Command и Output Directory пустые. `vercel.json` уже задаёт лимит функций и заголовки noindex.
+1. **Vercel.** Подключите репозиторий к проекту Vercel и выберите production-ветку. Framework Preset: Other, Build Command и Output Directory пустые. В `package.json` не должно быть скрипта `build`: Vercel запустит его при деплое, а генератор лежит в `scripts/`, которая в деплой не попадает, и публикация упадёт. Страницы собираются локально командой `npm run build:home` и коммитятся готовыми. `vercel.json` уже задаёт лимит функций и заголовки noindex.
 2. **База.** Neon через Vercel Marketplace: переменная `DATABASE_URL` появится сама. В SQL Editor консоли Neon по очереди (каждый раз очищая окно) выполните `db/migrations/001_leads.sql`, затем `db/migrations/002_leads_kind.sql`. Без второй миграции заявки не сохраняются. Если раньше вы уже выполняли первую версию миграции, сначала выполните `db/drop-old-stage1.sql` (удаляет её восемь таблиц, данных в них ещё нет).
 3. **Переменные окружения** из [`.env.example`](.env.example): DataForSEO, `GEMINI_API_KEY`, Turnstile, `CHECK_TICKET_SECRET` (случайная строка), публичные ID Meta Pixel, Google Ads и GA4, по желанию Telegram. После изменения переменных сделайте Redeploy.
 4. **Turnstile:** Cloudflare → Turnstile → Add widget → домен `searchwin.ai`, режим Invisible.

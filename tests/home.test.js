@@ -196,6 +196,18 @@ test('llms.txt lists the three solutions with their starting prices', () => {
   }
 });
 
+test('deploy: Vercel has nothing to build, and every file a function imports is deployed', () => {
+  const pkg = JSON.parse(read('package.json'));
+  // Vercel runs "build" (or "vercel-build") when it exists. The generator lives in scripts/, which .vercelignore
+  // keeps out of the deployment, so such a script fails the deploy. The generated pages are committed instead.
+  assert.ok(!('build' in pkg.scripts) && !('vercel-build' in pkg.scripts), 'no "build" script in package.json: use build:home');
+  const ignored = read('.vercelignore').split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#'));
+  assert.ok(ignored.includes('scripts/') && !ignored.includes('data/') && !ignored.includes('assets/') && !ignored.includes('blog/'));
+  for (const s of SOLUTIONS) assert.ok(!ignored.includes(`${s.url.replace(/\//g, '')}/`), s.url);
+  // /api/start reads the solutions at run time
+  assert.ok(read('api/start.js').includes("from '../data/solutions.js'"));
+});
+
 test('/start/ lists every plan and carries the data for the summary', () => {
   const start = read('start/index.html');
   for (const o of allOffers()) assert.ok(start.includes(`<option value="${o.id}">`), o.id);
