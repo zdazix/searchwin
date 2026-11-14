@@ -1,65 +1,53 @@
 # SearchWin.ai
 
-> SearchWin.ai sells AI search optimization and lead generation as a productized service: fixed plans with a fixed price in writing, counted deliverables and results re-checked on a fixed date. Positioning: get recommended by AI and turn it into customers. Fixed price, clear deliverables, results checked on day 45.
+> SearchWin.ai is a human + AI agents platform for organic lead generation in the AI search era. It gets a business found on high-intent questions in ChatGPT, Gemini and Google, and turns those visits into calls, forms and bookings. Three solutions: AI Search Sprint (45 days, one-off), AI Search Monthly (month to month) and Pages (a hub of organic conversion pages on the client's domain).
 
 Key facts:
 
-- Who it's for: local businesses that win customers in a town or region (trades and home services, clinics and dentists, law and accounting firms, gyms and studios, restaurants), and online and national businesses (B2B services, SaaS, e-commerce, national brands).
-- What you buy: a 45-day sprint (one-off setup work: site fixes, pages, listings, reviews, tracking, then a re-check on day 45), then optionally a month-to-month plan (monthly re-checks, new pages, review and listing upkeep, outreach, monthly report). Each line has three tiers and a Custom option.
-- Proof: on day 45 we re-ask the same AI questions on the same engines and show them next to the day-0 answers.
-- Engines checked: ChatGPT, Gemini, Google AI Overviews and Google AI Mode; Perplexity is added for online and national plans.
-- What we never do: no guaranteed rankings, leads or revenue; no fake reviews or review gating; no fake accounts or paid posting on Reddit and forums; no lock-in contracts; no hidden fees; you own every page, listing and account.
-- First step: a free AI check (2 minutes, 3 real ChatGPT questions about your business), then a free audit and 45-day roadmap that is yours to keep.
-- Markets: US, UK and EU. Quotes in dollars, pounds or euros.
+- Approach: everything is built for leads, not traffic. The work starts from high-intent questions (the ones people ask right before they contact someone: "best ... in ...", "... vs ...", "how much does ... cost"), uses content that sells (the answer first, proof next to the claim) and puts a next step on every page, profile and listing: a call, a form or a booking. Leads are tracked back to the page.
+- Where the work happens: on the client's website, on the outside sources AI reads (Google Business Profile, directories, review platforms, mentions in publications) and on a hub of conversion pages on the client's domain.
+- Who does the work: AI agents do the volume (a context agent that builds the fact base, a research agent that finds high-intent questions, an answer-check agent that re-asks the AI engines, a content agent that drafts pages, an authority agent that maps the sources AI cites, a conversion agent that follows the lead). People make the decisions: a strategist, an editor who fact-checks every page, an outreach specialist and an account lead. Nothing is published without a human edit and the client's approval.
+- Who it's for: local businesses that win customers in a town or region (trades and home services, clinics and dentists, law and accounting firms, gyms and studios, restaurants), and national and international businesses (B2B services, SaaS, e-commerce, manufacturers and distributors, national brands).
+- Proof: the same AI questions are re-asked on the same engines and shown next to the day-0 answers, and enquiries are counted by page.
+- Engines checked: ChatGPT, Gemini, Google AI Overviews and Google AI Mode; Perplexity is added for national and international work.
+- What we never do: no guaranteed rankings, leads or revenue; no pages published without a human edit; no fake reviews or review gating; no fake accounts or paid posting on Reddit and forums; no lock-in contracts or hidden fees; the client owns every page, listing and account.
+- First step: a free AI check (2 minutes, 3 real ChatGPT questions about your business), then a free audit and roadmap that is yours to keep.
+- Markets: US, UK and EU. Quotes in dollars, euros or pounds.
 - Contact: hi@searchwin.ai
 
-<!-- build:plans -->
-## Plans
+<!-- build:solutions -->
+## Solutions and starting prices
 
-Every plan has a fixed price, sent in writing with the deliverables list before you pay (in US dollars, British pounds or euros). Every plan lists counted deliverables; no plan promises rankings, leads or revenue.
+Each solution has a starting price. The exact scope and a fixed price are sent in writing before you pay, in US dollars, euros or British pounds. No solution promises rankings, leads or revenue.
 
-### Local business plans
-For businesses that win customers in a town or region. Questions we test look like: "best {service} in {city}", "who should I call for {service} near {city}".
+### AI Search Sprint
+45 days · one-off. Works on: your website and the outside sources AI reads. Page: https://searchwin.ai/sprint/
+Fix what stops AI and Google from understanding and recommending you, build the selling pages and listings that are missing, and set up lead tracking. Re-checked on day 45 on the same questions.
+- Local business: from $900, €850 or £750 one-off. Starting scope: 1 location, up to 3 services; Website fixes: AI crawler access, schema, name, address and phone consistency, indexing; Google Business Profile fix-up: categories, services, hours, photos, Q&A; 3 new or rebuilt service pages, each with a clear next step; FAQ page refresh written for AI answers; 5 directory and review-site listings set up or fixed; Review routine: request templates, QR card, reply templates; Lead capture check (click-to-call, form, booking link) with call and form tracking; Re-check: 10 questions × 3 AI engines, on day 0 and day 45; Day-45 report and a 30-minute review call.
+- National & international: from $1,500, €1,400 or £1,200 one-off. Starting scope: One product or service line, one market; Website fixes: AI crawler access, schema, indexing; Brand facts fixes: facts page, schema, public profiles; 2 new answer pages: “X vs Y”, alternatives or “best for”; 3 existing pages rewritten for AI answers and for conversion; 2 review platforms set up or fixed (for example G2, Capterra or Trustpilot); Citation map: the top 20 sites AI cites in your category; Lead path check (demo, quote, trial or checkout) with AI-referral tracking; Re-check: 20 questions × 4 AI engines, on day 0 and day 45; Day-45 report and a 45-minute review call.
+One-off. Pay upfront or 50/50.
 
-45-day sprint (one-off):
-- Get Found. Best for: 1 location, a few core services. Up to 3 services covered; Google Business Profile fix-up: 1 profile; 3 new or rebuilt service pages; 5 directory and review-site listings; Day-45 report + 30-min review call. Re-checked: 10 questions × 3 AI engines, on day 0 and day 45.
-- Get Chosen. Best for: 1 location, wider service list, competitive town. Up to 6 services covered; Google Business Profile fix-up: 1 profile; 6 Google posts; 6 new or rebuilt service pages; 2 area pages; 10 directory and review-site listings; Day-45 report + 30-min review call. Re-checked: 20 questions × 4 AI engines, on day 0 and day 45.
-- Own the Area. Best for: Up to 3 locations or a wide service area. Up to 10 services covered; Google Business Profile fix-up: up to 3 profiles; 12 Google posts; 9 new or rebuilt service pages; 5 area pages; 15 directory and review-site listings; Day-45 report + 30-min review call. Re-checked: 30 questions × 4 AI engines per location, on day 0 and day 45.
-- Custom: fixed quote before you pay. 4+ locations, franchises, several languages.
+### AI Search Monthly
+Month to month. Works on: your website and the outside sources AI reads. Page: https://searchwin.ai/monthly/
+Keep your site and your outside profiles winning new questions: a re-check every month, new and refreshed pages, review and listing upkeep, outreach for mentions and a leads report.
+- Local business: from $450, €400 or £350 a month. Starting scope: Re-check: 10 questions × 3 AI engines, every month; 1 page refreshed or added a month; 4 Google posts a month; Review monitoring and reply drafts; Listings kept consistent across directories; Leads report: calls, forms and bookings; A 1-page monthly report.
+- National & international: from $850, €750 or £650 a month. Starting scope: Re-check: 20 questions × 4 AI engines, every month; Share of AI mentions against named competitors; 1 new answer page a month; 1 page refresh a month; Review platform upkeep and review requests; Leads report: enquiries from AI and Google, by page; A 1-page monthly report.
+Billed monthly. Cancel any month.
+Monthly work starts after a sprint, or after our free audit confirms your basics are already in place.
 
-Monthly plan (month to month):
-- Keep. Best for: Hold what the sprint built. 4 Google posts a month; Pages a month: 1 refreshed; Review monitoring + reply drafts; Leads report: calls, forms and bookings; Monthly: 1-page report. Re-checked: 10 questions × 3 AI engines, every month.
-- Grow. Best for: Keep adding services and areas. 8 Google posts a month; Pages a month: 2 new (service, area or FAQ); 2 new listings a month; Review monitoring + reply drafts; Leads report: calls, forms and bookings; Monthly: report + 30-min call. Re-checked: 20 questions × 4 AI engines, every month.
-- Lead. Best for: Stay first across several locations. 12 Google posts a month; Pages a month: 4 new; 4 new listings a month; Review monitoring + reply drafts; Local PR outreach: 4 pitches/month; Leads report: calls, forms and bookings; Monthly: report + 30-min call + 90-day roadmap refresh. Re-checked: 30 questions × 4 AI engines per location (up to 3), every month.
-- Custom: fixed quote before you pay. Groups, franchises, agencies.
+### Pages (organic conversion pages)
+Month to month. Works on: a hub of organic conversion pages on your domain. Page: https://searchwin.ai/pages/
+A separate hub on your domain with a page for each high-intent search your main site does not cover: services, locations, comparisons, costs. Written to be quoted by AI, to rank in Google and to bring the enquiry.
+- From $800, €700 or £600 a month. Included: Done-for-you setup, from onboarding to launch; A content hub on your domain: 100+ pages published in the first 6 months; First pages live in days, not months; Every agent and every feature on this page; A person edits every page; you approve what is published.
+Billed monthly. Cancel any month.
+<!-- /build:solutions -->
 
-Not included in any local plan: Ad spend; Paid directory memberships (for example a Checkatrade subscription); Professional photography; A full website redesign; Fake or gated reviews; Guaranteed rankings or lead numbers.
+## Pages of the site
 
-### Online and national business plans
-For B2B services, SaaS, e-commerce and national brands that sell beyond one town. Questions we test look like: "best {category} for {use case}", "{brand} vs {competitor}", "alternatives to {competitor}".
-
-45-day sprint (one-off):
-- Foundation. Best for: One product or service line, one market. Brand facts fixes: facts page, schema, public profiles; 3 new answer pages (vs, alternatives, best for); 3 existing pages rewritten for AI answers; 2 review platforms set up or fixed; Citation map: top 20 sites AI cites; Day-45 report + 45-min review call. Re-checked: 20 questions × 4 AI engines, on day 0 and day 45.
-- Authority. Best for: Several lines or a crowded category. Brand facts fixes: facts page, schema, public profiles; 6 new answer pages (vs, alternatives, best for); 6 existing pages rewritten for AI answers; 4 review platforms set up or fixed; Citation map: top 50 sites AI cites; PR outreach: 10 pitches; Day-45 report + 45-min review call. Re-checked: 40 questions × 5 AI engines, on day 0 and day 45.
-- Category. Best for: Pushing for category leadership, up to 2 markets. Brand facts fixes: facts page, schema, public profiles; 12 new answer pages (vs, alternatives, best for); 10 existing pages rewritten for AI answers; 6 review platforms set up or fixed; Citation map: top 100 sites AI cites; PR outreach: 25 pitches; Day-45 report + 45-min review call. Re-checked: 80 questions × 5 AI engines, on day 0 and day 45.
-- Custom: fixed quote before you pay. Multi-brand, 3+ markets, regulated sectors.
-
-Monthly plan (month to month):
-- Track. Best for: Watch and hold your position. Share of AI mentions vs named competitors; 1 new answer page a month; 1 page refresh a month; Review platform upkeep + review requests; Monthly: 1-page report. Re-checked: 20 questions × 4 AI engines, every month.
-- Scale. Best for: Win more comparison questions. Share of AI mentions vs named competitors; 3 new answer pages a month; 2 page refreshes a month; Review platform upkeep + review requests; PR outreach: 5 pitches/month; Monthly: report + 30-min call. Re-checked: 40 questions × 5 AI engines, every month.
-- Lead the Category. Best for: Defend first place, 2 markets. Share of AI mentions vs named competitors; 6 new answer pages a month; 4 page refreshes a month; Review platform upkeep + review requests; PR outreach: 12 pitches/month; Monthly: report + 30-min call + 90-day roadmap refresh. Re-checked: 80 questions × 5 AI engines in 2 markets, every month.
-- Custom: fixed quote before you pay. Groups, multi-brand, agencies.
-
-Not included in any online plan: Ad spend; Paid review-platform subscriptions; Paid or sponsored placements; Product changes; Guaranteed placements, mentions or revenue. Outreach is counted in pitches sent, not articles won.
-
-Monthly plans start after a sprint, or after our free audit confirms your basics are already in place.
-<!-- /build:plans -->
-
-## Pages
-
-- [Home](https://searchwin.ai/): plans for local and for online and national businesses, how it works, a sample day-45 report and FAQ.
-- [Plans](https://searchwin.ai/#pricing): the 45-day sprint and monthly plans; add ?type=online to the address for online and national plans.
-- [Sample report](https://searchwin.ai/#sample-report): what the day-45 report, the shared tracker and the before/after table look like (illustrative example).
-- [FAQ](https://searchwin.ai/#faq): AI search optimization vs SEO, engines, what we can and can't promise, ownership, payment.
+- [Home](https://searchwin.ai/): the approach, the three solutions, the people + AI agents platform, how it works and FAQ.
+- [AI Search Sprint](https://searchwin.ai/sprint/): the 45-day sprint for a website and the outside sources AI reads, with its starting prices and scope.
+- [AI Search Monthly](https://searchwin.ai/monthly/): month-to-month work on the same two places, with its starting prices and scope.
+- [Pages](https://searchwin.ai/pages/): organic conversion pages, a content hub on the client's domain, with its starting price and what is included.
+- [FAQ](https://searchwin.ai/#faq): organic lead generation vs SEO, which solution to start with, what agents and people do, what we can and can't promise, ownership, pricing.
 - [Free AI check](https://searchwin.ai/ai-check/): see in about a minute whether ChatGPT names a local business, in any country, when customers ask who to hire. Real ChatGPT answers, no sign-up.
 - [Comprobación gratuita de IA, en español](https://searchwin.ai/es/ai-check/): la misma comprobación en español para negocios locales: descubre en un minuto si ChatGPT te nombra cuando los clientes preguntan a quién elegir.

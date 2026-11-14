@@ -1,0 +1,72 @@
+<section class="band band--dark sample" id="sample-report" aria-labelledby="sample-title">
+  <div class="container">
+    <header class="head head--split">
+      <div class="head__main">
+        <p class="eyebrow" data-reveal>Sample report</p>
+        <h2 class="h2" id="sample-title" data-reveal>This is what you get on day 45.</h2>
+      </div>
+      <p class="lead" data-reveal>A before/after on the same questions and engines, a leads report and the tracker you watched all sprint. Every number below is an illustrative example, not a client result.</p>
+    </header>
+
+    <div class="sample__grid">
+      <div class="media media--frame sample__media" data-reveal>
+        <img class="media__bg" src="/assets/img/bg/bg-peach.webp" alt="" width="1280" height="854" loading="lazy">
+        <div class="sample__report">
+          <div class="ui ui--light">
+            <div class="sample__top"><p class="ui__title">Day-45 report · yourbusiness.com</p><span class="illus">Illustrative example</span></div>
+            <div class="sample__kpis">
+              <div class="sample__kpi"><p class="sample__kpi-label">Questions where AI names you</p><p class="sample__kpi-value"><span class="sample__was">2 of 10</span><svg aria-hidden="true"><use href="#i-arrow"></use></svg>7 of 10</p></div>
+              <div class="sample__kpi"><p class="sample__kpi-label">Best position</p><p class="sample__kpi-value"><span class="sample__was">#4</span><svg aria-hidden="true"><use href="#i-arrow"></use></svg>#1</p></div>
+            </div>
+            <p class="ui__title sample__sub">Questions that name you, by engine</p>
+            <ul class="pbars">
+              <li class="pbar" style="--t:1;--f:.7"><span class="pbar__fill"></span><span class="pbar__label"><svg class="pbar__icon"><use href="#i-openai"></use></svg>ChatGPT</span><span class="pbar__val">1 → 7 of 10</span></li>
+              <li class="pbar" style="--t:1;--f:.5"><span class="pbar__fill"></span><span class="pbar__label"><svg class="pbar__icon"><use href="#i-gemini"></use></svg>Gemini</span><span class="pbar__val">0 → 5 of 10</span></li>
+              <li class="pbar" style="--t:1;--f:.6"><span class="pbar__fill"></span><span class="pbar__label"><svg class="pbar__icon"><use href="#i-google"></use></svg>Google AI Overviews</span><span class="pbar__val">2 → 6 of 10</span></li>
+            </ul>
+          </div>
+          <div class="ui ui--light">
+            <div class="sample__top"><p class="ui__title">Leads report, days 31–45, where trackable</p><span class="illus">Illustrative example</span></div>
+            <div class="sample__leads">
+              <div><p class="sample__lead-num">14</p><p class="sample__lead-label">calls</p></div>
+              <div><p class="sample__lead-num">6</p><p class="sample__lead-label">contact forms</p></div>
+              <div><p class="sample__lead-num">3</p><p class="sample__lead-label">bookings</p></div>
+            </div>
+            <p class="ui__foot">From AI and Google, measured with call and form tracking in GA4<span>Illustrative</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui ui--light tracker" data-reveal>
+        <div class="sample__top"><p class="ui__title">Shared tracker · Get Chosen sprint</p><span class="illus">Illustrative example</span></div>
+        <table class="tracker__table">
+          <caption class="sr-only">Shared tracker (illustrative example)</caption>
+          <thead><tr><th scope="col">Deliverable</th><th scope="col">Status</th><th scope="col">Due</th></tr></thead>
+          <tbody>
+            <tr><td>Google Business Profile: categories, services, hours</td><td><span class="st st--done">Done</span></td><td>Day 7</td></tr>
+            <tr><td>Review QR card and reply templates</td><td><span class="st st--done">Done</span></td><td>Day 10</td></tr>
+            <tr><td>Call and form tracking in GA4</td><td><span class="st st--done">Done</span></td><td>Day 14</td></tr>
+            <tr><td>6 service pages <span class="tracker__count">4 of 6 live</span></td><td><span class="st st--doing">In progress</span></td><td>Day 30</td></tr>
+            <tr><td>10 directory listings <span class="tracker__count">7 of 10 live</span></td><td><span class="st st--doing">In progress</span></td><td>Day 35</td></tr>
+            <tr><td>Re-check: 20 questions × 4 engines</td><td><span class="st">Scheduled</span></td><td>Day 45</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="beforeafter" data-reveal>
+      <div class="sample__top"><p class="beforeafter__title">Before and after, same question, same engine</p><span class="illus illus--dark">Illustrative example</span></div>
+      <table class="beforeafter__table">
+        <caption class="sr-only">Before and after on the same AI questions (illustrative example)</caption>
+        <thead><tr><th scope="col">Question</th><th scope="col">Engine</th><th scope="col">Day 0</th><th scope="col">Day 45</th></tr></thead>
+        <tbody>
+          <tr><td>best dentist for implants in Austin</td><td>ChatGPT</td><td><span class="ba ba--out">Not mentioned</span></td><td><span class="ba ba--in">#2</span></td></tr>
+          <tr><td>cosmetic dentist near Austin for veneers</td><td>Google AI Overviews</td><td><span class="ba">#5</span></td><td><span class="ba ba--in">#2</span></td></tr>
+          <tr><td>emergency dentist in Austin open now</td><td>Google AI Mode</td><td><span class="ba ba--out">Not mentioned</span></td><td><span class="ba ba--in">#3</span></td></tr>
+          <tr><td>best dentist for implants in Austin</td><td>Gemini</td><td><span class="ba ba--out">Not mentioned</span></td><td><span class="ba ba--out">Not mentioned</span></td></tr>
+        </tbody>
+      </table>
+      <p class="beforeafter__note">Not every question moves. The report shows the ones that didn’t, and what we’d try next.</p>
+    </div>
+  </div>
+</section>

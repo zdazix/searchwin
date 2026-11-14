@@ -1,13 +1,14 @@
-/* Homepage: the business-type and currency switches, the plan rows on phones, the hero's
-   before/after answer and the analytics events. The prices themselves are plain HTML
-   (rendered from data/plans.js), so they read fine without this script. */
+/* Homepage and the solution pages (/sprint/, /monthly/, /pages/): the currency switch next to the
+   starting prices, the hero's before/after answer and the analytics events. Prices are plain HTML in all
+   three currencies (rendered from data/solutions.js), so they read fine without this script. */
 (function () {
   'use strict';
 
   var doc = document.documentElement;
   var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
   var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var SYMBOL = { usd: '$', gbp: '£', eur: '€' };
+  var CURRENCIES = { usd: 1, eur: 1, gbp: 1 };
+  var page = document.body.getAttribute('data-solution-page') || 'home';
 
   function ss(k, v) { try { sessionStorage.setItem(k, v); } catch (e) { /* private mode: the URL still carries it */ } }
 
@@ -18,73 +19,45 @@
     } catch (e) { /* analytics never breaks the page */ }
   }
 
-  function type() { return doc.getAttribute('data-biz-type') === 'online' ? 'online' : 'local'; }
-  function cur() { var c = doc.getAttribute('data-cur'); return SYMBOL[c] ? c : 'usd'; }
+  function cur() { var c = doc.getAttribute('data-cur'); return CURRENCIES[c] ? c : 'usd'; }
 
-  /* The choice lives in the address too (?type=online&cur=gbp), so a link opens the same view. */
-  function syncUrl() {
-    try {
-      var u = new URL(location.href);
-      u.searchParams.set('type', type());
-      u.searchParams.set('cur', cur());
-      history.replaceState(history.state, '', u.pathname + u.search + u.hash);
-    } catch (e) { /* old browsers: the session still remembers it */ }
-  }
+  /* ---------- Currency (solution pages) ---------- */
+  var curButtons = $$('[data-cur-btn]');
 
   function syncButtons() {
-    $$('[data-type-btn]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-type-btn') === type())); });
-    $$('[data-cur-btn]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-cur-btn') === cur())); });
-    $$('[data-type-panel]').forEach(function (p) {
-      var hidden = p.getAttribute('data-type-panel') !== type();
-      if (p.classList.contains('pricing__panel')) {
-        if (hidden) p.setAttribute('aria-hidden', 'true'); else p.removeAttribute('aria-hidden');
-        // Links in the hidden panel must not take focus
-        $$('a, summary, button', p).forEach(function (el) { if (hidden) el.setAttribute('tabindex', '-1'); else el.removeAttribute('tabindex'); });
-      }
-    });
+    curButtons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-cur-btn') === cur())); });
   }
 
-  /* Plan buttons carry the currency to the order form */
+  /* Quote buttons carry the plan and the currency to the order form */
   function syncCtas() {
     $$('[data-plan-cta]').forEach(function (a) {
       a.setAttribute('href', '/start/?plan=' + a.getAttribute('data-plan-cta') + '&cur=' + cur());
     });
   }
 
-  function setType(t, source) {
-    if (t !== 'local' && t !== 'online') return;
-    var changed = t !== type();
-    doc.setAttribute('data-biz-type', t);
-    ss('sw_type', t);
-    syncButtons();
-    syncUrl();
-    centerRows();
-    if (changed) track('business_type_switch', { business_type: t, source: source || 'switch' });
+  /* The choice lives in the address too (?cur=gbp), so a link opens with the same prices. */
+  function syncUrl() {
+    try {
+      var u = new URL(location.href);
+      u.searchParams.set('cur', cur());
+      history.replaceState(history.state, '', u.pathname + u.search + u.hash);
+    } catch (e) { /* old browsers: the session still remembers it */ }
   }
 
   function setCur(c) {
-    if (!SYMBOL[c] || c === cur()) return;
+    if (!CURRENCIES[c] || c === cur()) return;
     doc.setAttribute('data-cur', c);
     ss('sw_cur', c);
-    if (window.swCurSym) window.swCurSym();
     syncButtons();
     syncCtas();
     syncUrl();
-    track('currency_switch', { currency: c });
+    track('currency_switch', { currency: c, page: page });
   }
 
-  $$('[data-type-btn]').forEach(function (b) {
-    b.addEventListener('click', function () { setType(b.getAttribute('data-type-btn'), 'switch'); });
-  });
-  // "See Local plans" and the footer links: flip the switch, then the page scrolls to #pricing
-  $$('[data-set-type]').forEach(function (a) {
-    a.addEventListener('click', function () { setType(a.getAttribute('data-set-type'), 'link'); });
-  });
-  $$('[data-cur-btn]').forEach(function (b) {
+  curButtons.forEach(function (b) {
     b.addEventListener('click', function () { setCur(b.getAttribute('data-cur-btn')); });
   });
-  // Arrow keys move between the two business types
-  $$('.bizswitch, .curswitch').forEach(function (group) {
+  $$('.curswitch').forEach(function (group) {
     group.addEventListener('keydown', function (e) {
       if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
       var btns = $$('button', group);
@@ -97,49 +70,26 @@
     });
   });
 
-  /* Phones: each plan row is a swipe; the middle tier ("Best place to start") is in view first. */
-  function centerRows() {
-    $$('[data-plans]').forEach(function (row) {
-      if (row.scrollWidth <= row.clientWidth + 2) return;
-      var featured = row.querySelector('.plan--featured') || row.children[1];
-      if (!featured) return;
-      var r = row.getBoundingClientRect(), f = featured.getBoundingClientRect();
-      row.scrollLeft += (f.left + f.width / 2) - (r.left + r.width / 2);
-    });
-  }
-  var lastWide = null;
-  function onResize() {
-    var wide = window.innerWidth > 1180;
-    if (wide !== lastWide) { lastWide = wide; centerRows(); }
-  }
-  window.addEventListener('resize', onResize);
-  // Measuring the rows forces a layout, so it waits until the page has painted (the rows are below the fold).
-  if (document.readyState === 'complete') onResize(); else window.addEventListener('load', onResize);
-
   /* ---------- Analytics on links and toggles ---------- */
   document.addEventListener('click', function (e) {
     var t = e.target.closest ? e.target : null;
     if (!t) return;
     var cta = t.closest('[data-plan-cta]');
-    if (cta) track('plan_cta_click', { plan_id: cta.getAttribute('data-plan-cta'), currency: cur(), business_type: type() });
+    if (cta) track('plan_cta_click', { plan_id: cta.getAttribute('data-plan-cta'), currency: cur(), page: page });
+    var sol = t.closest('[data-solution]');
+    if (sol) track('solution_click', { solution: sol.getAttribute('data-solution'), page: page });
     var check = t.closest('[data-ai-check]');
-    if (check) track('ai_check_start', { location: check.getAttribute('data-ai-check') });
+    if (check) track('ai_check_start', { location: check.getAttribute('data-ai-check'), page: page });
     var book = t.closest('[data-booking]');
-    if (book) track('booking_click', { location: book.getAttribute('data-booking') });
-  });
-  $$('[data-compare]').forEach(function (d) {
-    d.addEventListener('toggle', function () { if (d.open) track('compare_open', { business_type: type() }); });
-  });
-  $$('[data-not-included]').forEach(function (d) {
-    d.addEventListener('toggle', function () { if (d.open) track('not_included_open', { plan_id: d.getAttribute('data-not-included') }); });
+    if (book) track('booking_click', { location: book.getAttribute('data-booking'), page: page });
   });
   $$('.qa[data-faq]').forEach(function (d) {
     d.addEventListener('toggle', function () {
-      if (d.open) track('faq_open', { question: (d.querySelector('summary') || d).textContent.trim().slice(0, 100), index: Number(d.getAttribute('data-faq')) });
+      if (d.open) track('faq_open', { question: (d.querySelector('summary') || d).textContent.trim().slice(0, 100), index: Number(d.getAttribute('data-faq')), page: page });
     });
   });
 
-  /* ---------- Hero: the same AI answer on day 0 and day 45 ---------- */
+  /* ---------- Homepage hero: the same AI answer on day 0 and day 45 ---------- */
   (function () {
     var fig = document.querySelector('[data-answer]');
     if (!fig) return;
@@ -168,7 +118,6 @@
   })();
 
   /* ---------- Start ---------- */
-  if (window.swCurSym) window.swCurSym();
   syncButtons();
   syncCtas();
 })();

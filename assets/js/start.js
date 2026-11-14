@@ -1,6 +1,6 @@
-/* /start/: the order form behind the plan buttons. The plan and currency come from the link
-   (?plan=local-sprint-get-found&cur=gbp); the summary card is drawn from the plan data the page
-   carries (rendered from data/plans.js). Sends to /api/start; nothing is charged there. */
+/* /start/: the quote form behind the "Get a fixed quote" buttons. The solution and the currency come
+   from the link (?plan=sprint-local&cur=gbp); the summary card is drawn from the data the page carries
+   (rendered from data/solutions.js). Sends to /api/start; nothing is charged there. */
 (function () {
   'use strict';
 
@@ -11,15 +11,14 @@
   var track = window.acTrack || { attribution: function () { return {}; }, config: Promise.resolve({}), event: function () {} };
   var PLANS = {};
   try { PLANS = JSON.parse($('#plans-data').textContent) || {}; } catch (e) { PLANS = {}; }
-  var SYMBOL = { usd: '$', gbp: '£', eur: '€' };
+  var SYMBOL = { usd: '$', eur: '€', gbp: '£' };
   var el = {
     plan: form.elements.namedItem('plan'), cur: form.elements.namedItem('currency'), pay: $('[data-start-pay]'),
-    msgLabel: $('[data-msg-label]'), msg: form.elements.namedItem('message'), title: $('[data-start-title]'),
-    summary: $('[data-start-summary]'), alert: $('[data-start-alert]'), submit: $('[data-start-submit]'),
-    submitLabel: $('[data-submit-label]'), done: $('[data-start-done]'), doneText: $('[data-done-text]')
+    msg: form.elements.namedItem('message'), summary: $('[data-start-summary]'), alert: $('[data-start-alert]'),
+    submit: $('[data-start-submit]'), done: $('[data-start-done]'), doneText: $('[data-done-text]')
   };
 
-  /* ---------- Plan and currency from the link (or the visitor's earlier choice) ---------- */
+  /* ---------- Solution and currency from the link (or the visitor's earlier choice) ---------- */
   var q = new URLSearchParams(location.search);
   var plan = q.get('plan');
   if (plan && PLANS[plan]) el.plan.value = plan;
@@ -29,31 +28,24 @@
 
   function fmt(n) { return Number(n).toLocaleString('en-US'); }
   function text(node, value) { node.textContent = value; }
+  function from(p, c) { return SYMBOL[c] + fmt(p.from[c]); }
 
   function render() {
     var p = PLANS[el.plan.value];
     if (!p) return;
-    var sym = SYMBOL[el.cur.value] || '$';
-    // The plan list quotes prices in the chosen currency too
-    $$('option', el.plan).forEach(function (o) { o.textContent = o.textContent.replace(/\(([$£€])/, '(' + sym); });
-    text(el.title, p.custom ? 'Tell us what you need' : 'Start with ' + p.name);
+    var c = SYMBOL[el.cur.value] ? el.cur.value : 'usd';
+    // The list quotes the starting prices in the chosen currency
+    $$('option', el.plan).forEach(function (o) {
+      var d = PLANS[o.value];
+      if (d) o.textContent = d.label + ' (from ' + from(d, c) + (d.unit.charAt(0) === '/' ? '' : ' ') + d.unit + ')';
+    });
     el.summary.hidden = false;
-    text($('[data-s-line]', el.summary), p.type + ' · ' + p.line);
-    text($('[data-s-name]', el.summary), p.name);
-    var price = $('[data-s-price]', el.summary);
-    price.classList.toggle('plan__price--quote', p.custom);
-    price.textContent = '';
-    if (p.custom) price.textContent = 'Fixed quote before you pay';
-    else if (p.price == null) { price.classList.add('plan__price--quote'); price.textContent = p.quote || 'Fixed price'; }
-    else {
-      price.appendChild(document.createTextNode(sym + fmt(p.price) + (p.unit.charAt(0) === '/' ? '' : ' ')));
-      var unit = document.createElement('span');
-      unit.className = 'plan__unit';
-      unit.textContent = p.unit;
-      price.appendChild(unit);
-    }
-    text($('[data-s-billing]', el.summary), p.billing);
-    text($('[data-s-best]', el.summary), p.bestFor);
+    text($('[data-s-kind]', el.summary), p.kind);
+    text($('[data-s-name]', el.summary), p.audience ? p.solution + ' · ' + p.audience : p.solution);
+    text($('[data-s-price]', el.summary), from(p, c));
+    text($('[data-s-unit]', el.summary), p.unit);
+    text($('[data-s-billing]', el.summary), p.billing + ' Exact scope and price in writing before you pay.');
+    text($('[data-s-label]', el.summary), p.scopeLabel);
     var list = $('[data-s-items]', el.summary);
     list.textContent = '';
     p.items.forEach(function (item) {
@@ -62,14 +54,9 @@
       li.appendChild(document.createTextNode(item));
       list.appendChild(li);
     });
-    text($('[data-s-recheck]', el.summary), p.recheck);
-    // Sprints are paid upfront or 50/50; monthly plans are billed monthly
-    el.pay.hidden = p.lineId !== 'sprint' || p.custom;
-    // Custom needs a few words to scope; for a tier the note is optional
-    el.msgLabel.innerHTML = p.custom ? 'Tell us what you need' : 'Anything we should know? <span class="field__opt">Optional</span>';
-    el.msg.required = !!p.custom;
-    el.msg.placeholder = p.custom ? 'Locations, brands, markets or languages, deadlines' : 'Locations, services, markets, deadlines';
-    text(el.submitLabel, p.custom ? 'Ask for a fixed quote' : 'Send my order request');
+    $('[data-s-link]', el.summary).setAttribute('href', p.url);
+    // Only the sprint is paid once: upfront or 50/50
+    el.pay.hidden = !p.sprint;
   }
   el.plan.addEventListener('change', render);
   el.cur.addEventListener('change', function () { try { sessionStorage.setItem('sw_cur', el.cur.value); } catch (e) { /* fine */ } render(); });
@@ -124,10 +111,9 @@
     if (setInvalid('name', val('name').length < 2)) bad.push('name');
     if (setInvalid('email', !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val('email')))) bad.push('email');
     if (setInvalid('website', !/^(https?:\/\/)?[^\s.]+\.[^\s]{2,}$/i.test(val('website')))) bad.push('website');
-    if (setInvalid('message', el.msg.required && val('message').length < 3)) bad.push('message');
     return bad;
   }
-  ['name', 'email', 'website', 'message'].forEach(function (n) {
+  ['name', 'email', 'website'].forEach(function (n) {
     form.elements.namedItem(n).addEventListener('input', function () { setInvalid(n, false); el.alert.hidden = true; });
   });
 
@@ -154,14 +140,14 @@
     }).then(function (r) {
       if (!r.ok) {
         el.submit.disabled = false;
-        var field = { invalid_url: 'website', name: 'name', message: 'message' }[r.data.error] || (/^email_/.test(r.data.error || '') ? 'email' : null);
+        var field = { invalid_url: 'website', name: 'name' }[r.data.error] || (/^email_/.test(r.data.error || '') ? 'email' : null);
         if (field) { setInvalid(field, true); form.elements.namedItem(field).focus(); }
         el.alert.textContent = r.data.message || 'We could not send your request. Email us at hi@searchwin.ai.';
         el.alert.hidden = false;
         return;
       }
       track.event('order_request', { plan_id: el.plan.value, currency: el.cur.value });
-      el.doneText.textContent = 'We’ll email ' + val('email') + ' the deliverables list and the fixed price to approve. Nothing is charged until you approve it.';
+      el.doneText.textContent = 'We’ll email ' + val('email') + ' the scope and the fixed price to approve. Nothing is charged until you approve it.';
       el.done.hidden = false;
       el.done.focus();
     }).catch(function () {

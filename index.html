@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>AI Search Optimization &amp; Lead Generation Service, Fixed Plans | searchwin.ai</title>
-  <meta name="description" content="Fixed-price AI search optimization and lead generation for local businesses and SMEs. 45-day sprints, monthly plans, counted deliverables.">
+  <title>Organic Lead Generation for the AI Search Era | searchwin.ai</title>
+  <meta name="description" content="A human + AI agents platform that gets your business found on high-intent questions in ChatGPT, Gemini and Google, and turns those visits into calls, forms and bookings.">
   <link rel="canonical" href="https://searchwin.ai/">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#F6F4EF">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="SearchWin.ai">
-  <meta property="og:title" content="Get recommended by AI and turn it into customers | searchwin.ai">
-  <meta property="og:description" content="Fixed price, clear deliverables, results checked on day 45. 45-day sprints and monthly plans for local businesses and SMEs.">
+  <meta property="og:title" content="Get found in AI search and Google. Turn it into leads. | searchwin.ai">
+  <meta property="og:description" content="People and AI agents build the pages, listings and proof buyers find when they ask who to choose. Built around high-intent questions, measured in leads.">
   <meta property="og:url" content="https://searchwin.ai/">
   <meta property="og:image" content="https://searchwin.ai/assets/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Get recommended by AI and turn it into customers | searchwin.ai">
-  <meta name="twitter:description" content="Fixed price, clear deliverables, results checked on day 45.">
+  <meta name="twitter:title" content="Get found in AI search and Google. Turn it into leads. | searchwin.ai">
+  <meta name="twitter:description" content="People and AI agents build the pages, listings and proof buyers find when they ask who to choose. Built around high-intent questions, measured in leads.">
   <meta name="twitter:image" content="https://searchwin.ai/assets/img/og.png">
 
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -31,23 +31,21 @@
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/home.css">
 
+  <!-- build:head-script -->
   <script>
     (function (d) {
       d.classList.add('js');
       // Animation start states apply only while JS is on its way; a failsafe shows everything if it never arrives.
-      // Opened at an anchor (/#pricing from another page): no fade-ins, the section is there at once.
+      // Opened at an anchor: no fade-ins, the section is there at once.
       if (location.hash.length > 1) d.classList.add('no-anim');
       else if (!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
         d.classList.add('anim');
         setTimeout(function () { if (!window.__swReady) d.classList.remove('anim'); }, 4000);
       }
-      // Business type and currency are settled before the first paint, so the pricing never jumps.
-      // Order: the link (?type=online&cur=gbp), then this visit's earlier choice, then the visitor's time zone.
+      // The currency is settled before the first paint, so prices never jump.
+      // Order: the link (?cur=gbp), then this visit's earlier choice, then the visitor's time zone.
       var q = new URLSearchParams(location.search);
       var ss = function (k, v) { try { if (v === undefined) return sessionStorage.getItem(k); sessionStorage.setItem(k, v); } catch (e) { /* private mode */ } return null; };
-      var type = q.get('type');
-      if (type === 'local' || type === 'online') ss('sw_type', type); else type = ss('sw_type');
-      if (type !== 'online') type = 'local';
       var cur = (q.get('cur') || '').toLowerCase();
       if (/^(usd|gbp|eur)$/.test(cur)) ss('sw_cur', cur); else cur = ss('sw_cur');
       if (!/^(usd|gbp|eur)$/.test(cur || '')) {
@@ -57,16 +55,10 @@
           : /^(Europe\/(Amsterdam|Andorra|Athens|Berlin|Bratislava|Brussels|Bucharest|Budapest|Busingen|Copenhagen|Dublin|Helsinki|Lisbon|Ljubljana|Luxembourg|Madrid|Malta|Mariehamn|Monaco|Nicosia|Oslo|Paris|Prague|Riga|Rome|San_Marino|Sofia|Stockholm|Tallinn|Vaduz|Vatican|Vienna|Vilnius|Warsaw|Zagreb|Zurich)|Atlantic\/(Canary|Madeira|Azores|Reykjavik)|Asia\/(Nicosia|Famagusta))$/.test(tz) ? 'eur'
           : 'usd';
       }
-      d.setAttribute('data-biz-type', type);
       d.setAttribute('data-cur', cur);
-      // Prices carry "$" in the HTML; this swaps the symbol as soon as the text exists (called again further down).
-      window.swCurSym = function () {
-        var sym = { usd: '$', gbp: '£', eur: '€' }[d.getAttribute('data-cur')] || '$';
-        var els = document.querySelectorAll('[data-cur-sym]');
-        for (var i = 0; i < els.length; i++) if (els[i].textContent !== sym) els[i].textContent = sym;
-      };
     })(document.documentElement);
   </script>
+  <!-- /build:head-script -->
 
   <!-- build:schema -->
   <script type="application/ld+json">
@@ -80,13 +72,14 @@
         "url": "https://searchwin.ai/",
         "logo": "https://searchwin.ai/assets/img/apple-touch-icon.png",
         "email": "hi@searchwin.ai",
-        "description": "AI search optimization and lead generation as a service, with fixed plans: 45-day sprints and month-to-month plans for local businesses and online and national businesses, with counted deliverables.",
+        "description": "A human + AI agents platform for organic lead generation from AI search and Google: AI search optimization for your website and the outside sources AI reads, and hubs of organic conversion pages built around high-intent questions.",
         "knowsAbout": [
+          "Organic lead generation",
           "AI search optimization",
           "Generative engine optimization",
+          "Conversion pages",
           "Local SEO",
-          "Google Business Profile",
-          "Lead generation"
+          "Google Business Profile"
         ]
       },
       {
@@ -99,8 +92,8 @@
         "@type": "WebPage",
         "@id": "https://searchwin.ai/#page",
         "url": "https://searchwin.ai/",
-        "name": "AI Search Optimization & Lead Generation Service, Fixed Plans | searchwin.ai",
-        "description": "Fixed-price AI search optimization and lead generation for local businesses and SMEs. 45-day sprints, monthly plans, counted deliverables.",
+        "name": "Organic Lead Generation for the AI Search Era | searchwin.ai",
+        "description": "A human + AI agents platform that gets your business found on high-intent questions in ChatGPT, Gemini and Google, and turns those visits into calls, forms and bookings.",
         "isPartOf": {
           "@id": "https://searchwin.ai/#website"
         },
@@ -110,9 +103,10 @@
       },
       {
         "@type": "Service",
-        "@id": "https://searchwin.ai/#local-sprint",
-        "name": "45-day sprint: AI search optimization and lead generation for local businesss",
-        "serviceType": "AI search optimization and lead generation",
+        "@id": "https://searchwin.ai/sprint/#service",
+        "name": "AI Search Sprint",
+        "serviceType": "Organic lead generation from AI search and Google",
+        "url": "https://searchwin.ai/sprint/",
         "provider": {
           "@id": "https://searchwin.ai/#org"
         },
@@ -121,63 +115,14 @@
           "GB",
           "EU"
         ],
-        "audience": {
-          "@type": "BusinessAudience",
-          "audienceType": "For businesses that win customers in a town or region."
-        },
-        "description": "Build. One-off setup work: fix what stops AI from understanding and trusting you, build the missing pages and listings, set up tracking, then re-check on day 45.",
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Local business · 45-day sprint",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "name": "Get Found (45-day sprint, local business)",
-              "description": "Fix the basics so AI can find, understand and recommend you. Best for: 1 location, a few core services. Deliverables: Up to 3 services covered; Google Business Profile fix-up: 1 profile; 3 new or rebuilt service pages; 5 directory and review-site listings; Day-45 report + 30-min review call. Re-checked: 10 questions × 3 AI engines, on day 0 and day 45.",
-              "url": "https://searchwin.ai/start/?plan=local-sprint-get-found",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Get Found: 45-day sprint for local businesss"
-              }
-            },
-            {
-              "@type": "Offer",
-              "name": "Get Chosen (45-day sprint, local business)",
-              "description": "Be the business AI names first in your town, and make it easy to call you. Best for: 1 location, wider service list, competitive town. Deliverables: Up to 6 services covered; Google Business Profile fix-up: 1 profile; 6 Google posts; 6 new or rebuilt service pages; 2 area pages; 10 directory and review-site listings; Day-45 report + 30-min review call. Re-checked: 20 questions × 4 AI engines, on day 0 and day 45.",
-              "url": "https://searchwin.ai/start/?plan=local-sprint-get-chosen",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Get Chosen: 45-day sprint for local businesss"
-              }
-            },
-            {
-              "@type": "Offer",
-              "name": "Own the Area (45-day sprint, local business)",
-              "description": "Cover every service and every area you work in. Best for: Up to 3 locations or a wide service area. Deliverables: Up to 10 services covered; Google Business Profile fix-up: up to 3 profiles; 12 Google posts; 9 new or rebuilt service pages; 5 area pages; 15 directory and review-site listings; Day-45 report + 30-min review call. Re-checked: 30 questions × 4 AI engines per location, on day 0 and day 45.",
-              "url": "https://searchwin.ai/start/?plan=local-sprint-own-the-area",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Own the Area: 45-day sprint for local businesss"
-              }
-            },
-            {
-              "@type": "Offer",
-              "name": "Custom (45-day sprint, local business)",
-              "description": "Many locations or a franchise? Same model, scoped for you. Covers: Multiple locations, Franchises, Several markets or languages, Regulated niches, White-label for other agencies. You still get a fixed price and a deliverables list before you pay.",
-              "url": "https://searchwin.ai/start/?plan=local-sprint-custom",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Custom: 45-day sprint for local businesss"
-              }
-            }
-          ]
-        }
+        "description": "45 days · one-off. Your website and the outside sources AI reads. Fix what stops AI and Google from understanding and recommending you, build the selling pages and listings that are missing, and set up lead tracking. Re-checked on day 45 on the same questions."
       },
       {
         "@type": "Service",
-        "@id": "https://searchwin.ai/#local-monthly",
-        "name": "Monthly plan: AI search optimization and lead generation for local businesss",
-        "serviceType": "AI search optimization and lead generation",
+        "@id": "https://searchwin.ai/monthly/#service",
+        "name": "AI Search Monthly",
+        "serviceType": "Organic lead generation from AI search and Google",
+        "url": "https://searchwin.ai/monthly/",
         "provider": {
           "@id": "https://searchwin.ai/#org"
         },
@@ -186,63 +131,14 @@
           "GB",
           "EU"
         ],
-        "audience": {
-          "@type": "BusinessAudience",
-          "audienceType": "For businesses that win customers in a town or region."
-        },
-        "description": "Keep and grow. Ongoing work that only makes sense once the basics exist: monthly re-checks, new pages, review and listing upkeep, outreach and a monthly report. Monthly plans start after a sprint, or after our free audit confirms your basics are already in place.",
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Local business · Monthly plan",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "name": "Keep (Monthly plan, local business)",
-              "description": "Hold what the sprint built, and see every month where you stand. Best for: Hold what the sprint built. Deliverables: 4 Google posts a month; Pages a month: 1 refreshed; Review monitoring + reply drafts; Leads report: calls, forms and bookings; Monthly: 1-page report. Re-checked: 10 questions × 3 AI engines, every month.",
-              "url": "https://searchwin.ai/start/?plan=local-monthly-keep",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Keep: Monthly plan for local businesss"
-              }
-            },
-            {
-              "@type": "Offer",
-              "name": "Grow (Monthly plan, local business)",
-              "description": "Keep adding services and areas, and keep the reviews coming. Best for: Keep adding services and areas. Deliverables: 8 Google posts a month; Pages a month: 2 new (service, area or FAQ); 2 new listings a month; Review monitoring + reply drafts; Leads report: calls, forms and bookings; Monthly: report + 30-min call. Re-checked: 20 questions × 4 AI engines, every month.",
-              "url": "https://searchwin.ai/start/?plan=local-monthly-grow",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Grow: Monthly plan for local businesss"
-              }
-            },
-            {
-              "@type": "Offer",
-              "name": "Lead (Monthly plan, local business)",
-              "description": "Stay the first name across several locations. Best for: Stay first across several locations. Deliverables: 12 Google posts a month; Pages a month: 4 new; 4 new listings a month; Review monitoring + reply drafts; Local PR outreach: 4 pitches/month; Leads report: calls, forms and bookings; Monthly: report + 30-min call + 90-day roadmap refresh. Re-checked: 30 questions × 4 AI engines per location (up to 3), every month.",
-              "url": "https://searchwin.ai/start/?plan=local-monthly-lead",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Lead: Monthly plan for local businesss"
-              }
-            },
-            {
-              "@type": "Offer",
-              "name": "Custom (Monthly plan, local business)",
-              "description": "Groups, franchises or agencies? Same model, scoped for you. Covers: Multiple locations, Franchises, Several markets or languages, Regulated niches, White-label for other agencies. You still get a fixed price and a deliverables list before you pay.",
-              "url": "https://searchwin.ai/start/?plan=local-monthly-custom",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Custom: Monthly plan for local businesss"
-              }
-            }
-          ]
-        }
+        "description": "Month to month. Your website and the outside sources AI reads. Keep your site and your outside profiles winning new questions: a re-check every month, new and refreshed pages, review and listing upkeep, outreach for mentions and a leads report."
       },
       {
         "@type": "Service",
-        "@id": "https://searchwin.ai/#online-sprint",
-        "name": "45-day sprint: AI search optimization and lead generation for online & nationals",
-        "serviceType": "AI search optimization and lead generation",
+        "@id": "https://searchwin.ai/pages/#service",
+        "name": "Pages: organic conversion pages",
+        "serviceType": "Organic lead generation from AI search and Google",
+        "url": "https://searchwin.ai/pages/",
         "provider": {
           "@id": "https://searchwin.ai/#org"
         },
@@ -251,122 +147,7 @@
           "GB",
           "EU"
         ],
-        "audience": {
-          "@type": "BusinessAudience",
-          "audienceType": "For B2B services, SaaS, e-commerce and national brands that sell beyond one town."
-        },
-        "description": "Build. One-off setup work: fix what stops AI from understanding and trusting you, build the missing pages and listings, set up tracking, then re-check on day 45.",
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Online & national · 45-day sprint",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "name": "Foundation (45-day sprint, online & national)",
-              "description": "Make AI understand what you sell and who it’s for. Best for: One product or service line, one market. Deliverables: Brand facts fixes: facts page, schema, public profiles; 3 new answer pages (vs, alternatives, best for); 3 existing pages rewritten for AI answers; 2 review platforms set up or fixed; Citation map: top 20 sites AI cites; Day-45 report + 45-min review call. Re-checked: 20 questions × 4 AI engines, on day 0 and day 45.",
-              "url": "https://searchwin.ai/start/?plan=online-sprint-foundation",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Foundation: 45-day sprint for online & nationals"
-              }
-            },
-            {
-              "@type": "Offer",
-              "name": "Authority (45-day sprint, online & national)",
-              "description": "Show up when buyers ask AI to compare options. Best for: Several lines or a crowded category. Deliverables: Brand facts fixes: facts page, schema, public profiles; 6 new answer pages (vs, alternatives, best for); 6 existing pages rewritten for AI answers; 4 review platforms set up or fixed; Citation map: top 50 sites AI cites; PR outreach: 10 pitches; Day-45 report + 45-min review call. Re-checked: 40 questions × 5 AI engines, on day 0 and day 45.",
-              "url": "https://searchwin.ai/start/?plan=online-sprint-authority",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Authority: 45-day sprint for online & nationals"
-              }
-            },
-            {
-              "@type": "Offer",
-              "name": "Category (45-day sprint, online & national)",
-              "description": "Be the name AI gives first in your category. Best for: Pushing for category leadership, up to 2 markets. Deliverables: Brand facts fixes: facts page, schema, public profiles; 12 new answer pages (vs, alternatives, best for); 10 existing pages rewritten for AI answers; 6 review platforms set up or fixed; Citation map: top 100 sites AI cites; PR outreach: 25 pitches; Day-45 report + 45-min review call. Re-checked: 80 questions × 5 AI engines, on day 0 and day 45.",
-              "url": "https://searchwin.ai/start/?plan=online-sprint-category",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Category: 45-day sprint for online & nationals"
-              }
-            },
-            {
-              "@type": "Offer",
-              "name": "Custom (45-day sprint, online & national)",
-              "description": "Several brands or markets? Same model, scoped for you. Covers: Several brands or product lines, 3+ markets or languages, Regulated sectors, Marketplaces and large catalogs, White-label for other agencies. You still get a fixed price and a deliverables list before you pay.",
-              "url": "https://searchwin.ai/start/?plan=online-sprint-custom",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Custom: 45-day sprint for online & nationals"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "@type": "Service",
-        "@id": "https://searchwin.ai/#online-monthly",
-        "name": "Monthly plan: AI search optimization and lead generation for online & nationals",
-        "serviceType": "AI search optimization and lead generation",
-        "provider": {
-          "@id": "https://searchwin.ai/#org"
-        },
-        "areaServed": [
-          "US",
-          "GB",
-          "EU"
-        ],
-        "audience": {
-          "@type": "BusinessAudience",
-          "audienceType": "For B2B services, SaaS, e-commerce and national brands that sell beyond one town."
-        },
-        "description": "Keep and grow. Ongoing work that only makes sense once the basics exist: monthly re-checks, new pages, review and listing upkeep, outreach and a monthly report. Monthly plans start after a sprint, or after our free audit confirms your basics are already in place.",
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Online & national · Monthly plan",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "name": "Track (Monthly plan, online & national)",
-              "description": "Watch your share of AI answers and hold your position. Best for: Watch and hold your position. Deliverables: Share of AI mentions vs named competitors; 1 new answer page a month; 1 page refresh a month; Review platform upkeep + review requests; Monthly: 1-page report. Re-checked: 20 questions × 4 AI engines, every month.",
-              "url": "https://searchwin.ai/start/?plan=online-monthly-track",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Track: Monthly plan for online & nationals"
-              }
-            },
-            {
-              "@type": "Offer",
-              "name": "Scale (Monthly plan, online & national)",
-              "description": "Win more of the comparison questions buyers ask. Best for: Win more comparison questions. Deliverables: Share of AI mentions vs named competitors; 3 new answer pages a month; 2 page refreshes a month; Review platform upkeep + review requests; PR outreach: 5 pitches/month; Monthly: report + 30-min call. Re-checked: 40 questions × 5 AI engines, every month.",
-              "url": "https://searchwin.ai/start/?plan=online-monthly-scale",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Scale: Monthly plan for online & nationals"
-              }
-            },
-            {
-              "@type": "Offer",
-              "name": "Lead the Category (Monthly plan, online & national)",
-              "description": "Defend first place in your category, in 2 markets. Best for: Defend first place, 2 markets. Deliverables: Share of AI mentions vs named competitors; 6 new answer pages a month; 4 page refreshes a month; Review platform upkeep + review requests; PR outreach: 12 pitches/month; Monthly: report + 30-min call + 90-day roadmap refresh. Re-checked: 80 questions × 5 AI engines in 2 markets, every month.",
-              "url": "https://searchwin.ai/start/?plan=online-monthly-lead-the-category",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Lead the Category: Monthly plan for online & nationals"
-              }
-            },
-            {
-              "@type": "Offer",
-              "name": "Custom (Monthly plan, online & national)",
-              "description": "Groups, several brands or agencies? Same model, scoped for you. Covers: Several brands or product lines, 3+ markets or languages, Regulated sectors, Marketplaces and large catalogs, White-label for other agencies. You still get a fixed price and a deliverables list before you pay.",
-              "url": "https://searchwin.ai/start/?plan=online-monthly-custom",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Custom: Monthly plan for online & nationals"
-              }
-            }
-          ]
-        }
+        "description": "Month to month. A hub of organic conversion pages on your domain. A separate hub on your domain with a page for each high-intent search your main site does not cover: services, locations, comparisons, costs. Written to be quoted by AI, to rank in Google and to bring the enquiry."
       },
       {
         "@type": "FAQPage",
@@ -374,10 +155,42 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "What is AI search optimization, and how is it different from SEO?",
+            "name": "What is organic lead generation in the AI search era?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "AI search optimization is the work that gets your business named when people ask ChatGPT, Gemini or Google’s AI who to choose. SEO gets a page ranked in a list of links. An AI answer names a few businesses and says why, so the work also covers what other sites say about you: listings, reviews and mentions. Good SEO still helps, because AI tools read the web through search."
+              "text": "It is getting enquiries from people who search Google or ask ChatGPT, Gemini and Google’s AI who to choose, without paying for each click. The work is the same in both places: answer the questions buyers ask right before they choose, give AI and Google proof they can trust, and make every page end in a call, a form or a booking."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is this different from SEO?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Classic SEO chases rankings and traffic. We start from buying intent: the questions people ask right before they contact someone, such as “best … in …”, “… vs …” or “how much does … cost”. An AI answer also names a few businesses and says why, so the work covers what other sites say about you: listings, reviews and mentions. Good SEO still helps, because AI tools read the web through search."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which solution should I start with?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most businesses start with the AI Search Sprint: 45 days that fix the base on your website and on the outside sources AI reads. AI Search Monthly keeps that base growing. Pages adds a hub of conversion pages when buyers ask far more questions than your site answers. The free audit tells you which one fits, and it is fine to run them together."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are organic conversion pages?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pages built for one high-intent search each: a service in a location, a comparison, a cost question. They are written to rank in Google and be quoted in AI answers, and each one ends in a clear next step. Our Pages solution builds a hub of them on your domain."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What do the AI agents do, and what do people do?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "AI agents do the volume: research into what buyers ask, scheduled checks of AI answers, first drafts of pages, monitoring and lead tracking. People make the decisions: strategy, editing and fact-checking, outreach to real editors and review sites, and anything published under your name. You approve pages before they go live."
             }
           },
           {
@@ -385,31 +198,23 @@
             "name": "Which AI tools do you check?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "ChatGPT, Gemini, Google AI Overviews and Google AI Mode. Online and national plans add Perplexity, because buyers use it for research. Every plan lists how many questions we re-check and on which engines."
+              "text": "ChatGPT, Gemini, Google AI Overviews and Google AI Mode. National and international work adds Perplexity, because buyers use it for research. Every scope lists how many questions we re-check and on which engines."
             }
           },
           {
             "@type": "Question",
-            "name": "Can you guarantee I’ll be recommended?",
+            "name": "Can you guarantee I’ll be recommended, or a number of leads?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. AI answers change daily and no one controls them. What we do guarantee is the work: every deliverable listed in your plan ships within the timeline, and on day 45 you see the same questions on the same engines next to the day-0 answers."
+              "text": "No. AI answers change daily and no one controls them. What we do guarantee is the work: every deliverable on your list ships on time, you see the same questions re-asked on the same engines, and you see which pages your enquiries came from."
             }
           },
           {
             "@type": "Question",
-            "name": "What happens if not much changes by day 45?",
+            "name": "How soon will I see results?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "You still get every listed deliverable, plus a day-45 report that shows what changed, what didn’t and the likely reasons. We tell you what we would do next and whether a monthly plan is worth it for you. If it isn’t, we say so."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do I need a monthly plan after the sprint?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. The sprint is one-off and everything it builds stays yours. A monthly plan makes sense if you want a re-check every month, new pages each month and help keeping reviews and listings up to date. Monthly plans start after a sprint, or after our free audit confirms your basics are already in place."
+              "text": "The sprint shows a before and after on day 45. Leads from new pages take longer: most businesses should expect the first enquiries from a hub of pages around month 3 or 4, and more from there. It depends on your market, your competition and how strong your site is today."
             }
           },
           {
@@ -422,26 +227,10 @@
           },
           {
             "@type": "Question",
-            "name": "Do I approve the content before it goes live?",
+            "name": "How does pricing work?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. You sign off the deliverables list before work starts, and you approve every new page and listing text before we publish it."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What do you need from me?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Access to your website, your Google Business Profile (for local plans) and your analytics, and about 2 hours of your time over the 45 days: a kickoff, a few approvals and the day-45 review."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I pay?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Sprints are paid once: upfront, or 50/50. Monthly plans are billed monthly and you can cancel any month. You get a fixed price in writing before you pay anything."
+              "text": "Each solution has a starting price on its own page, in dollars, euros or pounds. You get the exact scope and a fixed price in writing before you pay. The sprint is paid once, upfront or 50/50. Monthly work and Pages are billed monthly and you can cancel any month."
             }
           },
           {
@@ -449,7 +238,7 @@
             "name": "Do you work outside the US?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. We work with businesses in the US, the UK and the EU, and quote in dollars, pounds or euros."
+              "text": "Yes. We work with local, national and international businesses in the US, the UK and the EU, and quote in dollars, pounds or euros."
             }
           }
         ]
@@ -461,6 +250,7 @@
 </head>
 
 <body>
+<!-- build:sprite -->
 <!-- Icon sprite: platform marks from @lobehub/icons (MIT), UI icons drawn for this site -->
 <svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden"><defs><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-gemini-0" x1="7" x2="11" y1="15.5" y2="12"><stop stop-color="#08B962"></stop><stop offset="1" stop-color="#08B962" stop-opacity="0"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-gemini-1" x1="8" x2="11.5" y1="5.5" y2="11"><stop stop-color="#F94543"></stop><stop offset="1" stop-color="#F94543" stop-opacity="0"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-gemini-2" x1="3.5" x2="17.5" y1="13.5" y2="12"><stop stop-color="#FABC12"></stop><stop offset=".46" stop-color="#FABC12" stop-opacity="0"></stop></linearGradient><radialGradient cx="85.44%" cy="100.653%" fx="85.44%" fy="100.653%" gradientTransform="scale(-.8553 -1) rotate(50.927 2.041 -1.946)" id="lobe-icons-copilot-0" r="105.116%"><stop offset="9.6%" stop-color="#00AEFF"></stop><stop offset="77.3%" stop-color="#2253CE"></stop><stop offset="100%" stop-color="#0736C4"></stop></radialGradient><radialGradient cx="18.143%" cy="32.928%" fx="18.143%" fy="32.928%" gradientTransform="scale(.8897 1) rotate(52.069 .193 .352)" id="lobe-icons-copilot-1" r="95.612%"><stop offset="0%" stop-color="#FFB657"></stop><stop offset="63.4%" stop-color="#FF5F3D"></stop><stop offset="92.3%" stop-color="#C02B3C"></stop></radialGradient><radialGradient cx="82.987%" cy="-9.792%" fx="82.987%" fy="-9.792%" gradientTransform="scale(-1 -.9441) rotate(-70.872 .142 1.17)" id="lobe-icons-copilot-4" r="140.622%"><stop offset="6.6%" stop-color="#8C48FF"></stop><stop offset="50%" stop-color="#F2598A"></stop><stop offset="89.6%" stop-color="#FFB152"></stop></radialGradient><linearGradient id="lobe-icons-copilot-2" x1="39.465%" x2="46.884%" y1="12.117%" y2="103.774%"><stop offset="15.6%" stop-color="#0D91E1"></stop><stop offset="48.7%" stop-color="#52B471"></stop><stop offset="65.2%" stop-color="#98BD42"></stop><stop offset="93.7%" stop-color="#FFC800"></stop></linearGradient><linearGradient id="lobe-icons-copilot-3" x1="45.949%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="#3DCBFF"></stop><stop offset="24.7%" stop-color="#0588F7" stop-opacity="0"></stop></linearGradient><linearGradient id="lobe-icons-copilot-5" x1="83.507%" x2="83.453%" y1="-6.106%" y2="21.131%"><stop offset="5.8%" stop-color="#F8ADFA"></stop><stop offset="70.8%" stop-color="#A86EDD" stop-opacity="0"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-meta-ai-0" x1="9.789" x2="13" y1="0" y2="7.5"><stop stop-color="#C65EFF"></stop><stop offset=".5" stop-color="#EA4FFF"></stop><stop offset="1" stop-color="#9553FF"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-meta-ai-1" x1="19" x2="17" y1="3" y2="10.5"><stop stop-color="#CF72FF"></stop><stop offset=".5" stop-color="#E541FF"></stop><stop offset="1" stop-color="#944DFF"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-meta-ai-2" x1="9" x2="2.5" y1="6.5" y2="8"><stop stop-color="#A555FF"></stop><stop offset=".5" stop-color="#DE67FF"></stop><stop offset="1" stop-color="#E581FF"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-meta-ai-3" x1="1" x2="6" y1="12" y2="16"><stop stop-color="#6C48FF"></stop><stop offset=".309" stop-color="#AA5AFF"></stop><stop offset="1" stop-color="#5145FF"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-meta-ai-4" x1="19" x2="21" y1="11.5" y2="16.5"><stop stop-color="#CA3EFF"></stop><stop offset=".5" stop-color="#AB5CFF"></stop><stop offset="1" stop-color="#5042FF"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-meta-ai-5" x1="6" x2="11" y1="20.5" y2="19"><stop stop-color="#5041FF"></stop><stop offset=".26" stop-color="#734FFF"></stop><stop offset=".75" stop-color="#6A4CFF"></stop><stop offset="1" stop-color="#483FFF"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-meta-ai-6" x1="12" x2="18.5" y1="17.5" y2="21.5"><stop stop-color="#7B51FF"></stop><stop offset=".475" stop-color="#6049FF"></stop><stop offset="1" stop-color="#8466FF"></stop></linearGradient></defs><symbol id="i-openai" viewBox="0 0 24 24"><g fill="currentColor" fill-rule="evenodd"><path d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z"/></g></symbol>
 <symbol id="i-google" viewBox="0 0 24 24"><path d="M23 12.245c0-.905-.075-1.565-.236-2.25h-10.54v4.083h6.186c-.124 1.014-.797 2.542-2.294 3.569l-.021.136 3.332 2.53.23.022C21.779 18.417 23 15.593 23 12.245z" fill="#4285F4"/><path d="M12.225 23c3.03 0 5.574-.978 7.433-2.665l-3.542-2.688c-.948.648-2.22 1.1-3.891 1.1a6.745 6.745 0 01-6.386-4.572l-.132.011-3.465 2.628-.045.124C4.043 20.531 7.835 23 12.225 23z" fill="#34A853"/><path d="M5.84 14.175A6.65 6.65 0 015.463 12c0-.758.138-1.491.361-2.175l-.006-.147-3.508-2.67-.115.054A10.831 10.831 0 001 12c0 1.772.436 3.447 1.197 4.938l3.642-2.763z" fill="#FBBC05"/><path d="M12.225 5.253c2.108 0 3.529.892 4.34 1.638l3.167-3.031C17.787 2.088 15.255 1 12.225 1 7.834 1 4.043 3.469 2.197 7.062l3.63 2.763a6.77 6.77 0 016.398-4.572z" fill="#EB4335"/></symbol>
@@ -482,23 +272,28 @@
 <symbol id="i-cursor" viewBox="0 0 24 24"><path d="M4.6 2.9 19.5 11c.8.4.6 1.5-.2 1.7l-6 1.5-2.8 5.6c-.4.8-1.5.6-1.7-.2L3.3 4.1c-.2-.9.6-1.6 1.3-1.2Z" fill="#141210" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></symbol>
 <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M7 7l10 10M17 7 7 17"/></symbol>
 <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 3.6 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.8 20c.8-3.6 3.6-5.6 7.2-5.6s6.4 2 7.2 5.6"/></g></symbol>
+<symbol id="i-page" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h7.6l3.9 3.9v13.1h-11.5z"/><path d="M13.8 3.8v4h4M9.5 12.5h5M9.5 16h5"/></g></symbol>
 </svg>
+<!-- /build:sprite -->
 
 <a class="skip-link" href="#main">Skip to content</a>
 
 <!-- ================================================================
-     NAV
+     NAV (rendered from data/solutions.js, the same on every page)
      ================================================================ -->
+<!-- build:nav -->
 <header class="nav" data-nav>
   <div class="nav__bar">
     <a class="logo" href="#top" aria-label="SearchWin.ai, back to top">
       <span class="logo__word">searchwin.ai</span>
     </a>
     <nav class="nav__links" aria-label="Main">
+      <a href="/sprint/">Sprint</a>
+      <a href="/monthly/">Monthly</a>
+      <a href="/pages/">Pages</a>
+      <a href="#platform">Platform</a>
       <a href="#how">How it works</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#sample-report">Sample report</a>
-      <a href="#faq">FAQ</a>
     </nav>
     <a class="btn btn--primary btn--sm nav__cta" href="/ai-check/" data-ai-check="nav">
       <span class="nav__cta-long">Free AI check</span><span class="nav__cta-short">Free AI check</span>
@@ -508,44 +303,46 @@
     </button>
   </div>
   <div class="nav__menu" id="mobile-menu" hidden>
+    <a href="/sprint/">Sprint</a>
+    <a href="/monthly/">Monthly</a>
+    <a href="/pages/">Pages</a>
+    <a href="#platform">Platform</a>
     <a href="#how">How it works</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#sample-report">Sample report</a>
-    <a href="#faq">FAQ</a>
     <a class="btn btn--primary" href="/ai-check/" data-ai-check="menu">Run a free AI check</a>
   </div>
 </header>
+<!-- /build:nav -->
 
 <main id="main">
 
 <!-- ================================================================
-     1 · HERO: what we sell, who it's for, what every plan comes with
+     1 · HERO: organic leads from AI search and Google
      ================================================================ -->
 <section class="hero home-hero" id="top" aria-labelledby="hero-title">
   <div class="container hero__inner">
-    <p class="eyebrow home-hero__eyebrow">AI search optimization + lead generation, as a service</p>
-    <h1 class="h1 hero__title" id="hero-title">When customers ask AI who to choose, be the name it gives.</h1>
+    <p class="eyebrow home-hero__eyebrow">Organic lead generation for the AI search era</p>
+    <h1 class="h1 hero__title" id="hero-title">Get found in AI search and Google. Turn it into leads.</h1>
     <p class="lead hero__lead">
-      Fixed plans with deliverables you can count.
-      A 45-day sprint first, then month to month.
+      People and AI agents build the pages, listings and proof buyers find when they ask who to choose.
+      Every page is written to sell and ends in a call, a form or a booking.
     </p>
     <div class="hero__ctas">
       <a class="btn btn--primary btn--lg" href="/ai-check/" data-ai-check="hero">
         Run a free AI check
         <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
       </a>
-      <a class="btn btn--outline btn--lg" href="#pricing">See plans</a>
+      <a class="btn btn--outline btn--lg" href="#solutions">See the solutions</a>
     </div>
-    <ul class="promises promises--hero" aria-label="What every plan comes with">
-      <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Fixed price</li>
-      <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Counted deliverables</li>
-      <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Day-45 proof</li>
-      <li><svg aria-hidden="true"><use href="#i-check"></use></svg>No lock-in</li>
+    <ul class="promises promises--hero" aria-label="How we work">
+      <li><svg aria-hidden="true"><use href="#i-check"></use></svg>High-intent questions</li>
+      <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Pages that sell</li>
+      <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Leads by page</li>
+      <li><svg aria-hidden="true"><use href="#i-check"></use></svg>People + AI agents</li>
       <li><svg aria-hidden="true"><use href="#i-check"></use></svg>You own it</li>
     </ul>
   </div>
 
-  <!-- An AI answer before and after the work: your business moves from "not mentioned" to "recommended" -->
+  <!-- An AI answer before and after the work: your business moves from "not mentioned" to "recommended", and a lead follows -->
   <div class="container">
     <figure class="answer media" data-answer data-day="0">
       <!-- Phones draw the sky as a CSS gradient (home.css), so the first screen has no image to wait for -->
@@ -577,8 +374,9 @@
           </ol>
           </div>
         </div>
+        <p class="answer__lead" aria-hidden="true"><svg><use href="#i-calendar"></use></svg><span><b>New booking request</b> from your implants page</span><span class="answer__lead-src">via ChatGPT</span></p>
       </div>
-      <figcaption class="sr-only">Illustrative example. Day 0: asked for the best dentist in Austin for implants, the AI names three other dental clinics and does not mention your business. Day 45: the AI names your business second and marks it as recommended.</figcaption>
+      <figcaption class="sr-only">Illustrative example. Day 0: asked for the best dentist in Austin for implants, the AI names three other dental clinics and does not mention your business. Day 45: the AI names your business second and marks it as recommended, and a booking request arrives from the page it read.</figcaption>
     </figure>
   </div>
 </section>
@@ -628,7 +426,7 @@
       <div class="scrolly__steps">
         <div class="step" data-step="1"><p>Search used to give people <strong>ten blue links</strong> and an evening of reading.</p></div>
         <div class="step" data-step="2"><p>Now AI reads those pages for them and answers with <strong>a shortlist of three.</strong></p></div>
-        <div class="step" data-step="3"><p>If you're on that list, you get the call. If you're not, <strong>the customer may never hear your name.</strong></p></div>
+        <div class="step" data-step="3"><p>If you're on that list and your page makes the next step easy, <strong>you get the enquiry.</strong> If you're not, the customer may never hear your name.</p></div>
       </div>
     </div>
 
@@ -648,60 +446,178 @@
 </section>
 
 <!-- ================================================================
-     3 · A SERVICE, NOT AN AGENCY
+     3 · THE APPROACH: high-intent questions, content that sells, conversion on every page
      ================================================================ -->
-<section class="section vs" id="service" aria-labelledby="vs-title">
+<section class="section approach" id="approach" aria-labelledby="approach-title">
   <div class="container">
     <header class="head head--split">
       <div class="head__main">
-        <p class="eyebrow" data-reveal>A service, not an agency</p>
-        <h2 class="h2" id="vs-title" data-reveal>You buy defined work, not an open-ended retainer.</h2>
+        <p class="eyebrow" data-reveal>Built for leads, not traffic</p>
+        <h2 class="h2" id="approach-title" data-reveal>Everything we do points at one number: enquiries.</h2>
       </div>
-      <p class="lead" data-reveal>The typical agency model sells time and a relationship. We sell a piece of work with a price, a list of what ships and an end date.</p>
+      <p class="lead" data-reveal>Being named is only useful if a buyer acts on it. So the work starts from the questions people ask right before they choose, and ends where they call, write or book.</p>
     </header>
 
-    <div class="vs__wrap" data-reveal>
-      <table class="vs__table">
-        <caption class="sr-only">The typical agency model compared with searchwin.ai</caption>
-        <thead>
-          <tr><th scope="col"><span class="sr-only">Topic</span></th><th scope="col">Typical agency model</th><th scope="col" class="vs__us">searchwin.ai</th></tr>
-        </thead>
+    <ol class="pcards">
+      <li class="pcard" data-reveal><span class="pcard__n">01</span><h3 class="pcard__title">High-intent questions first</h3><p>We work on what people ask right before they contact someone: “best … in …”, “… vs …”, “how much does … cost”. Visits from people who are only reading are not the goal.</p></li>
+      <li class="pcard" data-reveal><span class="pcard__n">02</span><h3 class="pcard__title">Content that sells</h3><p>Every page answers the question in its first lines, puts proof next to the claim and says why you. AI can quote it, and a buyer can decide on it.</p></li>
+      <li class="pcard" data-reveal><span class="pcard__n">03</span><h3 class="pcard__title">Conversion on every page</h3><p>Each page, profile and listing ends in one next step: a call, a form or a booking. We track which page every lead came from.</p></li>
+    </ol>
+
+    <div class="intent" data-reveal>
+      <div class="sample__top"><p class="intent__title">From a buyer’s question to a lead</p><span class="illus illus--line">Illustrative example</span></div>
+      <table class="intent__table">
+        <caption class="sr-only">How a high-intent question becomes a lead (illustrative example)</caption>
+        <thead><tr><th scope="col">The buyer asks AI or Google</th><th scope="col">The page that answers</th><th scope="col">The next step</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Price</th><td data-label="Typical agency model">“Get a quote” after 2–3 calls</td><td class="vs__us" data-label="searchwin.ai">A fixed price in writing, without sales calls</td></tr>
-          <tr><th scope="row">What you get</th><td data-label="Typical agency model">“Strategy”, “optimization”, hours</td><td class="vs__us" data-label="searchwin.ai">Counted deliverables: pages, listings, fixes, questions re-checked</td></tr>
-          <tr><th scope="row">Timeline</th><td data-label="Typical agency model">Often open-ended: “results take 6–12 months”</td><td class="vs__us" data-label="searchwin.ai">45-day sprint with a fixed end date</td></tr>
-          <tr><th scope="row">Proof of work</th><td data-label="Typical agency model">Monthly report the agency chooses</td><td class="vs__us" data-label="searchwin.ai">Day-45 before/after on the same AI questions, same engines</td></tr>
-          <tr><th scope="row">Contract</th><td data-label="Typical agency model">Often a 6–12 month minimum</td><td class="vs__us" data-label="searchwin.ai">One-off sprint; monthly plans are month to month</td></tr>
-          <tr><th scope="row">Ownership</th><td data-label="Typical agency model">Accounts and content often held by the agency</td><td class="vs__us" data-label="searchwin.ai">You own every page, listing and account from day one</td></tr>
-          <tr><th scope="row">First step</th><td data-label="Typical agency model">Sales call</td><td class="vs__us" data-label="searchwin.ai">Free AI check, free audit and roadmap. Do it yourself if you want</td></tr>
-          <tr><th scope="row">Goal</th><td data-label="Typical agency model">Rankings, traffic, “visibility”</td><td class="vs__us" data-label="searchwin.ai">Calls, quote requests and bookings</td></tr>
-          <tr><th scope="row">Honesty</th><td data-label="Typical agency model">Sometimes guarantees or “page one” promises</td><td class="vs__us" data-label="searchwin.ai">No guarantees. We tell you what we can’t control</td></tr>
+          <tr><td>“best dentist in Austin for implants”</td><td>Service page: dental implants in Austin, with reviews and cases</td><td><span class="intent__step">Book a consultation</span></td></tr>
+          <tr><td>“dental implants vs bridges”</td><td>Comparison page: who each option suits, in plain words</td><td><span class="intent__step">Call the clinic</span></td></tr>
+          <tr><td>“how much do dental implants cost”</td><td>Cost page: price ranges and what changes them</td><td><span class="intent__step">Ask for a quote</span></td></tr>
         </tbody>
       </table>
     </div>
-
-    <ol class="pcards">
-      <li class="pcard" data-reveal><span class="pcard__n">01</span><h3 class="pcard__title">Fixed price</h3><p>In writing before you pay. No discovery fees.</p></li>
-      <li class="pcard" data-reveal><span class="pcard__n">02</span><h3 class="pcard__title">Counted deliverables</h3><p>Every plan lists exactly what ships.</p></li>
-      <li class="pcard" data-reveal><span class="pcard__n">03</span><h3 class="pcard__title">45 days, then proof</h3><p>Same questions re-asked on day 45, side by side with day 0.</p></li>
-      <li class="pcard" data-reveal><span class="pcard__n">04</span><h3 class="pcard__title">No lock-in</h3><p>Monthly plans cancel any month.</p></li>
-      <li class="pcard" data-reveal><span class="pcard__n">05</span><h3 class="pcard__title">You own it</h3><p>Pages, listings, accounts and reports are yours.</p></li>
-      <li class="pcard" data-reveal><span class="pcard__n">06</span><h3 class="pcard__title">Free roadmap either way</h3><p>Use it with us or without us.</p></li>
-    </ol>
   </div>
 </section>
 
 <!-- ================================================================
-     4 · HOW IT WORKS
+     4 · SOLUTIONS for your website and the outside sources AI reads. No prices here: each solution page shows its starting price.
+     ================================================================ -->
+<section class="band band--beige solutions" id="solutions" aria-labelledby="solutions-title">
+  <div class="container">
+    <header class="head head--center">
+      <p class="eyebrow" data-reveal>Solutions</p>
+      <h2 class="h2" id="solutions-title" data-reveal>Three solutions. One goal: more of the right enquiries.</h2>
+      <p class="lead" data-reveal>Fix the base with a sprint, keep it growing every month, and add a hub of conversion pages when buyers ask more than your site answers.</p>
+    </header>
+
+    <p class="solutions__label" data-reveal><span>For your website and the outside sources AI reads</span></p>
+    <div class="solcards">
+      <!-- build:solutions -->
+      <article class="solcard" data-reveal>
+        <p class="solcard__kind">45 days · one-off</p>
+        <h3 class="solcard__name">AI Search Sprint</h3>
+        <p class="solcard__text">Fix what stops AI and Google from understanding and recommending you, build the selling pages and listings that are missing, and set up lead tracking. Re-checked on day 45 on the same questions.</p>
+        <ul class="solcard__list">
+          <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Site fixes: AI crawler access, schema, facts</li>
+          <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Selling pages built or rebuilt</li>
+          <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Profiles, listings and review platforms</li>
+          <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Day 0 and day 45, side by side</li>
+        </ul>
+        <a class="btn btn--dark solcard__cta" href="/sprint/" data-solution="sprint">See the Sprint<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+      </article>
+      <article class="solcard" data-reveal>
+        <p class="solcard__kind">Month to month</p>
+        <h3 class="solcard__name">AI Search Monthly</h3>
+        <p class="solcard__text">Keep your site and your outside profiles winning new questions: a re-check every month, new and refreshed pages, review and listing upkeep, outreach for mentions and a leads report.</p>
+        <ul class="solcard__list">
+          <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Monthly re-check across AI engines</li>
+          <li><svg aria-hidden="true"><use href="#i-check"></use></svg>New and refreshed selling pages</li>
+          <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Reviews, listings and mentions</li>
+          <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Leads report: calls, forms, bookings</li>
+        </ul>
+        <a class="btn btn--dark solcard__cta" href="/monthly/" data-solution="monthly">See Monthly<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+      </article>
+      <!-- /build:solutions -->
+    </div>
+    <p class="solutions__note" data-reveal>The sprint builds the base in 45 days. Monthly work keeps it moving. Both cover your site, your profiles, listings, reviews and mentions.</p>
+  </div>
+</section>
+
+<!-- ================================================================
+     5 · PAGES: organic conversion pages, the third solution, in its own section
+     ================================================================ -->
+<section class="band band--dark hub" id="pages" aria-labelledby="pages-title">
+  <div class="container hub__grid">
+    <div class="hub__main">
+      <p class="eyebrow" data-reveal>Pages · organic conversion pages</p>
+      <h2 class="h2" id="pages-title" data-reveal>A content hub that answers every buying question, and asks for the lead.</h2>
+      <!-- build:pages-card -->
+      <p class="lead" data-reveal>A separate hub on your domain with a page for each high-intent search your main site does not cover: services, locations, comparisons, costs. Written to be quoted by AI, to rank in Google and to bring the enquiry.</p>
+      <ul class="hub__list">
+        <li data-reveal><svg aria-hidden="true"><use href="#i-check"></use></svg>100+ pages in the first 6 months</li>
+        <li data-reveal><svg aria-hidden="true"><use href="#i-check"></use></svg>Service, location, comparison and cost pages</li>
+        <li data-reveal><svg aria-hidden="true"><use href="#i-check"></use></svg>Every page ends in a call, a form or a booking</li>
+        <li data-reveal><svg aria-hidden="true"><use href="#i-check"></use></svg>Leads tracked back to the page</li>
+      </ul>
+      <a class="btn btn--primary btn--lg" href="/pages/" data-solution="pages" data-reveal>See Pages<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+      <!-- /build:pages-card -->
+    </div>
+    <div class="hubmock" aria-hidden="true" data-reveal>
+      <div class="pagemock__bar"><i></i><i></i><i></i><span>yourbusiness.com/guides/</span></div>
+      <div class="hubmock__body">
+        <div class="hubmock__top"><p class="illus">Illustrative example</p><p class="hubmock__count"><b>112</b> pages live</p></div>
+        <ul class="hubmock__rows">
+          <li><span class="hubmock__type">Cost</span><span class="hubmock__name">Dental implants in Austin: cost and options</span><span class="hubmock__leads">7 enquiries</span></li>
+          <li><span class="hubmock__type">Comparison</span><span class="hubmock__name">Implants vs bridges: which one fits you</span><span class="hubmock__leads">4 enquiries</span></li>
+          <li><span class="hubmock__type">Location</span><span class="hubmock__name">Emergency dentist in Round Rock</span><span class="hubmock__leads">5 enquiries</span></li>
+          <li><span class="hubmock__type">Service</span><span class="hubmock__name">Teeth whitening for sensitive teeth</span><span class="hubmock__leads">2 enquiries</span></li>
+          <li><span class="hubmock__type">Guide</span><span class="hubmock__name">How long does a dental crown last?</span><span class="hubmock__leads">1 enquiry</span></li>
+        </ul>
+        <p class="hubmock__foot">Enquiries this month, by page</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     6 · THE PLATFORM: people + AI agents (rendered from data/solutions.js)
+     ================================================================ -->
+<section class="section team" id="platform" aria-labelledby="platform-title">
+  <div class="container">
+    <header class="head head--split">
+      <div class="head__main">
+        <p class="eyebrow" data-reveal>The platform</p>
+        <h2 class="h2" id="platform-title" data-reveal>People + AI agents, working as one team.</h2>
+      </div>
+      <p class="lead" data-reveal>AI agents do the volume: research, checks, first drafts and monitoring. People make the calls: strategy, editing, outreach and anything published under your name.</p>
+    </header>
+    <!-- build:team -->
+    <div class="team__group">
+      <p class="team__label" data-reveal><svg aria-hidden="true"><use href="#i-spark"></use></svg>AI agents do the volume</p>
+      <ul class="agents">
+        <li class="agent" data-reveal><p class="agent__job">01 · Learns your business</p><h3 class="agent__name">Context agent</h3><p class="agent__text">Builds one fact base from your site, your profiles and your answers: services, areas, prices, proof and tone of voice. Every page and listing draws from it, so nothing reads like a template.</p></li>
+        <li class="agent" data-reveal><p class="agent__job">02 · Finds high-intent questions</p><h3 class="agent__name">Research agent</h3><p class="agent__text">Collects the questions, comparisons, locations and use cases buyers search in Google and ask AI before they contact anyone, then ranks them by how close they are to a purchase.</p></li>
+        <li class="agent" data-reveal><p class="agent__job">03 · Re-asks the AI engines</p><h3 class="agent__name">Answer-check agent</h3><p class="agent__text">Puts those questions to ChatGPT, Gemini and Google’s AI on a schedule and records who is named, in what order and which sources are cited.</p></li>
+        <li class="agent" data-reveal><p class="agent__job">04 · Drafts pages that sell</p><h3 class="agent__name">Content agent</h3><p class="agent__text">Drafts service, location, comparison, cost and FAQ pages from the fact base. Each one is built around a single buyer question and a single next step.</p></li>
+        <li class="agent" data-reveal><p class="agent__job">05 · Maps where trust comes from</p><h3 class="agent__name">Authority agent</h3><p class="agent__text">Finds the directories, review sites and publications AI cites in your category and prepares the listings, fixes and pitches that put you there.</p></li>
+        <li class="agent" data-reveal><p class="agent__job">06 · Follows the lead</p><h3 class="agent__name">Conversion agent</h3><p class="agent__text">Checks every page for a clear path to a call, a form or a booking, filters out spam and records which pages each lead read before reaching out.</p></li>
+      </ul>
+    </div>
+    <div class="team__group">
+      <p class="team__label" data-reveal><svg aria-hidden="true"><use href="#i-user"></use></svg>People make the calls</p>
+      <ul class="people">
+        <li class="person" data-reveal><h3 class="person__name">Strategist</h3><p class="person__text">Picks the questions worth winning, sets the plan and signs it off with you.</p></li>
+        <li class="person" data-reveal><h3 class="person__name">Editor</h3><p class="person__text">Fact-checks and edits every page. Nothing goes live without a human read and your approval.</p></li>
+        <li class="person" data-reveal><h3 class="person__name">Outreach specialist</h3><p class="person__text">Writes to real editors, directories and review platforms. No fake accounts and no paid posting.</p></li>
+        <li class="person" data-reveal><h3 class="person__name">Your account lead</h3><p class="person__text">One person who knows your account, sends the weekly update and walks you through the results.</p></li>
+      </ul>
+    </div>
+    <div class="team__group">
+      <p class="team__label" data-reveal><svg aria-hidden="true"><use href="#i-check"></use></svg>What that gets you</p>
+      <ul class="benefits">
+        <li class="benefit" data-reveal><h3 class="benefit__title">Live in days</h3><p>Agents research and draft around the clock, so first pages go live in days, not months.</p></li>
+        <li class="benefit" data-reveal><h3 class="benefit__title">The same standard at scale</h3><p>Page one hundred is held to the standard of page one, because every page draws from the same fact base.</p></li>
+        <li class="benefit" data-reveal><h3 class="benefit__title">Always watching</h3><p>Your buyers’ questions are re-asked on a schedule, not once a quarter.</p></li>
+        <li class="benefit" data-reveal><h3 class="benefit__title">Accurate, in your voice</h3><p>A person reads every page before it is published, and you approve what goes out under your name.</p></li>
+        <li class="benefit" data-reveal><h3 class="benefit__title">Minutes of your time</h3><p>One kickoff, then a few minutes a week to review and approve.</p></li>
+        <li class="benefit" data-reveal><h3 class="benefit__title">A fixed price</h3><p>Agents do the volume, so the work is priced like a product: a starting price on the page, the final one in writing.</p></li>
+      </ul>
+    </div>
+    <!-- /build:team -->
+  </div>
+</section>
+
+<!-- ================================================================
+     7 · HOW IT WORKS
      ================================================================ -->
 <section class="band band--beige how" id="how" aria-labelledby="how-title">
   <div class="container">
     <header class="head head--split">
       <div class="head__main">
         <p class="eyebrow" data-reveal>How it works</p>
-        <h2 class="h2" id="how-title" data-reveal>From free check to proof in 45 days.</h2>
+        <h2 class="h2" id="how-title" data-reveal>From a free check to leads you can count.</h2>
       </div>
-      <p class="lead" data-reveal>One free first step, one fixed sprint, one re-check on the same questions. You decide at every step whether to go on.</p>
+      <p class="lead" data-reveal>Two free steps, a fixed scope in writing, then work you can watch. You decide at every step whether to go on.</p>
     </header>
 
     <ol class="flowsteps">
@@ -713,1156 +629,74 @@
       </li>
       <li class="flowstep" data-reveal>
         <p class="flowstep__when">Free</p>
-        <h3 class="flowstep__title"><span class="flowstep__n">2</span>Free audit and 45-day roadmap</h3>
-        <p>A report that’s yours to keep: where AI names you, who it names instead and what to fix first.</p>
+        <h3 class="flowstep__title"><span class="flowstep__n">2</span>Audit and roadmap</h3>
+        <p>Where AI and Google name you, who they name instead, what to fix first and which solution fits. Yours to keep.</p>
       </li>
       <li class="flowstep" data-reveal>
-        <p class="flowstep__when">15 minutes</p>
-        <h3 class="flowstep__title"><span class="flowstep__n">3</span>A short call</h3>
-        <p>We walk you through the roadmap. Do it yourself, or with us.</p>
+        <p class="flowstep__when">In writing</p>
+        <h3 class="flowstep__title"><span class="flowstep__n">3</span>Scope and a fixed price</h3>
+        <p>You get the list of what ships and the price by email. Nothing starts before you approve it.</p>
       </li>
       <li class="flowstep" data-reveal>
-        <p class="flowstep__when">45 days</p>
-        <h3 class="flowstep__title"><span class="flowstep__n">4</span>45-day sprint</h3>
-        <p>Fixed scope, a shared tracker you can open any time, a weekly update by email.</p>
+        <p class="flowstep__when">Every week</p>
+        <h3 class="flowstep__title"><span class="flowstep__n">4</span>Agents draft, people edit</h3>
+        <p>You approve pages before they go live, see every item in a shared tracker and get a weekly update.</p>
       </li>
       <li class="flowstep" data-reveal>
-        <p class="flowstep__when">Day 45</p>
-        <h3 class="flowstep__title"><span class="flowstep__n">5</span>Re-check on the same questions</h3>
-        <p>Same questions, same engines, next to day 0. Then a monthly plan, or keep going on your own.</p>
+        <p class="flowstep__when">Day 45, then monthly</p>
+        <h3 class="flowstep__title"><span class="flowstep__n">5</span>Answers and leads, measured</h3>
+        <p>The same questions re-asked on the same engines, next to day 0, and enquiries counted by page.</p>
       </li>
     </ol>
-
-    <div class="model">
-      <h3 class="model__title" data-reveal>What the sprint works on</h3>
-      <div class="model__grid">
-        <article class="model__step" data-reveal>
-          <p class="model__n">01</p>
-          <h4 class="model__name">Get understood</h4>
-          <p class="model__lede">AI can’t recommend a business it can’t read.</p>
-          <ul class="model__list">
-            <li>Website fixes: AI crawler access, schema, indexing</li>
-            <li>The same name, address, phone and facts everywhere</li>
-            <li>Google Business Profile or company facts page fixed up</li>
-          </ul>
-        </article>
-        <article class="model__step" data-reveal>
-          <p class="model__n">02</p>
-          <h4 class="model__name">Get cited</h4>
-          <p class="model__lede">AI repeats what trusted sites say about you.</p>
-          <ul class="model__list">
-            <li>Directory and review-site listings set up or fixed</li>
-            <li>Review platforms like G2, Capterra or Trustpilot</li>
-            <li>PR and mention outreach, counted in pitches</li>
-          </ul>
-        </article>
-        <article class="model__step" data-reveal>
-          <p class="model__n">03</p>
-          <h4 class="model__name">Get recommended</h4>
-          <p class="model__lede">Give AI a page that answers the question.</p>
-          <ul class="model__list">
-            <li>Service and area pages for local businesses</li>
-            <li>“X vs Y”, alternatives and “best for” pages for online businesses</li>
-            <li>An FAQ written for AI answers</li>
-          </ul>
-        </article>
-        <article class="model__step model__step--win" data-reveal>
-          <p class="model__n">04</p>
-          <h4 class="model__name">Get chosen</h4>
-          <p class="model__lede">Turn the recommendation into a call or a booking.</p>
-          <ul class="model__list">
-            <li>A review routine: request and reply templates, QR card</li>
-            <li>Lead capture: click-to-call, quote form, booking link</li>
-            <li>Call, form and AI-referral tracking</li>
-          </ul>
-        </article>
-      </div>
-    </div>
   </div>
 </section>
 
 <!-- ================================================================
-     5 · PRICING: pick a business type, see two lines of plans.
-     The cards are rendered from data/plans.js (npm run build:home).
+     8 · A SERVICE, NOT AN AGENCY
      ================================================================ -->
-<section class="section pricing" id="pricing" aria-labelledby="pricing-title">
-  <div class="container">
-    <header class="head head--center pricing__head">
-      <p class="eyebrow" data-reveal>Plans</p>
-      <h2 class="h2" id="pricing-title" data-reveal>Pick your business type. See exactly what you get.</h2>
-      <p class="lead" data-reveal>A 45-day sprint builds the base. A monthly plan keeps it growing. Built for leads, not mentions: every plan covers how calls, forms and bookings reach you.</p>
-    </header>
-
-    <div class="pricing__controls">
-      <div class="bizswitch" role="group" aria-label="Business type">
-        <button type="button" class="bizswitch__btn" data-type-btn="local" aria-pressed="true">Local business</button>
-        <button type="button" class="bizswitch__btn" data-type-btn="online" aria-pressed="false">Online &amp; national</button>
-      </div>
-    </div>
-
-    <div class="pricing__panels">
-      <!-- build:pricing -->
-      <div class="pricing__panel" data-type-panel="local" role="region" aria-label="Local business plans">
-        <p class="pricing__type">Local business plans</p>
-        <p class="pricing__who">For businesses that win customers in a town or region. Questions we test look like <q>best {service} in {city}</q>, <q>who should I call for {service} near {city}</q>.</p>
-        <div class="pricing__row" data-row="local-sprint">
-          <header class="pricing__row-head">
-            <h3 class="pricing__row-title" id="row-local-sprint">Start with a 45-day sprint<span class="sr-only">: Local business</span></h3>
-            <p class="pricing__row-intro">Build. One-off setup work: fix what stops AI from understanding and trusting you, build the missing pages and listings, set up tracking, then re-check on day 45.</p>
-          </header>
-          <div class="plans" data-plans aria-labelledby="row-local-sprint">
-            <article class="plan" data-plan="local-sprint-get-found" aria-labelledby="plan-local-sprint-get-found">
-              <h4 class="plan__name" id="plan-local-sprint-get-found">Get Found</h4>
-              <p class="plan__promise">Fix the basics so AI can find, understand and recommend you.</p>
-              <p class="plan__price plan__price--quote">Fixed price, one-off</p>
-              <p class="plan__billing">Quoted in writing before you pay · upfront or 50/50</p>
-              <p class="plan__best"><b>Best for:</b> 1 location, a few core services</p>
-              <ul class="plan__list">
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Up to 3 services covered</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Google Business Profile fix-up: 1 profile</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>3 new or rebuilt service pages</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>5 directory and review-site listings</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Day-45 report + 30-min review call</li>
-              </ul>
-              <p class="plan__recheck"><svg aria-hidden="true"><use href="#i-search"></use></svg><span><b>Re-checked:</b> 10 questions × 3 AI engines, on day 0 and day 45</span></p>
-              <details class="plan__excl" data-not-included="local-sprint-get-found">
-                <summary>Not included</summary>
-                <ul>
-                  <li>Google posts during the sprint <span>(in Get Chosen and up)</span></li>
-                  <li>Area pages (&quot;{service} in {area}&quot;) <span>(in Get Chosen and up)</span></li>
-                  <li>Local PR and mention outreach <span>(in Get Chosen and up)</span></li>
-                  <li>Ad spend</li>
-                  <li>Paid directory memberships (for example a Checkatrade subscription)</li>
-                  <li>Professional photography</li>
-                  <li>A full website redesign</li>
-                  <li>Fake or gated reviews</li>
-                  <li>Guaranteed rankings or lead numbers</li>
-                </ul>
-              </details>
-              <a class="btn btn--dark btn--block plan__cta" href="/start/?plan=local-sprint-get-found&amp;cur=usd" data-plan-cta="local-sprint-get-found">Start with Get Found<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-            </article>
-            <article class="plan plan--featured" data-plan="local-sprint-get-chosen" aria-labelledby="plan-local-sprint-get-chosen">
-              <p class="plan__badge">Best place to start</p>
-              <h4 class="plan__name" id="plan-local-sprint-get-chosen">Get Chosen</h4>
-              <p class="plan__promise">Be the business AI names first in your town, and make it easy to call you.</p>
-              <p class="plan__price plan__price--quote">Fixed price, one-off</p>
-              <p class="plan__billing">Quoted in writing before you pay · upfront or 50/50</p>
-              <p class="plan__best"><b>Best for:</b> 1 location, wider service list, competitive town</p>
-              <ul class="plan__list">
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Up to 6 services covered</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Google Business Profile fix-up: 1 profile</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>6 Google posts</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>6 new or rebuilt service pages</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>2 area pages</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>10 directory and review-site listings</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Day-45 report + 30-min review call</li>
-              </ul>
-              <p class="plan__recheck"><svg aria-hidden="true"><use href="#i-search"></use></svg><span><b>Re-checked:</b> 20 questions × 4 AI engines, on day 0 and day 45</span></p>
-              <details class="plan__excl" data-not-included="local-sprint-get-chosen">
-                <summary>Not included</summary>
-                <ul>
-                  <li>Ad spend</li>
-                  <li>Paid directory memberships (for example a Checkatrade subscription)</li>
-                  <li>Professional photography</li>
-                  <li>A full website redesign</li>
-                  <li>Fake or gated reviews</li>
-                  <li>Guaranteed rankings or lead numbers</li>
-                </ul>
-              </details>
-              <a class="btn btn--primary btn--block plan__cta" href="/start/?plan=local-sprint-get-chosen&amp;cur=usd" data-plan-cta="local-sprint-get-chosen">Start with Get Chosen<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-            </article>
-            <article class="plan" data-plan="local-sprint-own-the-area" aria-labelledby="plan-local-sprint-own-the-area">
-              <h4 class="plan__name" id="plan-local-sprint-own-the-area">Own the Area</h4>
-              <p class="plan__promise">Cover every service and every area you work in.</p>
-              <p class="plan__price plan__price--quote">Fixed price, one-off</p>
-              <p class="plan__billing">Quoted in writing before you pay · upfront or 50/50</p>
-              <p class="plan__best"><b>Best for:</b> Up to 3 locations or a wide service area</p>
-              <ul class="plan__list">
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Up to 10 services covered</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Google Business Profile fix-up: up to 3 profiles</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>12 Google posts</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>9 new or rebuilt service pages</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>5 area pages</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>15 directory and review-site listings</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Day-45 report + 30-min review call</li>
-              </ul>
-              <p class="plan__recheck"><svg aria-hidden="true"><use href="#i-search"></use></svg><span><b>Re-checked:</b> 30 questions × 4 AI engines per location, on day 0 and day 45</span></p>
-              <details class="plan__excl" data-not-included="local-sprint-own-the-area">
-                <summary>Not included</summary>
-                <ul>
-                  <li>Ad spend</li>
-                  <li>Paid directory memberships (for example a Checkatrade subscription)</li>
-                  <li>Professional photography</li>
-                  <li>A full website redesign</li>
-                  <li>Fake or gated reviews</li>
-                  <li>Guaranteed rankings or lead numbers</li>
-                </ul>
-              </details>
-              <a class="btn btn--dark btn--block plan__cta" href="/start/?plan=local-sprint-own-the-area&amp;cur=usd" data-plan-cta="local-sprint-own-the-area">Start with Own the Area<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-            </article>
-            <article class="plan plan--custom" data-plan="local-sprint-custom" aria-labelledby="plan-local-sprint-custom">
-              <h4 class="plan__name" id="plan-local-sprint-custom">Custom</h4>
-              <p class="plan__promise">Many locations or a franchise? Same model, scoped for you.</p>
-              <p class="plan__price plan__price--quote">Fixed quote before you pay</p>
-              <p class="plan__billing">One-off · scoped in writing</p>
-              <p class="plan__best"><b>Best for:</b> 4+ locations, franchises, several languages</p>
-              <ul class="plan__list plan__list--cases">
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Multiple locations</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Franchises</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Several markets or languages</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Regulated niches</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>White-label for other agencies</li>
-              </ul>
-              <p class="plan__note">You still get a fixed price and a deliverables list before you pay.</p>
-              <p class="plan__recheck"><svg aria-hidden="true"><use href="#i-search"></use></svg><span><b>Re-checked:</b> The questions and engines we agree, on day 0 and day 45</span></p>
-              <details class="plan__excl" data-not-included="local-sprint-custom">
-                <summary>Not included</summary>
-                <ul>
-                  <li>Ad spend</li>
-                  <li>Paid directory memberships (for example a Checkatrade subscription)</li>
-                  <li>Professional photography</li>
-                  <li>A full website redesign</li>
-                  <li>Fake or gated reviews</li>
-                  <li>Guaranteed rankings or lead numbers</li>
-                </ul>
-              </details>
-              <a class="btn btn--outline btn--block plan__cta" href="/start/?plan=local-sprint-custom&amp;cur=usd" data-plan-cta="local-sprint-custom">Tell us what you need<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-            </article>
-          </div>
-        </div>
-        <div class="pricing__row" data-row="local-monthly">
-          <header class="pricing__row-head">
-            <h3 class="pricing__row-title" id="row-local-monthly">Then keep it growing (monthly)<span class="sr-only">: Local business</span></h3>
-            <p class="pricing__row-intro">Keep and grow. Ongoing work that only makes sense once the basics exist: monthly re-checks, new pages, review and listing upkeep, outreach and a monthly report.</p>
-          </header>
-          <div class="plans" data-plans aria-labelledby="row-local-monthly">
-            <article class="plan" data-plan="local-monthly-keep" aria-labelledby="plan-local-monthly-keep">
-              <h4 class="plan__name" id="plan-local-monthly-keep">Keep</h4>
-              <p class="plan__promise">Hold what the sprint built, and see every month where you stand.</p>
-              <p class="plan__price plan__price--quote">Fixed monthly price</p>
-              <p class="plan__billing">Quoted in writing before you pay · cancel any month</p>
-              <p class="plan__best"><b>Best for:</b> Hold what the sprint built</p>
-              <ul class="plan__list">
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>4 Google posts a month</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Pages a month: 1 refreshed</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Review monitoring + reply drafts</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Leads report: calls, forms and bookings</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Monthly: 1-page report</li>
-              </ul>
-              <p class="plan__recheck"><svg aria-hidden="true"><use href="#i-search"></use></svg><span><b>Re-checked:</b> 10 questions × 3 AI engines, every month</span></p>
-              <details class="plan__excl" data-not-included="local-monthly-keep">
-                <summary>Not included</summary>
-                <ul>
-                  <li>New directory or review-site listings per month <span>(in Grow and up)</span></li>
-                  <li>Review request push to recent customers <span>(in Grow and up)</span></li>
-                  <li>Competitor watch (who AI names this month) <span>(in Grow and up)</span></li>
-                  <li>Local PR and mention outreach <span>(in Lead and up)</span></li>
-                  <li>Ad spend</li>
-                  <li>Paid directory memberships (for example a Checkatrade subscription)</li>
-                  <li>Professional photography</li>
-                  <li>A full website redesign</li>
-                  <li>Fake or gated reviews</li>
-                  <li>Guaranteed rankings or lead numbers</li>
-                </ul>
-              </details>
-              <a class="btn btn--dark btn--block plan__cta" href="/start/?plan=local-monthly-keep&amp;cur=usd" data-plan-cta="local-monthly-keep">Start with Keep<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-            </article>
-            <article class="plan plan--featured" data-plan="local-monthly-grow" aria-labelledby="plan-local-monthly-grow">
-              <p class="plan__badge">Best place to start</p>
-              <h4 class="plan__name" id="plan-local-monthly-grow">Grow</h4>
-              <p class="plan__promise">Keep adding services and areas, and keep the reviews coming.</p>
-              <p class="plan__price plan__price--quote">Fixed monthly price</p>
-              <p class="plan__billing">Quoted in writing before you pay · cancel any month</p>
-              <p class="plan__best"><b>Best for:</b> Keep adding services and areas</p>
-              <ul class="plan__list">
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>8 Google posts a month</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Pages a month: 2 new (service, area or FAQ)</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>2 new listings a month</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Review monitoring + reply drafts</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Leads report: calls, forms and bookings</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Monthly: report + 30-min call</li>
-              </ul>
-              <p class="plan__recheck"><svg aria-hidden="true"><use href="#i-search"></use></svg><span><b>Re-checked:</b> 20 questions × 4 AI engines, every month</span></p>
-              <details class="plan__excl" data-not-included="local-monthly-grow">
-                <summary>Not included</summary>
-                <ul>
-                  <li>Local PR and mention outreach <span>(in Lead and up)</span></li>
-                  <li>Ad spend</li>
-                  <li>Paid directory memberships (for example a Checkatrade subscription)</li>
-                  <li>Professional photography</li>
-                  <li>A full website redesign</li>
-                  <li>Fake or gated reviews</li>
-                  <li>Guaranteed rankings or lead numbers</li>
-                </ul>
-              </details>
-              <a class="btn btn--primary btn--block plan__cta" href="/start/?plan=local-monthly-grow&amp;cur=usd" data-plan-cta="local-monthly-grow">Start with Grow<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-            </article>
-            <article class="plan" data-plan="local-monthly-lead" aria-labelledby="plan-local-monthly-lead">
-              <h4 class="plan__name" id="plan-local-monthly-lead">Lead</h4>
-              <p class="plan__promise">Stay the first name across several locations.</p>
-              <p class="plan__price plan__price--quote">Fixed monthly price</p>
-              <p class="plan__billing">Quoted in writing before you pay · cancel any month</p>
-              <p class="plan__best"><b>Best for:</b> Stay first across several locations</p>
-              <ul class="plan__list">
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>12 Google posts a month</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Pages a month: 4 new</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>4 new listings a month</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Review monitoring + reply drafts</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Local PR outreach: 4 pitches/month</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Leads report: calls, forms and bookings</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Monthly: report + 30-min call + 90-day roadmap refresh</li>
-              </ul>
-              <p class="plan__recheck"><svg aria-hidden="true"><use href="#i-search"></use></svg><span><b>Re-checked:</b> 30 questions × 4 AI engines per location (up to 3), every month</span></p>
-              <details class="plan__excl" data-not-included="local-monthly-lead">
-                <summary>Not included</summary>
-                <ul>
-                  <li>Ad spend</li>
-                  <li>Paid directory memberships (for example a Checkatrade subscription)</li>
-                  <li>Professional photography</li>
-                  <li>A full website redesign</li>
-                  <li>Fake or gated reviews</li>
-                  <li>Guaranteed rankings or lead numbers</li>
-                </ul>
-              </details>
-              <a class="btn btn--dark btn--block plan__cta" href="/start/?plan=local-monthly-lead&amp;cur=usd" data-plan-cta="local-monthly-lead">Start with Lead<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-            </article>
-            <article class="plan plan--custom" data-plan="local-monthly-custom" aria-labelledby="plan-local-monthly-custom">
-              <h4 class="plan__name" id="plan-local-monthly-custom">Custom</h4>
-              <p class="plan__promise">Groups, franchises or agencies? Same model, scoped for you.</p>
-              <p class="plan__price plan__price--quote">Fixed quote before you pay</p>
-              <p class="plan__billing">Monthly · scoped in writing</p>
-              <p class="plan__best"><b>Best for:</b> Groups, franchises, agencies</p>
-              <ul class="plan__list plan__list--cases">
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Multiple locations</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Franchises</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Several markets or languages</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Regulated niches</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>White-label for other agencies</li>
-              </ul>
-              <p class="plan__note">You still get a fixed price and a deliverables list before you pay.</p>
-              <p class="plan__recheck"><svg aria-hidden="true"><use href="#i-search"></use></svg><span><b>Re-checked:</b> The questions and engines we agree, every month</span></p>
-              <details class="plan__excl" data-not-included="local-monthly-custom">
-                <summary>Not included</summary>
-                <ul>
-                  <li>Ad spend</li>
-                  <li>Paid directory memberships (for example a Checkatrade subscription)</li>
-                  <li>Professional photography</li>
-                  <li>A full website redesign</li>
-                  <li>Fake or gated reviews</li>
-                  <li>Guaranteed rankings or lead numbers</li>
-                </ul>
-              </details>
-              <a class="btn btn--outline btn--block plan__cta" href="/start/?plan=local-monthly-custom&amp;cur=usd" data-plan-cta="local-monthly-custom">Tell us what you need<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-            </article>
-          </div>
-          <p class="pricing__rule"><svg aria-hidden="true"><use href="#i-calendar"></use></svg>Monthly plans start after a sprint, or after our free audit confirms your basics are already in place.</p>
-        </div>
-        <div class="pricing__excl">
-          <p class="pricing__excl-title">Not included in any local plan</p>
-          <ul><li>Ad spend</li><li>Paid directory memberships (for example a Checkatrade subscription)</li><li>Professional photography</li><li>A full website redesign</li><li>Fake or gated reviews</li><li>Guaranteed rankings or lead numbers</li></ul>
-        </div>
-      </div>
-      <div class="pricing__panel" data-type-panel="online" role="region" aria-label="Online and national business plans">
-        <p class="pricing__type">Online and national business plans</p>
-        <p class="pricing__who">For B2B services, SaaS, e-commerce and national brands that sell beyond one town. Questions we test look like <q>best {category} for {use case}</q>, <q>{brand} vs {competitor}</q>, <q>alternatives to {competitor}</q>.</p>
-        <div class="pricing__row" data-row="online-sprint">
-          <header class="pricing__row-head">
-            <h3 class="pricing__row-title" id="row-online-sprint">Start with a 45-day sprint<span class="sr-only">: Online &amp; national</span></h3>
-            <p class="pricing__row-intro">Build. One-off setup work: fix what stops AI from understanding and trusting you, build the missing pages and listings, set up tracking, then re-check on day 45.</p>
-          </header>
-          <div class="plans" data-plans aria-labelledby="row-online-sprint">
-            <article class="plan" data-plan="online-sprint-foundation" aria-labelledby="plan-online-sprint-foundation">
-              <h4 class="plan__name" id="plan-online-sprint-foundation">Foundation</h4>
-              <p class="plan__promise">Make AI understand what you sell and who it’s for.</p>
-              <p class="plan__price plan__price--quote">Fixed price, one-off</p>
-              <p class="plan__billing">Quoted in writing before you pay · upfront or 50/50</p>
-              <p class="plan__best"><b>Best for:</b> One product or service line, one market</p>
-              <ul class="plan__list">
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Brand facts fixes: facts page, schema, public profiles</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>3 new answer pages (vs, alternatives, best for)</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>3 existing pages rewritten for AI answers</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>2 review platforms set up or fixed</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Citation map: top 20 sites AI cites</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Day-45 report + 45-min review call</li>
-              </ul>
-              <p class="plan__recheck"><svg aria-hidden="true"><use href="#i-search"></use></svg><span><b>Re-checked:</b> 20 questions × 4 AI engines, on day 0 and day 45</span></p>
-              <details class="plan__excl" data-not-included="online-sprint-foundation">
-                <summary>Not included</summary>
-                <ul>
-                  <li>PR and mention outreach (roundups, &quot;best of&quot; lists, industry sites) <span>(in Authority and up)</span></li>
-                  <li>Ad spend</li>
-                  <li>Paid review-platform subscriptions</li>
-                  <li>Paid or sponsored placements</li>
-                  <li>Product changes</li>
-                  <li>Guaranteed placements, mentions or revenue</li>
-                </ul>
-              </details>
-              <a class="btn btn--dark btn--block plan__cta" href="/start/?plan=online-sprint-foundation&amp;cur=usd" data-plan-cta="online-sprint-foundation">Start with Foundation<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-            </article>
-            <article class="plan plan--featured" data-plan="online-sprint-authority" aria-labelledby="plan-online-sprint-authority">
-              <p class="plan__badge">Best place to start</p>
-              <h4 class="plan__name" id="plan-online-sprint-authority">Authority</h4>
-              <p class="plan__promise">Show up when buyers ask AI to compare options.</p>
-              <p class="plan__price plan__price--quote">Fixed price, one-off</p>
-              <p class="plan__billing">Quoted in writing before you pay · upfront or 50/50</p>
-              <p class="plan__best"><b>Best for:</b> Several lines or a crowded category</p>
-              <ul class="plan__list">
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Brand facts fixes: facts page, schema, public profiles</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>6 new answer pages (vs, alternatives, best for)</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>6 existing pages rewritten for AI answers</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>4 review platforms set up or fixed</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Citation map: top 50 sites AI cites</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>PR outreach: 10 pitches</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Day-45 report + 45-min review call</li>
-              </ul>
-              <p class="plan__recheck"><svg aria-hidden="true"><use href="#i-search"></use></svg><span><b>Re-checked:</b> 40 questions × 5 AI engines, on day 0 and day 45</span></p>
-              <details class="plan__excl" data-not-included="online-sprint-authority">
-                <summary>Not included</summary>
-                <ul>
-                  <li>Ad spend</li>
-                  <li>Paid review-platform subscriptions</li>
-                  <li>Paid or sponsored placements</li>
-                  <li>Product changes</li>
-                  <li>Guaranteed placements, mentions or revenue</li>
-                </ul>
-              </details>
-              <a class="btn btn--primary btn--block plan__cta" href="/start/?plan=online-sprint-authority&amp;cur=usd" data-plan-cta="online-sprint-authority">Start with Authority<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-            </article>
-            <article class="plan" data-plan="online-sprint-category" aria-labelledby="plan-online-sprint-category">
-              <h4 class="plan__name" id="plan-online-sprint-category">Category</h4>
-              <p class="plan__promise">Be the name AI gives first in your category.</p>
-              <p class="plan__price plan__price--quote">Fixed price, one-off</p>
-              <p class="plan__billing">Quoted in writing before you pay · upfront or 50/50</p>
-              <p class="plan__best"><b>Best for:</b> Pushing for category leadership, up to 2 markets</p>
-              <ul class="plan__list">
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Brand facts fixes: facts page, schema, public profiles</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>12 new answer pages (vs, alternatives, best for)</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>10 existing pages rewritten for AI answers</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>6 review platforms set up or fixed</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Citation map: top 100 sites AI cites</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>PR outreach: 25 pitches</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Day-45 report + 45-min review call</li>
-              </ul>
-              <p class="plan__recheck"><svg aria-hidden="true"><use href="#i-search"></use></svg><span><b>Re-checked:</b> 80 questions × 5 AI engines, on day 0 and day 45</span></p>
-              <details class="plan__excl" data-not-included="online-sprint-category">
-                <summary>Not included</summary>
-                <ul>
-                  <li>Ad spend</li>
-                  <li>Paid review-platform subscriptions</li>
-                  <li>Paid or sponsored placements</li>
-                  <li>Product changes</li>
-                  <li>Guaranteed placements, mentions or revenue</li>
-                </ul>
-              </details>
-              <a class="btn btn--dark btn--block plan__cta" href="/start/?plan=online-sprint-category&amp;cur=usd" data-plan-cta="online-sprint-category">Start with Category<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-            </article>
-            <article class="plan plan--custom" data-plan="online-sprint-custom" aria-labelledby="plan-online-sprint-custom">
-              <h4 class="plan__name" id="plan-online-sprint-custom">Custom</h4>
-              <p class="plan__promise">Several brands or markets? Same model, scoped for you.</p>
-              <p class="plan__price plan__price--quote">Fixed quote before you pay</p>
-              <p class="plan__billing">One-off · scoped in writing</p>
-              <p class="plan__best"><b>Best for:</b> Multi-brand, 3+ markets, regulated sectors</p>
-              <ul class="plan__list plan__list--cases">
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Several brands or product lines</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>3+ markets or languages</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Regulated sectors</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Marketplaces and large catalogs</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>White-label for other agencies</li>
-              </ul>
-              <p class="plan__note">You still get a fixed price and a deliverables list before you pay.</p>
-              <p class="plan__recheck"><svg aria-hidden="true"><use href="#i-search"></use></svg><span><b>Re-checked:</b> The questions and engines we agree, on day 0 and day 45</span></p>
-              <details class="plan__excl" data-not-included="online-sprint-custom">
-                <summary>Not included</summary>
-                <ul>
-                  <li>Ad spend</li>
-                  <li>Paid review-platform subscriptions</li>
-                  <li>Paid or sponsored placements</li>
-                  <li>Product changes</li>
-                  <li>Guaranteed placements, mentions or revenue</li>
-                </ul>
-              </details>
-              <a class="btn btn--outline btn--block plan__cta" href="/start/?plan=online-sprint-custom&amp;cur=usd" data-plan-cta="online-sprint-custom">Tell us what you need<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-            </article>
-          </div>
-        </div>
-        <div class="pricing__row" data-row="online-monthly">
-          <header class="pricing__row-head">
-            <h3 class="pricing__row-title" id="row-online-monthly">Then keep it growing (monthly)<span class="sr-only">: Online &amp; national</span></h3>
-            <p class="pricing__row-intro">Keep and grow. Ongoing work that only makes sense once the basics exist: monthly re-checks, new pages, review and listing upkeep, outreach and a monthly report.</p>
-          </header>
-          <div class="plans" data-plans aria-labelledby="row-online-monthly">
-            <article class="plan" data-plan="online-monthly-track" aria-labelledby="plan-online-monthly-track">
-              <h4 class="plan__name" id="plan-online-monthly-track">Track</h4>
-              <p class="plan__promise">Watch your share of AI answers and hold your position.</p>
-              <p class="plan__price plan__price--quote">Fixed monthly price</p>
-              <p class="plan__billing">Quoted in writing before you pay · cancel any month</p>
-              <p class="plan__best"><b>Best for:</b> Watch and hold your position</p>
-              <ul class="plan__list">
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Share of AI mentions vs named competitors</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>1 new answer page a month</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>1 page refresh a month</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Review platform upkeep + review requests</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Monthly: 1-page report</li>
-              </ul>
-              <p class="plan__recheck"><svg aria-hidden="true"><use href="#i-search"></use></svg><span><b>Re-checked:</b> 20 questions × 4 AI engines, every month</span></p>
-              <details class="plan__excl" data-not-included="online-monthly-track">
-                <summary>Not included</summary>
-                <ul>
-                  <li>PR and mention outreach <span>(in Scale and up)</span></li>
-                  <li>Ad spend</li>
-                  <li>Paid review-platform subscriptions</li>
-                  <li>Paid or sponsored placements</li>
-                  <li>Product changes</li>
-                  <li>Guaranteed placements, mentions or revenue</li>
-                </ul>
-              </details>
-              <a class="btn btn--dark btn--block plan__cta" href="/start/?plan=online-monthly-track&amp;cur=usd" data-plan-cta="online-monthly-track">Start with Track<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-            </article>
-            <article class="plan plan--featured" data-plan="online-monthly-scale" aria-labelledby="plan-online-monthly-scale">
-              <p class="plan__badge">Best place to start</p>
-              <h4 class="plan__name" id="plan-online-monthly-scale">Scale</h4>
-              <p class="plan__promise">Win more of the comparison questions buyers ask.</p>
-              <p class="plan__price plan__price--quote">Fixed monthly price</p>
-              <p class="plan__billing">Quoted in writing before you pay · cancel any month</p>
-              <p class="plan__best"><b>Best for:</b> Win more comparison questions</p>
-              <ul class="plan__list">
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Share of AI mentions vs named competitors</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>3 new answer pages a month</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>2 page refreshes a month</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Review platform upkeep + review requests</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>PR outreach: 5 pitches/month</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Monthly: report + 30-min call</li>
-              </ul>
-              <p class="plan__recheck"><svg aria-hidden="true"><use href="#i-search"></use></svg><span><b>Re-checked:</b> 40 questions × 5 AI engines, every month</span></p>
-              <details class="plan__excl" data-not-included="online-monthly-scale">
-                <summary>Not included</summary>
-                <ul>
-                  <li>Ad spend</li>
-                  <li>Paid review-platform subscriptions</li>
-                  <li>Paid or sponsored placements</li>
-                  <li>Product changes</li>
-                  <li>Guaranteed placements, mentions or revenue</li>
-                </ul>
-              </details>
-              <a class="btn btn--primary btn--block plan__cta" href="/start/?plan=online-monthly-scale&amp;cur=usd" data-plan-cta="online-monthly-scale">Start with Scale<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-            </article>
-            <article class="plan" data-plan="online-monthly-lead-the-category" aria-labelledby="plan-online-monthly-lead-the-category">
-              <h4 class="plan__name" id="plan-online-monthly-lead-the-category">Lead the Category</h4>
-              <p class="plan__promise">Defend first place in your category, in 2 markets.</p>
-              <p class="plan__price plan__price--quote">Fixed monthly price</p>
-              <p class="plan__billing">Quoted in writing before you pay · cancel any month</p>
-              <p class="plan__best"><b>Best for:</b> Defend first place, 2 markets</p>
-              <ul class="plan__list">
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Share of AI mentions vs named competitors</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>6 new answer pages a month</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>4 page refreshes a month</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Review platform upkeep + review requests</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>PR outreach: 12 pitches/month</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Monthly: report + 30-min call + 90-day roadmap refresh</li>
-              </ul>
-              <p class="plan__recheck"><svg aria-hidden="true"><use href="#i-search"></use></svg><span><b>Re-checked:</b> 80 questions × 5 AI engines in 2 markets, every month</span></p>
-              <details class="plan__excl" data-not-included="online-monthly-lead-the-category">
-                <summary>Not included</summary>
-                <ul>
-                  <li>Ad spend</li>
-                  <li>Paid review-platform subscriptions</li>
-                  <li>Paid or sponsored placements</li>
-                  <li>Product changes</li>
-                  <li>Guaranteed placements, mentions or revenue</li>
-                </ul>
-              </details>
-              <a class="btn btn--dark btn--block plan__cta" href="/start/?plan=online-monthly-lead-the-category&amp;cur=usd" data-plan-cta="online-monthly-lead-the-category">Start with Lead the Category<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-            </article>
-            <article class="plan plan--custom" data-plan="online-monthly-custom" aria-labelledby="plan-online-monthly-custom">
-              <h4 class="plan__name" id="plan-online-monthly-custom">Custom</h4>
-              <p class="plan__promise">Groups, several brands or agencies? Same model, scoped for you.</p>
-              <p class="plan__price plan__price--quote">Fixed quote before you pay</p>
-              <p class="plan__billing">Monthly · scoped in writing</p>
-              <p class="plan__best"><b>Best for:</b> Groups, multi-brand, agencies</p>
-              <ul class="plan__list plan__list--cases">
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Several brands or product lines</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>3+ markets or languages</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Regulated sectors</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Marketplaces and large catalogs</li>
-                <li><svg aria-hidden="true"><use href="#i-check"></use></svg>White-label for other agencies</li>
-              </ul>
-              <p class="plan__note">You still get a fixed price and a deliverables list before you pay.</p>
-              <p class="plan__recheck"><svg aria-hidden="true"><use href="#i-search"></use></svg><span><b>Re-checked:</b> The questions and engines we agree, every month</span></p>
-              <details class="plan__excl" data-not-included="online-monthly-custom">
-                <summary>Not included</summary>
-                <ul>
-                  <li>Ad spend</li>
-                  <li>Paid review-platform subscriptions</li>
-                  <li>Paid or sponsored placements</li>
-                  <li>Product changes</li>
-                  <li>Guaranteed placements, mentions or revenue</li>
-                </ul>
-              </details>
-              <a class="btn btn--outline btn--block plan__cta" href="/start/?plan=online-monthly-custom&amp;cur=usd" data-plan-cta="online-monthly-custom">Tell us what you need<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-            </article>
-          </div>
-          <p class="pricing__rule"><svg aria-hidden="true"><use href="#i-calendar"></use></svg>Monthly plans start after a sprint, or after our free audit confirms your basics are already in place.</p>
-        </div>
-        <div class="pricing__excl">
-          <p class="pricing__excl-title">Not included in any online plan</p>
-          <ul><li>Ad spend</li><li>Paid review-platform subscriptions</li><li>Paid or sponsored placements</li><li>Product changes</li><li>Guaranteed placements, mentions or revenue</li></ul>
-          <p class="pricing__excl-note">Outreach is counted in pitches sent, not articles won.</p>
-        </div>
-      </div>
-      <!-- /build:pricing -->
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================
-     6 · COMPARE EVERY DELIVERABLE + INCLUDED IN EVERY PLAN
-     ================================================================ -->
-<section class="band band--beige compare" id="compare" aria-labelledby="compare-title">
-  <div class="container">
-    <details class="compare__box" data-compare>
-      <summary class="compare__summary">
-        <span>
-          <span class="eyebrow">Full table</span>
-          <span class="compare__title h2" id="compare-title">Compare every deliverable</span>
-          <span class="compare__sub">Every line of every plan for the business type you picked above, with what’s not included.</span>
-        </span>
-        <span class="qa__icon" aria-hidden="true"></span>
-      </summary>
-      <div class="compare__body">
-        <!-- build:compare -->
-        <div class="compare__panel" data-type-panel="local">
-          <p class="pricing__type">Local business plans</p>
-          <div class="compare__table">
-            <table>
-              <caption>Local business · 45-day sprint</caption>
-              <thead><tr><th scope="col">What you get</th><th scope="col">Get Found</th><th scope="col">Get Chosen</th><th scope="col">Own the Area</th><th scope="col">Custom</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Best for</th><td>1 location, a few core services</td><td>1 location, wider service list, competitive town</td><td>Up to 3 locations or a wide service area</td><td>4+ locations, franchises, several languages</td></tr>
-                <tr><th scope="row">Services covered</th><td>Up to 3</td><td>Up to 6</td><td>Up to 10</td><td>Agreed list</td></tr>
-                <tr><th scope="row">Google Business Profile fix-up (categories, services, hours, photos, Q&amp;A)</th><td>1 profile</td><td>1 profile</td><td>Up to 3 profiles</td><td>Agreed</td></tr>
-                <tr><th scope="row">Google posts during the sprint</th><td><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></td><td>6</td><td>12</td><td>Agreed</td></tr>
-                <tr><th scope="row">Website fixes: AI crawler access, schema, name/address/phone consistency, indexing</th><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td></tr>
-                <tr><th scope="row">New or rebuilt service pages</th><td>3</td><td>6</td><td>9</td><td>Agreed</td></tr>
-                <tr><th scope="row">Area pages (&quot;{service} in {area}&quot;)</th><td><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></td><td>2</td><td>5</td><td>Agreed</td></tr>
-                <tr><th scope="row">FAQ page refresh written for AI answers</th><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td></tr>
-                <tr><th scope="row">Directory and review-site listings set up or fixed (niche sites like Checkatrade, Angi, Healthgrades)</th><td>5</td><td>10</td><td>15</td><td>Agreed</td></tr>
-                <tr><th scope="row">Review routine: request templates, QR card, reply templates</th><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td></tr>
-                <tr><th scope="row">Lead capture check: click-to-call, quote form, booking link</th><td>Check + fix list</td><td>Fixed for you</td><td>Fixed for you, per location</td><td>Agreed</td></tr>
-                <tr><th scope="row">Call and form tracking, AI-referral tracking in GA4</th><td>Basic</td><td>Full</td><td>Full, per location</td><td>Agreed</td></tr>
-                <tr><th scope="row">Competitor gap: the businesses AI names instead of you</th><td>Top 3</td><td>Top 5 + what they have that you don't</td><td>Top 5 per location</td><td>Agreed</td></tr>
-                <tr><th scope="row">Local PR and mention outreach</th><td><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></td><td>3 pitches</td><td>10 pitches</td><td>Agreed</td></tr>
-                <tr><th scope="row">AI re-check, day 0 and day 45</th><td>10 questions × ChatGPT, Gemini, Google AI Overviews</td><td>20 questions × the same + Google AI Mode</td><td>30 questions × 4 engines, split by location</td><td>Agreed</td></tr>
-                <tr><th scope="row">Day-45 report + 30-min review call</th><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td></tr>
-                <tr><th scope="row">Timeline</th><td>45 days</td><td>45 days</td><td>45 days</td><td>Agreed in writing</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="compare__plans" aria-label="Local business · 45-day sprint">
-            <p class="compare__plans-title">Local business · 45-day sprint</p>
-            <details class="compare__plan">
-              <summary><span>Get Found</span></summary>
-              <dl>
-                <div><dt>Best for</dt><dd>1 location, a few core services</dd></div>
-                <div><dt>Services covered</dt><dd>Up to 3</dd></div>
-                <div><dt>Google Business Profile fix-up (categories, services, hours, photos, Q&amp;A)</dt><dd>1 profile</dd></div>
-                <div><dt>Google posts during the sprint</dt><dd><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></dd></div>
-                <div><dt>Website fixes: AI crawler access, schema, name/address/phone consistency, indexing</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>New or rebuilt service pages</dt><dd>3</dd></div>
-                <div><dt>Area pages (&quot;{service} in {area}&quot;)</dt><dd><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></dd></div>
-                <div><dt>FAQ page refresh written for AI answers</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Directory and review-site listings set up or fixed (niche sites like Checkatrade, Angi, Healthgrades)</dt><dd>5</dd></div>
-                <div><dt>Review routine: request templates, QR card, reply templates</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Lead capture check: click-to-call, quote form, booking link</dt><dd>Check + fix list</dd></div>
-                <div><dt>Call and form tracking, AI-referral tracking in GA4</dt><dd>Basic</dd></div>
-                <div><dt>Competitor gap: the businesses AI names instead of you</dt><dd>Top 3</dd></div>
-                <div><dt>Local PR and mention outreach</dt><dd><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></dd></div>
-                <div><dt>AI re-check, day 0 and day 45</dt><dd>10 questions × ChatGPT, Gemini, Google AI Overviews</dd></div>
-                <div><dt>Day-45 report + 30-min review call</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Timeline</dt><dd>45 days</dd></div>
-              </dl>
-            </details>
-            <details class="compare__plan">
-              <summary><span>Get Chosen</span></summary>
-              <dl>
-                <div><dt>Best for</dt><dd>1 location, wider service list, competitive town</dd></div>
-                <div><dt>Services covered</dt><dd>Up to 6</dd></div>
-                <div><dt>Google Business Profile fix-up (categories, services, hours, photos, Q&amp;A)</dt><dd>1 profile</dd></div>
-                <div><dt>Google posts during the sprint</dt><dd>6</dd></div>
-                <div><dt>Website fixes: AI crawler access, schema, name/address/phone consistency, indexing</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>New or rebuilt service pages</dt><dd>6</dd></div>
-                <div><dt>Area pages (&quot;{service} in {area}&quot;)</dt><dd>2</dd></div>
-                <div><dt>FAQ page refresh written for AI answers</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Directory and review-site listings set up or fixed (niche sites like Checkatrade, Angi, Healthgrades)</dt><dd>10</dd></div>
-                <div><dt>Review routine: request templates, QR card, reply templates</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Lead capture check: click-to-call, quote form, booking link</dt><dd>Fixed for you</dd></div>
-                <div><dt>Call and form tracking, AI-referral tracking in GA4</dt><dd>Full</dd></div>
-                <div><dt>Competitor gap: the businesses AI names instead of you</dt><dd>Top 5 + what they have that you don't</dd></div>
-                <div><dt>Local PR and mention outreach</dt><dd>3 pitches</dd></div>
-                <div><dt>AI re-check, day 0 and day 45</dt><dd>20 questions × the same + Google AI Mode</dd></div>
-                <div><dt>Day-45 report + 30-min review call</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Timeline</dt><dd>45 days</dd></div>
-              </dl>
-            </details>
-            <details class="compare__plan">
-              <summary><span>Own the Area</span></summary>
-              <dl>
-                <div><dt>Best for</dt><dd>Up to 3 locations or a wide service area</dd></div>
-                <div><dt>Services covered</dt><dd>Up to 10</dd></div>
-                <div><dt>Google Business Profile fix-up (categories, services, hours, photos, Q&amp;A)</dt><dd>Up to 3 profiles</dd></div>
-                <div><dt>Google posts during the sprint</dt><dd>12</dd></div>
-                <div><dt>Website fixes: AI crawler access, schema, name/address/phone consistency, indexing</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>New or rebuilt service pages</dt><dd>9</dd></div>
-                <div><dt>Area pages (&quot;{service} in {area}&quot;)</dt><dd>5</dd></div>
-                <div><dt>FAQ page refresh written for AI answers</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Directory and review-site listings set up or fixed (niche sites like Checkatrade, Angi, Healthgrades)</dt><dd>15</dd></div>
-                <div><dt>Review routine: request templates, QR card, reply templates</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Lead capture check: click-to-call, quote form, booking link</dt><dd>Fixed for you, per location</dd></div>
-                <div><dt>Call and form tracking, AI-referral tracking in GA4</dt><dd>Full, per location</dd></div>
-                <div><dt>Competitor gap: the businesses AI names instead of you</dt><dd>Top 5 per location</dd></div>
-                <div><dt>Local PR and mention outreach</dt><dd>10 pitches</dd></div>
-                <div><dt>AI re-check, day 0 and day 45</dt><dd>30 questions × 4 engines, split by location</dd></div>
-                <div><dt>Day-45 report + 30-min review call</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Timeline</dt><dd>45 days</dd></div>
-              </dl>
-            </details>
-            <details class="compare__plan">
-              <summary><span>Custom</span></summary>
-              <dl>
-                <div><dt>Best for</dt><dd>4+ locations, franchises, several languages</dd></div>
-                <div><dt>Services covered</dt><dd>Agreed list</dd></div>
-                <div><dt>Google Business Profile fix-up (categories, services, hours, photos, Q&amp;A)</dt><dd>Agreed</dd></div>
-                <div><dt>Google posts during the sprint</dt><dd>Agreed</dd></div>
-                <div><dt>Website fixes: AI crawler access, schema, name/address/phone consistency, indexing</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>New or rebuilt service pages</dt><dd>Agreed</dd></div>
-                <div><dt>Area pages (&quot;{service} in {area}&quot;)</dt><dd>Agreed</dd></div>
-                <div><dt>FAQ page refresh written for AI answers</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Directory and review-site listings set up or fixed (niche sites like Checkatrade, Angi, Healthgrades)</dt><dd>Agreed</dd></div>
-                <div><dt>Review routine: request templates, QR card, reply templates</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Lead capture check: click-to-call, quote form, booking link</dt><dd>Agreed</dd></div>
-                <div><dt>Call and form tracking, AI-referral tracking in GA4</dt><dd>Agreed</dd></div>
-                <div><dt>Competitor gap: the businesses AI names instead of you</dt><dd>Agreed</dd></div>
-                <div><dt>Local PR and mention outreach</dt><dd>Agreed</dd></div>
-                <div><dt>AI re-check, day 0 and day 45</dt><dd>Agreed</dd></div>
-                <div><dt>Day-45 report + 30-min review call</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Timeline</dt><dd>Agreed in writing</dd></div>
-              </dl>
-            </details>
-          </div>
-          <div class="compare__table">
-            <table>
-              <caption>Local business · Monthly plan</caption>
-              <thead><tr><th scope="col">What you get</th><th scope="col">Keep</th><th scope="col">Grow</th><th scope="col">Lead</th><th scope="col">Custom</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Best for</th><td>Hold what the sprint built</td><td>Keep adding services and areas</td><td>Stay first across several locations</td><td>Groups, franchises, agencies</td></tr>
-                <tr><th scope="row">AI re-check every month</th><td>10 questions × 3 engines</td><td>20 questions × 4 engines</td><td>30 questions × 4 engines, per location (up to 3)</td><td>Agreed</td></tr>
-                <tr><th scope="row">Google posts per month</th><td>4</td><td>8</td><td>12</td><td>Agreed</td></tr>
-                <tr><th scope="row">New or refreshed pages per month</th><td>1 refreshed</td><td>2 new (service, area or FAQ)</td><td>4 new</td><td>Agreed</td></tr>
-                <tr><th scope="row">Listings: drift fixes on existing sites</th><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td></tr>
-                <tr><th scope="row">New directory or review-site listings per month</th><td><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></td><td>2</td><td>4</td><td>Agreed</td></tr>
-                <tr><th scope="row">Review monitoring + reply drafts</th><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td></tr>
-                <tr><th scope="row">Review request push to recent customers</th><td><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></td><td>Monthly</td><td>Monthly, per location</td><td>Agreed</td></tr>
-                <tr><th scope="row">Competitor watch (who AI names this month)</th><td><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td></tr>
-                <tr><th scope="row">Local PR and mention outreach</th><td><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></td><td><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></td><td>4 pitches/month</td><td>Agreed</td></tr>
-                <tr><th scope="row">Leads report: calls, forms and bookings from AI and Google, where trackable</th><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td></tr>
-                <tr><th scope="row">Monthly report</th><td>1-page report</td><td>Report + 30-min call</td><td>Report + 30-min call + 90-day roadmap refresh</td><td>Agreed</td></tr>
-                <tr><th scope="row">Commitment</th><td>Cancel any month</td><td>Cancel any month</td><td>Cancel any month</td><td>Agreed in writing</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="compare__plans" aria-label="Local business · Monthly plan">
-            <p class="compare__plans-title">Local business · Monthly plan</p>
-            <details class="compare__plan">
-              <summary><span>Keep</span></summary>
-              <dl>
-                <div><dt>Best for</dt><dd>Hold what the sprint built</dd></div>
-                <div><dt>AI re-check every month</dt><dd>10 questions × 3 engines</dd></div>
-                <div><dt>Google posts per month</dt><dd>4</dd></div>
-                <div><dt>New or refreshed pages per month</dt><dd>1 refreshed</dd></div>
-                <div><dt>Listings: drift fixes on existing sites</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>New directory or review-site listings per month</dt><dd><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></dd></div>
-                <div><dt>Review monitoring + reply drafts</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Review request push to recent customers</dt><dd><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></dd></div>
-                <div><dt>Competitor watch (who AI names this month)</dt><dd><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></dd></div>
-                <div><dt>Local PR and mention outreach</dt><dd><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></dd></div>
-                <div><dt>Leads report: calls, forms and bookings from AI and Google, where trackable</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Monthly report</dt><dd>1-page report</dd></div>
-                <div><dt>Commitment</dt><dd>Cancel any month</dd></div>
-              </dl>
-            </details>
-            <details class="compare__plan">
-              <summary><span>Grow</span></summary>
-              <dl>
-                <div><dt>Best for</dt><dd>Keep adding services and areas</dd></div>
-                <div><dt>AI re-check every month</dt><dd>20 questions × 4 engines</dd></div>
-                <div><dt>Google posts per month</dt><dd>8</dd></div>
-                <div><dt>New or refreshed pages per month</dt><dd>2 new (service, area or FAQ)</dd></div>
-                <div><dt>Listings: drift fixes on existing sites</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>New directory or review-site listings per month</dt><dd>2</dd></div>
-                <div><dt>Review monitoring + reply drafts</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Review request push to recent customers</dt><dd>Monthly</dd></div>
-                <div><dt>Competitor watch (who AI names this month)</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Local PR and mention outreach</dt><dd><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></dd></div>
-                <div><dt>Leads report: calls, forms and bookings from AI and Google, where trackable</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Monthly report</dt><dd>Report + 30-min call</dd></div>
-                <div><dt>Commitment</dt><dd>Cancel any month</dd></div>
-              </dl>
-            </details>
-            <details class="compare__plan">
-              <summary><span>Lead</span></summary>
-              <dl>
-                <div><dt>Best for</dt><dd>Stay first across several locations</dd></div>
-                <div><dt>AI re-check every month</dt><dd>30 questions × 4 engines, per location (up to 3)</dd></div>
-                <div><dt>Google posts per month</dt><dd>12</dd></div>
-                <div><dt>New or refreshed pages per month</dt><dd>4 new</dd></div>
-                <div><dt>Listings: drift fixes on existing sites</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>New directory or review-site listings per month</dt><dd>4</dd></div>
-                <div><dt>Review monitoring + reply drafts</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Review request push to recent customers</dt><dd>Monthly, per location</dd></div>
-                <div><dt>Competitor watch (who AI names this month)</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Local PR and mention outreach</dt><dd>4 pitches/month</dd></div>
-                <div><dt>Leads report: calls, forms and bookings from AI and Google, where trackable</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Monthly report</dt><dd>Report + 30-min call + 90-day roadmap refresh</dd></div>
-                <div><dt>Commitment</dt><dd>Cancel any month</dd></div>
-              </dl>
-            </details>
-            <details class="compare__plan">
-              <summary><span>Custom</span></summary>
-              <dl>
-                <div><dt>Best for</dt><dd>Groups, franchises, agencies</dd></div>
-                <div><dt>AI re-check every month</dt><dd>Agreed</dd></div>
-                <div><dt>Google posts per month</dt><dd>Agreed</dd></div>
-                <div><dt>New or refreshed pages per month</dt><dd>Agreed</dd></div>
-                <div><dt>Listings: drift fixes on existing sites</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>New directory or review-site listings per month</dt><dd>Agreed</dd></div>
-                <div><dt>Review monitoring + reply drafts</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Review request push to recent customers</dt><dd>Agreed</dd></div>
-                <div><dt>Competitor watch (who AI names this month)</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Local PR and mention outreach</dt><dd>Agreed</dd></div>
-                <div><dt>Leads report: calls, forms and bookings from AI and Google, where trackable</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Monthly report</dt><dd>Agreed</dd></div>
-                <div><dt>Commitment</dt><dd>Agreed in writing</dd></div>
-              </dl>
-            </details>
-          </div>
-          <div class="pricing__excl">
-            <p class="pricing__excl-title">Not included in any local plan</p>
-            <ul><li>Ad spend</li><li>Paid directory memberships (for example a Checkatrade subscription)</li><li>Professional photography</li><li>A full website redesign</li><li>Fake or gated reviews</li><li>Guaranteed rankings or lead numbers</li></ul>
-          </div>
-        </div>
-        <div class="compare__panel" data-type-panel="online">
-          <p class="pricing__type">Online and national business plans</p>
-          <div class="compare__table">
-            <table>
-              <caption>Online &amp; national · 45-day sprint</caption>
-              <thead><tr><th scope="col">What you get</th><th scope="col">Foundation</th><th scope="col">Authority</th><th scope="col">Category</th><th scope="col">Custom</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Best for</th><td>One product or service line, one market</td><td>Several lines or a crowded category</td><td>Pushing for category leadership, up to 2 markets</td><td>Multi-brand, 3+ markets, regulated sectors</td></tr>
-                <tr><th scope="row">AI questions checked, day 0 and day 45</th><td>20 × ChatGPT, Gemini, Perplexity, Google AI Overviews</td><td>40 × the same + Google AI Mode</td><td>80 × 5 engines</td><td>Agreed</td></tr>
-                <tr><th scope="row">Brand facts fixes: company facts page, Organization/Product/Service schema, matching descriptions on your public profiles</th><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td></tr>
-                <tr><th scope="row">AI crawler access and indexing check</th><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td></tr>
-                <tr><th scope="row">New answer pages (&quot;X vs Y&quot;, alternatives, &quot;best for&quot;, use cases)</th><td>3</td><td>6</td><td>12</td><td>Agreed</td></tr>
-                <tr><th scope="row">Existing pages rewritten for AI answers (product, service, pricing, FAQ)</th><td>3</td><td>6</td><td>10</td><td>Agreed</td></tr>
-                <tr><th scope="row">Review platforms set up or fixed (G2, Capterra, Trustpilot, Clutch: chosen by business type)</th><td>2</td><td>4</td><td>6</td><td>Agreed</td></tr>
-                <tr><th scope="row">Review request campaign set up</th><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td></tr>
-                <tr><th scope="row">Citation map: the sites AI cites in your category, and where you’re missing</th><td>Top 20</td><td>Top 50</td><td>Top 100</td><td>Agreed</td></tr>
-                <tr><th scope="row">PR and mention outreach (roundups, &quot;best of&quot; lists, industry sites)</th><td><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></td><td>10 pitches</td><td>25 pitches</td><td>Agreed</td></tr>
-                <tr><th scope="row">Lead path check: demo, quote, trial or checkout</th><td>Check + fix list</td><td>Fixed for you</td><td>Fixed + 1 landing page for AI visitors</td><td>Agreed</td></tr>
-                <tr><th scope="row">AI-referral and conversion tracking in GA4</th><td>Basic</td><td>Full</td><td>Full + dashboard</td><td>Agreed</td></tr>
-                <tr><th scope="row">Competitor gap: who AI names instead of you</th><td>Top 3</td><td>Top 5</td><td>Top 8, with share of mentions</td><td>Agreed</td></tr>
-                <tr><th scope="row">Markets / languages</th><td>1</td><td>1</td><td>Up to 2</td><td>Agreed</td></tr>
-                <tr><th scope="row">Day-45 report + 45-min review call</th><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td></tr>
-                <tr><th scope="row">Timeline</th><td>45 days</td><td>45 days</td><td>45 days</td><td>Agreed in writing</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="compare__plans" aria-label="Online &amp; national · 45-day sprint">
-            <p class="compare__plans-title">Online &amp; national · 45-day sprint</p>
-            <details class="compare__plan">
-              <summary><span>Foundation</span></summary>
-              <dl>
-                <div><dt>Best for</dt><dd>One product or service line, one market</dd></div>
-                <div><dt>AI questions checked, day 0 and day 45</dt><dd>20 × ChatGPT, Gemini, Perplexity, Google AI Overviews</dd></div>
-                <div><dt>Brand facts fixes: company facts page, Organization/Product/Service schema, matching descriptions on your public profiles</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>AI crawler access and indexing check</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>New answer pages (&quot;X vs Y&quot;, alternatives, &quot;best for&quot;, use cases)</dt><dd>3</dd></div>
-                <div><dt>Existing pages rewritten for AI answers (product, service, pricing, FAQ)</dt><dd>3</dd></div>
-                <div><dt>Review platforms set up or fixed (G2, Capterra, Trustpilot, Clutch: chosen by business type)</dt><dd>2</dd></div>
-                <div><dt>Review request campaign set up</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Citation map: the sites AI cites in your category, and where you’re missing</dt><dd>Top 20</dd></div>
-                <div><dt>PR and mention outreach (roundups, &quot;best of&quot; lists, industry sites)</dt><dd><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></dd></div>
-                <div><dt>Lead path check: demo, quote, trial or checkout</dt><dd>Check + fix list</dd></div>
-                <div><dt>AI-referral and conversion tracking in GA4</dt><dd>Basic</dd></div>
-                <div><dt>Competitor gap: who AI names instead of you</dt><dd>Top 3</dd></div>
-                <div><dt>Markets / languages</dt><dd>1</dd></div>
-                <div><dt>Day-45 report + 45-min review call</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Timeline</dt><dd>45 days</dd></div>
-              </dl>
-            </details>
-            <details class="compare__plan">
-              <summary><span>Authority</span></summary>
-              <dl>
-                <div><dt>Best for</dt><dd>Several lines or a crowded category</dd></div>
-                <div><dt>AI questions checked, day 0 and day 45</dt><dd>40 × the same + Google AI Mode</dd></div>
-                <div><dt>Brand facts fixes: company facts page, Organization/Product/Service schema, matching descriptions on your public profiles</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>AI crawler access and indexing check</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>New answer pages (&quot;X vs Y&quot;, alternatives, &quot;best for&quot;, use cases)</dt><dd>6</dd></div>
-                <div><dt>Existing pages rewritten for AI answers (product, service, pricing, FAQ)</dt><dd>6</dd></div>
-                <div><dt>Review platforms set up or fixed (G2, Capterra, Trustpilot, Clutch: chosen by business type)</dt><dd>4</dd></div>
-                <div><dt>Review request campaign set up</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Citation map: the sites AI cites in your category, and where you’re missing</dt><dd>Top 50</dd></div>
-                <div><dt>PR and mention outreach (roundups, &quot;best of&quot; lists, industry sites)</dt><dd>10 pitches</dd></div>
-                <div><dt>Lead path check: demo, quote, trial or checkout</dt><dd>Fixed for you</dd></div>
-                <div><dt>AI-referral and conversion tracking in GA4</dt><dd>Full</dd></div>
-                <div><dt>Competitor gap: who AI names instead of you</dt><dd>Top 5</dd></div>
-                <div><dt>Markets / languages</dt><dd>1</dd></div>
-                <div><dt>Day-45 report + 45-min review call</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Timeline</dt><dd>45 days</dd></div>
-              </dl>
-            </details>
-            <details class="compare__plan">
-              <summary><span>Category</span></summary>
-              <dl>
-                <div><dt>Best for</dt><dd>Pushing for category leadership, up to 2 markets</dd></div>
-                <div><dt>AI questions checked, day 0 and day 45</dt><dd>80 × 5 engines</dd></div>
-                <div><dt>Brand facts fixes: company facts page, Organization/Product/Service schema, matching descriptions on your public profiles</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>AI crawler access and indexing check</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>New answer pages (&quot;X vs Y&quot;, alternatives, &quot;best for&quot;, use cases)</dt><dd>12</dd></div>
-                <div><dt>Existing pages rewritten for AI answers (product, service, pricing, FAQ)</dt><dd>10</dd></div>
-                <div><dt>Review platforms set up or fixed (G2, Capterra, Trustpilot, Clutch: chosen by business type)</dt><dd>6</dd></div>
-                <div><dt>Review request campaign set up</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Citation map: the sites AI cites in your category, and where you’re missing</dt><dd>Top 100</dd></div>
-                <div><dt>PR and mention outreach (roundups, &quot;best of&quot; lists, industry sites)</dt><dd>25 pitches</dd></div>
-                <div><dt>Lead path check: demo, quote, trial or checkout</dt><dd>Fixed + 1 landing page for AI visitors</dd></div>
-                <div><dt>AI-referral and conversion tracking in GA4</dt><dd>Full + dashboard</dd></div>
-                <div><dt>Competitor gap: who AI names instead of you</dt><dd>Top 8, with share of mentions</dd></div>
-                <div><dt>Markets / languages</dt><dd>Up to 2</dd></div>
-                <div><dt>Day-45 report + 45-min review call</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Timeline</dt><dd>45 days</dd></div>
-              </dl>
-            </details>
-            <details class="compare__plan">
-              <summary><span>Custom</span></summary>
-              <dl>
-                <div><dt>Best for</dt><dd>Multi-brand, 3+ markets, regulated sectors</dd></div>
-                <div><dt>AI questions checked, day 0 and day 45</dt><dd>Agreed</dd></div>
-                <div><dt>Brand facts fixes: company facts page, Organization/Product/Service schema, matching descriptions on your public profiles</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>AI crawler access and indexing check</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>New answer pages (&quot;X vs Y&quot;, alternatives, &quot;best for&quot;, use cases)</dt><dd>Agreed</dd></div>
-                <div><dt>Existing pages rewritten for AI answers (product, service, pricing, FAQ)</dt><dd>Agreed</dd></div>
-                <div><dt>Review platforms set up or fixed (G2, Capterra, Trustpilot, Clutch: chosen by business type)</dt><dd>Agreed</dd></div>
-                <div><dt>Review request campaign set up</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Citation map: the sites AI cites in your category, and where you’re missing</dt><dd>Agreed</dd></div>
-                <div><dt>PR and mention outreach (roundups, &quot;best of&quot; lists, industry sites)</dt><dd>Agreed</dd></div>
-                <div><dt>Lead path check: demo, quote, trial or checkout</dt><dd>Agreed</dd></div>
-                <div><dt>AI-referral and conversion tracking in GA4</dt><dd>Agreed</dd></div>
-                <div><dt>Competitor gap: who AI names instead of you</dt><dd>Agreed</dd></div>
-                <div><dt>Markets / languages</dt><dd>Agreed</dd></div>
-                <div><dt>Day-45 report + 45-min review call</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Timeline</dt><dd>Agreed in writing</dd></div>
-              </dl>
-            </details>
-          </div>
-          <div class="compare__table">
-            <table>
-              <caption>Online &amp; national · Monthly plan</caption>
-              <thead><tr><th scope="col">What you get</th><th scope="col">Track</th><th scope="col">Scale</th><th scope="col">Lead the Category</th><th scope="col">Custom</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Best for</th><td>Watch and hold your position</td><td>Win more comparison questions</td><td>Defend first place, 2 markets</td><td>Groups, multi-brand, agencies</td></tr>
-                <tr><th scope="row">AI re-check every month</th><td>20 questions × 4 engines</td><td>40 questions × 5 engines</td><td>80 questions × 5 engines, 2 markets</td><td>Agreed</td></tr>
-                <tr><th scope="row">Share of AI mentions vs named competitors</th><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td></tr>
-                <tr><th scope="row">New answer pages per month</th><td>1</td><td>3</td><td>6</td><td>Agreed</td></tr>
-                <tr><th scope="row">Page refreshes per month</th><td>1</td><td>2</td><td>4</td><td>Agreed</td></tr>
-                <tr><th scope="row">Review platform upkeep + review requests</th><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td></tr>
-                <tr><th scope="row">PR and mention outreach</th><td><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></td><td>5 pitches/month</td><td>12 pitches/month</td><td>Agreed</td></tr>
-                <tr><th scope="row">Citation map refresh</th><td>Quarterly</td><td>Monthly</td><td>Monthly</td><td>Agreed</td></tr>
-                <tr><th scope="row">Leads report: demos, sign-ups and sales from AI referrals, where trackable</th><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td><td><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></td></tr>
-                <tr><th scope="row">Monthly report</th><td>1-page report</td><td>Report + 30-min call</td><td>Report + 30-min call + 90-day roadmap refresh</td><td>Agreed</td></tr>
-                <tr><th scope="row">Commitment</th><td>Cancel any month</td><td>Cancel any month</td><td>Cancel any month</td><td>Agreed in writing</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="compare__plans" aria-label="Online &amp; national · Monthly plan">
-            <p class="compare__plans-title">Online &amp; national · Monthly plan</p>
-            <details class="compare__plan">
-              <summary><span>Track</span></summary>
-              <dl>
-                <div><dt>Best for</dt><dd>Watch and hold your position</dd></div>
-                <div><dt>AI re-check every month</dt><dd>20 questions × 4 engines</dd></div>
-                <div><dt>Share of AI mentions vs named competitors</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>New answer pages per month</dt><dd>1</dd></div>
-                <div><dt>Page refreshes per month</dt><dd>1</dd></div>
-                <div><dt>Review platform upkeep + review requests</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>PR and mention outreach</dt><dd><span class="dash" aria-hidden="true">—</span><span class="sr-only">Not included</span></dd></div>
-                <div><dt>Citation map refresh</dt><dd>Quarterly</dd></div>
-                <div><dt>Leads report: demos, sign-ups and sales from AI referrals, where trackable</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Monthly report</dt><dd>1-page report</dd></div>
-                <div><dt>Commitment</dt><dd>Cancel any month</dd></div>
-              </dl>
-            </details>
-            <details class="compare__plan">
-              <summary><span>Scale</span></summary>
-              <dl>
-                <div><dt>Best for</dt><dd>Win more comparison questions</dd></div>
-                <div><dt>AI re-check every month</dt><dd>40 questions × 5 engines</dd></div>
-                <div><dt>Share of AI mentions vs named competitors</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>New answer pages per month</dt><dd>3</dd></div>
-                <div><dt>Page refreshes per month</dt><dd>2</dd></div>
-                <div><dt>Review platform upkeep + review requests</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>PR and mention outreach</dt><dd>5 pitches/month</dd></div>
-                <div><dt>Citation map refresh</dt><dd>Monthly</dd></div>
-                <div><dt>Leads report: demos, sign-ups and sales from AI referrals, where trackable</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Monthly report</dt><dd>Report + 30-min call</dd></div>
-                <div><dt>Commitment</dt><dd>Cancel any month</dd></div>
-              </dl>
-            </details>
-            <details class="compare__plan">
-              <summary><span>Lead the Category</span></summary>
-              <dl>
-                <div><dt>Best for</dt><dd>Defend first place, 2 markets</dd></div>
-                <div><dt>AI re-check every month</dt><dd>80 questions × 5 engines, 2 markets</dd></div>
-                <div><dt>Share of AI mentions vs named competitors</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>New answer pages per month</dt><dd>6</dd></div>
-                <div><dt>Page refreshes per month</dt><dd>4</dd></div>
-                <div><dt>Review platform upkeep + review requests</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>PR and mention outreach</dt><dd>12 pitches/month</dd></div>
-                <div><dt>Citation map refresh</dt><dd>Monthly</dd></div>
-                <div><dt>Leads report: demos, sign-ups and sales from AI referrals, where trackable</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Monthly report</dt><dd>Report + 30-min call + 90-day roadmap refresh</dd></div>
-                <div><dt>Commitment</dt><dd>Cancel any month</dd></div>
-              </dl>
-            </details>
-            <details class="compare__plan">
-              <summary><span>Custom</span></summary>
-              <dl>
-                <div><dt>Best for</dt><dd>Groups, multi-brand, agencies</dd></div>
-                <div><dt>AI re-check every month</dt><dd>Agreed</dd></div>
-                <div><dt>Share of AI mentions vs named competitors</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>New answer pages per month</dt><dd>Agreed</dd></div>
-                <div><dt>Page refreshes per month</dt><dd>Agreed</dd></div>
-                <div><dt>Review platform upkeep + review requests</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>PR and mention outreach</dt><dd>Agreed</dd></div>
-                <div><dt>Citation map refresh</dt><dd>Agreed</dd></div>
-                <div><dt>Leads report: demos, sign-ups and sales from AI referrals, where trackable</dt><dd><svg class="tick" aria-hidden="true"><use href="#i-check"></use></svg><span class="sr-only">Included</span></dd></div>
-                <div><dt>Monthly report</dt><dd>Agreed</dd></div>
-                <div><dt>Commitment</dt><dd>Agreed in writing</dd></div>
-              </dl>
-            </details>
-          </div>
-          <div class="pricing__excl">
-            <p class="pricing__excl-title">Not included in any online plan</p>
-            <ul><li>Ad spend</li><li>Paid review-platform subscriptions</li><li>Paid or sponsored placements</li><li>Product changes</li><li>Guaranteed placements, mentions or revenue</li></ul>
-            <p class="pricing__excl-note">Outreach is counted in pitches sent, not articles won.</p>
-          </div>
-        </div>
-        <!-- /build:compare -->
-      </div>
-    </details>
-
-    <div class="included">
-      <header class="included__head">
-        <p class="eyebrow" data-reveal>Included in every plan</p>
-        <h2 class="h2" data-reveal>The rules don’t change with the price.</h2>
-      </header>
-      <ul class="included__list">
-        <li data-reveal><svg aria-hidden="true"><use href="#i-check"></use></svg>Fixed price in writing before you pay</li>
-        <li data-reveal><svg aria-hidden="true"><use href="#i-check"></use></svg>Deliverables list signed off before work starts</li>
-        <li data-reveal><svg aria-hidden="true"><use href="#i-check"></use></svg>A shared tracker you can open any time</li>
-        <li data-reveal><svg aria-hidden="true"><use href="#i-check"></use></svg>A weekly email update</li>
-        <li data-reveal><svg aria-hidden="true"><use href="#i-check"></use></svg>You own every page, listing and account</li>
-        <li data-reveal><svg aria-hidden="true"><use href="#i-check"></use></svg>Re-check on the same questions and engines</li>
-        <li data-reveal><svg aria-hidden="true"><use href="#i-check"></use></svg>Cancel monthly plans any month</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================
-     7 · SEE THE WORK BEFORE YOU BUY (every number is illustrative)
-     ================================================================ -->
-<section class="band band--dark sample" id="sample-report" aria-labelledby="sample-title">
+<section class="section vs" id="service" aria-labelledby="vs-title">
   <div class="container">
     <header class="head head--split">
       <div class="head__main">
-        <p class="eyebrow" data-reveal>Sample report</p>
-        <h2 class="h2" id="sample-title" data-reveal>This is what you get on day 45.</h2>
+        <p class="eyebrow" data-reveal>A service, not an agency</p>
+        <h2 class="h2" id="vs-title" data-reveal>You buy defined work, not an open-ended retainer.</h2>
       </div>
-      <p class="lead" data-reveal>A before/after on the same questions and engines, a leads report and the tracker you watched all sprint. Every number below is an illustrative example, not a client result.</p>
+      <p class="lead" data-reveal>The typical agency model sells time and a relationship. We sell a piece of work with a price, a list of what ships and a way to check it.</p>
     </header>
 
-    <div class="sample__grid">
-      <div class="media media--frame sample__media" data-reveal>
-        <img class="media__bg" src="assets/img/bg/bg-peach.webp" alt="" width="1280" height="854" loading="lazy">
-        <div class="sample__report">
-          <div class="ui ui--light">
-            <div class="sample__top"><p class="ui__title">Day-45 report · yourbusiness.com</p><span class="illus">Illustrative example</span></div>
-            <div class="sample__kpis">
-              <div class="sample__kpi"><p class="sample__kpi-label">Questions where AI names you</p><p class="sample__kpi-value"><span class="sample__was">2 of 10</span><svg aria-hidden="true"><use href="#i-arrow"></use></svg>7 of 10</p></div>
-              <div class="sample__kpi"><p class="sample__kpi-label">Best position</p><p class="sample__kpi-value"><span class="sample__was">#4</span><svg aria-hidden="true"><use href="#i-arrow"></use></svg>#1</p></div>
-            </div>
-            <p class="ui__title sample__sub">Questions that name you, by engine</p>
-            <ul class="pbars">
-              <li class="pbar" style="--t:1;--f:.7"><span class="pbar__fill"></span><span class="pbar__label"><svg class="pbar__icon"><use href="#i-openai"></use></svg>ChatGPT</span><span class="pbar__val">1 → 7 of 10</span></li>
-              <li class="pbar" style="--t:1;--f:.5"><span class="pbar__fill"></span><span class="pbar__label"><svg class="pbar__icon"><use href="#i-gemini"></use></svg>Gemini</span><span class="pbar__val">0 → 5 of 10</span></li>
-              <li class="pbar" style="--t:1;--f:.6"><span class="pbar__fill"></span><span class="pbar__label"><svg class="pbar__icon"><use href="#i-google"></use></svg>Google AI Overviews</span><span class="pbar__val">2 → 6 of 10</span></li>
-            </ul>
-          </div>
-          <div class="ui ui--light">
-            <div class="sample__top"><p class="ui__title">Leads report, days 31–45, where trackable</p><span class="illus">Illustrative example</span></div>
-            <div class="sample__leads">
-              <div><p class="sample__lead-num">14</p><p class="sample__lead-label">calls</p></div>
-              <div><p class="sample__lead-num">6</p><p class="sample__lead-label">contact forms</p></div>
-              <div><p class="sample__lead-num">3</p><p class="sample__lead-label">bookings</p></div>
-            </div>
-            <p class="ui__foot">From AI and Google, measured with call and form tracking in GA4<span>Illustrative</span></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="ui ui--light tracker" data-reveal>
-        <div class="sample__top"><p class="ui__title">Shared tracker · Get Chosen sprint</p><span class="illus">Illustrative example</span></div>
-        <table class="tracker__table">
-          <caption class="sr-only">Shared tracker (illustrative example)</caption>
-          <thead><tr><th scope="col">Deliverable</th><th scope="col">Status</th><th scope="col">Due</th></tr></thead>
-          <tbody>
-            <tr><td>Google Business Profile: categories, services, hours</td><td><span class="st st--done">Done</span></td><td>Day 7</td></tr>
-            <tr><td>Review QR card and reply templates</td><td><span class="st st--done">Done</span></td><td>Day 10</td></tr>
-            <tr><td>Call and form tracking in GA4</td><td><span class="st st--done">Done</span></td><td>Day 14</td></tr>
-            <tr><td>6 service pages <span class="tracker__count">4 of 6 live</span></td><td><span class="st st--doing">In progress</span></td><td>Day 30</td></tr>
-            <tr><td>10 directory listings <span class="tracker__count">7 of 10 live</span></td><td><span class="st st--doing">In progress</span></td><td>Day 35</td></tr>
-            <tr><td>Re-check: 20 questions × 4 engines</td><td><span class="st">Scheduled</span></td><td>Day 45</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="beforeafter" data-reveal>
-      <div class="sample__top"><p class="beforeafter__title">Before and after, same question, same engine</p><span class="illus illus--dark">Illustrative example</span></div>
-      <table class="beforeafter__table">
-        <caption class="sr-only">Before and after on the same AI questions (illustrative example)</caption>
-        <thead><tr><th scope="col">Question</th><th scope="col">Engine</th><th scope="col">Day 0</th><th scope="col">Day 45</th></tr></thead>
+    <div class="vs__wrap" data-reveal>
+      <table class="vs__table">
+        <caption class="sr-only">The typical agency model compared with searchwin.ai</caption>
+        <thead>
+          <tr><th scope="col"><span class="sr-only">Topic</span></th><th scope="col">Typical agency model</th><th scope="col" class="vs__us">searchwin.ai</th></tr>
+        </thead>
         <tbody>
-          <tr><td>best dentist for implants in Austin</td><td>ChatGPT</td><td><span class="ba ba--out">Not mentioned</span></td><td><span class="ba ba--in">#2</span></td></tr>
-          <tr><td>cosmetic dentist near Austin for veneers</td><td>Google AI Overviews</td><td><span class="ba">#5</span></td><td><span class="ba ba--in">#2</span></td></tr>
-          <tr><td>emergency dentist in Austin open now</td><td>Google AI Mode</td><td><span class="ba ba--out">Not mentioned</span></td><td><span class="ba ba--in">#3</span></td></tr>
-          <tr><td>best dentist for implants in Austin</td><td>Gemini</td><td><span class="ba ba--out">Not mentioned</span></td><td><span class="ba ba--out">Not mentioned</span></td></tr>
+          <tr><th scope="row">Goal</th><td data-label="Typical agency model">Rankings, traffic, “visibility”</td><td class="vs__us" data-label="searchwin.ai">Calls, forms and bookings from high-intent questions</td></tr>
+          <tr><th scope="row">Content</th><td data-label="Typical agency model">Blog posts written for volume</td><td class="vs__us" data-label="searchwin.ai">Pages that answer a buying question and ask for the next step</td></tr>
+          <tr><th scope="row">Who does the work</th><td data-label="Typical agency model">An account manager and billable hours</td><td class="vs__us" data-label="searchwin.ai">AI agents for research, checks and drafts; people for strategy, editing and outreach</td></tr>
+          <tr><th scope="row">Price</th><td data-label="Typical agency model">“Get a quote” after 2–3 calls</td><td class="vs__us" data-label="searchwin.ai">A starting price on each solution page, the final one in writing</td></tr>
+          <tr><th scope="row">What you get</th><td data-label="Typical agency model">“Strategy”, “optimization”, hours</td><td class="vs__us" data-label="searchwin.ai">Counted deliverables: pages, listings, fixes, questions re-checked</td></tr>
+          <tr><th scope="row">Proof of work</th><td data-label="Typical agency model">A monthly report the agency chooses</td><td class="vs__us" data-label="searchwin.ai">The same AI questions before and after, and enquiries by page</td></tr>
+          <tr><th scope="row">Contract</th><td data-label="Typical agency model">Often a 6–12 month minimum</td><td class="vs__us" data-label="searchwin.ai">A one-off sprint; monthly work cancels any month</td></tr>
+          <tr><th scope="row">Ownership</th><td data-label="Typical agency model">Accounts and content often held by the agency</td><td class="vs__us" data-label="searchwin.ai">You own every page, listing and account from day one</td></tr>
+          <tr><th scope="row">Honesty</th><td data-label="Typical agency model">Sometimes guarantees or “page one” promises</td><td class="vs__us" data-label="searchwin.ai">No guarantees. We tell you what we can’t control</td></tr>
         </tbody>
       </table>
-      <p class="beforeafter__note">Not every question moves. The report shows the ones that didn’t, and what we’d try next.</p>
     </div>
   </div>
 </section>
 
 <!-- ================================================================
-     8 · WHO IT'S FOR
+     9 · WHO IT IS FOR
      ================================================================ -->
-<section class="section who" id="who" aria-labelledby="who-title">
+<section class="band band--beige who" id="who" aria-labelledby="who-title">
   <div class="container">
     <header class="head head--split">
       <div class="head__main">
         <p class="eyebrow" data-reveal>Who it’s for</p>
         <h2 class="h2" id="who-title" data-reveal>Two kinds of business. One way of working.</h2>
       </div>
-      <p class="lead" data-reveal>Pick the one that sounds like you. The plans, the questions we test and the engines we check are set up for it.</p>
+      <p class="lead" data-reveal>Pick the one that sounds like you. The questions we test, the engines we check and the pages we build are set up for it.</p>
     </header>
     <div class="who__grid">
       <article class="who__col" data-reveal>
@@ -1876,28 +710,35 @@
           <li>Restaurants</li>
         </ul>
         <p class="who__q">Their customers ask: <span>“best dentist near me”</span>, <span>“kitchen remodel company in Austin”</span></p>
-        <a class="btn btn--dark" href="#pricing" data-set-type="local">See Local plans<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+        <div class="who__links">
+          <a class="btn btn--dark" href="/sprint/" data-solution="sprint">Start with the Sprint<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+          <a class="textlink" href="/pages/" data-solution="pages">See Pages</a>
+        </div>
       </article>
       <article class="who__col" data-reveal>
-        <h3 class="who__title">Online and national businesses</h3>
-        <p class="who__lede">Companies that sell beyond one town.</p>
+        <h3 class="who__title">National and international businesses</h3>
+        <p class="who__lede">Companies that sell beyond one town, in one country or several.</p>
         <ul class="who__list">
           <li>B2B services</li>
           <li>SaaS</li>
           <li>E-commerce</li>
+          <li>Manufacturers and distributors</li>
           <li>National brands</li>
         </ul>
         <p class="who__q">Their customers ask: <span>“best CRM for a 20-person team”</span>, <span>“X vs Y”</span>, <span>“alternatives to X”</span></p>
-        <a class="btn btn--dark" href="#pricing" data-set-type="online">See Online plans<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+        <div class="who__links">
+          <a class="btn btn--dark" href="/sprint/" data-solution="sprint">Start with the Sprint<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+          <a class="textlink" href="/pages/" data-solution="pages">See Pages</a>
+        </div>
       </article>
     </div>
   </div>
 </section>
 
 <!-- ================================================================
-     9 · WHAT WE NEVER DO
+     10 · WHAT WE NEVER DO
      ================================================================ -->
-<section class="band band--beige never" id="never" aria-labelledby="never-title">
+<section class="section never" id="never" aria-labelledby="never-title">
   <div class="container never__grid">
     <header class="never__head">
       <p class="eyebrow" data-reveal>What we never do</p>
@@ -1906,67 +747,71 @@
     </header>
     <ul class="never__list">
       <li data-reveal><svg aria-hidden="true"><use href="#i-x"></use></svg>No guaranteed rankings, leads or revenue</li>
+      <li data-reveal><svg aria-hidden="true"><use href="#i-x"></use></svg>No pages published without a human edit</li>
       <li data-reveal><svg aria-hidden="true"><use href="#i-x"></use></svg>No fake reviews or review gating</li>
       <li data-reveal><svg aria-hidden="true"><use href="#i-x"></use></svg>No fake accounts or paid posting on Reddit and forums</li>
-      <li data-reveal><svg aria-hidden="true"><use href="#i-x"></use></svg>No lock-in contracts</li>
-      <li data-reveal><svg aria-hidden="true"><use href="#i-x"></use></svg>No hidden fees</li>
-      <li data-reveal><svg aria-hidden="true"><use href="#i-x"></use></svg>No holding your accounts hostage</li>
+      <li data-reveal><svg aria-hidden="true"><use href="#i-x"></use></svg>No lock-in contracts or hidden fees</li>
+      <li data-reveal><svg aria-hidden="true"><use href="#i-x"></use></svg>No holding your pages or accounts hostage</li>
     </ul>
   </div>
 </section>
 
 <!-- ================================================================
-     10 · FAQ (rendered from data/faq.js, with FAQPage JSON-LD)
+     11 · FAQ (rendered from data/faq.js, with FAQPage JSON-LD)
      ================================================================ -->
-<section class="faq section" id="faq" aria-labelledby="faq-title">
+<section class="faq band band--beige" id="faq" aria-labelledby="faq-title">
   <div class="container faq__grid">
     <header class="faq__head">
       <p class="eyebrow" data-reveal>FAQ</p>
-      <h2 class="h2" id="faq-title" data-reveal>Questions before you buy</h2>
+      <h2 class="h2" id="faq-title" data-reveal>Questions before you start</h2>
       <p class="lead" data-reveal>The free AI check answers the first one with your own business.</p>
       <a class="btn btn--dark" href="/ai-check/" data-ai-check="faq" data-reveal>Run a free AI check<svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
     </header>
     <div class="faq__list">
       <!-- build:faq -->
       <details class="qa" data-faq="1">
-        <summary><span>What is AI search optimization, and how is it different from SEO?</span><span class="qa__icon" aria-hidden="true"></span></summary>
-        <div class="qa__body"><p>AI search optimization is the work that gets your business named when people ask ChatGPT, Gemini or Google’s AI who to choose. SEO gets a page ranked in a list of links. An AI answer names a few businesses and says why, so the work also covers what other sites say about you: listings, reviews and mentions. Good SEO still helps, because AI tools read the web through search.</p></div>
+        <summary><span>What is organic lead generation in the AI search era?</span><span class="qa__icon" aria-hidden="true"></span></summary>
+        <div class="qa__body"><p>It is getting enquiries from people who search Google or ask ChatGPT, Gemini and Google’s AI who to choose, without paying for each click. The work is the same in both places: answer the questions buyers ask right before they choose, give AI and Google proof they can trust, and make every page end in a call, a form or a booking.</p></div>
       </details>
       <details class="qa" data-faq="2">
-        <summary><span>Which AI tools do you check?</span><span class="qa__icon" aria-hidden="true"></span></summary>
-        <div class="qa__body"><p>ChatGPT, Gemini, Google AI Overviews and Google AI Mode. Online and national plans add Perplexity, because buyers use it for research. Every plan lists how many questions we re-check and on which engines.</p></div>
+        <summary><span>How is this different from SEO?</span><span class="qa__icon" aria-hidden="true"></span></summary>
+        <div class="qa__body"><p>Classic SEO chases rankings and traffic. We start from buying intent: the questions people ask right before they contact someone, such as “best … in …”, “… vs …” or “how much does … cost”. An AI answer also names a few businesses and says why, so the work covers what other sites say about you: listings, reviews and mentions. Good SEO still helps, because AI tools read the web through search.</p></div>
       </details>
       <details class="qa" data-faq="3">
-        <summary><span>Can you guarantee I’ll be recommended?</span><span class="qa__icon" aria-hidden="true"></span></summary>
-        <div class="qa__body"><p>No. AI answers change daily and no one controls them. What we do guarantee is the work: every deliverable listed in your plan ships within the timeline, and on day 45 you see the same questions on the same engines next to the day-0 answers.</p></div>
+        <summary><span>Which solution should I start with?</span><span class="qa__icon" aria-hidden="true"></span></summary>
+        <div class="qa__body"><p>Most businesses start with the AI Search Sprint: 45 days that fix the base on your website and on the outside sources AI reads. AI Search Monthly keeps that base growing. Pages adds a hub of conversion pages when buyers ask far more questions than your site answers. The free audit tells you which one fits, and it is fine to run them together.</p></div>
       </details>
       <details class="qa" data-faq="4">
-        <summary><span>What happens if not much changes by day 45?</span><span class="qa__icon" aria-hidden="true"></span></summary>
-        <div class="qa__body"><p>You still get every listed deliverable, plus a day-45 report that shows what changed, what didn’t and the likely reasons. We tell you what we would do next and whether a monthly plan is worth it for you. If it isn’t, we say so.</p></div>
+        <summary><span>What are organic conversion pages?</span><span class="qa__icon" aria-hidden="true"></span></summary>
+        <div class="qa__body"><p>Pages built for one high-intent search each: a service in a location, a comparison, a cost question. They are written to rank in Google and be quoted in AI answers, and each one ends in a clear next step. Our Pages solution builds a hub of them on your domain.</p></div>
       </details>
       <details class="qa" data-faq="5">
-        <summary><span>Do I need a monthly plan after the sprint?</span><span class="qa__icon" aria-hidden="true"></span></summary>
-        <div class="qa__body"><p>No. The sprint is one-off and everything it builds stays yours. A monthly plan makes sense if you want a re-check every month, new pages each month and help keeping reviews and listings up to date. Monthly plans start after a sprint, or after our free audit confirms your basics are already in place.</p></div>
+        <summary><span>What do the AI agents do, and what do people do?</span><span class="qa__icon" aria-hidden="true"></span></summary>
+        <div class="qa__body"><p>AI agents do the volume: research into what buyers ask, scheduled checks of AI answers, first drafts of pages, monitoring and lead tracking. People make the decisions: strategy, editing and fact-checking, outreach to real editors and review sites, and anything published under your name. You approve pages before they go live.</p></div>
       </details>
       <details class="qa" data-faq="6">
+        <summary><span>Which AI tools do you check?</span><span class="qa__icon" aria-hidden="true"></span></summary>
+        <div class="qa__body"><p>ChatGPT, Gemini, Google AI Overviews and Google AI Mode. National and international work adds Perplexity, because buyers use it for research. Every scope lists how many questions we re-check and on which engines.</p></div>
+      </details>
+      <details class="qa" data-faq="7">
+        <summary><span>Can you guarantee I’ll be recommended, or a number of leads?</span><span class="qa__icon" aria-hidden="true"></span></summary>
+        <div class="qa__body"><p>No. AI answers change daily and no one controls them. What we do guarantee is the work: every deliverable on your list ships on time, you see the same questions re-asked on the same engines, and you see which pages your enquiries came from.</p></div>
+      </details>
+      <details class="qa" data-faq="8">
+        <summary><span>How soon will I see results?</span><span class="qa__icon" aria-hidden="true"></span></summary>
+        <div class="qa__body"><p>The sprint shows a before and after on day 45. Leads from new pages take longer: most businesses should expect the first enquiries from a hub of pages around month 3 or 4, and more from there. It depends on your market, your competition and how strong your site is today.</p></div>
+      </details>
+      <details class="qa" data-faq="9">
         <summary><span>Who owns the pages, listings and accounts?</span><span class="qa__icon" aria-hidden="true"></span></summary>
         <div class="qa__body"><p>You do, from day one. We work in your accounts with the access you give us, and you can remove it at any time. Pages, listings, reports and tracking stay with you if you stop working with us.</p></div>
       </details>
-      <details class="qa" data-faq="7">
-        <summary><span>Do I approve the content before it goes live?</span><span class="qa__icon" aria-hidden="true"></span></summary>
-        <div class="qa__body"><p>Yes. You sign off the deliverables list before work starts, and you approve every new page and listing text before we publish it.</p></div>
-      </details>
-      <details class="qa" data-faq="8">
-        <summary><span>What do you need from me?</span><span class="qa__icon" aria-hidden="true"></span></summary>
-        <div class="qa__body"><p>Access to your website, your Google Business Profile (for local plans) and your analytics, and about 2 hours of your time over the 45 days: a kickoff, a few approvals and the day-45 review.</p></div>
-      </details>
-      <details class="qa" data-faq="9">
-        <summary><span>How do I pay?</span><span class="qa__icon" aria-hidden="true"></span></summary>
-        <div class="qa__body"><p>Sprints are paid once: upfront, or 50/50. Monthly plans are billed monthly and you can cancel any month. You get a fixed price in writing before you pay anything.</p></div>
-      </details>
       <details class="qa" data-faq="10">
+        <summary><span>How does pricing work?</span><span class="qa__icon" aria-hidden="true"></span></summary>
+        <div class="qa__body"><p>Each solution has a starting price on its own page, in dollars, euros or pounds. You get the exact scope and a fixed price in writing before you pay. The sprint is paid once, upfront or 50/50. Monthly work and Pages are billed monthly and you can cancel any month.</p></div>
+      </details>
+      <details class="qa" data-faq="11">
         <summary><span>Do you work outside the US?</span><span class="qa__icon" aria-hidden="true"></span></summary>
-        <div class="qa__body"><p>Yes. We work with businesses in the US, the UK and the EU, and quote in dollars, pounds or euros.</p></div>
+        <div class="qa__body"><p>Yes. We work with local, national and international businesses in the US, the UK and the EU, and quote in dollars, pounds or euros.</p></div>
       </details>
       <!-- /build:faq -->
     </div>
@@ -1974,7 +819,7 @@
 </section>
 
 <!-- ================================================================
-     11 · FINAL CALL TO ACTION
+     12 · FINAL CALL TO ACTION
      ================================================================ -->
 <section class="cta band band--image home-cta" id="start" aria-labelledby="cta-title">
   <img class="band__bg" src="assets/img/bg/bg-sunset.webp" alt="" width="1280" height="854" loading="lazy">
@@ -1992,54 +837,45 @@
 </main>
 
 <!-- ================================================================
-     FOOTER
+     FOOTER (rendered from data/solutions.js, the same on every page)
      ================================================================ -->
+<!-- build:footer -->
 <footer class="footer home-footer">
   <div class="container">
     <ul class="promises promises--footer" aria-label="Our promises">
-      <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Fixed price</li>
-      <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Counted deliverables</li>
-      <li><svg aria-hidden="true"><use href="#i-check"></use></svg>45 days, then proof</li>
+      <li><svg aria-hidden="true"><use href="#i-check"></use></svg>High-intent questions first</li>
+      <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Pages that sell</li>
+      <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Leads tracked to the page</li>
+      <li><svg aria-hidden="true"><use href="#i-check"></use></svg>A person edits every page</li>
       <li><svg aria-hidden="true"><use href="#i-check"></use></svg>No lock-in</li>
       <li><svg aria-hidden="true"><use href="#i-check"></use></svg>You own it</li>
-      <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Free roadmap either way</li>
     </ul>
     <div class="footer__top">
-      <p class="footer__claim">Get recommended by AI and turn it into customers.</p>
+      <p class="footer__claim">Organic leads from AI search and Google.</p>
       <div class="footer__cols">
-        <!-- build:footer-plans -->
         <div>
-          <p class="footer__label">Local business plans</p>
+          <p class="footer__label">Solutions</p>
           <ul>
-            <li><a href="#pricing" data-set-type="local">Get Found<span class="footer__meta"> · 45-day sprint</span></a></li>
-            <li><a href="#pricing" data-set-type="local">Get Chosen<span class="footer__meta"> · 45-day sprint</span></a></li>
-            <li><a href="#pricing" data-set-type="local">Own the Area<span class="footer__meta"> · 45-day sprint</span></a></li>
-            <li><a href="#pricing" data-set-type="local">Keep<span class="footer__meta"> · monthly plan</span></a></li>
-            <li><a href="#pricing" data-set-type="local">Grow<span class="footer__meta"> · monthly plan</span></a></li>
-            <li><a href="#pricing" data-set-type="local">Lead<span class="footer__meta"> · monthly plan</span></a></li>
-            <li><a href="#pricing" data-set-type="local">Custom</a></li>
+            <li><a href="/sprint/" data-solution="sprint">AI Search Sprint<span class="footer__meta"> · 45 days · one-off</span></a></li>
+            <li><a href="/monthly/" data-solution="monthly">AI Search Monthly<span class="footer__meta"> · month to month</span></a></li>
+            <li><a href="/pages/" data-solution="pages">Pages<span class="footer__meta"> · month to month</span></a></li>
           </ul>
         </div>
         <div>
-          <p class="footer__label">Online &amp; national plans</p>
+          <p class="footer__label">Platform</p>
           <ul>
-            <li><a href="#pricing" data-set-type="online">Foundation<span class="footer__meta"> · 45-day sprint</span></a></li>
-            <li><a href="#pricing" data-set-type="online">Authority<span class="footer__meta"> · 45-day sprint</span></a></li>
-            <li><a href="#pricing" data-set-type="online">Category<span class="footer__meta"> · 45-day sprint</span></a></li>
-            <li><a href="#pricing" data-set-type="online">Track<span class="footer__meta"> · monthly plan</span></a></li>
-            <li><a href="#pricing" data-set-type="online">Scale<span class="footer__meta"> · monthly plan</span></a></li>
-            <li><a href="#pricing" data-set-type="online">Lead the Category<span class="footer__meta"> · monthly plan</span></a></li>
-            <li><a href="#pricing" data-set-type="online">Custom</a></li>
+            <li><a href="#platform">People + AI agents</a></li>
+            <li><a href="#approach">Built for leads</a></li>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#who">Who it’s for</a></li>
+            <li><a href="#faq">FAQ</a></li>
           </ul>
         </div>
-        <!-- /build:footer-plans -->
         <div>
-          <p class="footer__label">More</p>
+          <p class="footer__label">Start</p>
           <ul>
             <li><a href="/ai-check/" data-ai-check="footer">Free AI check</a></li>
-            <li><a href="#how">How it works</a></li>
-            <li><a href="#sample-report">Sample report</a></li>
-            <li><a href="#faq">FAQ</a></li>
+            <li><a href="https://calendar.app.google/hFXU93aX327CiGPj9" target="_blank" rel="noopener" data-booking="footer">Book a 15-minute call</a></li>
             <li><a href="mailto:hi@searchwin.ai">hi@searchwin.ai</a></li>
           </ul>
         </div>
@@ -2048,12 +884,12 @@
     <p class="footer__word" aria-hidden="true">searchwin.ai</p>
     <div class="footer__bottom">
       <p>© 2026 SearchWin.ai. All rights reserved.</p>
-      <p><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="llms.txt">llms.txt</a></p>
+      <p><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/llms.txt">llms.txt</a></p>
     </div>
   </div>
 </footer>
+<!-- /build:footer -->
 
-<script>window.swCurSym && window.swCurSym();</script>
 <script src="assets/js/ai-check-tracking.js" defer></script>
 <script src="assets/js/home.js" defer></script>
 <script>

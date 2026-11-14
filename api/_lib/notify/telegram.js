@@ -136,11 +136,11 @@ export function leadMessage(l) {
   return t.trim();
 }
 
-/** An order request from /start/: the plan, the person and where they came from. */
+/** A quote request from /start/: the solution, the starting price the person saw, who they are and where they came from. */
 export function orderMessage(o) {
   const a = o.a || {};
   let t = '🛒 <b>Заказ с сайта</b>\n\n';
-  t += row('Тариф', o.plan) + row('Цена', o.price) + row('Валюта', o.price ? null : o.currency) + row('Оплата', o.payment === 'split' ? '50/50' : o.payment === 'upfront' ? 'сразу' : null);
+  t += row('Решение', o.plan) + row('Цена на сайте', o.price) + row('Валюта', o.currency) + row('Оплата', o.payment === 'split' ? '50/50' : o.payment === 'upfront' ? 'сразу' : null);
   t += row('Имя', o.name) + row('Email', o.email) + row('Сайт', o.site) + row('Комментарий', clip(o.message, 1500));
   t += '\n<b>Источник</b>\n' + row('utm_source', a.utm_source) + row('utm_medium', a.utm_medium) + row('utm_campaign', a.utm_campaign) +
     row('utm_content', a.utm_content) + row('utm_term', a.utm_term) + row('gclid', a.gclid) + row('gbraid', a.gbraid) +

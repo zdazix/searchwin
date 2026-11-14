@@ -24,10 +24,18 @@
   font-display: swap;
 }
 
+/* A system face stretched to Lexend's width (Lexend is about 9.6% wider than Arial), so text keeps
+   its line breaks when the web font arrives and nothing below it moves. */
+@font-face {
+  font-family: "Lexend Fallback";
+  src: local("Arial"), local("Roboto"), local("Helvetica Neue");
+  size-adjust: 109.6%;
+}
+
 /* ---------- 2. Tokens ---------- */
 :root {
   --font-serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
-  --font-sans: "Lexend", "Avenir Next", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Lexend", "Lexend Fallback", "Avenir Next", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   /* Labels and counters use the sans too, with tabular figures */
   --font-mono: var(--font-sans);
 

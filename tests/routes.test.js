@@ -21,7 +21,6 @@ import * as reportRoute from '../api/ai-check/report.js';
 import * as configRoute from '../api/ai-check/config.js';
 import * as consentRoute from '../api/ai-check/consent.js';
 import * as startRoute from '../api/start.js';
-import { SHOW_PRICES } from '../data/plans.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(here, '..');
@@ -510,39 +509,46 @@ test('without a valid token a stage sends its own message (forged, expired or mi
   } finally { delete process.env.TELEGRAM_BOT_TOKEN; delete process.env.TELEGRAM_CHAT_ID; }
 });
 
-test('an order request from /start/ is checked against the plans, stored and sent to Telegram', async () => {
+test('a quote request from /start/ is checked against the solutions, stored and sent to Telegram', async () => {
   process.env.TELEGRAM_BOT_TOKEN = 't'; process.env.TELEGRAM_CHAT_ID = '1';
   try {
     telegramSent = [];
-    const ok = await post(startRoute, { plan: 'local-sprint-get-chosen', currency: 'gbp', payment: 'split', name: 'Ana Test', email: 'ana@plumbing-demo.com',
+    const ok = await post(startRoute, { plan: 'sprint-local', currency: 'gbp', payment: 'split', name: 'Ana Test', email: 'ana@plumbing-demo.com',
       website: 'https://www.plumbing-demo.com/', message: 'Two vans, Austin only', turnstile_token: 'x',
       attribution: { utm_source: 'google', utm_campaign: 'brand', referrer: 'https://google.com/' } });
     assert.equal(ok.status, 200);
     const row = await one('select * from orders where id = $1', [ok.body.id]);
+    // price: the starting price the visitor saw, in the currency they picked
     assert.deepEqual([row.plan_id, row.plan_name, row.business_type, row.line, row.price, row.currency, row.payment, row.website, row.utm_campaign],
-      ['local-sprint-get-chosen', 'Get Chosen', 'local', 'sprint', 1900, 'GBP', 'split', 'plumbing-demo.com', 'brand']);
+      ['sprint-local', 'AI Search Sprint', 'local', 'sprint', 750, 'GBP', 'split', 'plumbing-demo.com', 'brand']);
     const msg = telegramSent.join('\n');
-    // The price goes to Telegram only while the site shows it; otherwise the currency for the quote
-    const priceLine = SHOW_PRICES ? '£1,900 one-off' : 'Валюта: GBP';
-    for (const piece of ['Заказ с сайта', 'Get Chosen (Local business, 45-day sprint)', priceLine, '50/50', 'ana@plumbing-demo.com', 'utm_campaign: brand', 'Реферер: https://google.com/']) assert.ok(msg.includes(piece), piece);
-    if (!SHOW_PRICES) assert.ok(!msg.includes('1,900') && !msg.includes('Цена'), 'no hidden price in Telegram');
+    for (const piece of ['Заказ с сайта', 'Решение: AI Search Sprint, local business', 'Цена на сайте: from £750 one-off', 'Валюта: GBP', '50/50', 'ana@plumbing-demo.com', 'utm_campaign: brand', 'Реферер: https://google.com/', 'ID тарифа: sprint-local']) assert.ok(msg.includes(piece), piece);
 
-    const monthly = await post(startRoute, { plan: 'online-monthly-scale', currency: 'eur', payment: 'split', name: 'Bo', email: 'bo@saas-demo.com', website: 'saas-demo.com', turnstile_token: 'x' });
+    const monthly = await post(startRoute, { plan: 'monthly-national', currency: 'eur', payment: 'split', name: 'Bo', email: 'bo@saas-demo.com', website: 'saas-demo.com', turnstile_token: 'x' });
     assert.equal(monthly.status, 200);
-    const m = await one('select price, currency, payment from orders where id = $1', [monthly.body.id]);
-    assert.deepEqual([m.price, m.currency, m.payment], [1490, 'EUR', null], 'monthly plans have no upfront/50-50 choice');
+    const m = await one('select plan_name, business_type, line, price, currency, payment from orders where id = $1', [monthly.body.id]);
+    assert.deepEqual([m.plan_name, m.business_type, m.line, m.price, m.currency, m.payment], ['AI Search Monthly', 'national', 'monthly', 750, 'EUR', null], 'monthly work has no upfront/50-50 choice');
+
+    telegramSent = [];
+    const pages = await post(startRoute, { plan: 'pages', currency: 'usd', name: 'Cy', email: 'cy@saas-demo.com', website: 'saas-demo.com', turnstile_token: 'x' });
+    assert.equal(pages.status, 200);
+    const pg = await one('select plan_name, business_type, line, price, currency from orders where id = $1', [pages.body.id]);
+    assert.deepEqual([pg.plan_name, pg.business_type, pg.line, pg.price, pg.currency], ['Pages', 'any', 'pages', 800, 'USD']);
+    assert.ok(telegramSent.join('\n').includes('Цена на сайте: from $800/month'));
   } finally { delete process.env.TELEGRAM_BOT_TOKEN; delete process.env.TELEGRAM_CHAT_ID; }
 });
 
-test('an order request needs a real plan, a name, a website, an email and, for Custom, a description', async () => {
-  const base = { plan: 'local-sprint-get-found', currency: 'usd', name: 'Ana', email: 'ana@plumbing-demo.com', website: 'plumbing-demo.com', turnstile_token: 'x' };
-  assert.equal((await post(startRoute, { ...base, plan: 'local-sprint-platinum' })).body.error, 'plan');
+test('a quote request needs a real plan, a name, a website and an email; the note is optional', async () => {
+  const base = { plan: 'sprint-local', currency: 'usd', name: 'Ana', email: 'ana@plumbing-demo.com', website: 'plumbing-demo.com', turnstile_token: 'x' };
+  assert.equal((await post(startRoute, { ...base, plan: 'local-sprint-get-found' })).body.error, 'plan', 'plan ids of the old tiers are gone');
+  assert.equal((await post(startRoute, { ...base, plan: 'sprint-platinum' })).body.error, 'plan');
   assert.equal((await post(startRoute, { ...base, name: '' })).body.error, 'name');
   assert.equal((await post(startRoute, { ...base, website: 'not a site' })).body.error, 'invalid_url');
   assert.match((await post(startRoute, { ...base, email: 'nope' })).body.error, /^email_/);
-  assert.equal((await post(startRoute, { ...base, plan: 'online-sprint-custom' })).body.error, 'message');
-  const custom = await post(startRoute, { ...base, plan: 'online-sprint-custom', message: 'Three brands in the UK and Spain' });
-  assert.equal(custom.status, 200);
-  const row = await one('select price, plan_name from orders where id = $1', [custom.body.id]);
-  assert.deepEqual([row.price, row.plan_name], [null, 'Custom']);
+  const ok = await post(startRoute, base);
+  assert.equal(ok.status, 200);
+  // An unknown currency falls back to dollars
+  const odd = await post(startRoute, { ...base, currency: 'chf' });
+  const row = await one('select price, currency from orders where id = $1', [odd.body.id]);
+  assert.deepEqual([row.price, row.currency], [900, 'USD']);
 });

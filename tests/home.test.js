@@ -3,154 +3,180 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { BUSINESS_TYPES, CURRENCIES, LINES, SHOW_PRICES, allPlans, cardItems, missingItems, findPlan, lowestSprintPrice } from '../data/plans.js';
+import { SOLUTIONS, AUDIENCES, CURRENCIES, AGENTS, PEOPLE, allOffers, findOffer, fromPrice, allCurrencies, money } from '../data/solutions.js';
 import { FAQ } from '../data/faq.js';
-import { render } from '../scripts/build-home.mjs';
+import { render, HOME_TITLE, HOME_DESCRIPTION } from '../scripts/build-site.mjs';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (f) => fs.readFileSync(path.join(root, f), 'utf8');
 const html = read('index.html');
-const text = (h) => h.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<svg[\s\S]*?<\/svg>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ');
+const text = (h) => h.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<svg[\s\S]*?<\/svg>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/\s+/g, ' ');
 const visible = text(html);
+const pageOf = (s) => read(`${s.url.replace(/^\/|\/$/g, '')}/index.html`);
+const ldOf = (h) => JSON.parse(h.match(/<script type="application\/ld\+json">\n([\s\S]*?)\n\s*<\/script>/)[1])['@graph'];
+// Any amount of money: "$900", "£1,200", "€ 850", "900 USD"
+const MONEY = /[$£€]\s?\d|\d[\d,.]*\s?(USD|GBP|EUR)\b/;
 
-test('16 plans: 2 business types × 2 lines × 3 tiers + Custom, with unique ids', () => {
-  const plans = allPlans();
-  assert.equal(plans.length, 16);
-  assert.equal(new Set(plans.map((p) => p.id)).size, 16);
-  for (const type of BUSINESS_TYPES) {
-    for (const lineId of ['sprint', 'monthly']) {
-      const line = type.lines[lineId];
-      assert.equal(line.tiers.length, 4, `${type.id} ${lineId}`);
-      assert.ok(line.tiers[3].custom && !line.tiers.slice(0, 3).some((t) => t.custom));
-      // Only the middle tier is marked, and only as "Best place to start" until there is real data
-      assert.deepEqual(line.tiers.map((t) => !!t.recommended), [false, true, false, false]);
-      for (const r of line.rows) assert.equal(r.values.length, 4, `${type.id} ${lineId} ${r.label}`);
-      assert.equal(line.rows.filter((r) => r.recheck).length, 1, 'one re-check row per line');
+test('three solutions, five plans, and the starting prices from the brief in dollars, euros and pounds', () => {
+  assert.deepEqual(SOLUTIONS.map((s) => s.id), ['sprint', 'monthly', 'pages']);
+  assert.deepEqual(SOLUTIONS.map((s) => s.url), ['/sprint/', '/monthly/', '/pages/']);
+  assert.deepEqual(allOffers().map((o) => o.id), ['sprint-local', 'sprint-national', 'monthly-local', 'monthly-national', 'pages']);
+  const from = (id) => findOffer(id).from;
+  assert.deepEqual(from('sprint-local'), { usd: 900, eur: 850, gbp: 750 });
+  assert.deepEqual(from('sprint-national'), { usd: 1500, eur: 1400, gbp: 1200 });
+  assert.deepEqual(from('monthly-local'), { usd: 450, eur: 400, gbp: 350 });
+  assert.deepEqual(from('monthly-national'), { usd: 850, eur: 750, gbp: 650 });
+  assert.deepEqual(from('pages'), { usd: 800, eur: 700, gbp: 600 });
+  assert.deepEqual(CURRENCIES.map((c) => c.symbol), ['$', '€', '£']);
+  assert.equal(fromPrice(findOffer('sprint-national'), 'gbp'), 'from £1,200 one-off');
+  assert.equal(fromPrice(findOffer('pages'), 'eur'), 'from €700/month');
+  assert.equal(allCurrencies(findOffer('monthly-local')), '$450, €400 or £350');
+  assert.equal(findOffer('sprint-local').name, 'AI Search Sprint, local business');
+  assert.equal(findOffer('nope'), null);
+});
+
+test('every solution has its page copy: hero, starting scope, sections and FAQ', () => {
+  for (const s of SOLUTIONS) {
+    assert.ok(s.name && s.kind && s.scope && s.billing && s.priceNote, s.id);
+    assert.ok(s.card.text && s.card.points.length === 4 && s.card.cta, s.id);
+    assert.ok(s.hero.eyebrow && s.hero.title && s.hero.lead, s.id);
+    assert.ok(s.meta.title.endsWith('| searchwin.ai') && s.meta.description.length > 80 && s.meta.description.length < 240, s.id);
+    assert.ok(s.faq.length >= 5, s.id);
+    for (const o of s.offers) {
+      assert.ok(o.covers.length >= 5, o.id);
+      assert.ok(o.audience === null || AUDIENCES[o.audience], o.id);
+      for (const c of CURRENCIES) assert.ok(Number.isInteger(o.from[c.id]) && o.from[c.id] > 0, `${o.id} ${c.id}`);
     }
+    for (const name of s.sections) assert.ok(name === 'offers' || name === 'sample' || name === 'team' || name === 'faq' || s[name], `${s.id}: ${name}`);
   }
+  assert.equal(AGENTS.length, 6);
+  assert.equal(PEOPLE.length, 4);
 });
 
-test('the prices are the ones in the brief, the same number in every currency', () => {
-  const price = (id) => findPlan(id).tier.price;
-  assert.deepEqual(['local-sprint-get-found', 'local-sprint-get-chosen', 'local-sprint-own-the-area'].map(price), [900, 1900, 3500]);
-  assert.deepEqual(['local-monthly-keep', 'local-monthly-grow', 'local-monthly-lead'].map(price), [390, 790, 1490]);
-  assert.deepEqual(['online-sprint-foundation', 'online-sprint-authority', 'online-sprint-category'].map(price), [1900, 3900, 7500]);
-  assert.deepEqual(['online-monthly-track', 'online-monthly-scale', 'online-monthly-lead-the-category'].map(price), [690, 1490, 2900]);
-  assert.equal(lowestSprintPrice(), 900);
-  assert.deepEqual(CURRENCIES.map((c) => c.symbol), ['$', '£', '€']);
-});
-
-test('every tier card has a name, who it is for, a price, 5-7 counted deliverables, a re-check line and its exclusions', () => {
-  for (const p of allPlans()) {
-    const t = p.tier;
-    assert.ok(t.name && t.promise && t.bestFor && t.recheck, p.id);
-    if (t.custom) { assert.ok(t.cases.length >= 4 && /fixed price and a deliverables list before you pay/.test(t.promiseNote), p.id); continue; }
-    assert.ok(t.price > 0, p.id);
-    const items = cardItems(p);
-    assert.ok(items.length >= 5 && items.length <= 7, `${p.id}: ${items.length} items`);
-    assert.ok(items.some((i) => /\d/.test(i)), `${p.id} has counted items`);
-    for (const i of items) assert.ok(!/\{|\}/.test(i) && !/\b1 \w+s a month\b/.test(i), `${p.id}: ${i}`);
-    // A null in the table is listed as not included on the card
-    for (const m of missingItems(p)) assert.ok(m.label, p.id);
-  }
-});
-
-test('the pages are up to date with data/plans.js and data/faq.js (run npm run build:home after a change)', () => {
+test('the pages are up to date with data/solutions.js and data/faq.js (run npm run build:home after a change)', () => {
   for (const [file, expected] of Object.entries(render())) assert.equal(read(file), expected, `${file} is stale`);
 });
 
-// Any amount of money: "$900", "£1,900", "€ 390", "900 USD"
-const MONEY = /[$£€]\s?\d|\d[\d,.]*\s?(USD|GBP|EUR)\b/;
-
-test('prices (or, while they are hidden, "Fixed price"), deliverables and FAQ are in the HTML source, for both business types', () => {
-  for (const p of allPlans()) {
-    assert.ok(html.includes(`data-plan="${p.id}"`), p.id);
-    if (!p.tier.custom && SHOW_PRICES) assert.ok(html.includes(`data-cur-sym>$</span>${p.tier.price.toLocaleString('en-US')}</span>`), p.id);
-    if (!p.tier.custom && !SHOW_PRICES) {
-      const card = html.slice(html.indexOf(`data-plan="${p.id}"`), html.indexOf('</article>', html.indexOf(`data-plan="${p.id}"`)));
-      assert.ok(card.includes(`<p class="plan__price plan__price--quote">${p.line.quote}</p>`), p.id);
-    }
-    for (const item of p.tier.custom ? p.tier.cases : cardItems(p)) assert.ok(visible.includes(item), `${p.id}: ${item}`);
-  }
-  assert.equal((html.match(/<details class="qa" data-faq=/g) || []).length, 10);
-  for (const f of FAQ) assert.ok(visible.includes(f.q.replace(/&/g, '&')), f.q);
-  assert.ok(html.includes('data-type-panel="local"') && html.includes('data-type-panel="online"'));
-});
-
-test('while prices are hidden, no page, schema or llms.txt carries an amount', { skip: SHOW_PRICES }, () => {
-  for (const file of ['index.html', 'start/index.html', 'llms.txt']) {
-    const t = text(read(file));
-    assert.ok(!MONEY.test(t), `${file}: "${(t.match(MONEY) || [])[0]}"`);
-    // Prices that are only in data/plans.js
-    for (const p of allPlans().filter((x) => !x.tier.custom)) assert.ok(!t.includes(p.tier.price.toLocaleString('en-US') + ' one-off') && !t.includes(p.tier.price.toLocaleString('en-US') + '/month'), `${file}: ${p.id}`);
-  }
-  assert.ok(!/"price(Currency|Specification)?":/.test(html), 'JSON-LD offers carry no price');
-  assert.ok(!/class="(curswitch|pricing__curnote|compare__price|compare__plan-price)/.test(html), 'no currency switch or price rows');
-  assert.ok(!/Price on the page|Plans and prices|prices on the page/i.test(text(html)), 'no copy that promises prices on the page');
-  const data = JSON.parse(read('start/index.html').match(/<script type="application\/json" id="plans-data">([\s\S]*?)<\/script>/)[1]);
-  assert.ok(Object.values(data).every((d) => d.price === null), 'the /start/ data has no prices either');
-});
-
-test('title, description, one H1 and the JSON-LD offers match the plans', () => {
-  assert.match(html, /<title>AI Search Optimization &amp; Lead Generation Service, Fixed Plans \| searchwin\.ai<\/title>/);
-  const from = SHOW_PRICES ? ' from $900' : '';
-  assert.ok(html.includes(`<meta name="description" content="Fixed-price AI search optimization and lead generation for local businesses and SMEs. 45-day sprints${from}, monthly plans, counted deliverables.">`));
+test('homepage: the concept, three solutions that link to their pages, the team and the FAQ are in the HTML', () => {
+  assert.ok(html.includes(`<title>${HOME_TITLE}</title>`));
+  assert.ok(html.includes(`<meta name="description" content="${HOME_DESCRIPTION}">`));
   assert.equal((html.match(/<h1[\s>]/g) || []).length, 1);
-  const ld = JSON.parse(html.match(/<script type="application\/ld\+json">\n([\s\S]*?)\n\s*<\/script>/)[1]);
-  const graph = ld['@graph'];
+  assert.ok(visible.includes('Organic lead generation for the AI search era'));
+  for (const piece of ['High-intent questions first', 'Content that sells', 'Conversion on every page']) assert.ok(visible.includes(piece), piece);
+  for (const s of SOLUTIONS) {
+    assert.ok(visible.includes(s.name), s.name);
+    assert.ok(visible.includes(s.card.text), `${s.id} card text`);
+    for (const point of s.card.points) assert.ok(visible.includes(point), `${s.id}: ${point}`);
+    assert.ok(html.includes(`href="${s.url}" data-solution="${s.id}"`), `${s.id} link`);
+  }
+  // Pages has its own section, apart from the two solutions for the website and outside sources
+  const solutions = html.slice(html.indexOf('id="solutions"'), html.indexOf('</section>', html.indexOf('id="solutions"')));
+  assert.ok(solutions.includes('AI Search Sprint') && solutions.includes('AI Search Monthly') && !solutions.includes('data-solution="pages"'));
+  const pages = html.slice(html.indexOf('id="pages"'), html.indexOf('</section>', html.indexOf('id="pages"')));
+  assert.ok(pages.includes('data-solution="pages"') && pages.includes('Illustrative example'));
+  // People + AI agents
+  for (const a of AGENTS) assert.ok(visible.includes(a.name) && visible.includes(a.text), a.name);
+  for (const p of PEOPLE) assert.ok(visible.includes(p.name) && visible.includes(p.text), p.name);
+  assert.equal((html.match(/<details class="qa" data-faq=/g) || []).length, FAQ.length);
+  for (const f of FAQ) assert.ok(visible.includes(f.q), f.q);
+});
+
+test('homepage shows no prices: not in the page, the JSON-LD or the FAQ', () => {
+  assert.ok(!MONEY.test(visible), `"${(visible.match(MONEY) || [])[0]}"`);
+  assert.ok(!MONEY.test(html.replace(/<svg[\s\S]*?<\/svg>/g, '')), 'no amount anywhere in the source');
+  assert.ok(!/"(price|minPrice|priceCurrency|priceSpecification)":/.test(html), 'JSON-LD carries no price');
+  assert.ok(!/class="(curswitch|pricebox|plan__price)/.test(html), 'no price box or currency switch');
+  for (const f of FAQ) assert.ok(!MONEY.test(f.q + f.a), f.q);
+  const graph = ldOf(html);
   assert.ok(graph.some((g) => g['@type'] === 'Organization'));
   const services = graph.filter((g) => g['@type'] === 'Service');
-  assert.equal(services.length, 4);
-  const offers = services.flatMap((s) => s.hasOfferCatalog.itemListElement);
-  assert.equal(offers.length, 16);
-  for (const p of allPlans().filter((x) => !x.tier.custom)) {
-    const o = offers.find((x) => x.url.endsWith(`plan=${p.id}`));
-    assert.ok(o, p.id);
-    if (!SHOW_PRICES) { assert.ok(!('price' in o) && !('priceSpecification' in o), p.id); continue; }
-    assert.equal(o.price, String(p.tier.price), p.id);
-    assert.equal(o.priceCurrency, 'USD');
-    assert.deepEqual(o.priceSpecification.map((s) => s.priceCurrency), ['USD', 'GBP', 'EUR']);
-    assert.ok(o.priceSpecification.every((s) => s.price === p.tier.price));
+  assert.deepEqual(services.map((s) => s.url), SOLUTIONS.map((s) => `https://searchwin.ai${s.url}`));
+  assert.ok(services.every((s) => !('offers' in s)));
+  assert.deepEqual(graph.find((g) => g['@type'] === 'FAQPage').mainEntity.map((q) => q.name), FAQ.map((f) => f.q));
+});
+
+test('solution pages: one H1, only the starting price, in all three currencies, and a quote button for each plan', () => {
+  for (const s of SOLUTIONS) {
+    const page = pageOf(s);
+    const t = text(page);
+    assert.ok(page.includes(`<title>${s.meta.title.replace(/&/g, '&amp;')}</title>`), s.id);
+    assert.ok(page.includes(`<link rel="canonical" href="https://searchwin.ai${s.url}">`), s.id);
+    assert.equal((page.match(/<h1[\s>]/g) || []).length, 1, s.id);
+    assert.ok(t.includes(s.hero.title) && t.includes(s.hero.lead), s.id);
+    assert.ok(page.includes('class="nav__links"') && page.includes(`<a href="${s.url}" aria-current="page">`), `${s.id} nav`);
+    for (const o of s.offers) {
+      // Every currency is in the HTML; CSS shows one
+      const spans = CURRENCIES.map((c) => `<span data-c="${c.id}">${money(c.id, o.from[c.id])}</span>`).join('<i class="price__sep"> · </i>');
+      assert.ok(page.includes(spans), `${o.id} price`);
+      assert.ok(page.includes(`href="/start/?plan=${o.id}&amp;cur=usd" data-plan-cta="${o.id}"`), `${o.id} button`);
+      for (const line of o.covers) assert.ok(t.includes(line), `${o.id}: ${line}`);
+    }
+    // Only starting prices: every amount on the page is one of this solution's "from" prices
+    const allowed = new Set(s.offers.flatMap((o) => CURRENCIES.map((c) => money(c.id, o.from[c.id]))));
+    for (const m of t.matchAll(/[$£€]\s?\d[\d,]*/g)) assert.ok(allowed.has(m[0]), `${s.id}: unexpected amount ${m[0]}`);
+    assert.ok(t.includes('from '), s.id);
+    assert.equal((page.match(/data-cur-btn=/g) || []).length, 3, `${s.id} currency switch`);
+    for (const f of s.faq) assert.ok(t.includes(f.q), `${s.id}: ${f.q}`);
+    // JSON-LD: a Service with one offer per plan, a minimum price in each currency, and the page FAQ
+    const graph = ldOf(page);
+    const service = graph.find((g) => g['@type'] === 'Service');
+    assert.equal(service.offers.length, s.offers.length, s.id);
+    service.offers.forEach((o, i) => {
+      assert.deepEqual(o.priceSpecification.map((p) => [p.priceCurrency, p.minPrice]), CURRENCIES.map((c) => [c.code, s.offers[i].from[c.id]]), s.id);
+      assert.ok(!('price' in o), 'a starting price, not a fixed one');
+      assert.equal(o.priceSpecification.every((p) => (s.schemaUnit ? p.unitCode === 'MON' : !('unitCode' in p))), true, s.id);
+    });
+    assert.deepEqual(graph.find((g) => g['@type'] === 'FAQPage').mainEntity.map((q) => q.name), s.faq.map((f) => f.q));
+    assert.ok(graph.some((g) => g['@type'] === 'BreadcrumbList'));
   }
-  const faq = graph.find((g) => g['@type'] === 'FAQPage');
-  assert.deepEqual(faq.mainEntity.map((q) => q.name), FAQ.map((f) => f.q));
+  const pages = text(pageOf(SOLUTIONS[2]));
+  for (const piece of ['100+ pages published', 'Leads dashboard', 'Buyer journey tracking', 'Spam protection', 'Quality backlinks', 'Custom analytics views']) assert.ok(pages.includes(piece), piece);
+  assert.ok(text(pageOf(SOLUTIONS[0])).includes('Illustrative example'), 'the sample day-45 report is labelled');
 });
 
 test('every statistic carries a linked source; made-up numbers say "Illustrative example"', () => {
   const stats = html.match(/<div class="stat"[\s\S]*?<\/div>/g) || [];
   assert.ok(stats.length >= 1 && stats.length <= 2, 'at most two statistics');
   for (const s of stats) assert.match(s, /<p class="source">Source: <a href="https:\/\/[^"]+"/);
-  for (const id of ['top', 'problem', 'sample-report']) {
+  for (const id of ['top', 'problem', 'approach', 'pages']) {
     const section = html.slice(html.indexOf(`id="${id}"`), html.indexOf('</section>', html.indexOf(`id="${id}"`)));
     assert.ok(section.includes('Illustrative example'), id);
   }
-  const sample = html.slice(html.indexOf('id="sample-report"'), html.indexOf('</section>', html.indexOf('id="sample-report"')));
+  const sprint = pageOf(SOLUTIONS[0]);
+  const sample = sprint.slice(sprint.indexOf('id="sample-report"'), sprint.indexOf('</section>', sprint.indexOf('id="sample-report"')));
   assert.ok((sample.match(/Illustrative example/g) || []).length >= 4, 'each sample panel is labelled');
-  assert.ok(!/class="case|testimonial|client-logo/i.test(html), 'no case studies, testimonials or logos yet');
-});
-
-test('no agency words, no promises of results, no competitor names or internal price research', () => {
-  for (const file of ['index.html', 'start/index.html', 'llms.txt']) {
-    const t = text(read(file));
-    for (const w of ['bespoke', 'holistic', 'partner with us', 'unlock', 'skyrocket']) assert.ok(!new RegExp(w, 'i').test(t), `${file}: ${w}`);
-    for (const w of ['Nutshell', 'WebFX', '$1,500', '$5,000', '$25,000']) assert.ok(!t.includes(w), `${file}: ${w}`);
-    // "guarantee" only where we say we don't, or what the work guarantees
-    const ok = /(No guarantees|No guaranteed|Guaranteed rankings or lead numbers|Guaranteed placements, mentions or revenue|Can you guarantee|What we do guarantee is the work|Sometimes guarantees|promises rankings)/i;
-    for (const m of t.matchAll(/[^.]*guarantee[^.]*/gi)) assert.match(m[0], ok, `${file}: "${m[0].trim()}"`);
+  const anatomy = pageOf(SOLUTIONS[2]);
+  assert.ok(anatomy.slice(anatomy.indexOf('id="anatomy"')).includes('Illustrative example'));
+  for (const file of ['index.html', 'sprint/index.html', 'monthly/index.html', 'pages/index.html']) {
+    assert.ok(!/class="case|testimonial|client-logo/i.test(read(file)), `${file}: no case studies, testimonials or logos yet`);
   }
 });
 
-test('plan buttons go to the order form with plan and currency; first steps go to the free AI check', () => {
-  const ctas = [...html.matchAll(/href="\/start\/\?plan=([a-z-]+)&amp;cur=usd" data-plan-cta="([a-z-]+)"/g)];
-  assert.equal(ctas.length, 16);
-  for (const [, id, data] of ctas) { assert.equal(id, data); assert.ok(findPlan(id), id); }
-  assert.ok((html.match(/href="\/ai-check\/"/g) || []).length >= 4);
-  assert.ok(html.includes('href="https://calendar.app.google/hFXU93aX327CiGPj9"'));
-  assert.ok(visible.includes(BUSINESS_TYPES[0].lines.sprint.tiers[0].name) && visible.includes('Tell us what you need'));
-  assert.ok(visible.includes('Monthly plans start after a sprint, or after our free audit confirms your basics are already in place.'));
+test('no agency words, no promises of results, no competitor names', () => {
+  for (const file of ['index.html', 'sprint/index.html', 'monthly/index.html', 'pages/index.html', 'start/index.html', 'llms.txt']) {
+    const t = text(read(file));
+    for (const w of ['bespoke', 'holistic', 'partner with us', 'unlock', 'skyrocket', 'game-chang', 'cutting-edge', 'supercharge']) assert.ok(!new RegExp(w, 'i').test(t), `${file}: ${w}`);
+    for (const w of ['Gushwork', 'Nutshell', 'WebFX']) assert.ok(!new RegExp(w, 'i').test(read(file)), `${file}: ${w}`);
+    // "guarantee" only where we say we don't, or what the work guarantees
+    const ok = /(No guarantees|No guaranteed|Guaranteed rankings or lead numbers|Can you guarantee|What we do guarantee is the work|Sometimes guarantees|promises rankings)/i;
+    for (const m of t.matchAll(/[^.?]*guarantee[^.?]*/gi)) assert.match(m[0], ok, `${file}: "${m[0].trim()}"`);
+  }
 });
 
-test('robots.txt keeps the AI search crawlers allowed', () => {
+test('first steps go to the free AI check; the nav and footer are the same on every page', () => {
+  assert.ok((html.match(/href="\/ai-check\/"/g) || []).length >= 4);
+  assert.ok(html.includes('href="https://calendar.app.google/hFXU93aX327CiGPj9"'));
+  for (const file of ['index.html', 'sprint/index.html', 'monthly/index.html', 'pages/index.html']) {
+    const page = read(file);
+    for (const s of SOLUTIONS) assert.ok(page.includes(`<a href="${s.url}"`), `${file} links to ${s.url}`);
+    assert.ok(page.includes('class="footer home-footer"') && page.includes('href="/llms.txt"'), file);
+    assert.ok(page.includes('id="i-check"') && page.includes('id="i-user"'), `${file} has the icon sprite`);
+  }
+  // Solution pages link back to the homepage sections with a root-relative address
+  assert.ok(pageOf(SOLUTIONS[0]).includes('href="/#platform"') && html.includes('href="#platform"'));
+});
+
+test('robots.txt keeps the AI search crawlers allowed; the sitemap lists the solution pages', () => {
   const robots = read('robots.txt');
   for (const bot of ['OAI-SearchBot', 'ChatGPT-User', 'PerplexityBot', 'Claude-SearchBot']) {
     const block = robots.slice(robots.indexOf(`User-agent: ${bot}`)).split('\n\n')[0];
@@ -158,14 +184,26 @@ test('robots.txt keeps the AI search crawlers allowed', () => {
     assert.ok(!/Disallow: \/\s*$/m.test(block), bot);
   }
   assert.match(robots, /User-agent: \*\nAllow: \//);
+  const sitemap = read('sitemap.xml');
+  for (const s of SOLUTIONS) assert.ok(sitemap.includes(`<loc>https://searchwin.ai${s.url}</loc>`), s.url);
 });
 
-test('/start/ lists every plan and carries the plan data for the summary', () => {
+test('llms.txt lists the three solutions with their starting prices', () => {
+  const llms = read('llms.txt');
+  for (const s of SOLUTIONS) {
+    assert.ok(llms.includes(`https://searchwin.ai${s.url}`), s.id);
+    for (const o of s.offers) assert.ok(llms.includes(allCurrencies(o)), o.id);
+  }
+});
+
+test('/start/ lists every plan and carries the data for the summary', () => {
   const start = read('start/index.html');
-  for (const p of allPlans()) assert.ok(start.includes(`<option value="${p.id}">`), p.id);
+  for (const o of allOffers()) assert.ok(start.includes(`<option value="${o.id}">`), o.id);
   const data = JSON.parse(start.match(/<script type="application\/json" id="plans-data">([\s\S]*?)<\/script>/)[1]);
-  assert.equal(Object.keys(data).length, 16);
-  assert.equal(data['local-sprint-get-found'].price, SHOW_PRICES ? 900 : null);
-  assert.equal(data['local-sprint-get-found'].quote, SHOW_PRICES ? null : LINES.sprint.quote);
+  assert.deepEqual(Object.keys(data), allOffers().map((o) => o.id));
+  assert.deepEqual(data['sprint-local'].from, { usd: 900, eur: 850, gbp: 750 });
+  assert.equal(data['sprint-local'].sprint, true);
+  assert.equal(data.pages.sprint, false);
+  assert.equal(data.pages.url, '/pages/');
   assert.match(start, /noindex/);
 });
