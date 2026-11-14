@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>searchwin.ai Insights</title>
+    <link>https://searchwin.ai/blog/insights/</link>
+    <description>Practical articles on getting leads from AI search and Google.</description>
+    <language>en</language>
+    <atom:link href="https://searchwin.ai/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>AI search optimization vs SEO: what actually changes</title>
+      <link>https://searchwin.ai/blog/insights/ai-search-optimization-vs-seo/</link>
+      <guid isPermaLink="true">https://searchwin.ai/blog/insights/ai-search-optimization-vs-seo/</guid>
+      <pubDate>Sat, 14 Nov 2026 09:00:00 GMT</pubDate>
+      <description>AI answers name a few businesses instead of listing ten links. What stays the same as SEO, the four things that change, and where to start if you want leads from both.</description>
+    </item>
+    <item>
+      <title>High-intent questions: what buyers ask AI right before they choose</title>
+      <link>https://searchwin.ai/blog/insights/high-intent-questions/</link>
+      <guid isPermaLink="true">https://searchwin.ai/blog/insights/high-intent-questions/</guid>
+      <pubDate>Sat, 14 Nov 2026 09:00:00 GMT</pubDate>
+      <description>What a high-intent question is, the five shapes buyers use when they ask ChatGPT and Google who to choose, and how to find the ones that matter for your business.</description>
+    </item>
+    <item>
+      <title>Anatomy of an organic conversion page</title>
+      <link>https://searchwin.ai/blog/insights/organic-conversion-page-anatomy/</link>
+      <guid isPermaLink="true">https://searchwin.ai/blog/insights/organic-conversion-page-anatomy/</guid>
+      <pubDate>Sat, 14 Nov 2026 09:00:00 GMT</pubDate>
+      <description>The six parts of a page that AI can quote, Google can rank and a buyer can act on, with a checklist you can run against your own pages today.</description>
+    </item>
+  </channel>
+</rss>

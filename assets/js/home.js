@@ -1,6 +1,7 @@
-/* Homepage and the solution pages (/sprint/, /monthly/, /pages/): the currency switch next to the
-   starting prices, the hero's before/after answer and the analytics events. Prices are plain HTML in all
-   three currencies (rendered from data/solutions.js), so they read fine without this script. */
+/* Homepage, the solution pages (/sprint/, /monthly/, /pages/) and the blog: the currency switch next to
+   the starting prices, the hero's before/after answer, the blog's bottom bar on phones and the analytics
+   events. Prices are plain HTML in all three currencies (rendered from data/solutions.js), so they read
+   fine without this script. */
 (function () {
   'use strict';
 
@@ -8,7 +9,7 @@
   var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
   var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var CURRENCIES = { usd: 1, eur: 1, gbp: 1 };
-  var page = document.body.getAttribute('data-solution-page') || 'home';
+  var page = document.body.getAttribute('data-page') || 'home';
 
   function ss(k, v) { try { sessionStorage.setItem(k, v); } catch (e) { /* private mode: the URL still carries it */ } }
 
@@ -115,6 +116,23 @@
     document.addEventListener('visibilitychange', sync);
     // First move after a short pause, so the visitor sees the "before" first
     setTimeout(function () { if (!touched && !reduceMotion) flip(); sync(); }, 1600);
+  })();
+
+  /* ---------- Blog on a phone: a bar with the next step, once the reader is past the top of the page ---------- */
+  (function () {
+    var bar = document.querySelector('[data-stickybar]');
+    if (!bar || !('IntersectionObserver' in window)) return;
+    var top = document.getElementById('top');
+    var end = document.getElementById('start');
+    var pastTop = false, atEnd = false;
+    function sync() {
+      var on = pastTop && !atEnd;
+      bar.hidden = !on;
+      bar.classList.toggle('is-on', on);
+    }
+    if (top) new IntersectionObserver(function (en) { pastTop = !en[0].isIntersecting; sync(); }).observe(top);
+    // The closing section has its own button, so the bar steps aside there
+    if (end) new IntersectionObserver(function (en) { atEnd = en[0].isIntersecting; sync(); }, { rootMargin: '0px 0px -80px 0px' }).observe(end);
   })();
 
   /* ---------- Start ---------- */

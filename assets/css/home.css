@@ -417,7 +417,8 @@ html[data-cur="gbp"] [data-cur-btn="gbp"] { background: var(--ink); color: var(-
 
 /* ---------- Footer ---------- */
 .home-footer .footer__top { grid-template-columns: minmax(0, .75fr) minmax(0, 1.6fr); }
-.home-footer .footer__cols { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* Four columns: Solutions, Platform, Blog, Start */
+.home-footer .footer__cols { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .footer__meta { color: var(--muted); font-weight: 400; }
 
 /* ---------- Order form (/start/) ---------- */
@@ -469,7 +470,7 @@ html[data-cur="gbp"] [data-cur-btn="gbp"] { background: var(--ink); color: var(-
   .model__grid, .pcards--4, .people { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .agents { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sample__grid { grid-template-columns: minmax(0, 1fr); }
-  .home-footer .footer__cols { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .home-footer .footer__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 960px) {

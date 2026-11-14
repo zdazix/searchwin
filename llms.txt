@@ -42,12 +42,22 @@ A separate hub on your domain with a page for each high-intent search your main 
 Billed monthly. Cancel any month.
 <!-- /build:solutions -->
 
+<!-- build:blog -->
+## Blog
+
+- [Insights](https://searchwin.ai/blog/insights/): practical articles on getting leads from AI search and Google.
+- [AI search optimization vs SEO: what actually changes](https://searchwin.ai/blog/insights/ai-search-optimization-vs-seo/): AI answers name a few businesses instead of listing ten links. What stays the same as SEO, the four things that change, and where to start if you want leads from both.
+- [High-intent questions: what buyers ask AI right before they choose](https://searchwin.ai/blog/insights/high-intent-questions/): What a high-intent question is, the five shapes buyers use when they ask ChatGPT and Google who to choose, and how to find the ones that matter for your business.
+- [Anatomy of an organic conversion page](https://searchwin.ai/blog/insights/organic-conversion-page-anatomy/): The six parts of a page that AI can quote, Google can rank and a buyer can act on, with a checklist you can run against your own pages today.
+<!-- /build:blog -->
+
 ## Pages of the site
 
 - [Home](https://searchwin.ai/): the approach, the three solutions, the people + AI agents platform, how it works and FAQ.
 - [AI Search Sprint](https://searchwin.ai/sprint/): the 45-day sprint for a website and the outside sources AI reads, with its starting prices and scope.
 - [AI Search Monthly](https://searchwin.ai/monthly/): month-to-month work on the same two places, with its starting prices and scope.
 - [Pages](https://searchwin.ai/pages/): organic conversion pages, a content hub on the client's domain, with its starting price and what is included.
+- [Blog](https://searchwin.ai/blog/): Insights (articles) and Success stories (client stories), listed above.
 - [FAQ](https://searchwin.ai/#faq): organic lead generation vs SEO, which solution to start with, what agents and people do, what we can and can't promise, ownership, pricing.
 - [Free AI check](https://searchwin.ai/ai-check/): see in about a minute whether ChatGPT names a local business, in any country, when customers ask who to hire. Real ChatGPT answers, no sign-up.
 - [Comprobación gratuita de IA, en español](https://searchwin.ai/es/ai-check/): la misma comprobación en español para negocios locales: descubre en un minuto si ChatGPT te nombra cuando los clientes preguntan a quién elegir.
